@@ -1,0 +1,67 @@
+project:
+  type: book
+  output-dir: book
+
+book:
+  title: "R para el Análisis Estadístico de Datos Agrícolas"
+  author: "P. Agr. Ludwing Isaí Marroquín Jiménez"
+  output-file: "R para el Análisis Estadístico de Datos Agrícolas"
+  date: today # Se puede colocar entre comillas si se desea una concreta
+  date-format: medium
+  favicon: logo_cete_vector.png
+  page-navigation: true
+  sidebar:
+    logo: logo_cete_vector.png # Logo presente en el libro
+    search: true
+    collapse-level: 4
+  chapters:
+    - index.qmd # Recomendable que el primer archivo sea index.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+repo-subdir: book
+sharing: [twitter, linkedin]
+downloads: [pdf]
+image: logo_cete_vector.png
+
+chapters:
+  - index.qmd
+  - part: "Aspectos Introductorios"
+  - part: "Referencias"
+  - references.qmd
+
+format:
+  html:
+    lang: es
+    number-sections: true
+    theme:
+      light: flatly
+      dark: cyborg
+    css: custom.css
+    number-depth: 4
+    link-external-icon: true
+    link-external-newwindow: true
+
+  pdf:
+    code-overflow: wrap
+    lang: es
+    documentclass: scrreprt
+    classoption: ["onepage", "openany"]
+    papersize: a4
+    toc: true
+    margin-top: 30mm
+    margin-left: 30mm
+    margin-bottom: 30mm
+    margin-right: 30mm
+    titlepage-geometry:
+      - top=30mm
+      - bottom=30mm
+      - right=30mm
+      - left=30mm
+    include-in-header:
+      text: |
+        \usepackage{hanging}
+        \renewcommand{\partname}{Capítulo} % Cambia "Part" por "Capítulo"
+
+editor: visual
