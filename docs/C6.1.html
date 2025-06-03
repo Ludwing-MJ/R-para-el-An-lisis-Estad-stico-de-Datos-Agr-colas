@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>10&nbsp; Pruebas de hipótesis – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>Introducción a probabilidades – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./C11.1.html" rel="next">
-<link href="./C9.1.html" rel="prev">
+<link href="./C7.1.html" rel="next">
+<link href="./C5.1.html" rel="prev">
 <link href="./logo_cete_vector.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -250,7 +250,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C10.1.html"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Pruebas de hipótesis</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C6.1.html"><span class="chapter-title">Introducción a probabilidades</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -287,114 +287,108 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Introducción</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Aspectos Introductorios</span></span>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C1.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Aspectos introductorios</span></span></a>
+  <a href="./C0.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Instalación y configuración</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Clasificación de variables</span></span>
+ <span class="menu-text">1. Aspectos Introductorios</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C2.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></span></a>
+  <a href="./C1.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aspectos introductorios</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Notación sumatoria</span></span>
+ <span class="menu-text">2. Clasificación de variables</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Notación Sumatoria</span></span></a>
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clasificación de Variables</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Medidas de tendencia central y dispersión (datos no agrupados)</span></span>
+ <span class="menu-text">3. Notación sumatoria</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C4.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span></a>
+  <a href="./C3.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Notación Sumatoria</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Medidas de tendencia central y dispersión (datos agrupados)</span></span>
+ <span class="menu-text">4. Medidas de tendencia central y dispersión (datos no agrupados)</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos agrupados</span></span></a>
+  <a href="./C4.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Introducción a probabilidades</span></span>
+ <span class="menu-text">5. Medidas de tendencia central y dispersión (datos agrupados)</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C6.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></span></a>
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos agrupados</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Distribuciones de probabilidad discretas</span></span>
+ <span class="menu-text">6. Introducción a probabilidades</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C7.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Distribuciones de probabilidad discretas</span></span></a>
+  <a href="./C6.1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Introducción a probabilidades</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Distribución normal</span></span>
+ <span class="menu-text">7. Distribuciones de probabilidad discretas</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C8.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distribución normal</span></span></a>
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribuciones de probabilidad discretas</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Intervalos de confianza</span></span>
+ <span class="menu-text">8. Distribución normal</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C9.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Intervalos de confianza</span></span></a>
+  <a href="./C8.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribución normal</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Pruebas de hipótesis</span></span>
+ <span class="menu-text">9. Intervalos de confianza</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C10.1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Pruebas de hipótesis</span></span></a>
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Intervalos de confianza</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Regresión lineal y correlación</span></span>
+ <span class="menu-text">10. Pruebas de hipótesis</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión lineal y correlación</span></span></a>
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas de hipótesis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">11. Regresión lineal y correlación</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C11.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal y correlación</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -421,7 +415,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Pruebas de hipótesis</span></h1>
+<h1 class="title"><span class="chapter-title">Introducción a probabilidades</span></h1>
 </div>
 
 
@@ -863,13 +857,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./C9.1.html" class="pagination-link" aria-label="Intervalos de confianza">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Intervalos de confianza</span></span>
+      <a href="./C5.1.html" class="pagination-link" aria-label="Estadística descriptiva para datos agrupados">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Estadística descriptiva para datos agrupados</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./C11.1.html" class="pagination-link" aria-label="Regresión lineal y correlación">
-        <span class="nav-page-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión lineal y correlación</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./C7.1.html" class="pagination-link" aria-label="Distribuciones de probabilidad discretas">
+        <span class="nav-page-text"><span class="chapter-title">Distribuciones de probabilidad discretas</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

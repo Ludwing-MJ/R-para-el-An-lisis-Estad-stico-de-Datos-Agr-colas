@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="P. Agr. Ludwing Isaí Marroquín Jiménez">
+<meta name="dcterms.date" content="2025-06-27">
 
-<title>9&nbsp; Intervalos de confianza – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +67,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./C10.1.html" rel="next">
-<link href="./C8.1.html" rel="prev">
+<link href="./C0.html" rel="next">
 <link href="./logo_cete_vector.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -250,7 +286,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C9.1.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Intervalos de confianza</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Introducción</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -283,118 +319,112 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Introducción</span></a>
   </div>
 </li>
-        <li class="sidebar-item sidebar-item-section">
-      <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Aspectos Introductorios</span></span>
-  </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C1.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Aspectos introductorios</span></span></a>
+  <a href="./C0.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Instalación y configuración</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Clasificación de variables</span></span>
+ <span class="menu-text">1. Aspectos Introductorios</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C2.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></span></a>
+  <a href="./C1.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aspectos introductorios</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Notación sumatoria</span></span>
+ <span class="menu-text">2. Clasificación de variables</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Notación Sumatoria</span></span></a>
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clasificación de Variables</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Medidas de tendencia central y dispersión (datos no agrupados)</span></span>
+ <span class="menu-text">3. Notación sumatoria</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C4.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span></a>
+  <a href="./C3.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Notación Sumatoria</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Medidas de tendencia central y dispersión (datos agrupados)</span></span>
+ <span class="menu-text">4. Medidas de tendencia central y dispersión (datos no agrupados)</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos agrupados</span></span></a>
+  <a href="./C4.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Introducción a probabilidades</span></span>
+ <span class="menu-text">5. Medidas de tendencia central y dispersión (datos agrupados)</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C6.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></span></a>
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos agrupados</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Distribuciones de probabilidad discretas</span></span>
+ <span class="menu-text">6. Introducción a probabilidades</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C7.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Distribuciones de probabilidad discretas</span></span></a>
+  <a href="./C6.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a probabilidades</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Distribución normal</span></span>
+ <span class="menu-text">7. Distribuciones de probabilidad discretas</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C8.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distribución normal</span></span></a>
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribuciones de probabilidad discretas</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Intervalos de confianza</span></span>
+ <span class="menu-text">8. Distribución normal</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C9.1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Intervalos de confianza</span></span></a>
+  <a href="./C8.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribución normal</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Pruebas de hipótesis</span></span>
+ <span class="menu-text">9. Intervalos de confianza</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C10.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Pruebas de hipótesis</span></span></a>
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Intervalos de confianza</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">Regresión lineal y correlación</span></span>
+ <span class="menu-text">10. Pruebas de hipótesis</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regresión lineal y correlación</span></span></a>
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas de hipótesis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">11. Regresión lineal y correlación</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C11.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal y correlación</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -412,8 +442,19 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a>
+  <ul class="collapse">
+  <li><a href="#organización-del-manual" id="toc-organización-del-manual" class="nav-link" data-scroll-target="#organización-del-manual">Organización del manual</a></li>
+  <li><a href="#requisitos-previos" id="toc-requisitos-previos" class="nav-link" data-scroll-target="#requisitos-previos">Requisitos Previos</a></li>
+  <li><a href="#software-y-convenciones" id="toc-software-y-convenciones" class="nav-link" data-scroll-target="#software-y-convenciones">Software y convenciones</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -421,14 +462,26 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Intervalos de confianza</span></h1>
+<h1 class="title">R para el Análisis Estadístico de Datos Agrícolas</h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor/a</div>
+    <div class="quarto-title-meta-contents">
+             <p>P. Agr. Ludwing Isaí Marroquín Jiménez </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Fecha de publicación</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">27 jun 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -438,8 +491,198 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="introducción" class="level1 unnumbered">
+<h1 class="unnumbered">Introducción</h1>
+<p>En el ámbito de la investigación agronómica, la estadística se presenta como una herramienta esencial para la transformación de datos en conocimiento aplicable. Este manual, titulado ‘R para el Análisis Estadístico de Datos Agrícolas’, ha sido concebido como una introducción accesible y práctica al análisis estadístico moderno, con un enfoque particular en el lenguaje R.</p>
+<p>Tradicionalmente, la estadística ha proporcionado los cimientos para la toma de decisiones informadas en la agricultura. Sin embargo, la creciente disponibilidad de datos y la necesidad de análisis más sofisticados exigen un enfoque actualizado y eficiente. R, un lenguaje de programación y entorno de software ampliamente adoptado en la ciencia de datos y la estadística aplicada, ofrece la flexibilidad y el poder necesarios para abordar estos desafíos (Ihaka &amp; Gentleman, 1996; R Core Team, 2023).</p>
+<p>Este manual está diseñado para guiar al lector a través de un proceso gradual y comprensible, desde los conceptos estadísticos fundamentales hasta las técnicas esenciales para el análisis estadístico de datos agrícolas. Se abordan temas clave como aspectos introductorios, clasificación de variables, notación sumatoria, medidas de tendencia central y dispersión (tanto para datos agrupados como no agrupados), introducción a probabilidades, distribuciones de probabilidad discretas, la distribución normal, intervalos de confianza, pruebas de hipótesis, y regresión lineal y correlación.</p>
+<p>Cada capítulo combina la teoría con ejemplos prácticos y estudios de caso relevantes, facilitando la comprensión y la aplicación de los métodos en situaciones reales. El propósito central es proporcionar una base sólida que permita a los profesionales y estudiantes de agronomía utilizar R de manera efectiva en su trabajo diario. No se requiere experiencia previa en programación o estadística; el manual está estructurado para ser accesible a todos, independientemente de su nivel de conocimientos iniciales.</p>
+<section id="organización-del-manual" class="level2">
+<h2 class="anchored" data-anchor-id="organización-del-manual">Organización del manual</h2>
+<p>El presente manual se estructura de manera progresiva, comenzando con los fundamentos esenciales y avanzando hacia técnicas estadísticas aplicadas, con el objetivo de facilitar una comprensión integral del análisis estadístico de datos agrícolas utilizando R. Cada capítulo incluye explicaciones detalladas, ejemplos prácticos y código R reproducible, diseñados para consolidar el aprendizaje y fomentar la aplicación efectiva de los conceptos.</p>
+<p>A continuación, se presenta una tabla que resume la organización del manual, detallando los temas cubiertos en cada capítulo:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 32%">
+<col style="width: 49%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Capítulo</th>
+<th>Título</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Aspectos introductorios</td>
+<td>Introducción a la estadística, su importancia en agronomía y primeros pasos en R y RStudio.</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>Clasificación de variables</td>
+<td>Tipos de variables, escalas de medición y ejemplos aplicados al ámbito agrícola.</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>Notación sumatoria</td>
+<td>Fundamentos y aplicaciones de la notación sumatoria en el cálculo de estadísticos descriptivos.</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Medidas de tendencia central y dispersión (datos no agrupados)</td>
+<td>Cálculo e interpretación de media, mediana, moda, rango, varianza y desviación estándar para datos no agrupados.</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Medidas de tendencia central y dispersión (datos agrupados)</td>
+<td>Aplicación de medidas de tendencia central y dispersión en tablas de frecuencia utilizando R.</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Introducción a probabilidades</td>
+<td>Conceptos básicos de probabilidad, espacio muestral, eventos y reglas de probabilidad.</td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Distribuciones de probabilidad discretas</td>
+<td>Estudio de las distribuciones binomial y Poisson, cálculo de probabilidades y representación gráfica en R.</td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Distribución normal</td>
+<td>Propiedades y aplicaciones de la distribución normal, cálculo de probabilidades y gráficos en R.</td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Intervalos de confianza</td>
+<td>Construcción e interpretación de intervalos de confianza para medias y proporciones con apoyo de R.</td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Pruebas de hipótesis</td>
+<td>Formulación y evaluación de hipótesis estadísticas, cálculo de estadísticos de prueba y toma de decisiones.</td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Regresión lineal y correlación</td>
+<td>Ajuste de modelos de regresión lineal, interpretación de coeficientes y análisis de correlación en R.</td>
+</tr>
+</tbody>
+</table>
+<p>Cada capítulo está diseñado para ser independiente, permitiendo que los lectores avancen a su propio ritmo y consulten las secciones según sus necesidades. La tabla proporciona una visión general de la estructura del manual, facilitando la navegación y la comprensión de los temas abordados.</p>
+</section>
+<section id="requisitos-previos" class="level2">
+<h2 class="anchored" data-anchor-id="requisitos-previos">Requisitos Previos</h2>
+<p>El presente manual no exige conocimientos previos en programación ni en estadística. Está orientado a personas que se inician en el análisis estadístico de datos agrícolas, partiendo desde los conceptos más básicos y avanzando de manera progresiva. Cada tema se desarrolla con explicaciones claras y detalladas, acompañadas de ejemplos y ejercicios prácticos.</p>
+<p>Para aprovechar al máximo el contenido, se recomienda contar con lo siguiente:</p>
+<ol type="1">
+<li><p><strong>Interés en aprender:</strong> La disposición para explorar el análisis estadístico y el uso de nuevas herramientas facilita el proceso de aprendizaje.</p></li>
+<li><p><strong>Acceso a una computadora:</strong> Es necesario disponer de un equipo con capacidad para instalar R y RStudio, cuyas instrucciones de instalación y configuración se incluyen en el manual.</p></li>
+<li><p><strong>Constancia y práctica:</strong> El desarrollo de habilidades en estadística y en el uso de R requiere tiempo y dedicación. Los ejercicios propuestos están diseñados para acompañar y reforzar el aprendizaje.</p></li>
+</ol>
+<p>Con este enfoque, cualquier persona interesada podrá utilizar el manual como guía para iniciarse en el análisis estadístico de datos agrícolas empleando R, sin importar su experiencia previa en el área.</p>
+</section>
+<section id="software-y-convenciones" class="level2">
+<h2 class="anchored" data-anchor-id="software-y-convenciones">Software y convenciones</h2>
+<p>La versión en línea de este manual está disponible en <a href="https://ludwing-mj.github.io/R-para-el-An-lisis-Estad-stico-de-Datos-Agr-colas/" class="uri">https://ludwing-mj.github.io/R-para-el-An-lisis-Estad-stico-de-Datos-Agr-colas/</a>, y la fuente en español se encuentra alojada en el siguiente repositorio de GitHub <a href="https://github.com/Ludwing-MJ/R-para-el-An-lisis-Estad-stico-de-Datos-Agr-colas" class="uri">https://github.com/Ludwing-MJ/R-para-el-An-lisis-Estad-stico-de-Datos-Agr-colas</a>. El desarrollo del manual se realizó utilizando <a href="https://quarto.org/">Quarto</a>, una herramienta que permite transformar archivos con extensión .qmd en formatos publicables como HTML, PDF y EPUB, facilitando la integración de código, resultados y texto en un solo documento reproducible.</p>
+<p>Durante la elaboración del manual se emplearon diversos paquetes del ecosistema de R, entre los que destacan knitr y bookdown, los cuales permiten combinar las ventajas de LaTeX y R para la generación de documentos dinámicos y reproducibles (Xie et al., 2018). Esta integración posibilita que los ejemplos de código y los resultados presentados sean fácilmente replicables por el</p>
+<p>A lo largo del manual, se presentan fragmentos de código que pueden ser copiados y ejecutados directamente en la consola de R para obtener los mismos resultados que se muestran en el texto. Los bloques de código se destacan en recuadros similares al siguiente:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">6</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">6</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> a</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Los resultados generados por la ejecución de estos códigos se identifican con el numero uno encerrado entre cochetes (<code>[1]</code>) al inicio de cada línea, indicando que corresponden a la salida producida por R. Todo lo que comience con <code>[1]</code> representa resultados y no debe ser copiado como parte del código. Por ejemplo, al ejecutar el bloque anterior, se obtendrían los siguientes resultados:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1]  5 25 30</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+</div>
+</div>
+<p>Para garantizar la reproducibilidad y transparencia, se recomienda que el lector utilice versiones actualizadas de R y de los paquetes mencionados. La información sobre el entorno de desarrollo y las versiones de los paquetes utilizados en la construcción de este manual puede consultarse ejecutando el siguiente comando en R:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">session_info</span>()</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in system2("quarto", "-V", stdout = TRUE, env = paste0("TMPDIR=", : el
+comando ejecutado '"quarto"
+TMPDIR=C:/Users/FAUSAC/AppData/Local/Temp/RtmpOCMwtj/file2be81087a73 -V' tiene
+el estatus 1</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>─ Session info ───────────────────────────────────────────────────────────────
+ setting  value
+ version  R version 4.4.3 (2025-02-28 ucrt)
+ os       Windows 11 x64 (build 26100)
+ system   x86_64, mingw32
+ ui       RTerm
+ language (EN)
+ collate  Spanish_Guatemala.utf8
+ ctype    Spanish_Guatemala.utf8
+ tz       America/Guatemala
+ date     2025-06-03
+ pandoc   3.4 @ C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/ (via rmarkdown)
+ quarto   NA @ C:\\PROGRA~1\\Quarto\\bin\\quarto.exe
+
+─ Packages ───────────────────────────────────────────────────────────────────
+ package     * version date (UTC) lib source
+ cachem        1.1.0   2024-05-16 [1] CRAN (R 4.4.3)
+ cli           3.6.5   2025-04-23 [1] CRAN (R 4.4.3)
+ devtools      2.4.5   2022-10-11 [1] CRAN (R 4.4.3)
+ digest        0.6.37  2024-08-19 [1] CRAN (R 4.4.3)
+ ellipsis      0.3.2   2021-04-29 [1] CRAN (R 4.4.3)
+ evaluate      1.0.3   2025-01-10 [1] CRAN (R 4.4.3)
+ fastmap       1.2.0   2024-05-15 [1] CRAN (R 4.4.3)
+ fs            1.6.6   2025-04-12 [1] CRAN (R 4.4.3)
+ glue          1.8.0   2024-09-30 [1] CRAN (R 4.4.3)
+ htmltools     0.5.8.1 2024-04-04 [1] CRAN (R 4.4.3)
+ htmlwidgets   1.6.4   2023-12-06 [1] CRAN (R 4.4.3)
+ httpuv        1.6.16  2025-04-16 [1] CRAN (R 4.4.3)
+ jsonlite      2.0.0   2025-03-27 [1] CRAN (R 4.4.3)
+ knitr         1.50    2025-03-16 [1] CRAN (R 4.4.3)
+ later         1.4.2   2025-04-08 [1] CRAN (R 4.4.3)
+ lifecycle     1.0.4   2023-11-07 [1] CRAN (R 4.4.3)
+ magrittr      2.0.3   2022-03-30 [1] CRAN (R 4.4.3)
+ memoise       2.0.1   2021-11-26 [1] CRAN (R 4.4.3)
+ mime          0.13    2025-03-17 [1] CRAN (R 4.4.3)
+ miniUI        0.1.2   2025-04-17 [1] CRAN (R 4.4.3)
+ pkgbuild      1.4.7   2025-03-24 [1] CRAN (R 4.4.3)
+ pkgload       1.4.0   2024-06-28 [1] CRAN (R 4.4.3)
+ profvis       0.4.0   2024-09-20 [1] CRAN (R 4.4.3)
+ promises      1.3.2   2024-11-28 [1] CRAN (R 4.4.3)
+ purrr         1.0.4   2025-02-05 [1] CRAN (R 4.4.3)
+ R6            2.6.1   2025-02-15 [1] CRAN (R 4.4.3)
+ Rcpp          1.0.14  2025-01-12 [1] CRAN (R 4.4.3)
+ remotes       2.5.0   2024-03-17 [1] CRAN (R 4.4.3)
+ rlang         1.1.6   2025-04-11 [1] CRAN (R 4.4.3)
+ rmarkdown     2.29    2024-11-04 [1] CRAN (R 4.4.3)
+ rstudioapi    0.17.1  2024-10-22 [1] CRAN (R 4.4.3)
+ sessioninfo   1.2.3   2025-02-05 [1] CRAN (R 4.4.3)
+ shiny         1.10.0  2024-12-14 [1] CRAN (R 4.4.3)
+ urlchecker    1.0.1   2021-11-30 [1] CRAN (R 4.4.3)
+ usethis       3.1.0   2024-11-26 [1] CRAN (R 4.4.3)
+ vctrs         0.6.5   2023-12-01 [1] CRAN (R 4.4.3)
+ xfun          0.52    2025-04-02 [1] CRAN (R 4.4.3)
+ xtable        1.8-4   2019-04-21 [1] CRAN (R 4.4.3)
+
+ [1] C:/Users/FAUSAC/AppData/Local/R/win-library/4.4
+ [2] C:/Program Files/R/R-4.4.3/library
+
+──────────────────────────────────────────────────────────────────────────────</code></pre>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -863,13 +1106,10 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./C8.1.html" class="pagination-link" aria-label="Distribución normal">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Distribución normal</span></span>
-      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./C10.1.html" class="pagination-link" aria-label="Pruebas de hipótesis">
-        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Pruebas de hipótesis</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./C0.html" class="pagination-link" aria-label="Instalación y configuración">
+        <span class="nav-page-text"><span class="chapter-title">Instalación y configuración</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
