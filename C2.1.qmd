@@ -38,7 +38,9 @@ Según el número de categorías, estas variables se clasifican en:
 
 ## Resumen de los tipos de variables
 
-![](Variables.html){fig-align="center"}
+::: {style="display: flex; justify-content: center;"}
+<iframe src="Variables.html" width="900" height="600" style="border: none;"></iframe>
+:::
 
 ## Escalas de Medición
 
