@@ -1,12 +1,12 @@
 project:
   type: book
-  output-dir: docs
+  output-dir: _book
 
 book:
   title: "R para el Análisis Estadístico de Datos Agrícolas"
   author: "P. Agr. Ludwing Isaí Marroquín Jiménez"
   output-file: "R para el Análisis Estadístico de Datos Agrícolas"
-  date: today # Se puede colocar entre comillas si se desea una concreta
+  date: "2025-06-27" # Formato YYYY-MM-DD es más estándar
   date-format: medium
   favicon: logo_cete_vector.png
   page-navigation: true
@@ -15,7 +15,55 @@ book:
     search: true
     collapse-level: 4
   chapters:
-    - index.qmd # Recomendable que el primer archivo sea index.qmd
+    - index.qmd
+    - C0.qmd
+    - part: "1. Aspectos Introductorios"
+      attributes:
+        class: part
+    - C1.1.qmd
+    - part: "2. Clasificación de variables"
+      attributes:
+        class: part
+    - C2.1.qmd
+    - part: "3. Notación sumatoria"
+      attributes:
+        class: part
+    - C3.1.qmd
+    - part: "4. Medidas de tendencia central y dispersión (datos no agrupados)"
+      attributes:
+        class: part
+    - C4.1.qmd
+    - part: "5. Medidas de tendencia central y dispersión (datos agrupados)"
+      attributes:
+        class: part
+    - C5.1.qmd
+    - part: "6. Introducción a probabilidades"
+      attributes:
+        class: part
+    - C6.1.qmd
+    - part: "7. Distribuciones de probabilidad discretas"
+      attributes:
+        class: part
+    - C7.1.qmd
+    - part: "8. Distribución normal"
+      attributes:
+        class: part
+    - C8.1.qmd
+    - part: "9. Intervalos de confianza"
+      attributes:
+        class: part
+    - C9.1.qmd
+    - part: "10. Pruebas de hipótesis"
+      attributes:
+        class: part
+    - C10.1.qmd
+    - part: "11. Regresión lineal y correlación"
+      attributes:
+        class: part
+    - C11.1.qmd
+    - part: "Referencias"
+      attributes:
+        class: part
     - references.qmd
 
 bibliography: references.bib
@@ -25,16 +73,10 @@ sharing: [twitter, linkedin]
 downloads: [pdf]
 image: logo_cete_vector.png
 
-chapters:
-  - index.qmd
-  - part: "Aspectos Introductorios"
-  - part: "Referencias"
-  - references.qmd
-
 format:
   html:
     lang: es
-    number-sections: true
+    number-sections: false # Deshabilitar la numeración global
     theme:
       light: flatly
       dark: cyborg
@@ -62,6 +104,6 @@ format:
     include-in-header:
       text: |
         \usepackage{hanging}
-        \renewcommand{\partname}{Capítulo} % Cambia "Part" por "Capítulo"
+        \renewcommand{\partname}{Capítulo} # Cambia "Part" por "Capítulo"
 
 editor: visual

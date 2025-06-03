@@ -14,4 +14,6 @@
 Ihaka, R., & Gentleman, R. (1996). R: A language for data analysis and graphics. *Journal of Computational and Graphical Statistics*, *5*(3), 299-314.
 
 R Core Team (2023). *R: A language and environment for statistical computing*. R Foundation for Statistical Computing, Vienna, Austria. URL [https://www.R-project.org/](https://www.r-project.org/).
+
+Xie, Y., Allaire, J. J., & Grolemund, G. (2018). *R Markdown: The definitive guide* (1st ed.). Chapman and Hall/CRC. <https://doi.org/10.1201/9781138359444>
 :::

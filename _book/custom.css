@@ -1,3 +1,14 @@
+/* Numerar los títulos de las partes */
+body .part::before {
+  content: counter(part) ". " !important;
+  counter-increment: part !important;
+  font-weight: bold !important; /* Opcional: para resaltar el número */
+}
+
+/* Inicializar el contador de partes */
+body {
+  counter-reset: part !important;
+}
 
 /* Código en línea */
 p code {
