@@ -1,1 +1,75 @@
-# Software y Convenciones {.unnumbered}
+# Introducción {.unnumbered}
+
+En el ámbito de la investigación agronómica, la estadística se presenta como una herramienta esencial para la transformación de datos en conocimiento aplicable. Este manual, titulado 'R para el Análisis Estadístico de Datos Agrícolas', ha sido concebido como una introducción accesible y práctica al análisis estadístico moderno, con un enfoque particular en el lenguaje R.
+
+Tradicionalmente, la estadística ha proporcionado los cimientos para la toma de decisiones informadas en la agricultura. Sin embargo, la creciente disponibilidad de datos y la necesidad de análisis más sofisticados exigen un enfoque actualizado y eficiente. R, un lenguaje de programación y entorno de software ampliamente adoptado en la ciencia de datos y la estadística aplicada, ofrece la flexibilidad y el poder necesarios para abordar estos desafíos (Ihaka & Gentleman, 1996; R Core Team, 2023).
+
+Este manual está diseñado para guiar al lector a través de un proceso gradual y comprensible, desde los conceptos estadísticos fundamentales hasta las técnicas esenciales para el análisis estadístico de datos agrícolas. Se abordan temas clave como aspectos introductorios, clasificación de variables, notación sumatoria, medidas de tendencia central y dispersión (tanto para datos agrupados como no agrupados), introducción a probabilidades, distribuciones de probabilidad discretas, la distribución normal, intervalos de confianza, pruebas de hipótesis, y regresión lineal y correlación.
+
+Cada capítulo combina la teoría con ejemplos prácticos y estudios de caso relevantes, facilitando la comprensión y la aplicación de los métodos en situaciones reales. El propósito central es proporcionar una base sólida que permita a los profesionales y estudiantes de agronomía utilizar R de manera efectiva en su trabajo diario. No se requiere experiencia previa en programación o estadística; el manual está estructurado para ser accesible a todos, independientemente de su nivel de conocimientos iniciales.
+
+## Organización del manual
+
+El presente manual se estructura de manera progresiva, comenzando con los fundamentos esenciales y avanzando hacia técnicas estadísticas aplicadas, con el objetivo de facilitar una comprensión integral del análisis estadístico de datos agrícolas utilizando R. Cada capítulo incluye explicaciones detalladas, ejemplos prácticos y código R reproducible, diseñados para consolidar el aprendizaje y fomentar la aplicación efectiva de los conceptos.
+
+A continuación, se presenta una tabla que resume la organización del manual, detallando los temas cubiertos en cada capítulo:
+
+| Capítulo | Título | Descripción |
+|-------------|------------------------|------------------------------------|
+| 1 | Aspectos introductorios | Introducción a la estadística, su importancia en agronomía y primeros pasos en R y RStudio. |
+| 2 | Clasificación de variables | Tipos de variables, escalas de medición y ejemplos aplicados al ámbito agrícola. |
+| 3 | Notación sumatoria | Fundamentos y aplicaciones de la notación sumatoria en el cálculo de estadísticos descriptivos. |
+| 4 | Medidas de tendencia central y dispersión (datos no agrupados) | Cálculo e interpretación de media, mediana, moda, rango, varianza y desviación estándar para datos no agrupados. |
+| 5 | Medidas de tendencia central y dispersión (datos agrupados) | Aplicación de medidas de tendencia central y dispersión en tablas de frecuencia utilizando R. |
+| 6 | Introducción a probabilidades | Conceptos básicos de probabilidad, espacio muestral, eventos y reglas de probabilidad. |
+| 7 | Distribuciones de probabilidad discretas | Estudio de las distribuciones binomial y Poisson, cálculo de probabilidades y representación gráfica en R. |
+| 8 | Distribución normal | Propiedades y aplicaciones de la distribución normal, cálculo de probabilidades y gráficos en R. |
+| 9 | Intervalos de confianza | Construcción e interpretación de intervalos de confianza para medias y proporciones con apoyo de R. |
+| 10 | Pruebas de hipótesis | Formulación y evaluación de hipótesis estadísticas, cálculo de estadísticos de prueba y toma de decisiones. |
+| 11 | Regresión lineal y correlación | Ajuste de modelos de regresión lineal, interpretación de coeficientes y análisis de correlación en R. |
+
+Cada capítulo está diseñado para ser independiente, permitiendo que los lectores avancen a su propio ritmo y consulten las secciones según sus necesidades. La tabla proporciona una visión general de la estructura del manual, facilitando la navegación y la comprensión de los temas abordados.
+
+## Requisitos Previos
+
+El presente manual no exige conocimientos previos en programación ni en estadística. Está orientado a personas que se inician en el análisis estadístico de datos agrícolas, partiendo desde los conceptos más básicos y avanzando de manera progresiva. Cada tema se desarrolla con explicaciones claras y detalladas, acompañadas de ejemplos y ejercicios prácticos.
+
+Para aprovechar al máximo el contenido, se recomienda contar con lo siguiente:
+
+1.  **Interés en aprender:** La disposición para explorar el análisis estadístico y el uso de nuevas herramientas facilita el proceso de aprendizaje.
+
+2.  **Acceso a una computadora:** Es necesario disponer de un equipo con capacidad para instalar R y RStudio, cuyas instrucciones de instalación y configuración se incluyen en el manual.
+
+3.  **Constancia y práctica:** El desarrollo de habilidades en estadística y en el uso de R requiere tiempo y dedicación. Los ejercicios propuestos están diseñados para acompañar y reforzar el aprendizaje.
+
+Con este enfoque, cualquier persona interesada podrá utilizar el manual como guía para iniciarse en el análisis estadístico de datos agrícolas empleando R, sin importar su experiencia previa en el área.
+
+## Software y convenciones
+
+La versión en línea de este manual está disponible en \<enlace\>, y la fuente en español se encuentra alojada en el siguiente repositorio de GitHub <https://github.com/Ludwing-MJ/R-para-el-An-lisis-Estad-stico-de-Datos-Agr-colas>. El desarrollo del manual se realizó utilizando [Quarto](https://quarto.org/), una herramienta que permite transformar archivos con extensión .qmd en formatos publicables como HTML, PDF y EPUB, facilitando la integración de código, resultados y texto en un solo documento reproducible.
+
+Durante la elaboración del manual se emplearon diversos paquetes del ecosistema de R, entre los que destacan knitr y bookdown, los cuales permiten combinar las ventajas de LaTeX y R para la generación de documentos dinámicos y reproducibles (Xie et al., 2018). Esta integración posibilita que los ejemplos de código y los resultados presentados sean fácilmente replicables por el
+
+A lo largo del manual, se presentan fragmentos de código que pueden ser copiados y ejecutados directamente en la consola de R para obtener los mismos resultados que se muestran en el texto. Los bloques de código se destacan en recuadros similares al siguiente:
+
+```{r eval=FALSE}
+4 + 6
+a <- c(1, 5, 6)
+5 * a
+1:10
+```
+
+Los resultados generados por la ejecución de estos códigos se identifican con el numero uno encerrado entre cochetes (`[1]`) al inicio de cada línea, indicando que corresponden a la salida producida por R. Todo lo que comience con `[1]` representa resultados y no debe ser copiado como parte del código. Por ejemplo, al ejecutar el bloque anterior, se obtendrían los siguientes resultados:
+
+```{r echo=FALSE}
+4 + 6
+a <- c(1, 5, 6)
+5 * a
+1:10
+```
+
+Para garantizar la reproducibilidad y transparencia, se recomienda que el lector utilice versiones actualizadas de R y de los paquetes mencionados. La información sobre el entorno de desarrollo y las versiones de los paquetes utilizados en la construcción de este manual puede consultarse ejecutando el siguiente comando en R:
+
+```{r}
+devtools::session_info()
+```

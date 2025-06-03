@@ -1,4 +1,17 @@
 # Referencias {.unnumbered}
 
-::: {#refs}
+::: referencias
+```{=html}
+<style>
+.referencias {
+  margin-left: 0;
+  padding-left: 2em;
+  text-indent: -2em;
+}
+</style>
+```
+
+Ihaka, R., & Gentleman, R. (1996). R: A language for data analysis and graphics. *Journal of Computational and Graphical Statistics*, *5*(3), 299-314.
+
+R Core Team (2023). *R: A language and environment for statistical computing*. R Foundation for Statistical Computing, Vienna, Austria. URL [https://www.R-project.org/](https://www.r-project.org/).
 :::

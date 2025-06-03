@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: book
+  output-dir: docs
 
 book:
   title: "R para el Análisis Estadístico de Datos Agrícolas"
