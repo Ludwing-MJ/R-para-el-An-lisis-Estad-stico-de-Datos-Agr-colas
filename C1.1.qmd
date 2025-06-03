@@ -1,1 +1,55 @@
 # Aspectos introductorios
+
+## Definición de estadística
+
+La estadística es una ciencia derivada de la matemática que se ocupa de la extracción de información contenida en datos provenientes de muestras y de su uso para hacer inferencias acerca de la población de donde fueron extraídos estos datos. Además, la estadística estudia los métodos científicos para recolectar, organizar, resumir y analizar datos, así como para extraer conclusiones válidas y tomar decisiones razonables basadas en tal análisis (López & González, 2018).
+
+El término “estadística” tiene su origen en la palabra alemana Statistik, utilizada por el profesor Gottfried Achenwall en el siglo XVIII, y proviene del término latino status, que significa estado o situación. Históricamente, la estadística ha estado vinculada a la recolección de datos por parte de los gobiernos, especialmente en relación con información demográfica, como los censos (López & González, 2018).
+
+## División de la estadística
+
+La estadística, como disciplina científica, se divide tradicionalmente en dos grandes ramas: la estadística descriptiva y la estadística inferencial. Esta división responde tanto a los objetivos como a los métodos empleados en el análisis de datos.
+
+La **estadística descriptiva** comprende el conjunto de métodos y técnicas destinados a recolectar, organizar, presentar y resumir datos de manera cuantitativa o gráfica. Su propósito principal es describir las características principales de un conjunto de datos, facilitando su interpretación y permitiendo identificar patrones, tendencias o comportamientos dentro de la información analizada (López & González, 2018; Montgomery & Runger, 2018).
+
+Por otro lado, la **estadística inferencial** se ocupa de realizar generalizaciones, predicciones o inferencias sobre una población a partir de la información obtenida en una muestra representativa. Esta rama utiliza herramientas de probabilidad para estimar parámetros poblacionales, probar hipótesis y cuantificar el grado de incertidumbre asociado a las conclusiones (López & González, 2018; Walpole et al., 2012).
+
+Además de estas dos ramas fundamentales, la estadística moderna reconoce otras áreas especializadas que amplían su campo de aplicación:
+
+1.  La **estadística paramétrica** se centra en el análisis de datos bajo el supuesto de que estos provienen de poblaciones que siguen distribuciones conocidas, generalmente la normal. Permite realizar estimaciones y pruebas de hipótesis sobre parámetros poblacionales (López & González, 2018; Montgomery & Runger, 2018).
+
+2.  La **estadística no paramétrica** incluye métodos que no requieren suposiciones estrictas sobre la distribución de los datos, siendo especialmente útil cuando no se puede asumir normalidad o cuando los datos son de nivel ordinal o nominal (Conover, 1999).
+
+3.  La **geoestadística** aplica técnicas estadísticas al análisis de variables distribuidas en el espacio o el tiempo, siendo fundamental en disciplinas como la agronomía, la geografía y la gestión ambiental (López & González, 2018; Webster & Oliver, 2007).
+
+4.  La **inferencia bayesiana** utiliza el teorema de Bayes para actualizar la probabilidad de una hipótesis a medida que se dispone de nueva información, incorporando el conocimiento previo en el análisis estadístico (Gelman et al., 2013).
+
+5.  La **estadística multivariada** estudia simultáneamente múltiples variables, permitiendo analizar relaciones complejas y estructuras latentes en grandes conjuntos de datos (Johnson & Wichern, 2014).
+
+## Definiciones importantes
+
+En el estudio de la estadística, es fundamental comprender ciertos conceptos básicos que constituyen la base para el análisis y la interpretación de datos. Entre los más relevantes se encuentran: individuo o unidad estadística, población, muestra, parámetro, estimador e indicador.
+
+### Individuo o unidad estadística
+
+El individuo o unidad estadística es el elemento básico sobre el cual se realiza la observación o medición en un estudio estadístico. Puede tratarse de una persona, animal, planta, objeto o cualquier entidad sobre la que se recolectan datos. Por ejemplo, en un estudio agronómico, una unidad estadística puede ser una planta de maíz, una parcela de terreno o un saco de fertilizante (López & González, 2018; Walpole et al., 2012).
+
+### Población
+
+La población se define como el conjunto total de unidades estadísticas que comparten al menos una característica observable y relevante para el estudio. El análisis de toda la población se denomina censo. En agronomía, la población puede estar formada por todos los árboles de una plantación, todos los lotes de un cultivo o todos los animales de una granja (López & González, 2018; Montgomery & Runger, 2018).
+
+### Muestra
+
+La muestra es un subconjunto representativo de la población, seleccionado con el propósito de inferir características o parámetros de la población total. El muestreo permite realizar estudios más eficientes y menos costosos que el censo, siempre que la muestra sea seleccionada adecuadamente (López & González, 2018; Walpole et al., 2012).
+
+### Parámetro
+
+Un parámetro es un valor numérico que resume o describe una característica de la población, como la media, la varianza o la proporción. Los parámetros son generalmente desconocidos y se estiman a partir de los datos muestrales (Montgomery & Runger, 2018).
+
+### Estimador
+
+El estimador es una función o estadístico calculado a partir de los datos de la muestra, utilizado para aproximar el valor de un parámetro poblacional. Por ejemplo, la media muestral es un estimador de la media poblacional (Walpole et al., 2012).
+
+### Indicador
+
+Un indicador es un elemento extraído de la realidad que permite cuantificar características medibles de un fenómeno o sistema. Su principal función es servir como base para la construcción de índices relativos, facilitando la comparación y el análisis entre diferentes situaciones o periodos. Los indicadores transforman observaciones concretas en valores numéricos que reflejan la presencia, magnitud o evolución de una característica específica. De este modo, permiten señalar o evidenciar que una variable está ocurriendo y proporcionan información útil para la toma de decisiones. La objetividad de los indicadores puede variar según la naturaleza de la característica que representan, siendo algunos más fácilmente cuantificables que otros (López & González, 2018).

@@ -1,1 +1,73 @@
 # Clasificación de Variables
+
+## Definición de Variable
+
+Una variable en estadística se define como aquello que se observa o mide sobre las unidades estadísticas (López & González, 2018). Constituye una característica que varía de un individuo a otro dentro de la población o muestra bajo estudio. Las variables representan los atributos o propiedades que pueden ser medidos, observados o categorizados en las unidades de análisis.
+
+Desde el punto de vista de la notación estadística, las variables se representan mediante letras mayúsculas del alfabeto (X, Y, Z), mientras que los valores específicos que estas asumen se denotan con letras minúsculas correspondientes (x, y, z) (López & González, 2018). Esta distinción notacional permite diferenciar claramente entre el concepto abstracto de la variable y sus manifestaciones concretas en los datos.
+
+## Tipos de Variables
+
+Dependiendo de su naturaleza, las variables estadísticas se clasifican en dos categorías principales que determinan tanto los métodos de análisis apropiados como las técnicas de presentación de datos más adecuadas (López & González, 2018).
+
+### Variables Cuantitativas
+
+Las variables cuantitativas son aquellas que expresan cantidades y cuyos resultados son de naturaleza numérica (López & González, 2018). Estas variables permiten realizar operaciones matemáticas y estadísticas avanzadas debido a su carácter numérico. Se subdividen en dos tipos fundamentales:
+
+#### Variables Cuantitativas Discretas
+
+También denominadas variables de conteo, son aquellas que no aceptan valores decimales y típicamente resultan de procesos de enumeración (López & González, 2018). Ejemplos relevantes en el contexto agronómico incluyen: número de plantas de café por metro cuadrado, cantidad de áfidos por planta, número de brotes por planta, número de racimos de banano por hectárea, y número de ausencias de un trabajador por mes.
+
+Matemáticamente, estas variables pueden representarse mediante conjuntos discretos. Por ejemplo, si X representa el número de árboles con cáncer en una muestra de 10 árboles, entonces X ∈ {0, 1, 2, 3, ..., 9, 10} (López & González, 2018).
+
+#### Variables Cuantitativas Continuas
+
+Este tipo de variables pueden asumir cualquier valor dentro de un rango determinado, incluyendo valores decimales, y resultan típicamente de procesos de medición (López & González, 2018). En el ámbito agronómico, ejemplos representativos incluyen: altura de plantas, peso de semillas, temperatura de almacenamiento, diámetro de árboles, caudal de ríos, y precipitación pluvial.
+
+La representación matemática de estas variables utiliza intervalos continuos. Por ejemplo, si D representa el diámetro de árboles de *Pinus maximinoii* en una plantación, entonces D ∈ \[10, 50\] centímetros (López & González, 2018).
+
+### Variables Cualitativas
+
+Las variables cualitativas presentan como posibles resultados una cualidad o atributo del individuo investigado (López & González, 2018). Las posibles cualidades que puede presentar una variable cualitativa se denominan modalidades, categorías o atributos de la variable.
+
+Según el número de categorías, estas variables se clasifican en:
+
+1.  **Dicotómicas**: presentan únicamente dos modalidades, como sexo (masculino, femenino) o resultado de evaluación (aprobado, reprobado)
+
+2.  **Politómicas**: presentan más de dos categorías, como estado civil, color de ojos, lugar de origen, o susceptibilidad de plantas a enfermedades (López & González, 2018)
+
+## Resumen de los tipos de variables
+
+![](Variables.html){fig-align="center"}
+
+## Escalas de Medición
+
+Las escalas de medición constituyen un sistema de clasificación que determina el nivel de información que proporcionan las variables y, consecuentemente, los tipos de análisis estadísticos que pueden aplicarse (López & González, 2018).
+
+### Escalas para Información Cualitativa
+
+#### Escala Nominal
+
+La escala nominal representa el nivel más básico de medición y consiste en asignar nombres o etiquetas a las observaciones para distinguir diferentes agrupamientos (López & González, 2018). Cuando se emplean números en esta escala, estos tienen únicamente carácter simbólico, no numérico.
+
+Ejemplos en el contexto agronómico incluyen: especies arbóreas presentes en una cuenca, tipos de uso del suelo (agrícola, forestal, pecuario), y municipio de procedencia de estudiantes (López & González, 2018).
+
+#### Escala Ordinal
+
+En este nivel de medición, las unidades mantienen una relación jerárquica que permite establecer ordenamientos del tipo "mayor que" o "menor que" (López & González, 2018). Las categorías poseen un orden lógico, pero las distancias entre ellas no son necesariamente iguales.
+
+Ejemplos representativos incluyen: nivel de estudios (primaria, secundaria, diversificado, universitaria), grado de aceptación de productos (buena, regular, mala), y escalas de severidad de enfermedades en plantas. La escala de Likert constituye un ejemplo paradigmático de medición ordinal, típicamente empleando cinco niveles de respuesta desde "totalmente en desacuerdo" hasta "totalmente de acuerdo" (López & González, 2018).
+
+### Escalas para Información Cuantitativa
+
+#### Escala de Intervalo
+
+Esta escala proporciona información más precisa y permite mediciones sofisticadas al informar tanto sobre el orden de los objetos como sobre las distancias numéricas entre ellos (López & González, 2018). Los intervalos de igual tamaño en la escala representan diferencias equivalentes, independientemente de su ubicación en la escala.
+
+Sin embargo, la escala de intervalo carece de un punto cero absoluto, siendo este arbitrario y no representando la ausencia total de la característica medida (López & González, 2018). Ejemplos incluyen: temperatura, coordenadas geográficas, y resultados de exámenes académicos.
+
+#### Escala de Razón
+
+Los atributos cuantitativos organizados en escala de razón poseen tanto intervalos significativos como un punto cero real que indica ausencia absoluta del valor medido (López & González, 2018). Esta escala permite realizar todas las operaciones matemáticas, incluyendo la determinación de razones o proporciones entre medidas.
+
+Variables agronómicas medidas en esta escala incluyen: peso, longitud, diámetro, volumen, estatura, y densidad. Por ejemplo, un individuo de 190 cm es exactamente dos veces más alto que uno de 95 cm, relación que se mantiene independientemente de la unidad de medida empleada (López & González, 2018).
