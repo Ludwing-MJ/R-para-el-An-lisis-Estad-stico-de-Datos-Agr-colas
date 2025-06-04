@@ -1,1 +1,174 @@
 # Notación Sumatoria
+
+La notación sumatoria, representada por la letra griega sigma mayúscula (Σ), es una herramienta matemática que permite expresar de manera concisa la suma de una serie de términos. En lugar de escribir largas sumas de forma explícita, la notación sumatoria ofrece una manera compacta y generalizable de representar estas operaciones, facilitando el análisis y la manipulación de datos en diversos campos, incluyendo la agronomía (López & González, 2018).
+
+## Elementos de la Notación Sumatoria
+
+La notación sumatoria se compone de los siguientes elementos clave:
+
+1.  **Índice de Sumación:** Es una variable, comúnmente denotada por $i$, $j$ o $k$, que actúa como un contador, indicando el término específico que se está sumando en cada iteración.
+
+2.  **Límite Inferior:** Es el valor inicial del índice de sumación, situado debajo del símbolo Σ. Indica el punto de partida de la suma.
+
+3.  **Límite Superior:** Es el valor final del índice de sumación, situado encima del símbolo Σ. Indica el punto de finalización de la suma.
+
+4.  **Sumando:** Es la expresión matemática que se va a sumar, y generalmente depende del índice de sumación. Esta expresión define cómo se calcula cada término de la suma.
+
+La expresión general de la notación sumatoria se presenta de la siguiente manera:
+
+$$\huge\sum_{i=m}^{n} xi$$
+
+Donde:
+
+1.  $i$ es el índice de sumación.
+
+2.  $m$ es el límite inferior.
+
+3.  $n$ es el límite superior.
+
+4.  $xᵢ$ es el sumando.
+
+Por ejemplo, la suma de los primeros nnn números se expresa como:
+
+$$\huge\sum_{i=m}^{n} i=1+2+3+...+n$$
+
+## Propiedades de la Notación Sumatoria
+
+La notación sumatoria es fundamental en el análisis estadístico, ya que permite expresar de manera compacta la suma de una serie de términos. Sus propiedades facilitan la manipulación algebraica de expresiones y el desarrollo de fórmulas estadísticas (López & González, 2018). A continuación se detallan las propiedades de la notación sumatoria:
+
+### Suma de una constante
+
+Cuando se suma una constante $k$ un número $n$ de veces, el resultado es igual al producto de la constante por el número de sumandos:
+
+$${\huge \sum_{i=1}^{n} k = n \cdot k}$$
+
+Por ejemplo, si $k = 3$ y $n = 5$:
+
+$${\huge \sum_{i=1}^{5} 3 = 3 + 3 + 3 + 3 + 3 = 5 \times 3 = 15}$$
+
+Esta propiedad es útil para simplificar sumas donde el sumando no depende del índice de sumación.
+
+### Factor constante
+
+Si cada término de la suma es el producto de una constante $k$ y una variable $x_i$​, la constante puede factorizarse fuera de la sumatoria:
+
+$${\huge \sum_{i=1}^{n} k \cdot x_i = k \sum_{i=1}^{n} x_i}$$
+
+Esto permite simplificar cálculos y es especialmente útil en operaciones como el cálculo de medias ponderadas.
+
+### Suma de variables
+
+La suma de la suma de dos variables es igual a la suma de las sumas de cada variable por separado:
+
+$${\huge \sum_{i=1}^{n} (x_i + y_i) = \sum_{i=1}^{n} x_i + \sum_{i=1}^{n} y_i}$$
+
+Esta propiedad refleja la linealidad de la suma y es fundamental en la manipulación de expresiones estadísticas.
+
+### Diferencia de variables
+
+De manera análoga, la suma de la diferencia entre dos variables es igual a la diferencia entre las sumas de cada variable:
+
+$${\huge \sum_{i=1}^{n} (x_i - y_i) = \sum_{i=1}^{n} x_i - \sum_{i=1}^{n} y_i}$$
+
+Esta propiedad también se deriva de la linealidad de la suma.
+
+### Producto de dos variables
+
+La suma del producto de dos variables se expresa como:
+
+$${\huge \sum_{i=1}^{n} x_i y_i = x_1 y_1 + x_2 y_2 + \ldots + x_n y_n}$$
+
+Es importante destacar que, en general,
+
+$${\huge \sum_{i=1}^{n} x_i y_i \neq \left(\sum_{i=1}^{n} x_i\right) \left(\sum_{i=1}^{n} y_i\right)}$$
+
+Esta distinción es crucial en el cálculo de covarianzas y otros estadísticos.
+
+### Suma de cuadrados vs. cuadrado de la suma
+
+Se debe diferenciar entre la suma de los cuadrados y el cuadrado de la suma:
+
+$${\huge \sum_{i=1}^{n} x_i^2 \neq \left(\sum_{i=1}^{n} x_i\right)^2}$$
+
+La suma de cuadrados es: $${\huge \sum_{i=1}^{n} x_i^2 = x_1^2 + x_2^2 + \ldots + x_n^2}$$
+
+El cuadrado de la suma es: $${\huge \left(\sum_{i=1}^{n} x_i\right)^2 = \left(x_1 + x_2 + \ldots + x_n\right)^2}$$
+
+Ambas expresiones son diferentes y tienen aplicaciones distintas en estadística, por ejemplo, en el cálculo de la varianza.
+
+### Constante multiplicada por el cuadrado
+
+Si se multiplica una constante $k$ por el cuadrado de cada término y se suman los resultados, se puede factorizar la constante fuera de la sumatoria:
+
+$${\huge \sum_{i=1}^{n} k \cdot x_i^2 = k \sum_{i=1}^{n} x_i^2}$$
+
+Esta propiedad es útil en el desarrollo de fórmulas para momentos y otras medidas estadísticas.
+
+## Aplicación de la notación sumatoria en estadística
+
+La notación sumatoria es una herramienta esencial en estadística, permitiendo expresar de manera concisa y eficiente operaciones de suma que son fundamentales en el cálculo de diversos estadísticos. En el contexto de la estadística y su aplicación en agronomía, la notación sumatoria facilita la comprensión y el cálculo de estadísticos clave. Estos estadísticos son fundamentales para resumir y analizar datos relacionados con el rendimiento de cultivos, características de plantas y otros parámetros relevantes en la investigación y la práctica agrícola (López & González, 2018). A continuación, se presentan ejemplos de cómo la notación sumatoria se aplica en el cálculo de estos estadísticos.
+
+### Media Aritmética (Promedio)
+
+La media aritmética es el valor representativo de un conjunto de datos y se utiliza para resumir el rendimiento promedio de cultivos, alturas de plantas u otras variables de interés en agronomía (López & González, 2018).
+
+$$
+\huge
+\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}
+$$
+
+### Varianza Muestral
+
+La varianza muestral cuantifica la dispersión de los datos respecto a la media, permitiendo evaluar la uniformidad de características como el peso de frutos o el rendimiento entre parcelas (López & González, 2018). $$
+\LARGE
+S^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1} = \frac{\sum_{i=1}^{n} x_i^2 - \frac{(\sum_{i=1}^{n} x_i)^2}{n}}{n-1}
+$$
+
+### Desviación Estándar Muestral
+
+La desviación estándar, al ser la raíz cuadrada de la varianza, expresa la dispersión de los datos en las mismas unidades que la variable original, facilitando la interpretación de la variabilidad en experimentos agrícolas (López & González, 2018). $$
+\LARGE
+S = \sqrt{S^2} = \sqrt{\frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}}
+$$
+
+### Covarianza Muestral
+
+La covarianza permite analizar la relación lineal entre dos variables, como la asociación entre la cantidad de fertilizante aplicado y el rendimiento del cultivo, siendo fundamental en estudios de correlación y regresión (López & González, 2018). $$
+\huge
+Cov(x, y) = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{n-1}
+$$
+
+### Coeficiente de Correlación de Pearson
+
+El coeficiente de correlación de Pearson mide la fuerza y dirección de la relación lineal entre dos variables, lo que resulta útil para evaluar la asociación entre factores ambientales y respuestas agronómicas (López & González, 2018). $$
+\LARGE
+r = \frac{Cov(x, y)}{S_x S_y} = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}
+$$
+
+### Ecuación de la Recta de Regresión Lineal Simple
+
+La regresión lineal simple modela la relación entre una variable dependiente y una independiente, permitiendo predecir valores y analizar el efecto de factores como la fertilización sobre el rendimiento (López & González, 2018). $$
+\huge
+y = \beta_0 + \beta_1 x
+$$
+
+### Estimador del Intercepto (β₀)
+
+El intercepto de la recta de regresión representa el valor esperado de la variable dependiente cuando la independiente es cero, lo que puede interpretarse como el rendimiento base en ausencia de tratamiento (López & González, 2018). $$
+\huge
+\hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}
+$$
+
+### Estimador de la Pendiente (β₁)
+
+La pendiente de la recta de regresión indica el cambio promedio en la variable dependiente por cada unidad de cambio en la independiente, siendo clave para interpretar el efecto de tratamientos en ensayos agrícolas (López & González, 2018). $$
+\huge
+\hat{\beta}_1 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n} (x_i - \bar{x})^2}
+$$
+
+### Coeficiente de Determinación (R²)
+
+El coeficiente de determinación expresa la proporción de la variabilidad de la variable dependiente explicada por el modelo de regresión, siendo un indicador de la calidad del ajuste en estudios agronómicos (López & González, 2018). $$
+\huge
+R^2 = \frac{\left[ \sum_{i=1}^{n} (\hat{y}_i - \bar{y})^2 \right]}{\sum_{i=1}^{n} (y_i - \bar{y})^2}
+$$
