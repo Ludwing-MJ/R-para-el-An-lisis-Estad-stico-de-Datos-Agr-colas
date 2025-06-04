@@ -36,10 +36,14 @@ Según el número de categorías, estas variables se clasifican en:
 
 2.  **Politómicas**: presentan más de dos categorías, como estado civil, color de ojos, lugar de origen, o susceptibilidad de plantas a enfermedades (López & González, 2018)
 
-## Resumen de los tipos de variables
+## **Mapa mental de la clasificación de variables estadísticas**
+
+A continuación, se presenta un mapa mental que sintetiza la información esencial sobre la clasificación de variables estadísticas, facilitando la comprensión visual de los conceptos abordados. Para explorar el mapa mental de manera interactiva y detallada, se recomienda acceder al siguiente enlace: <https://ma-variables.vercel.app/>.
 
 ::: {style="display: flex; justify-content: center;"}
-<iframe src="Variables.html" width="900" height="600" style="border: none;"></iframe>
+<iframe src="https://ma-variables.vercel.app/" width="900" height="350" style="border: none;">
+
+</iframe>
 :::
 
 ## Escalas de Medición
@@ -73,3 +77,13 @@ Sin embargo, la escala de intervalo carece de un punto cero absoluto, siendo est
 Los atributos cuantitativos organizados en escala de razón poseen tanto intervalos significativos como un punto cero real que indica ausencia absoluta del valor medido (López & González, 2018). Esta escala permite realizar todas las operaciones matemáticas, incluyendo la determinación de razones o proporciones entre medidas.
 
 Variables agronómicas medidas en esta escala incluyen: peso, longitud, diámetro, volumen, estatura, y densidad. Por ejemplo, un individuo de 190 cm es exactamente dos veces más alto que uno de 95 cm, relación que se mantiene independientemente de la unidad de medida empleada (López & González, 2018).
+
+## **Mapa mental de las escalas de medición**
+
+A continuación, se presenta un mapa mental que sintetiza la información esencial sobre las escalas de medición de variables estadísticas, facilitando la comprensión visual de los conceptos abordados. Para explorar el mapa mental de manera interactiva y detallada, se recomienda acceder al siguiente enlace: <https://ma-escalas.vercel.app/>.
+
+::: {style="display: flex; justify-content: center;"}
+<iframe src="https://ma-escalas.vercel.app/" width="900" height="350" style="border: none;">
+
+</iframe>
+:::

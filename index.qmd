@@ -15,7 +15,7 @@ El presente manual se estructura de manera progresiva, comenzando con los fundam
 A continuación, se presenta una tabla que resume la organización del manual, detallando los temas cubiertos en cada capítulo:
 
 | Capítulo | Título | Descripción |
-|-----------------|----------------------|---------------------------------|
+|----|----|----|
 | 1 | Aspectos introductorios | Introducción a la estadística, su importancia en agronomía y primeros pasos en R y RStudio. |
 | 2 | Clasificación de variables | Tipos de variables, escalas de medición y ejemplos aplicados al ámbito agrícola. |
 | 3 | Notación sumatoria | Fundamentos y aplicaciones de la notación sumatoria en el cálculo de estadísticos descriptivos. |
