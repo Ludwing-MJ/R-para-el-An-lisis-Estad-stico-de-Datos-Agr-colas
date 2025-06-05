@@ -29,6 +29,8 @@ book:
       attributes:
         class: part
     - C3.1.qmd
+    - C3.2.qmd
+    - C3.3.qmd
     - part: "4. Medidas de tendencia central y dispersión (datos no agrupados)"
       attributes:
         class: part
@@ -70,7 +72,6 @@ bibliography: references.bib
 
 repo-subdir: book
 sharing: [twitter, linkedin]
-downloads: [pdf]
 image: logo_cete_vector.png
 
 format:
@@ -84,26 +85,5 @@ format:
     number-depth: 4
     link-external-icon: true
     link-external-newwindow: true
-
-  pdf:
-    code-overflow: wrap
-    lang: es
-    documentclass: scrreprt
-    classoption: ["onepage", "openany"]
-    papersize: a4
-    toc: true
-    margin-top: 30mm
-    margin-left: 30mm
-    margin-bottom: 30mm
-    margin-right: 30mm
-    titlepage-geometry:
-      - top=30mm
-      - bottom=30mm
-      - right=30mm
-      - left=30mm
-    include-in-header:
-      text: |
-        \usepackage{hanging}
-        \renewcommand{\partname}{Capítulo} # Cambia "Part" por "Capítulo"
 
 editor: visual

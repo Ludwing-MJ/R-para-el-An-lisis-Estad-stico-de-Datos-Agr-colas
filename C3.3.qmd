@@ -1,0 +1,171 @@
+# Sumatorias Dobles y Múltiples
+
+La notación sumatoria puede extenderse para representar sumas sobre dos o más índices, lo que resulta útil en el análisis de datos organizados en tablas o matrices, como ocurre frecuentemente en experimentos agrícolas con varios tratamientos y repeticiones (López & González, 2018). La sumatoria doble se expresa de la siguiente manera: $$\huge\sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij}$$
+
+En esta expresión, $x_{ij}$​ representa el elemento ubicado en la fila $i$ y la columna $j$ de una matriz de datos. El primer índice ($i$) recorre las filas y el segundo ($j$) las columnas. Este tipo de sumatoria es fundamental para calcular totales generales, promedios por tratamiento o por repetición, y para el análisis de varianza en diseños experimentales.
+
+Cuando los datos se organizan en más dimensiones (por ejemplo, en matrices, cubos o hipercubos) la notación sumatoria se extiende añadiendo un índice por dimensión (Wackerly et al., 2014).
+
+**Sumatoria triple** (o múltiple) sobre un arreglo de orden 3:
+
+$\Huge\sum_{i=1}^{n}\sum_{j=1}^{m}\sum_{k=1}^{p} x_{ijk}$
+
+Para sumas finitas, el orden de los signos sigma es intercambiable, debido a la conmutatividad y asociatividad de la adición (Montgomery, 2017). Para los fines del curso solamente se profundizará en las sumatorias dobles.
+
+## Propiedades básicas de las sumatorias dobles
+
+Las sumatorias dobles conservan las propiedades fundamentales de las sumatorias simples, pero su aplicación requiere consideraciones adicionales debido a la presencia de múltiples índices. Estas propiedades son esenciales para la manipulación algebraica de expresiones estadísticas en el análisis de datos multidimensionales (Wackerly et al., 2014).
+
+### Propiedad del factor constante
+
+Cuando una constante $c$ multiplica a cada término de una sumatoria doble, esta constante puede factorizarse fuera de ambos signos de sumatoria. Esta propiedad se deriva directamente de la distributividad de la multiplicación sobre la adición (Ross, 2014).
+
+**Enunciado formal:**
+
+$\huge \sum_{i=1}^{n}\sum_{j=1}^{m} c\,x_{ij}=c\sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij}$
+
+**Demostración:**
+
+La demostración se basa en la aplicación repetida de la propiedad del factor constante para sumatorias simples:
+
+$\Large \sum_{i=1}^{n}\sum_{j=1}^{m} c\,x_{ij} = \sum_{i=1}^{n}\left(c\sum_{j=1}^{m} x_{ij}\right) = c\sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij}$
+
+**Aplicación en estadística agrícola:**
+
+Esta propiedad resulta fundamental cuando se requiere convertir unidades de medida. Por ejemplo, si los rendimientos están expresados en kg/ha y se desea convertirlos a t/ha, se multiplica por la constante $c=0.001$:
+
+$\Large \sum_{i=1}^{n}\sum_{j=1}^{m} 0.001 \cdot x_{ij} = 0.001 \sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij}$
+
+### Propiedad de linealidad (aditividad)
+
+La sumatoria doble de una suma de términos es igual a la suma de las sumatorias dobles de cada término por separado. Esta propiedad refleja la linealidad inherente del operador suma y es fundamental en el desarrollo de fórmulas estadísticas complejas (Montgomery, 2017).
+
+**Enunciado formal:**
+
+$\Large \sum_{i=1}^{n}\sum_{j=1}^{m}\bigl(x_{ij}+y_{ij}\bigr) = \sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij} + \sum_{i=1}^{n}\sum_{j=1}^{m} y_{ij}$
+
+### Propiedad de descomposición en sumas parciales
+
+Esta propiedad establece que una sumatoria doble puede descomponerse en una sumatoria simple de sumatorias simples, lo que facilita el cálculo de totales por filas, columnas o grupos específicos. La conmutatividad de la adición garantiza que el orden de evaluación no afecte el resultado final (Hogg et al., 2019).
+
+**Enunciado formal:**
+
+$\Large \sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij} = \sum_{i=1}^{n}\left(\sum_{j=1}^{m} x_{ij}\right) = \sum_{j=1}^{m}\left(\sum_{i=1}^{n} x_{ij}\right)$
+
+**Interpretación estadística:**
+
+1.  $\sum_{j=1}^{m} x_{ij}$​ representa el total de la fila $i$
+
+2.  $\sum_{i=1}^{n} x_{ij}$​ representa el total de la columna $j$
+
+3.  La suma total puede calcularse como la suma de totales por filas o por columnas
+
+## Aplicaciones en Estadística Agrícola
+
+Para ilustrar la aplicación práctica de las sumatorias dobles, se presenta un ejemplo donde se analiza el rendimiento de tres variedades de maíz en tres localidades diferentes, diferenciando entre producción de grano y producción de rastrojo.
+
+### Planteamiento del problema
+
+Un investigador evalúa tres variedades de maíz (V1, V2, V3) en tres localidades (L1, L2, L3), registrando tanto la producción de grano como la de rastrojo en kilogramos por parcela. Los datos se organizan en dos matrices de 3×3:
+
+**Matriz de producción de grano** **(**$G_{ij}$**):**
+
+|        |  L1  |  L2  |  L3  |
+|:------:|:----:|:----:|:----:|
+| **V1** | 4500 | 4700 | 4400 |
+| **V2** | 4200 | 4300 | 4100 |
+| **V3** | 4800 | 4900 | 4700 |
+
+**Matriz de producción de rastrojo (**$R_{ij}$**):**
+
+|        |  L1  |  L2  |  L3  |
+|:------:|:----:|:----:|:----:|
+| **V1** | 3000 | 3200 | 3100 |
+| **V2** | 2800 | 2900 | 2700 |
+| **V3** | 3500 | 3600 | 3400 |
+
+Donde *i* representa la variedad (*i* = 1, 2, 3) y *j* la localidad (*j* = 1, 2, 3).
+
+### Análisis paso a paso de la producción de grano
+
+**Cálculo de totales por variedad (sumas por filas)**
+
+Para cada variedad $i$ , se calcula el total de producción de grano mediante:
+
+| Variedad | Notación sumatoria | Cálculo detallado | Total (kg) |
+|:--------------:|:------------------:|:-------------------:|:--------------:|
+| V1 | $$\large \sum_{i=1}^{n} G_{i1} = G_{.1} $$ | $4500 + 4700 + 4400$ | **13,600** |
+| V2 | $$\large \sum_{i=1}^{n} G_{i2} = G_{.2} $$ | $4200 + 4300 + 4100$ | **12,600** |
+| V3 | $$\large \sum_{i=1}^{n} G_{i3} = G_{.3} $$ | $4800 + 4900 + 4700$ | **14,400** |
+
+**Cálculo de totales por localidad (sumas por columnas)**
+
+Para cada localidad $j$, se obtiene el total mediante:
+
+| Localidad | Notación sumatoria | Cálculo detallado | Total (kg) |
+|:--------------:|:-------------------:|:------------------:|:--------------:|
+| L1 | $$\large \sum_{j=1}^{n} G_{1j} = G_{1.} $$ | $4500 + 4200 + 4800$ | **13,500** |
+| L2 | $$\large \sum_{j=1}^{n} G_{2j} = G_{2.} $$ | $4700 + 4300 + 4900$ | **13,900** |
+| L3 | $$\large \sum_{j=1}^{n} G_{3j} = G_{3.} $$ | $4400 + 4100 + 4700$ | **13,200** |
+
+**Demostración de la equivalencia de métodos de cálculo para el total de producción de grano**
+
+La suma total de producción de grano puede obtenerse mediante tres métodos equivalentes:
+
+**Método 1: Suma directa de todos los elementos**
+
+$\sum_{i=1}^{3} \sum_{j=1}^{3} G_{ij} = 4500 + 4700 + 4400 + 4200 + 4300 + 4100 + 4800 + 4900 + 4700 = 40,600 \text{ kg}$
+
+**Método 2: Suma de totales por variedad**
+
+$\Large \sum_{i=1}^{3} \sum_{j=1}^{3} G_{ij} = G_{..} = 13,600 + 12,600 + 14,400 = 40,600 \text{ kg}$
+
+**Método 3: Suma de totales por localidad**
+
+$\Large \sum_{i=1}^{3} \sum_{j=1}^{3} G_{ij} = G_{..} = 13,500 + 13,900 + 13,200 = 40,600 \text{ kg}$
+
+Esta equivalencia demuestra la propiedad de descomposición en sumas parciales y confirma la consistencia de los cálculos.
+
+### Aplicación de la propiedad de linealidad: Cálculo de biomasa total para la variedad 3
+
+Para ilustrar la propiedad de linealidad, se calcula la biomasa total de la variedad 3 (V3), definida como la suma de producción de grano y rastrojo.
+
+**Datos para la variedad 3:**
+
+| Localidad | Grano ($G_{3j}$) | Rastrojo ($R_{3j}$) | Biomasa ($B_{3j}$) |
+|:---------:|:----------------:|:-------------------:|:------------------:|
+|    L1     |      4,800       |        3,500        |       8,300        |
+|    L2     |      4,900       |        3,600        |       8,500        |
+|    L3     |      4,700       |        3,400        |       8,100        |
+
+**Planteamiento con notación sumatoria**
+
+La biomasa total de la variedad 3 se expresa como:
+
+$\Large \sum_{j=1}^{3} B_{3j} = \sum_{j=1}^{3} (G_{3j} + R_{3j})$
+
+**Aplicación de la propiedad de linealidad**
+
+Utilizando la propiedad de linealidad de las sumatorias:
+
+$\Large \sum_{j=1}^{3} (G_{3j} + R_{3j}) = \sum_{j=1}^{3} G_{3j} + \sum_{j=1}^{3} R_{3j}$
+
+**Cálculos detallados**
+
+1.  Suma de producción de grano para V3:
+
+    $\Large \sum_{j=1}^{3} G_{3j} = 4,800 + 4,900 + 4,700 = 14,400 \text{ kg}$
+
+2.  Suma de producción de rastrojo para V3:
+
+    $\Large \sum_{j=1}^{3} R_{3j} = 3,500 + 3,600 + 3,400 = 10,500 \text{ kg}$
+
+3.  Biomasa total para V3:
+
+    $\large \sum_{j=1}^{3} B_{3j} = \sum_{j=1}^{3} G_{3j} + \sum_{j=1}^{3} R_{3j} = 14,400 + 10,500 = 24,900 \text{ kg}$
+
+4.  Verificación mediante suma directa
+
+    $\Large \sum_{j=1}^{3} B_{3j} = 8,300 + 8,500 + 8,100 = 24,900 \text{ kg}$
+
+La coincidencia de resultados confirma la validez de la propiedad de linealidad.

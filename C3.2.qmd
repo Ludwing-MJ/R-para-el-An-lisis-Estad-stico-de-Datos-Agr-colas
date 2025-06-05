@@ -1,0 +1,69 @@
+# Ejemplo Aplicado Sumatoria Simple
+
+Para ilustrar el uso de la notación sumatoria, se simulan los rendimientos de diez parcelas experimentales de maíz, expresados en kilogramos por planta. Los valores observados son los siguientes:
+
+|  i  | $y_i$ |
+|:---:|:-----:|
+|  1  |  23   |
+|  2  |  25   |
+|  3  |  18   |
+|  4  |  27   |
+|  5  |  22   |
+|  6  |  20   |
+|  7  |  24   |
+|  8  |  26   |
+|  9  |  19   |
+| 10  |  21   |
+
+Total de observaciones: $n = 10$
+
+## Cálculo de la Suma Total de los Valores Observados
+
+El primer paso consiste en sumar todos los valores observados, utilizando la notación sumatoria: $$
+\large\sum_{i=1}^{10} y_i = 23 + 25 + 18 + 27 + 22 + 20 + 24 + 26 + 19 + 21 = 225
+$$
+
+## Cálculo de la Media Muestral
+
+La media muestral se obtiene dividiendo la suma total entre el número de observaciones ( n = 10 ): $$
+\large\bar{y} = \frac{1}{n} \sum_{i=1}^{n} y_i = \frac{225}{10} = 22.5
+$$
+
+Esto significa que, en promedio, cada parcela produjo 22.5 kg por planta.
+
+## Cálculo de la Varianza Muestral
+
+La varianza muestral mide la dispersión de los datos respecto a la media. Para calcularla, se sigue el siguiente procedimiento:
+
+1.  Se resta la media a cada valor observado (( $y_i - \bar{y}$).
+
+2.  Se eleva al cuadrado cada una de estas diferencias ( $(y_i - \bar{y})^2$).
+
+3.  Se suman todos los cuadrados de las diferencias.
+
+4.  Finalmente, se divide esta suma entre $n-1$ (en este caso, 9).
+
+La tabla siguiente resume estos cálculos:
+
+| $i$ | $y_i$ | $y_i - \bar{y}$ | $(y_i - \bar{y})^2$ |
+|:---:|:-----:|:---------------:|:-------------------:|
+|  1  |  23   |       0.5       |        0.25         |
+|  2  |  25   |       2.5       |        6.25         |
+|  3  |  18   |      -4.5       |        20.25        |
+|  4  |  27   |       4.5       |        20.25        |
+|  5  |  22   |      -0.5       |        0.25         |
+|  6  |  20   |      -2.5       |        6.25         |
+|  7  |  24   |       1.5       |        2.25         |
+|  8  |  26   |       3.5       |        12.25        |
+|  9  |  19   |      -3.5       |        12.25        |
+| 10  |  21   |      -1.5       |        2.25         |
+
+Sumando la última columna: $$
+\LARGE\sum_{i=1}^{10} (y_i - \bar{y})^2  = 82.5
+$$
+
+La varianza muestral se calcula así: $$
+\LARGE\ s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 = \frac{82.5}{9} = 9.17
+$$
+
+Por lo tanto, la varianza muestral es 9.17 kg² por planta².

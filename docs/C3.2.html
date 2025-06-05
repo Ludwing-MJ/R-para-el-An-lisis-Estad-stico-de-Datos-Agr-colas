@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Referencias – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>Ejemplo Aplicado Sumatoria Simple – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./C11.1.html" rel="prev">
+<link href="./C3.3.html" rel="next">
+<link href="./C3.1.html" rel="prev">
 <link href="./logo_cete_vector.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -74,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -249,7 +279,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">Referencias</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C3.2.html"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -320,7 +350,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></a>
+  <a href="./C3.2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -406,7 +436,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Referencias</span></a>
   </div>
 </li>
@@ -415,8 +445,16 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#cálculo-de-la-suma-total-de-los-valores-observados" id="toc-cálculo-de-la-suma-total-de-los-valores-observados" class="nav-link active" data-scroll-target="#cálculo-de-la-suma-total-de-los-valores-observados">Cálculo de la Suma Total de los Valores Observados</a></li>
+  <li><a href="#cálculo-de-la-media-muestral" id="toc-cálculo-de-la-media-muestral" class="nav-link" data-scroll-target="#cálculo-de-la-media-muestral">Cálculo de la Media Muestral</a></li>
+  <li><a href="#cálculo-de-la-varianza-muestral" id="toc-cálculo-de-la-varianza-muestral" class="nav-link" data-scroll-target="#cálculo-de-la-varianza-muestral">Cálculo de la Varianza Muestral</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -424,7 +462,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Referencias</h1>
+<h1 class="title"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></h1>
 </div>
 
 
@@ -441,31 +479,163 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="referencias">
-<style>
-.referencias {
-  margin-left: 0;
-  padding-left: 2em;
-  text-indent: -2em;
-}
-</style>
-<p>Hogg, R. V., McKean, J. W., &amp; Craig, A. T. (2019). <em>Introduction to mathematical statistics</em> (8th ed.). Pearson.</p>
-<p>Ihaka, R., &amp; Gentleman, R. (1996). R: A language for data analysis and graphics. <em>Journal of Computational and Graphical Statistics</em>, <em>5</em>(3), 299-314.</p>
-<p>López, E., &amp; González, B. (2018). <em>Notas de Estadística General</em> (Edición marzo 2018). Guatemala: Universidad de San Carlos de Guatemala.</p>
-<p>R Core Team (2023). <em>R: A language and environment for statistical computing</em>. R Foundation for Statistical Computing, Vienna, Austria. URL <a href="https://www.r-project.org/">https://www.R-project.org/</a>.</p>
-<p>Xie, Y., Allaire, J. J., &amp; Grolemund, G. (2018). <em>R Markdown: The definitive guide</em> (1st ed.). Chapman and Hall/CRC. <a href="https://doi.org/10.1201/9781138359444" class="uri">https://doi.org/10.1201/9781138359444</a></p>
-<p>Conover, W. J. (1999). <em>Practical Nonparametric Statistics</em> (3rd ed.). Wiley.</p>
-<p>Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., &amp; Rubin, D. B. (2013). <em>Bayesian Data Analysis</em> (3rd ed.). CRC Press.</p>
-<p>Johnson, R. A., &amp; Wichern, D. W. (2014). <em>Applied Multivariate Statistical Analysis</em> (6th ed.). Pearson.</p>
-<p>Montgomery, D. C. (2017). <em>Design and analysis of experiments</em> (9th ed.). Wiley.</p>
-<p>Montgomery, D. C., &amp; Runger, G. C. (2018). <em>Applied Statistics and Probability for Engineers</em> (7th ed.). Wiley.</p>
-<p>Ross, S. M. (2014). <em>Introduction to probability and statistics for engineers and scientists</em> (5th ed.). Academic Press.</p>
-<p>Wackerly, D. D., Mendenhall, W., &amp; Scheaffer, R. L. (2014). <em>Mathematical statistics with applications</em> (7th ed.). Cengage.</p>
-<p>Webster, R., &amp; Oliver, M. A. (2007). <em>Geostatistics for Environmental Scientists</em> (2nd ed.). Wiley.</p>
-<p>Walpole, R. E., Myers, R. H., Myers, S. L., &amp; Ye, K. (2012). <em>Probability and Statistics for Engineers and Scientists</em> (9th ed.). Pearson.</p>
-</div>
+<p>Para ilustrar el uso de la notación sumatoria, se simulan los rendimientos de diez parcelas experimentales de maíz, expresados en kilogramos por planta. Los valores observados son los siguientes:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">i</th>
+<th style="text-align: center;"><span class="math inline">\(y_i\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">18</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">22</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">20</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">24</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">26</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">19</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">21</td>
+</tr>
+</tbody>
+</table>
+<p>Total de observaciones: <span class="math inline">\(n = 10\)</span></p>
+<section id="cálculo-de-la-suma-total-de-los-valores-observados" class="level2">
+<h2 class="anchored" data-anchor-id="cálculo-de-la-suma-total-de-los-valores-observados">Cálculo de la Suma Total de los Valores Observados</h2>
+<p>El primer paso consiste en sumar todos los valores observados, utilizando la notación sumatoria: <span class="math display">\[
+\large\sum_{i=1}^{10} y_i = 23 + 25 + 18 + 27 + 22 + 20 + 24 + 26 + 19 + 21 = 225
+\]</span></p>
+</section>
+<section id="cálculo-de-la-media-muestral" class="level2">
+<h2 class="anchored" data-anchor-id="cálculo-de-la-media-muestral">Cálculo de la Media Muestral</h2>
+<p>La media muestral se obtiene dividiendo la suma total entre el número de observaciones ( n = 10 ): <span class="math display">\[
+\large\bar{y} = \frac{1}{n} \sum_{i=1}^{n} y_i = \frac{225}{10} = 22.5
+\]</span></p>
+<p>Esto significa que, en promedio, cada parcela produjo 22.5 kg por planta.</p>
+</section>
+<section id="cálculo-de-la-varianza-muestral" class="level2">
+<h2 class="anchored" data-anchor-id="cálculo-de-la-varianza-muestral">Cálculo de la Varianza Muestral</h2>
+<p>La varianza muestral mide la dispersión de los datos respecto a la media. Para calcularla, se sigue el siguiente procedimiento:</p>
+<ol type="1">
+<li><p>Se resta la media a cada valor observado (( <span class="math inline">\(y_i - \bar{y}\)</span>).</p></li>
+<li><p>Se eleva al cuadrado cada una de estas diferencias ( <span class="math inline">\((y_i - \bar{y})^2\)</span>).</p></li>
+<li><p>Se suman todos los cuadrados de las diferencias.</p></li>
+<li><p>Finalmente, se divide esta suma entre <span class="math inline">\(n-1\)</span> (en este caso, 9).</p></li>
+</ol>
+<p>La tabla siguiente resume estos cálculos:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(i\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(y_i\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(y_i - \bar{y}\)</span></th>
+<th style="text-align: center;"><span class="math inline">\((y_i - \bar{y})^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">23</td>
+<td style="text-align: center;">0.5</td>
+<td style="text-align: center;">0.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">25</td>
+<td style="text-align: center;">2.5</td>
+<td style="text-align: center;">6.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">18</td>
+<td style="text-align: center;">-4.5</td>
+<td style="text-align: center;">20.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">27</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">20.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">22</td>
+<td style="text-align: center;">-0.5</td>
+<td style="text-align: center;">0.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">-2.5</td>
+<td style="text-align: center;">6.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">24</td>
+<td style="text-align: center;">1.5</td>
+<td style="text-align: center;">2.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">26</td>
+<td style="text-align: center;">3.5</td>
+<td style="text-align: center;">12.25</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">19</td>
+<td style="text-align: center;">-3.5</td>
+<td style="text-align: center;">12.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">21</td>
+<td style="text-align: center;">-1.5</td>
+<td style="text-align: center;">2.25</td>
+</tr>
+</tbody>
+</table>
+<p>Sumando la última columna: <span class="math display">\[
+\LARGE\sum_{i=1}^{10} (y_i - \bar{y})^2  = 82.5
+\]</span></p>
+<p>La varianza muestral se calcula así: <span class="math display">\[
+\LARGE\ s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (y_i - \bar{y})^2 = \frac{82.5}{9} = 9.17
+\]</span></p>
+<p>Por lo tanto, la varianza muestral es 9.17 kg² por planta².</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -889,11 +1059,14 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./C11.1.html" class="pagination-link" aria-label="Regresión lineal y correlación">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Regresión lineal y correlación</span></span>
+      <a href="./C3.1.html" class="pagination-link" aria-label="Introducción a la Notación Sumatoria">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Introducción a la Notación Sumatoria</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./C3.3.html" class="pagination-link" aria-label="Sumatorias Dobles y Múltiples">
+        <span class="nav-page-text"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->

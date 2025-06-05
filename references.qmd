@@ -11,6 +11,8 @@
 </style>
 ```
 
+Hogg, R. V., McKean, J. W., & Craig, A. T. (2019). *Introduction to mathematical statistics* (8th ed.). Pearson.
+
 Ihaka, R., & Gentleman, R. (1996). R: A language for data analysis and graphics. *Journal of Computational and Graphical Statistics*, *5*(3), 299-314.
 
 López, E., & González, B. (2018). *Notas de Estadística General* (Edición marzo 2018). Guatemala: Universidad de San Carlos de Guatemala.
@@ -25,7 +27,13 @@ Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., & Rubin, D.
 
 Johnson, R. A., & Wichern, D. W. (2014). *Applied Multivariate Statistical Analysis* (6th ed.). Pearson.
 
+Montgomery, D. C. (2017). *Design and analysis of experiments* (9th ed.). Wiley.
+
 Montgomery, D. C., & Runger, G. C. (2018). *Applied Statistics and Probability for Engineers* (7th ed.). Wiley.
+
+Ross, S. M. (2014). *Introduction to probability and statistics for engineers and scientists* (5th ed.). Academic Press.
+
+Wackerly, D. D., Mendenhall, W., & Scheaffer, R. L. (2014). *Mathematical statistics with applications* (7th ed.). Cengage.
 
 Webster, R., & Oliver, M. A. (2007). *Geostatistics for Environmental Scientists* (2nd ed.). Wiley.
 

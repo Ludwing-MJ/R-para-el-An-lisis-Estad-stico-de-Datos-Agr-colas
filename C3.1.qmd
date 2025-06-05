@@ -1,4 +1,4 @@
-# Notación Sumatoria
+# Introducción a la Notación Sumatoria
 
 La notación sumatoria, representada por la letra griega sigma mayúscula (Σ), es una herramienta matemática que permite expresar de manera concisa la suma de una serie de términos. En lugar de escribir largas sumas de forma explícita, la notación sumatoria ofrece una manera compacta y generalizable de representar estas operaciones, facilitando el análisis y la manipulación de datos en diversos campos, incluyendo la agronomía (López & González, 2018).
 
