@@ -8,7 +8,7 @@ La media ponderada se define como un promedio en el cual cada valor del conjunto
 
 **Fórmula:**
 
-$\huge\bar{x}_p = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}$
+$\Huge\bar{x}_p = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}$
 
 donde $x_i$​ representa cada valor, $w_i$​ es el peso asignado a ese valor, y $n$ es el número total de observaciones.
 
@@ -40,7 +40,7 @@ La media geométrica es un tipo de promedio que se utiliza para calcular tasas d
 
 **Fórmula:**
 
-$\huge\bar{x}_g = \sqrt[n]{x_1 x_2 \cdots x_n}$
+$\Huge\bar{x}_g = \sqrt[n]{x_1 x_2 \cdots x_n}$
 
 donde $x_i$​ representa cada valor y $n$ es el número total de observaciones.
 
@@ -67,7 +67,7 @@ La media armónica es un tipo de promedio que se utiliza para calcular tasas o r
 
 **Fórmula:**
 
-$\huge\bar{x}_a = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}}$
+$\Huge\bar{x}_a = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}}$
 
 donde $x_i$​ representa cada valor y $n$ es el número total de observaciones.
 

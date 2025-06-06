@@ -1,1 +1,171 @@
 # Estadística descriptiva para datos sin agrupar
+
+En el análisis estadístico, la descripción y el resumen de conjuntos de datos constituyen pasos fundamentales para la comprensión de fenómenos en ciencias aplicadas, como la agronomía. Las medidas de tendencia central, dispersión y posición relativa permiten sintetizar la información, identificar patrones y tomar decisiones informadas en la gestión de recursos agrícolas (López & González, 2018; Montgomery, 2017). Estas herramientas facilitan la interpretación de datos experimentales y la comparación entre diferentes tratamientos o condiciones de cultivo.
+
+Para ejemplificar el desarrollo de este tema, se utilizará la siguiente base de datos, correspondiente al rendimiento de maíz (en toneladas por hectárea) en ocho parcelas de diferente tamaño:
+
+| Parcela | Superficie (ha) | Rendimiento (t ha⁻¹) |
+|---------|-----------------|----------------------|
+| P₁      | 1.5             | 6.2                  |
+| P₂      | 2.0             | 5.8                  |
+| P₃      | 1.0             | 6.5                  |
+| P₄      | 1.5             | 6.0                  |
+| P₅      | 1.0             | 6.3                  |
+| P₆      | 2.0             | 5.9                  |
+| P₇      | 1.0             | 6.4                  |
+| P₈      | 1.0             | 6.1                  |
+
+## Medidas de Tendencia Central
+
+### Media aritmética
+
+La media aritmética representa el valor promedio de un conjunto de datos y constituye la medida de tendencia central más utilizada en estadística descriptiva (López & González, 2018). Se define como la suma de todos los valores dividida entre el número total de observaciones.
+
+**Fórmula:**
+
+$$\huge \bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$$
+
+donde $x_i$ representa cada valor individual y $n$ es el número total de observaciones.
+
+**Cálculo con los datos de ejemplo:**
+
+Datos ordenados: 5.8, 5.9, 6.0, 6.1, 6.2, 6.3, 6.4, 6.5
+
+$$\bar{x} = \frac{6.2 + 5.8 + 6.5 + 6.0 + 6.3 + 5.9 + 6.4 + 6.1}{8} = \frac{49.2}{8} = 6.150\; \text{t ha}^{-1}$$
+
+La media aritmética es útil para describir el valor central de un conjunto de datos homogéneo, aunque presenta sensibilidad a valores extremos (Montgomery, 2017).
+
+### Mediana
+
+La mediana es el valor que divide un conjunto de datos ordenados en dos partes iguales, de manera que el 50% de las observaciones se encuentran por debajo y el 50% por encima de este valor (Steel & Torrie, 1980). Esta medida es especialmente útil cuando los datos presentan distribuciones asimétricas o contienen valores atípicos.
+
+**Procedimiento de cálculo:**
+
+Para un conjunto de datos con $n$ observaciones ordenadas:
+
+1.  Si $n$ es impar:\
+    $$\huge\text{Mediana} = x_{(n+1)/2} $$
+2.  Si $n$ es par: $$\huge\text{Mediana} = \frac{x_{n/2} + x_{(n/2)+1}}{2}$$
+
+**Cálculo con los datos de ejemplo:**
+
+Como $n = 8$ (par), la mediana se calcula:
+
+$$\large\text{Mediana} = \frac{x_4 + x_5}{2} = \frac{6.1 + 6.2}{2} = 6.150\; \text{t ha}^{-1}$$
+
+La mediana es robusta ante valores atípicos y proporciona una medida de tendencia central más estable que la media aritmética en presencia de datos extremos (Anderson et al., 2018).
+
+### Moda
+
+La moda es el valor que aparece con mayor frecuencia en un conjunto de datos. En variables continuas, puede no existir moda o pueden existir múltiples modas (López & González, 2018). En el ejemplo presentado, todos los valores son únicos, por lo que no existe moda. La moda es particularmente útil para describir variables cualitativas o discretas, donde indica la categoría más frecuente.
+
+## Medidas de Dispersión
+
+### Rango
+
+El rango es la medida de dispersión más simple y se define como la diferencia entre el valor máximo y el valor mínimo del conjunto de datos (López & González, 2018). Proporciona una idea general de la variabilidad, aunque es muy sensible a valores extremos.
+
+**Fórmula:**
+
+$$\huge R = x_{\text{máx}} - x_{\text{mín}}$$
+
+**Cálculo con los datos de ejemplo:**
+
+$$\huge R = 6.5 - 5.8 = 0.700\; \text{t ha}^{-1}$$
+
+### Varianza
+
+La varianza mide la dispersión promedio de los datos respecto a la media aritmética. Para datos muestrales, se utiliza el denominador $(n-1)$ para obtener un estimador insesgado de la varianza poblacional (Montgomery, 2017).
+
+**Fórmula de la varianza muestral:**
+
+$$\huge s^2 = \frac{\sum_{i=1}^{n} (x_i - \bar{x})^2}{n-1}$$
+
+**Cálculo paso a paso:**
+
+$$\begin{aligned}
+s^2 &=  \frac{0.0025 + 0.1225 + 0.1225 + 0.0225 + 0.0225 + 0.0625 + 0.0625 + 0.0025}{7} \\[4pt]
+&= \frac{0.4200}{7} = 0.0600\; \text{(t ha}^{-1}\text{)}^2
+\end{aligned}$$
+
+### Desviación estándar
+
+La desviación estándar es la raíz cuadrada positiva de la varianza y se expresa en las mismas unidades que los datos originales:
+
+$$\LARGE s = \sqrt{s^2} = \sqrt{0.0600} = 0.245\; \text{t ha}^{-1}$$
+
+### Coeficiente de variación
+
+El coeficiente de variación (CV) expresa la dispersión relativa respecto a la media, permitiendo comparar la variabilidad entre diferentes conjuntos de datos que pueden tener diferentes unidades o magnitudes (Steel & Torrie, 1980).
+
+**Fórmula:**
+
+$$\huge CV = \frac{s}{\bar{x}} \times 100\%$$
+
+**Cálculo con los datos de ejemplo:**
+
+$$\LARGE CV = \frac{0.245}{6.150} \times 100\% = 3.98\%$$
+
+Este bajo coeficiente de variación indica una dispersión relativamente pequeña en los rendimientos, sugiriendo homogeneidad en el desempeño productivo de las parcelas.
+
+## Medidas de Posición Relativa
+
+### Cuartiles
+
+Los cuartiles son valores que dividen un conjunto de datos ordenados en cuatro partes iguales. El primer cuartil ($Q_1$) es el valor por debajo del cual se encuentra el 25% de los datos, mientras que el tercer cuartil ($Q_3$) es el valor por debajo del cual se encuentra el 75% de los datos (López & González, 2018).
+
+**Método de cálculo:**
+
+Para un conjunto de datos ordenados de tamaño $n$, la posición de un cuartil se determina por:
+
+$$\huge \text{Posición} = p \times (n+1)$$
+
+donde $p = 0.25$ para $Q_1$ y $p = 0.75$ para $Q_3$.
+
+Si la posición no es un número entero, se interpola linealmente entre los valores adyacentes.
+
+**Primer cuartil (**$Q_1$):
+
+$$\large\text{Posición de } Q_1 = 0.25 \times (8+1) = 2.25$$
+
+$$Q_1 = x_2 + 0.25 \times (x_3 - x_2) = 5.9 + 0.25 \times (6.0 - 5.9) = 5.925\; \text{t ha}^{-1}$$
+
+**Tercer cuartil (**$Q_3$):
+
+$$\large\text{Posición de } Q_3 = 0.75 \times (8+1) = 6.75$$
+
+$$Q_3 = x_6 + 0.75 \times (x_7 - x_6) = 6.3 + 0.75 \times (6.4 - 6.3) = 6.375\; \text{t ha}^{-1}$$
+
+### Percentiles
+
+Los percentiles dividen los datos en cien partes iguales, permitiendo identificar la posición relativa de cualquier observación dentro del conjunto de datos (Anderson et al., 2018). Son especialmente útiles para establecer rangos de referencia y realizar comparaciones.
+
+**Percentil 10 (**$P_{10}$):
+
+$$\large\text{Posición de } P_{10} = 0.10 \times (8+1) = 0.9$$
+
+$$P_{10} = x_1 + 0.9 \times (x_2 - x_1) = 5.8 + 0.9 \times (5.9 - 5.8) = 5.890\; \text{t ha}^{-1}$$
+
+**Percentil 90 (**$P_{90}$):
+
+$$\large\text{Posición de } P_{90} = 0.90 \times (8+1) = 8.1$$
+
+Como la posición (8.1) excede el número de datos (8), se utiliza el valor máximo:
+
+$$P_{90} = x_8 = 6.5\; \text{t ha}^{-1}$$
+
+### Interpretación de los Resultados
+
+Los resultados obtenidos proporcionan una descripción completa del comportamiento de los rendimientos de maíz:
+
+1.  **Tendencia central:** El rendimiento promedio es de 6.150 t ha⁻¹, coincidiendo con la mediana, lo que sugiere una distribución simétrica.
+
+2.  **Dispersión:** La variabilidad es baja (CV = 3.98%), indicando homogeneidad en el desempeño productivo.
+
+3.  **Posición relativa:**
+
+    a.  El 25% de las parcelas tienen rendimientos por debajo de 5.925 t ha⁻¹
+    b.  El 75% de las parcelas tienen rendimientos por debajo de 6.375 t ha⁻¹
+    c.  Solo el 10% de las parcelas tienen rendimientos por debajo de 5.890 t ha⁻¹
+
+Esta información es fundamental para la toma de decisiones en el manejo agronómico, permitiendo identificar parcelas de alto y bajo rendimiento, establecer metas productivas y evaluar la efectividad de diferentes prácticas de cultivo.
