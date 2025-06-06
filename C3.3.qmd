@@ -93,7 +93,7 @@ Donde *i* representa la variedad (*i* = 1, 2, 3) y *j* la localidad (*j* = 1, 2,
 Para cada variedad $i$ , se calcula el total de producción de grano mediante:
 
 | Variedad | Notación sumatoria | Cálculo detallado | Total (kg) |
-|:--------------:|:------------------:|:-------------------:|:--------------:|
+|:--:|:--:|:--:|:--:|
 | V1 | $$\large \sum_{i=1}^{n} G_{i1} = G_{.1} $$ | $4500 + 4700 + 4400$ | **13,600** |
 | V2 | $$\large \sum_{i=1}^{n} G_{i2} = G_{.2} $$ | $4200 + 4300 + 4100$ | **12,600** |
 | V3 | $$\large \sum_{i=1}^{n} G_{i3} = G_{.3} $$ | $4800 + 4900 + 4700$ | **14,400** |
@@ -103,7 +103,7 @@ Para cada variedad $i$ , se calcula el total de producción de grano mediante:
 Para cada localidad $j$, se obtiene el total mediante:
 
 | Localidad | Notación sumatoria | Cálculo detallado | Total (kg) |
-|:--------------:|:-------------------:|:------------------:|:--------------:|
+|:--:|:--:|:--:|:--:|
 | L1 | $$\large \sum_{j=1}^{n} G_{1j} = G_{1.} $$ | $4500 + 4200 + 4800$ | **13,500** |
 | L2 | $$\large \sum_{j=1}^{n} G_{2j} = G_{2.} $$ | $4700 + 4300 + 4900$ | **13,900** |
 | L3 | $$\large \sum_{j=1}^{n} G_{3j} = G_{3.} $$ | $4400 + 4100 + 4700$ | **13,200** |

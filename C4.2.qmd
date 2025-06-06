@@ -1,0 +1,167 @@
+# Otros tipos de medias
+
+En el análisis estadístico, la media aritmética es comúnmente utilizada para representar el valor central de un conjunto de datos. Sin embargo, existen otros tipos de medias que resultan más apropiadas en ciertos contextos, especialmente cuando se trabaja con datos agronómicos que presentan características específicas (Steel & Torrie, 1980). Este apartado explora la media ponderada, la media geométrica y la media armónica, destacando sus aplicaciones y relevancia en el campo de la agronomía.
+
+## Media Ponderada
+
+La media ponderada se define como un promedio en el cual cada valor del conjunto de datos recibe un peso que refleja su importancia relativa (Anderson et al., 2018). A diferencia de la media aritmética simple, que asigna igual peso a todos los valores, la media ponderada permite considerar la influencia desigual de cada observación en el resultado final.
+
+**Fórmula:**
+
+$\huge\bar{x}_p = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}$
+
+donde $x_i$​ representa cada valor, $w_i$​ es el peso asignado a ese valor, y $n$ es el número total de observaciones.
+
+**Aplicación en agronomía:**
+
+En el ámbito agronómico, la media ponderada es útil para calcular el rendimiento promedio de un cultivo en parcelas de diferentes tamaños. Por ejemplo, si se tienen cuatro parcelas con las siguientes superficies y rendimientos:
+
+| Parcela | Superficie (ha) | Rendimiento (t ha⁻¹) |
+|---------|-----------------|----------------------|
+| P₁      | 1.5             | 6.2                  |
+| P₂      | 2.0             | 5.8                  |
+| P₃      | 1.0             | 6.5                  |
+| P₄      | 1.5             | 6.0                  |
+
+El rendimiento medio ponderado se calcula como:
+
+$$\begin{aligned}
+\bar{x}_p &= \frac{(1.5)(6.2) + (2.0)(5.8) + (1.0)(6.5) + (1.5)(6.0)}{1.5 + 2.0 + 1.0 + 1.5} \\[4pt]
+          &= \frac{9.3 + 11.6 + 6.5 + 9.0}{6.0} \\[4pt]
+          &= \frac{36.4}{6.0} \\[4pt]
+          &= 6.07\; \text{t ha}^{-1}
+\end{aligned}$$
+
+Este resultado indica que el rendimiento medio ponderado por superficie es de 6.07 t ha⁻¹, lo cual proporciona una estimación más precisa del rendimiento global en comparación con una media aritmética simple.
+
+## Media Geométrica
+
+La media geométrica es un tipo de promedio que se utiliza para calcular tasas de crecimiento o rendimientos relativos (Sokal & Rohlf, 1995). A diferencia de la media aritmética, que suma los valores y divide por el número de observaciones, la media geométrica multiplica los valores y extrae la raíz n-ésima del producto.
+
+**Fórmula:**
+
+$\huge\bar{x}_g = \sqrt[n]{x_1 x_2 \cdots x_n}$
+
+donde $x_i$​ representa cada valor y $n$ es el número total de observaciones.
+
+**Aplicación en agronomía:**
+
+La media geométrica es especialmente útil para calcular el crecimiento promedio de un cultivo a lo largo de varios años. Por ejemplo, si se tienen los siguientes rendimientos de maíz en cuatro años consecutivos:
+
+| Año | Rendimiento (t ha⁻¹) |
+|-----|----------------------|
+| 1   | 5.0                  |
+| 2   | 5.5                  |
+| 3   | 6.0                  |
+| 4   | 6.6                  |
+
+La tasa de crecimiento promedio se calcula como: $$\begin{aligned}
+\bar{x}_g &= \sqrt[4]{5.0 \times 5.5 \times 6.0 \times 6.6} \\[4pt]
+          &= \sqrt[4]{1089.0} \\[4pt]
+          &\approx 5.74\; \text{t ha}^{-1}
+\end{aligned}$$ Este resultado indica que el rendimiento promedio anual, considerando el crecimiento a lo largo de los años, es de aproximadamente 5.74 t ha⁻¹.
+
+## Media Armónica
+
+La media armónica es un tipo de promedio que se utiliza para calcular tasas o razones, especialmente cuando el denominador varía (Montgomery, 2017). A diferencia de la media aritmética, que promedia los valores directamente, la media armónica promedia los inversos de los valores y luego toma el inverso del resultado.
+
+**Fórmula:**
+
+$\huge\bar{x}_a = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}}$
+
+donde $x_i$​ representa cada valor y $n$ es el número total de observaciones.
+
+**Aplicación en agronomía:**
+
+La media armónica es útil para calcular el rendimiento promedio por unidad de tiempo o distancia. Por ejemplo, si se tienen los siguientes rendimientos de un cultivo en diferentes parcelas con distintas áreas:
+
+| Parcela | Área (ha) | Rendimiento (t) | Rendimiento (t/ha) |
+|---------|-----------|-----------------|--------------------|
+| P₁      | 2.0       | 10.0            | 5.00               |
+| P₂      | 2.5       | 12.0            | 4.80               |
+| P₃      | 1.5       | 7.0             | 4.67               |
+| P₄      | 3.0       | 14.0            | 4.67               |
+
+El rendimiento promedio por hectárea se calcula como: $$\begin{aligned}
+\bar{x}_a &= \frac{4}{\frac{1}{5.00} + \frac{1}{4.80} + \frac{1}{4.67} + \frac{1}{4.67}} \\[4pt]
+          &= \frac{4}{0.2 + 0.2083 + 0.2141 + 0.2141} \\[4pt]
+          &= \frac{4}{0.8365} \\[4pt]
+          &\approx 4.78\; \text{t ha}^{-1}
+\end{aligned}$$
+
+Este resultado indica que el rendimiento promedio por hectárea, considerando las diferentes áreas de las parcelas, es de aproximadamente 4.78 t ha⁻¹.
+
+## Análisis Comparativo de los Diferentes Tipos de Medias
+
+A continuación se presenta un análisis comparativo de los cuatro tipos principales de medias utilizadas en estadística descriptiva, empleando como ejemplo los datos de rendimiento de maíz presentados anteriormente (López & González, 2018).
+
+### Datos de Referencia para los Cálculos
+
+Para ilustrar las diferencias entre los tipos de medias, se utilizan los siguientes datos:
+
+1.  **Rendimientos (t ha⁻¹):** 6.2, 5.8, 6.5, 6.0
+
+2.  **Pesos/Superficies (ha):** 1.5, 2.0, 1.0, 1.5
+
+### Fórmulas y Cálculos Detallados
+
+1.  **Media Aritmética** $$\begin{aligned}
+    \bar{x} &= \frac{\sum_{i=1}^{n} x_i}{n} \\[4pt]
+    &= \frac {6.2+5.8+6.5+6.0}{4} \\[4pt]  &= \frac {24.5}{4} \\[4pt]  &=6.125 \text{ t ha}^{-1}
+    \end{aligned}$$
+
+2.  **Media Ponderada** $$\begin{aligned}
+    \bar{x}_p &= \frac{(1.5)(6.2) + (2.0)(5.8) + (1.0)(6.5) + (1.5)(6.0)}{1.5 + 2.0 + 1.0 + 1.5} \\[4pt]
+          &= \frac{9.3 + 11.6 + 6.5 + 9.0}{6.0} \\[4pt]
+          &= \frac{36.4}{6.0} \\[4pt]
+          &= 6.07\; \text{t ha}^{-1}
+    \end{aligned}$$
+
+3.  **Media Geométrica** $$\begin{aligned}
+    \bar{x}_g &= \sqrt[4]{6.2 \times 5.8 \times 6.5 \times 6.0} \\[4pt]
+          &= \sqrt[4]{1406.04} \\[4pt]
+          &\approx 6.12\; \text{t ha}^{-1}
+    \end{aligned}$$
+
+4.  **Media Armónica** $$\begin{aligned}
+    \bar{x}_a &= \frac{4}{\frac{1}{6.2} + \frac{1}{5.8} + \frac{1}{6.5} + \frac{1}{6.0}} \\[4pt]
+          &= \frac{4}{0.1613 + 0.1724 + 0.1538 + 0.1667} \\[4pt]
+          &= \frac{4}{0.6542} \\[4pt]
+          &\approx 6.11\; \text{t ha}^{-1}
+    \end{aligned}$$
+
+### Análisis Comparativo de los Resultados
+
+Los resultados obtenidos muestran diferencias sutiles pero importantes entre los tipos de medias:
+
+1.  **Media Aritmética (6.125 t ha⁻¹):** Proporciona el valor más alto, ya que no considera pesos ni ajustes por la naturaleza de los datos.
+
+2.  **Media Ponderada (6.067 t ha⁻¹):** Presenta el valor más bajo debido a que la parcela con mayor superficie (2.0 ha) tiene el rendimiento más bajo (5.8 t ha⁻¹), lo que reduce el promedio ponderado.
+
+3.  **Media Geométrica (6.120 t ha⁻¹):** Ofrece un valor intermedio, siendo menos sensible a valores extremos que la media aritmética.
+
+4.  **Media Armónica (6.114 t ha⁻¹):** Proporciona un valor ligeramente inferior a la media aritmética, dando mayor peso a los valores menores.
+
+### Cuadro Comparativo 
+
+|  |  |  |  |  |
+|---------------|--------------|---------------|---------------|---------------|
+| **Aspecto** | **Media Aritmética** | **Media Ponderada** | **Media Geométrica** | **Media Armónica** |
+| **Fórmula** | $\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$ | $\bar{x}_p = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}$ | $\bar{x}_g = \sqrt[n]{x_1 x_2 \cdots x_n}$ | $\bar{x}_a = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}}$ |
+| **Resultado (t ha⁻¹)** | 6.125 | 6.067 | 6.120 | 6.114 |
+| **Características** | Suma todos los valores y divide por n. Sensible a valores extremos | Considera la importancia relativa de cada valor mediante pesos | Apropiada para tasas de crecimiento y proporciones. Menos sensible a extremos | Útil para promediar razones y velocidades. Da mayor peso a valores pequeños |
+| **Aplicaciones Agronómicas** | Rendimiento promedio simple, altura promedio de plantas | Rendimiento promedio considerando tamaño de parcelas | Tasa de crecimiento promedio, índices de productividad | Velocidad promedio de aplicación, eficiencia por unidad de tiempo |
+| **Ventajas** | Fácil cálculo e interpretación. Ampliamente conocida | Refleja la importancia real de cada observación | Reduce el efecto de valores extremos. Apropiada para datos multiplicativos | Apropiada cuando se promedian razones. Conservativa con valores bajos |
+| **Desventajas** | Muy sensible a valores atípicos | Requiere definir pesos apropiados | Solo aplicable a valores positivos. Interpretación menos intuitiva | Solo aplicable a valores positivos. Puede ser muy conservadora |
+
+### Recomendaciones para la Selección del Tipo de Media
+
+La elección del tipo de media apropiado depende del contexto específico del análisis (Steel & Torrie, 1980):
+
+1.  **Media Aritmética:** Para análisis descriptivos generales donde todos los valores tienen igual importancia.
+
+2.  **Media Ponderada:** Cuando las observaciones tienen diferente importancia o representan grupos de distinto tamaño.
+
+3.  **Media Geométrica:** Para datos que representan tasas de crecimiento, índices o proporciones.
+
+4.  **Media Armónica:** Para promediar velocidades, tasas con denominador variable o cuando se desea ser conservador con valores bajos.

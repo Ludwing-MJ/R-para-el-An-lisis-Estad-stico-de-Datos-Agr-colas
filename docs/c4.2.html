@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Sumatorias Dobles y Múltiples – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>Otros tipos de medias – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./C4.1.html" rel="next">
-<link href="./C3.2.html" rel="prev">
+<link href="./C5.1.html" rel="next">
+<link href="./C4.1.html" rel="prev">
 <link href="./logo_cete_vector.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -279,7 +279,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C3.3.html"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./c4.2.html"><span class="chapter-title">Otros tipos de medias</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -355,7 +355,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.3.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a>
+  <a href="./C3.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -369,7 +369,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Otros tipos de medias</span></a>
+  <a href="./c4.2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Otros tipos de medias</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -455,17 +455,16 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#propiedades-básicas-de-las-sumatorias-dobles" id="toc-propiedades-básicas-de-las-sumatorias-dobles" class="nav-link active" data-scroll-target="#propiedades-básicas-de-las-sumatorias-dobles">Propiedades básicas de las sumatorias dobles</a>
+  <li><a href="#media-ponderada" id="toc-media-ponderada" class="nav-link active" data-scroll-target="#media-ponderada">Media Ponderada</a></li>
+  <li><a href="#media-geométrica" id="toc-media-geométrica" class="nav-link" data-scroll-target="#media-geométrica">Media Geométrica</a></li>
+  <li><a href="#media-armónica" id="toc-media-armónica" class="nav-link" data-scroll-target="#media-armónica">Media Armónica</a></li>
+  <li><a href="#cuadro-comparativo-de-los-diferentes-tipos-de-medias" id="toc-cuadro-comparativo-de-los-diferentes-tipos-de-medias" class="nav-link" data-scroll-target="#cuadro-comparativo-de-los-diferentes-tipos-de-medias">Cuadro Comparativo de los Diferentes Tipos de Medias</a>
   <ul class="collapse">
-  <li><a href="#propiedad-del-factor-constante" id="toc-propiedad-del-factor-constante" class="nav-link" data-scroll-target="#propiedad-del-factor-constante">Propiedad del factor constante</a></li>
-  <li><a href="#propiedad-de-linealidad-aditividad" id="toc-propiedad-de-linealidad-aditividad" class="nav-link" data-scroll-target="#propiedad-de-linealidad-aditividad">Propiedad de linealidad (aditividad)</a></li>
-  <li><a href="#propiedad-de-descomposición-en-sumas-parciales" id="toc-propiedad-de-descomposición-en-sumas-parciales" class="nav-link" data-scroll-target="#propiedad-de-descomposición-en-sumas-parciales">Propiedad de descomposición en sumas parciales</a></li>
-  </ul></li>
-  <li><a href="#aplicaciones-en-estadística-agrícola" id="toc-aplicaciones-en-estadística-agrícola" class="nav-link" data-scroll-target="#aplicaciones-en-estadística-agrícola">Aplicaciones en Estadística Agrícola</a>
-  <ul class="collapse">
-  <li><a href="#planteamiento-del-problema" id="toc-planteamiento-del-problema" class="nav-link" data-scroll-target="#planteamiento-del-problema">Planteamiento del problema</a></li>
-  <li><a href="#análisis-paso-a-paso-de-la-producción-de-grano" id="toc-análisis-paso-a-paso-de-la-producción-de-grano" class="nav-link" data-scroll-target="#análisis-paso-a-paso-de-la-producción-de-grano">Análisis paso a paso de la producción de grano</a></li>
-  <li><a href="#aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3" id="toc-aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3" class="nav-link" data-scroll-target="#aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3">Aplicación de la propiedad de linealidad: Cálculo de biomasa total para la variedad 3</a></li>
+  <li><a href="#datos-de-referencia-para-los-cálculos" id="toc-datos-de-referencia-para-los-cálculos" class="nav-link" data-scroll-target="#datos-de-referencia-para-los-cálculos">Datos de Referencia para los Cálculos</a></li>
+  <li><a href="#fórmulas-y-cálculos-detallados" id="toc-fórmulas-y-cálculos-detallados" class="nav-link" data-scroll-target="#fórmulas-y-cálculos-detallados">Fórmulas y Cálculos Detallados</a></li>
+  <li><a href="#análisis-comparativo-de-los-resultados" id="toc-análisis-comparativo-de-los-resultados" class="nav-link" data-scroll-target="#análisis-comparativo-de-los-resultados">Análisis Comparativo de los Resultados</a></li>
+  <li><a href="#cuadro-comparativo" id="toc-cuadro-comparativo" class="nav-link" data-scroll-target="#cuadro-comparativo">Cuadro Comparativo</a></li>
+  <li><a href="#recomendaciones-para-la-selección-del-tipo-de-media" id="toc-recomendaciones-para-la-selección-del-tipo-de-media" class="nav-link" data-scroll-target="#recomendaciones-para-la-selección-del-tipo-de-media">Recomendaciones para la Selección del Tipo de Media</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -476,7 +475,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></h1>
+<h1 class="title"><span class="chapter-title">Otros tipos de medias</span></h1>
 </div>
 
 
@@ -493,262 +492,266 @@ window.Quarto = {
 </header>
 
 
-<p>La notación sumatoria puede extenderse para representar sumas sobre dos o más índices, lo que resulta útil en el análisis de datos organizados en tablas o matrices, como ocurre frecuentemente en experimentos agrícolas con varios tratamientos y repeticiones (López &amp; González, 2018). La sumatoria doble se expresa de la siguiente manera: <span class="math display">\[\huge\sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij}\]</span></p>
-<p>En esta expresión, <span class="math inline">\(x_{ij}\)</span>​ representa el elemento ubicado en la fila <span class="math inline">\(i\)</span> y la columna <span class="math inline">\(j\)</span> de una matriz de datos. El primer índice (<span class="math inline">\(i\)</span>) recorre las filas y el segundo (<span class="math inline">\(j\)</span>) las columnas. Este tipo de sumatoria es fundamental para calcular totales generales, promedios por tratamiento o por repetición, y para el análisis de varianza en diseños experimentales.</p>
-<p>Cuando los datos se organizan en más dimensiones (por ejemplo, en matrices, cubos o hipercubos) la notación sumatoria se extiende añadiendo un índice por dimensión (Wackerly et al., 2014).</p>
-<p><strong>Sumatoria triple</strong> (o múltiple) sobre un arreglo de orden 3:</p>
-<p><span class="math inline">\(\Huge\sum_{i=1}^{n}\sum_{j=1}^{m}\sum_{k=1}^{p} x_{ijk}\)</span></p>
-<p>Para sumas finitas, el orden de los signos sigma es intercambiable, debido a la conmutatividad y asociatividad de la adición (Montgomery, 2017). Para los fines del curso solamente se profundizará en las sumatorias dobles.</p>
-<section id="propiedades-básicas-de-las-sumatorias-dobles" class="level2">
-<h2 class="anchored" data-anchor-id="propiedades-básicas-de-las-sumatorias-dobles">Propiedades básicas de las sumatorias dobles</h2>
-<p>Las sumatorias dobles conservan las propiedades fundamentales de las sumatorias simples, pero su aplicación requiere consideraciones adicionales debido a la presencia de múltiples índices. Estas propiedades son esenciales para la manipulación algebraica de expresiones estadísticas en el análisis de datos multidimensionales (Wackerly et al., 2014).</p>
-<section id="propiedad-del-factor-constante" class="level3">
-<h3 class="anchored" data-anchor-id="propiedad-del-factor-constante">Propiedad del factor constante</h3>
-<p>Cuando una constante <span class="math inline">\(c\)</span> multiplica a cada término de una sumatoria doble, esta constante puede factorizarse fuera de ambos signos de sumatoria. Esta propiedad se deriva directamente de la distributividad de la multiplicación sobre la adición (Ross, 2014).</p>
-<p><strong>Enunciado formal:</strong></p>
-<p><span class="math inline">\(\huge \sum_{i=1}^{n}\sum_{j=1}^{m} c\,x_{ij}=c\sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij}\)</span></p>
-<p><strong>Demostración:</strong></p>
-<p>La demostración se basa en la aplicación repetida de la propiedad del factor constante para sumatorias simples:</p>
-<p><span class="math inline">\(\Large \sum_{i=1}^{n}\sum_{j=1}^{m} c\,x_{ij} = \sum_{i=1}^{n}\left(c\sum_{j=1}^{m} x_{ij}\right) = c\sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij}\)</span></p>
-<p><strong>Aplicación en estadística agrícola:</strong></p>
-<p>Esta propiedad resulta fundamental cuando se requiere convertir unidades de medida. Por ejemplo, si los rendimientos están expresados en kg/ha y se desea convertirlos a t/ha, se multiplica por la constante <span class="math inline">\(c=0.001\)</span>:</p>
-<p><span class="math inline">\(\Large \sum_{i=1}^{n}\sum_{j=1}^{m} 0.001 \cdot x_{ij} = 0.001 \sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij}\)</span></p>
+<p>En el análisis estadístico, la media aritmética es comúnmente utilizada para representar el valor central de un conjunto de datos. Sin embargo, existen otros tipos de medias que resultan más apropiadas en ciertos contextos, especialmente cuando se trabaja con datos agronómicos que presentan características específicas (Steel &amp; Torrie, 1980). Este apartado explora la media ponderada, la media geométrica y la media armónica, destacando sus aplicaciones y relevancia en el campo de la agronomía.</p>
+<section id="media-ponderada" class="level2">
+<h2 class="anchored" data-anchor-id="media-ponderada">Media Ponderada</h2>
+<p>La media ponderada se define como un promedio en el cual cada valor del conjunto de datos recibe un peso que refleja su importancia relativa (Anderson et al., 2018). A diferencia de la media aritmética simple, que asigna igual peso a todos los valores, la media ponderada permite considerar la influencia desigual de cada observación en el resultado final.</p>
+<p><strong>Fórmula:</strong></p>
+<p><span class="math inline">\(\huge\bar{x}_p = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}\)</span></p>
+<p>donde <span class="math inline">\(x_i\)</span>​ representa cada valor, <span class="math inline">\(w_i\)</span>​ es el peso asignado a ese valor, y <span class="math inline">\(n\)</span> es el número total de observaciones.</p>
+<p><strong>Aplicación en agronomía:</strong></p>
+<p>En el ámbito agronómico, la media ponderada es útil para calcular el rendimiento promedio de un cultivo en parcelas de diferentes tamaños. Por ejemplo, si se tienen cuatro parcelas con las siguientes superficies y rendimientos:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Parcela</th>
+<th>Superficie (ha)</th>
+<th>Rendimiento (t ha⁻¹)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P₁</td>
+<td>1.5</td>
+<td>6.2</td>
+</tr>
+<tr class="even">
+<td>P₂</td>
+<td>2.0</td>
+<td>5.8</td>
+</tr>
+<tr class="odd">
+<td>P₃</td>
+<td>1.0</td>
+<td>6.5</td>
+</tr>
+<tr class="even">
+<td>P₄</td>
+<td>1.5</td>
+<td>6.0</td>
+</tr>
+</tbody>
+</table>
+<p>El rendimiento medio ponderado se calcula como:</p>
+<p><span class="math display">\[\begin{aligned}
+\bar{x}_p &amp;= \frac{(1.5)(6.2) + (2.0)(5.8) + (1.0)(6.5) + (1.5)(6.0)}{1.5 + 2.0 + 1.0 + 1.5} \\[4pt]
+          &amp;= \frac{9.3 + 11.6 + 6.5 + 9.0}{6.0} \\[4pt]
+          &amp;= \frac{36.4}{6.0} \\[4pt]
+          &amp;= 6.07\; \text{t ha}^{-1}
+\end{aligned}\]</span></p>
+<p>Este resultado indica que el rendimiento medio ponderado por superficie es de 6.07 t ha⁻¹, lo cual proporciona una estimación más precisa del rendimiento global en comparación con una media aritmética simple.</p>
 </section>
-<section id="propiedad-de-linealidad-aditividad" class="level3">
-<h3 class="anchored" data-anchor-id="propiedad-de-linealidad-aditividad">Propiedad de linealidad (aditividad)</h3>
-<p>La sumatoria doble de una suma de términos es igual a la suma de las sumatorias dobles de cada término por separado. Esta propiedad refleja la linealidad inherente del operador suma y es fundamental en el desarrollo de fórmulas estadísticas complejas (Montgomery, 2017).</p>
-<p><strong>Enunciado formal:</strong></p>
-<p><span class="math inline">\(\Large \sum_{i=1}^{n}\sum_{j=1}^{m}\bigl(x_{ij}+y_{ij}\bigr) = \sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij} + \sum_{i=1}^{n}\sum_{j=1}^{m} y_{ij}\)</span></p>
+<section id="media-geométrica" class="level2">
+<h2 class="anchored" data-anchor-id="media-geométrica">Media Geométrica</h2>
+<p>La media geométrica es un tipo de promedio que se utiliza para calcular tasas de crecimiento o rendimientos relativos (Sokal &amp; Rohlf, 1995). A diferencia de la media aritmética, que suma los valores y divide por el número de observaciones, la media geométrica multiplica los valores y extrae la raíz n-ésima del producto.</p>
+<p><strong>Fórmula:</strong></p>
+<p><span class="math inline">\(\huge\bar{x}_g = \sqrt[n]{x_1 x_2 \cdots x_n}\)</span></p>
+<p>donde <span class="math inline">\(x_i\)</span>​ representa cada valor y <span class="math inline">\(n\)</span> es el número total de observaciones.</p>
+<p><strong>Aplicación en agronomía:</strong></p>
+<p>La media geométrica es especialmente útil para calcular el crecimiento promedio de un cultivo a lo largo de varios años. Por ejemplo, si se tienen los siguientes rendimientos de maíz en cuatro años consecutivos:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Año</th>
+<th>Rendimiento (t ha⁻¹)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>5.0</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>5.5</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>6.0</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>6.6</td>
+</tr>
+</tbody>
+</table>
+<p>La tasa de crecimiento promedio se calcula como: <span class="math display">\[\begin{aligned}
+\bar{x}_g &amp;= \sqrt[4]{5.0 \times 5.5 \times 6.0 \times 6.6} \\[4pt]
+          &amp;= \sqrt[4]{1089.0} \\[4pt]
+          &amp;\approx 5.74\; \text{t ha}^{-1}
+\end{aligned}\]</span> Este resultado indica que el rendimiento promedio anual, considerando el crecimiento a lo largo de los años, es de aproximadamente 5.74 t ha⁻¹.</p>
 </section>
-<section id="propiedad-de-descomposición-en-sumas-parciales" class="level3">
-<h3 class="anchored" data-anchor-id="propiedad-de-descomposición-en-sumas-parciales">Propiedad de descomposición en sumas parciales</h3>
-<p>Esta propiedad establece que una sumatoria doble puede descomponerse en una sumatoria simple de sumatorias simples, lo que facilita el cálculo de totales por filas, columnas o grupos específicos. La conmutatividad de la adición garantiza que el orden de evaluación no afecte el resultado final (Hogg et al., 2019).</p>
-<p><strong>Enunciado formal:</strong></p>
-<p><span class="math inline">\(\Large \sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij} = \sum_{i=1}^{n}\left(\sum_{j=1}^{m} x_{ij}\right) = \sum_{j=1}^{m}\left(\sum_{i=1}^{n} x_{ij}\right)\)</span></p>
-<p><strong>Interpretación estadística:</strong></p>
+<section id="media-armónica" class="level2">
+<h2 class="anchored" data-anchor-id="media-armónica">Media Armónica</h2>
+<p>La media armónica es un tipo de promedio que se utiliza para calcular tasas o razones, especialmente cuando el denominador varía (Montgomery, 2017). A diferencia de la media aritmética, que promedia los valores directamente, la media armónica promedia los inversos de los valores y luego toma el inverso del resultado.</p>
+<p><strong>Fórmula:</strong></p>
+<p><span class="math inline">\(\huge\bar{x}_a = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}}\)</span></p>
+<p>donde <span class="math inline">\(x_i\)</span>​ representa cada valor y <span class="math inline">\(n\)</span> es el número total de observaciones.</p>
+<p><strong>Aplicación en agronomía:</strong></p>
+<p>La media armónica es útil para calcular el rendimiento promedio por unidad de tiempo o distancia. Por ejemplo, si se tienen los siguientes rendimientos de un cultivo en diferentes parcelas con distintas áreas:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Parcela</th>
+<th>Área (ha)</th>
+<th>Rendimiento (t)</th>
+<th>Rendimiento (t/ha)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>P₁</td>
+<td>2.0</td>
+<td>10.0</td>
+<td>5.00</td>
+</tr>
+<tr class="even">
+<td>P₂</td>
+<td>2.5</td>
+<td>12.0</td>
+<td>4.80</td>
+</tr>
+<tr class="odd">
+<td>P₃</td>
+<td>1.5</td>
+<td>7.0</td>
+<td>4.67</td>
+</tr>
+<tr class="even">
+<td>P₄</td>
+<td>3.0</td>
+<td>14.0</td>
+<td>4.67</td>
+</tr>
+</tbody>
+</table>
+<p>El rendimiento promedio por hectárea se calcula como: <span class="math display">\[\begin{aligned}
+\bar{x}_a &amp;= \frac{4}{\frac{1}{5.00} + \frac{1}{4.80} + \frac{1}{4.67} + \frac{1}{4.67}} \\[4pt]
+          &amp;= \frac{4}{0.2 + 0.2083 + 0.2141 + 0.2141} \\[4pt]
+          &amp;= \frac{4}{0.8365} \\[4pt]
+          &amp;\approx 4.78\; \text{t ha}^{-1}
+\end{aligned}\]</span></p>
+<p>Este resultado indica que el rendimiento promedio por hectárea, considerando las diferentes áreas de las parcelas, es de aproximadamente 4.78 t ha⁻¹.</p>
+</section>
+<section id="cuadro-comparativo-de-los-diferentes-tipos-de-medias" class="level2">
+<h2 class="anchored" data-anchor-id="cuadro-comparativo-de-los-diferentes-tipos-de-medias">Cuadro Comparativo de los Diferentes Tipos de Medias</h2>
+<p>A continuación se presenta un análisis comparativo de los cuatro tipos principales de medias utilizadas en estadística descriptiva, empleando como ejemplo los datos de rendimiento de maíz presentados anteriormente (López &amp; González, 2018).</p>
+<section id="datos-de-referencia-para-los-cálculos" class="level3">
+<h3 class="anchored" data-anchor-id="datos-de-referencia-para-los-cálculos">Datos de Referencia para los Cálculos</h3>
+<p>Para ilustrar las diferencias entre los tipos de medias, se utilizan los siguientes datos:</p>
 <ol type="1">
-<li><p><span class="math inline">\(\sum_{j=1}^{m} x_{ij}\)</span>​ representa el total de la fila <span class="math inline">\(i\)</span></p></li>
-<li><p><span class="math inline">\(\sum_{i=1}^{n} x_{ij}\)</span>​ representa el total de la columna <span class="math inline">\(j\)</span></p></li>
-<li><p>La suma total puede calcularse como la suma de totales por filas o por columnas</p></li>
+<li><p><strong>Rendimientos (t ha⁻¹):</strong> 6.2, 5.8, 6.5, 6.0</p></li>
+<li><p><strong>Pesos/Superficies (ha):</strong> 1.5, 2.0, 1.0, 1.5</p></li>
 </ol>
 </section>
-</section>
-<section id="aplicaciones-en-estadística-agrícola" class="level2">
-<h2 class="anchored" data-anchor-id="aplicaciones-en-estadística-agrícola">Aplicaciones en Estadística Agrícola</h2>
-<p>Para ilustrar la aplicación práctica de las sumatorias dobles, se presenta un ejemplo donde se analiza el rendimiento de tres variedades de maíz en tres localidades diferentes, diferenciando entre producción de grano y producción de rastrojo.</p>
-<section id="planteamiento-del-problema" class="level3">
-<h3 class="anchored" data-anchor-id="planteamiento-del-problema">Planteamiento del problema</h3>
-<p>Un investigador evalúa tres variedades de maíz (V1, V2, V3) en tres localidades (L1, L2, L3), registrando tanto la producción de grano como la de rastrojo en kilogramos por parcela. Los datos se organizan en dos matrices de 3×3:</p>
-<p><strong>Matriz de producción de grano</strong> <strong>(</strong><span class="math inline">\(G_{ij}\)</span><strong>):</strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th style="text-align: center;">L1</th>
-<th style="text-align: center;">L2</th>
-<th style="text-align: center;">L3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>V1</strong></td>
-<td style="text-align: center;">4500</td>
-<td style="text-align: center;">4700</td>
-<td style="text-align: center;">4400</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>V2</strong></td>
-<td style="text-align: center;">4200</td>
-<td style="text-align: center;">4300</td>
-<td style="text-align: center;">4100</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>V3</strong></td>
-<td style="text-align: center;">4800</td>
-<td style="text-align: center;">4900</td>
-<td style="text-align: center;">4700</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Matriz de producción de rastrojo (</strong><span class="math inline">\(R_{ij}\)</span><strong>):</strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;"></th>
-<th style="text-align: center;">L1</th>
-<th style="text-align: center;">L2</th>
-<th style="text-align: center;">L3</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><strong>V1</strong></td>
-<td style="text-align: center;">3000</td>
-<td style="text-align: center;">3200</td>
-<td style="text-align: center;">3100</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><strong>V2</strong></td>
-<td style="text-align: center;">2800</td>
-<td style="text-align: center;">2900</td>
-<td style="text-align: center;">2700</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><strong>V3</strong></td>
-<td style="text-align: center;">3500</td>
-<td style="text-align: center;">3600</td>
-<td style="text-align: center;">3400</td>
-</tr>
-</tbody>
-</table>
-<p>Donde <em>i</em> representa la variedad (<em>i</em> = 1, 2, 3) y <em>j</em> la localidad (<em>j</em> = 1, 2, 3).</p>
-</section>
-<section id="análisis-paso-a-paso-de-la-producción-de-grano" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-paso-a-paso-de-la-producción-de-grano">Análisis paso a paso de la producción de grano</h3>
-<p><strong>Cálculo de totales por variedad (sumas por filas)</strong></p>
-<p>Para cada variedad <span class="math inline">\(i\)</span> , se calcula el total de producción de grano mediante:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Variedad</th>
-<th style="text-align: center;">Notación sumatoria</th>
-<th style="text-align: center;">Cálculo detallado</th>
-<th style="text-align: center;">Total (kg)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">V1</td>
-<td style="text-align: center;"><span class="math display">\[\large \sum_{i=1}^{n} G_{i1} = G_{.1} \]</span></td>
-<td style="text-align: center;"><span class="math inline">\(4500 + 4700 + 4400\)</span></td>
-<td style="text-align: center;"><strong>13,600</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">V2</td>
-<td style="text-align: center;"><span class="math display">\[\large \sum_{i=1}^{n} G_{i2} = G_{.2} \]</span></td>
-<td style="text-align: center;"><span class="math inline">\(4200 + 4300 + 4100\)</span></td>
-<td style="text-align: center;"><strong>12,600</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">V3</td>
-<td style="text-align: center;"><span class="math display">\[\large \sum_{i=1}^{n} G_{i3} = G_{.3} \]</span></td>
-<td style="text-align: center;"><span class="math inline">\(4800 + 4900 + 4700\)</span></td>
-<td style="text-align: center;"><strong>14,400</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Cálculo de totales por localidad (sumas por columnas)</strong></p>
-<p>Para cada localidad <span class="math inline">\(j\)</span>, se obtiene el total mediante:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Localidad</th>
-<th style="text-align: center;">Notación sumatoria</th>
-<th style="text-align: center;">Cálculo detallado</th>
-<th style="text-align: center;">Total (kg)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">L1</td>
-<td style="text-align: center;"><span class="math display">\[\large \sum_{j=1}^{n} G_{1j} = G_{1.} \]</span></td>
-<td style="text-align: center;"><span class="math inline">\(4500 + 4200 + 4800\)</span></td>
-<td style="text-align: center;"><strong>13,500</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">L2</td>
-<td style="text-align: center;"><span class="math display">\[\large \sum_{j=1}^{n} G_{2j} = G_{2.} \]</span></td>
-<td style="text-align: center;"><span class="math inline">\(4700 + 4300 + 4900\)</span></td>
-<td style="text-align: center;"><strong>13,900</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">L3</td>
-<td style="text-align: center;"><span class="math display">\[\large \sum_{j=1}^{n} G_{3j} = G_{3.} \]</span></td>
-<td style="text-align: center;"><span class="math inline">\(4400 + 4100 + 4700\)</span></td>
-<td style="text-align: center;"><strong>13,200</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Demostración de la equivalencia de métodos de cálculo para el total de producción de grano</strong></p>
-<p>La suma total de producción de grano puede obtenerse mediante tres métodos equivalentes:</p>
-<p><strong>Método 1: Suma directa de todos los elementos</strong></p>
-<p><span class="math inline">\(\sum_{i=1}^{3} \sum_{j=1}^{3} G_{ij} = 4500 + 4700 + 4400 + 4200 + 4300 + 4100 + 4800 + 4900 + 4700 = 40,600 \text{ kg}\)</span></p>
-<p><strong>Método 2: Suma de totales por variedad</strong></p>
-<p><span class="math inline">\(\Large \sum_{i=1}^{3} \sum_{j=1}^{3} G_{ij} = G_{..} = 13,600 + 12,600 + 14,400 = 40,600 \text{ kg}\)</span></p>
-<p><strong>Método 3: Suma de totales por localidad</strong></p>
-<p><span class="math inline">\(\Large \sum_{i=1}^{3} \sum_{j=1}^{3} G_{ij} = G_{..} = 13,500 + 13,900 + 13,200 = 40,600 \text{ kg}\)</span></p>
-<p>Esta equivalencia demuestra la propiedad de descomposición en sumas parciales y confirma la consistencia de los cálculos.</p>
-</section>
-<section id="aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3" class="level3">
-<h3 class="anchored" data-anchor-id="aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3">Aplicación de la propiedad de linealidad: Cálculo de biomasa total para la variedad 3</h3>
-<p>Para ilustrar la propiedad de linealidad, se calcula la biomasa total de la variedad 3 (V3), definida como la suma de producción de grano y rastrojo.</p>
-<p><strong>Datos para la variedad 3:</strong></p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 15%">
-<col style="width: 25%">
-<col style="width: 30%">
-<col style="width: 28%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Localidad</th>
-<th style="text-align: center;">Grano (<span class="math inline">\(G_{3j}\)</span>)</th>
-<th style="text-align: center;">Rastrojo (<span class="math inline">\(R_{3j}\)</span>)</th>
-<th style="text-align: center;">Biomasa (<span class="math inline">\(B_{3j}\)</span>)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">L1</td>
-<td style="text-align: center;">4,800</td>
-<td style="text-align: center;">3,500</td>
-<td style="text-align: center;">8,300</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">L2</td>
-<td style="text-align: center;">4,900</td>
-<td style="text-align: center;">3,600</td>
-<td style="text-align: center;">8,500</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">L3</td>
-<td style="text-align: center;">4,700</td>
-<td style="text-align: center;">3,400</td>
-<td style="text-align: center;">8,100</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Planteamiento con notación sumatoria</strong></p>
-<p>La biomasa total de la variedad 3 se expresa como:</p>
-<p><span class="math inline">\(\Large \sum_{j=1}^{3} B_{3j} = \sum_{j=1}^{3} (G_{3j} + R_{3j})\)</span></p>
-<p><strong>Aplicación de la propiedad de linealidad</strong></p>
-<p>Utilizando la propiedad de linealidad de las sumatorias:</p>
-<p><span class="math inline">\(\Large \sum_{j=1}^{3} (G_{3j} + R_{3j}) = \sum_{j=1}^{3} G_{3j} + \sum_{j=1}^{3} R_{3j}\)</span></p>
-<p><strong>Cálculos detallados</strong></p>
+<section id="fórmulas-y-cálculos-detallados" class="level3">
+<h3 class="anchored" data-anchor-id="fórmulas-y-cálculos-detallados">Fórmulas y Cálculos Detallados</h3>
 <ol type="1">
-<li><p>Suma de producción de grano para V3:</p>
-<p><span class="math inline">\(\Large \sum_{j=1}^{3} G_{3j} = 4,800 + 4,900 + 4,700 = 14,400 \text{ kg}\)</span></p></li>
-<li><p>Suma de producción de rastrojo para V3:</p>
-<p><span class="math inline">\(\Large \sum_{j=1}^{3} R_{3j} = 3,500 + 3,600 + 3,400 = 10,500 \text{ kg}\)</span></p></li>
-<li><p>Biomasa total para V3:</p>
-<p><span class="math inline">\(\large \sum_{j=1}^{3} B_{3j} = \sum_{j=1}^{3} G_{3j} + \sum_{j=1}^{3} R_{3j} = 14,400 + 10,500 = 24,900 \text{ kg}\)</span></p></li>
-<li><p>Verificación mediante suma directa</p>
-<p><span class="math inline">\(\Large \sum_{j=1}^{3} B_{3j} = 8,300 + 8,500 + 8,100 = 24,900 \text{ kg}\)</span></p></li>
+<li><p><strong>Media Aritmética</strong> <span class="math display">\[\begin{aligned}
+\bar{x} &amp;= \frac{\sum_{i=1}^{n} x_i}{n} \\[4pt]
+&amp;= \frac {6.2+5.8+6.5+6.0}{4} \\[4pt]  &amp;= \frac {24.5}{4} \\[4pt]  &amp;=6.125 \text{ t ha}^{-1}
+\end{aligned}\]</span></p></li>
+<li><p><strong>Media Ponderada</strong> <span class="math display">\[\begin{aligned}
+\bar{x}_p &amp;= \frac{(1.5)(6.2) + (2.0)(5.8) + (1.0)(6.5) + (1.5)(6.0)}{1.5 + 2.0 + 1.0 + 1.5} \\[4pt]
+      &amp;= \frac{9.3 + 11.6 + 6.5 + 9.0}{6.0} \\[4pt]
+      &amp;= \frac{36.4}{6.0} \\[4pt]
+      &amp;= 6.07\; \text{t ha}^{-1}
+\end{aligned}\]</span></p></li>
+<li><p><strong>Media Geométrica</strong> <span class="math display">\[\begin{aligned}
+\bar{x}_g &amp;= \sqrt[4]{6.2 \times 5.8 \times 6.5 \times 6.0} \\[4pt]
+      &amp;= \sqrt[4]{1406.04} \\[4pt]
+      &amp;\approx 6.12\; \text{t ha}^{-1}
+\end{aligned}\]</span></p></li>
+<li><p><strong>Media Armónica</strong> <span class="math display">\[\begin{aligned}
+\bar{x}_a &amp;= \frac{4}{\frac{1}{6.2} + \frac{1}{5.8} + \frac{1}{6.5} + \frac{1}{6.0}} \\[4pt]
+      &amp;= \frac{4}{0.1613 + 0.1724 + 0.1538 + 0.1667} \\[4pt]
+      &amp;= \frac{4}{0.6542} \\[4pt]
+      &amp;\approx 6.11\; \text{t ha}^{-1}
+\end{aligned}\]</span></p></li>
 </ol>
-<p>La coincidencia de resultados confirma la validez de la propiedad de linealidad.</p>
+</section>
+<section id="análisis-comparativo-de-los-resultados" class="level3">
+<h3 class="anchored" data-anchor-id="análisis-comparativo-de-los-resultados">Análisis Comparativo de los Resultados</h3>
+<p>Los resultados obtenidos muestran diferencias sutiles pero importantes entre los tipos de medias:</p>
+<ol type="1">
+<li><p><strong>Media Aritmética (6.125 t ha⁻¹):</strong> Proporciona el valor más alto, ya que no considera pesos ni ajustes por la naturaleza de los datos.</p></li>
+<li><p><strong>Media Ponderada (6.067 t ha⁻¹):</strong> Presenta el valor más bajo debido a que la parcela con mayor superficie (2.0 ha) tiene el rendimiento más bajo (5.8 t ha⁻¹), lo que reduce el promedio ponderado.</p></li>
+<li><p><strong>Media Geométrica (6.120 t ha⁻¹):</strong> Ofrece un valor intermedio, siendo menos sensible a valores extremos que la media aritmética.</p></li>
+<li><p><strong>Media Armónica (6.114 t ha⁻¹):</strong> Proporciona un valor ligeramente inferior a la media aritmética, dando mayor peso a los valores menores.</p></li>
+</ol>
+</section>
+<section id="cuadro-comparativo" class="level3">
+<h3 class="anchored" data-anchor-id="cuadro-comparativo">Cuadro Comparativo</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 18%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Aspecto</strong></td>
+<td><strong>Media Aritmética</strong></td>
+<td><strong>Media Ponderada</strong></td>
+<td><strong>Media Geométrica</strong></td>
+<td><strong>Media Armónica</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Fórmula</strong></td>
+<td><span class="math inline">\(\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}\)</span></td>
+<td><span class="math inline">\(\bar{x}_p = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}\)</span></td>
+<td><span class="math inline">\(\bar{x}_g = \sqrt[n]{x_1 x_2 \cdots x_n}\)</span></td>
+<td><span class="math inline">\(\bar{x}_a = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}}\)</span></td>
+</tr>
+<tr class="odd">
+<td><strong>Resultado (t ha⁻¹)</strong></td>
+<td>6.125</td>
+<td>6.067</td>
+<td>6.120</td>
+<td>6.114</td>
+</tr>
+<tr class="even">
+<td><strong>Características</strong></td>
+<td>Suma todos los valores y divide por n.&nbsp;Sensible a valores extremos</td>
+<td>Considera la importancia relativa de cada valor mediante pesos</td>
+<td>Apropiada para tasas de crecimiento y proporciones. Menos sensible a extremos</td>
+<td>Útil para promediar razones y velocidades. Da mayor peso a valores pequeños</td>
+</tr>
+<tr class="odd">
+<td><strong>Aplicaciones Agronómicas</strong></td>
+<td>Rendimiento promedio simple, altura promedio de plantas</td>
+<td>Rendimiento promedio considerando tamaño de parcelas</td>
+<td>Tasa de crecimiento promedio, índices de productividad</td>
+<td>Velocidad promedio de aplicación, eficiencia por unidad de tiempo</td>
+</tr>
+<tr class="even">
+<td><strong>Ventajas</strong></td>
+<td>Fácil cálculo e interpretación. Ampliamente conocida</td>
+<td>Refleja la importancia real de cada observación</td>
+<td>Reduce el efecto de valores extremos. Apropiada para datos multiplicativos</td>
+<td>Apropiada cuando se promedian razones. Conservativa con valores bajos</td>
+</tr>
+<tr class="odd">
+<td><strong>Desventajas</strong></td>
+<td>Muy sensible a valores atípicos</td>
+<td>Requiere definir pesos apropiados</td>
+<td>Solo aplicable a valores positivos. Interpretación menos intuitiva</td>
+<td>Solo aplicable a valores positivos. Puede ser muy conservadora</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="recomendaciones-para-la-selección-del-tipo-de-media" class="level3">
+<h3 class="anchored" data-anchor-id="recomendaciones-para-la-selección-del-tipo-de-media">Recomendaciones para la Selección del Tipo de Media</h3>
+<p>La elección del tipo de media apropiado depende del contexto específico del análisis (Steel &amp; Torrie, 1980):</p>
+<ol type="1">
+<li><p><strong>Media Aritmética:</strong> Para análisis descriptivos generales donde todos los valores tienen igual importancia.</p></li>
+<li><p><strong>Media Ponderada:</strong> Cuando las observaciones tienen diferente importancia o representan grupos de distinto tamaño.</p></li>
+<li><p><strong>Media Geométrica:</strong> Para datos que representan tasas de crecimiento, índices o proporciones.</p></li>
+<li><p><strong>Media Armónica:</strong> Para promediar velocidades, tasas con denominador variable o cuando se desea ser conservador con valores bajos.</p></li>
+</ol>
 
 
 </section>
@@ -1176,13 +1179,13 @@ window.Quarto = {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./C3.2.html" class="pagination-link" aria-label="Ejemplo Aplicado Sumatoria Simple">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></span>
+      <a href="./C4.1.html" class="pagination-link" aria-label="Estadística descriptiva para datos sin agrupar">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./C4.1.html" class="pagination-link" aria-label="Estadística descriptiva para datos sin agrupar">
-        <span class="nav-page-text"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./C5.1.html" class="pagination-link" aria-label="Estadística descriptiva para datos agrupados">
+        <span class="nav-page-text"><span class="chapter-title">Estadística descriptiva para datos agrupados</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
