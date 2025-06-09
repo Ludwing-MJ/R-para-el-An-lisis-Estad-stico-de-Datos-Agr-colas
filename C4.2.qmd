@@ -142,10 +142,10 @@ Los resultados obtenidos muestran diferencias sutiles pero importantes entre los
 
 4.  **Media Armónica (6.114 t ha⁻¹):** Proporciona un valor ligeramente inferior a la media aritmética, dando mayor peso a los valores menores.
 
-### Cuadro Comparativo 
+### Cuadro Comparativo
 
 |  |  |  |  |  |
-|---------------|--------------|---------------|---------------|---------------|
+|----|----|----|----|----|
 | **Aspecto** | **Media Aritmética** | **Media Ponderada** | **Media Geométrica** | **Media Armónica** |
 | **Fórmula** | $\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$ | $\bar{x}_p = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}$ | $\bar{x}_g = \sqrt[n]{x_1 x_2 \cdots x_n}$ | $\bar{x}_a = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}}$ |
 | **Resultado (t ha⁻¹)** | 6.125 | 6.067 | 6.120 | 6.114 |

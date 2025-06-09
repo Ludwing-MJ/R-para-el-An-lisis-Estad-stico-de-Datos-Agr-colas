@@ -36,6 +36,7 @@ book:
         class: part
     - C4.1.qmd
     - c4.2.qmd
+    - c4.3.qmd
     - part: "5. Medidas de tendencia central y dispersión (datos agrupados)"
       attributes:
         class: part

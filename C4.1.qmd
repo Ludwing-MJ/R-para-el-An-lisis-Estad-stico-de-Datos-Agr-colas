@@ -136,6 +136,28 @@ $$\large\text{Posición de } Q_3 = 0.75 \times (8+1) = 6.75$$
 
 $$Q_3 = x_6 + 0.75 \times (x_7 - x_6) = 6.3 + 0.75 \times (6.4 - 6.3) = 6.375\; \text{t ha}^{-1}$$
 
+### Rango intercuartílico (RIC)
+
+El rango intercuartílico es una medida de dispersión que representa la diferencia entre el tercer cuartil y el primer cuartil. Esta medida indica la amplitud del 50% central de los datos y es menos sensible a valores extremos que el rango total (Steel & Torrie, 1980).
+
+**Fórmula:**
+
+$$\huge RIC = Q_3 - Q_1$$
+
+**Cálculo con los datos de ejemplo:**
+
+$$\Large RIC = 6.375 - 5.925 = 0.450\; \text{t ha}^{-1}$$
+
+**Interpretación del rango intercuartílico:**
+
+El rango intercuartílico de 0.450 t ha⁻¹ indica que el 50% central de las parcelas presenta una variación de rendimiento de 0.450 toneladas por hectárea. Esta medida es particularmente útil para:
+
+1.  Identificar la dispersión de la porción central de los datos
+2.  Detectar valores atípicos (observaciones que se encuentran más allá de $Q_1 - 1.5 \times RIC$ o $Q_3 + 1.5 \times RIC$)
+3.  Comparar la variabilidad entre diferentes conjuntos de datos de manera robusta
+
+En el contexto agronómico, un RIC relativamente pequeño sugiere que la mayoría de las parcelas tienen rendimientos similares, lo que puede indicar condiciones de cultivo homogéneas y prácticas de manejo consistentes (Montgomery, 2017).
+
 ### Percentiles
 
 Los percentiles dividen los datos en cien partes iguales, permitiendo identificar la posición relativa de cualquier observación dentro del conjunto de datos (Anderson et al., 2018). Son especialmente útiles para establecer rangos de referencia y realizar comparaciones.

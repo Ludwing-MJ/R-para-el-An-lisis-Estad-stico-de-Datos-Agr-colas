@@ -1,0 +1,389 @@
+# Cálculos en R
+
+## Base de datos
+
+El conjunto de datos IRIS es uno de los conjuntos de datos más utilizados en la literatura de estadística y aprendizaje automático. Fue introducido por Ronald Fisher en 1936 y contiene mediciones de cuatro características morfológicas de flores de tres especies distintas de iris: *Iris setosa*, *Iris versicolor* e *Iris virginica*. Este dataset es ampliamente empleado para ilustrar técnicas de análisis estadístico y clasificación supervisada (Fisher, 1936).
+
+**Referencia del dataset:** Fisher, R. (1936). Iris \[Dataset\]. UCI Machine Learning Repository. <https://doi.org/10.24432/C56C76>
+
+**Acceso a recursos:** El script completo con el ejemplo desarrollado y la base de datos IRIS pueden descargarse en el siguiente repositorio:
+
+## Configuración del Entorno de Trabajo
+
+Antes de comenzar cualquier análisis, es fundamental configurar adecuadamente el entorno de trabajo. Esto implica instalar y cargar los paquetes necesarios, así como explorar y comprender la estructura del conjunto de datos que se utilizará. En esta sección, se detallarán los pasos para configurar el entorno de trabajo y realizar una exploración inicial del conjunto de datos.
+
+Se recomienda crear un proyecto nuevo en R para organizar adecuadamente el trabajo de estadística descriptiva. Se sugiere seguir los siguientes pasos para establecer un entorno de trabajo ordenado:
+
+1.  **Crear una nueva carpeta** en el directorio de trabajo denominada "Estadistica_Descriptiva_Iris"
+
+2.  **Crear un nuevo proyecto de R** dentro de esta carpeta utilizando RStudio
+
+3.  **Crear un script** donde se realizará y documentará el análisis estadístico
+
+### Instalación y Carga de Paquetes
+
+Se procede a instalar y cargar los paquetes necesarios para el análisis estadístico descriptivo. Se utiliza la función condicional `if(!require())` para verificar si el paquete está instalado antes de proceder con la instalación:
+
+```{r message=FALSE, warning=FALSE}
+# Instalación y carga de paquetes necesarios
+## Para manipulación y visualización de datos
+if (!require(tidyverse)) install.packages("tidyverse")
+## Para estadísticas descriptivas
+if (!require(psych)) install.packages("psych")
+
+```
+
+### Carga y exploración de los Datos
+
+El dataset `iris` es un conjunto de datos clásico en estadística que contiene mediciones de características morfológicas de flores de tres especies del género *Iris*. Este dataset está incluido por defecto en R, lo que facilita su acceso para fines didácticos y de análisis estadístico.
+
+```{r}
+# Cargar el dataset iris
+data(iris)
+
+# Explorar la estructura del dataset
+str(iris)
+```
+
+La función `str()` proporciona información sobre la estructura del dataset:
+
+1.  `object`: Nombre del objeto a examinar
+
+```{r}
+# Visualizar las primeras observaciones
+head(iris)
+```
+
+La función `head()` muestra las primeras filas del dataset:
+
+1.  `x`: Objeto del cual mostrar las primeras filas
+
+2.  `n`: Número de filas a mostrar (por defecto 6)
+
+```{r}
+
+# Resumen básico del dataset
+summary(iris)
+```
+
+La función `summary()` proporciona un resumen estadístico básico:
+
+1.  `object`: Objeto del cual generar el resumen
+
+2.  `maxsum`: Número máximo de elementos a mostrar para factores (por defecto 7)
+
+3.  `digits`: Número de dígitos significativos para valores numéricos
+
+## Medidas de Tendencia Central
+
+### Media Aritmética
+
+La función `mean()` calcula la media aritmética de un vector numérico.
+
+1.  `x`: Vector numérico del cual se calculará la media.
+
+2.  `trim`: Fracción de valores a recortar de cada extremo del vector (por defecto 0).
+
+3.  `na.rm`: Valor lógico que indica si se deben remover los valores `NA` (por defecto `FALSE`).
+
+```{r}
+# Calcular la media para la longitud del sépalo
+mean(iris$Sepal.Length)
+```
+
+### Mediana
+
+La función `median()` calcula la mediana de un vector numérico.
+
+1.  `x`: Vector numérico del cual se calculará la mediana.
+
+2.  `na.rm`: Valor lógico que indica si se deben remover los valores `NA` (por defecto `FALSE`).
+
+3.  `type`: Tipo de algoritmo para calcular la mediana (entero entre 1 y 9).
+
+```{r}
+# Calcular la mediana para la longitud del sépalo
+median(iris$Sepal.Length)
+```
+
+### Moda
+
+No existe una función base en R para calcular la moda directamente. Se puede crear una función personalizada para calcular la moda que maneja valores faltantes y múltiples modas:
+
+```{r}
+# Función para calcular la moda
+moda <- function(x) {
+  # Eliminar valores NA
+  x <- na.omit(x)
+
+  # Verificar si el vector está vacío
+  if (length(x) == 0) return(NA_character_)
+
+  # Calcular la frecuencia de cada valor
+  tabla <- table(x)
+
+  # Identificar el/los valores con mayor frecuencia
+  max_frecuencia <- max(tabla)
+  modas <- names(tabla[tabla == max_frecuencia])
+
+  # Verificar si todos los valores son únicos (sin moda)
+  if (max_frecuencia == 1) return(NA_character_)
+
+  # Retornar la moda como un string separado por comas
+  return(paste(modas, collapse = ", "))
+}
+
+
+```
+
+Una vez ya definida la función para calcular la moda (tarea que se realiza la cada vez que se abre el software y se desea cargar la función en el entorno de trabajo. Se procede a calcular la moda para la longitud del sépalo:
+
+```{r}
+# Calcular la moda para la longitud del sépalo
+moda(iris$Sepal.Length)
+```
+
+## Medidas de Dispersión
+
+### Rango
+
+La función `range()` devuelve los valores mínimo y máximo de un vector numérico. La función `diff()` calcula la diferencia entre los valores máximo y mínimo.
+
+1.  `x`: Vector numérico del cual se calculará el rango.
+
+2.  `na.rm`: Valor lógico que indica si se deben remover los valores `NA` (por defecto `FALSE`).
+
+```{r}
+# Obtener el valor minimo y máximo de la logitud del sépalo
+range(iris$Sepal.Length)
+# Calcular el rango para la longitud del sépalo
+diff(range(iris$Sepal.Length))
+```
+
+### Varianza
+
+La función `var()` calcula la varianza de un vector numérico.
+
+1.  `x`: Vector numérico del cual se calculará la varianza.
+
+2.  `y`: Vector numérico opcional para calcular la covarianza.
+
+3.  `na.rm`: Valor lógico que indica si se deben remover los valores `NA` (por defecto `FALSE`).
+
+4.  `use`: Método para manejar valores faltantes (por defecto "everything").
+
+```{r}
+# Calcular la varianza para la longitud del sépalo
+var(iris$Sepal.Length)
+```
+
+### Desviación Estándar
+
+La función `sd()` calcula la desviación estándar de un vector numérico.
+
+1.  `x`: Vector numérico del cual se calculará la desviación estándar.
+
+2.  `na.rm`: Valor lógico que indica si se deben remover los valores `NA` (por defecto `FALSE`).
+
+```{r}
+# Calcular la desviación estándar para la longitud del sépalo
+sd(iris$Sepal.Length)
+```
+
+### Coeficiente de Variación
+
+No existe una función base en R para calcular el coeficiente de variación directamente. Se puede crear una función personalizada o calcularse mediante operaciones aritméticas:
+
+```{r}
+# Función para calcular el coeficiente de variación
+cv <- function(x) {
+  (sd(x) / mean(x)) * 100
+}
+# Calcular el coeficiente de variación para la longitud del sépalo
+cv(iris$Sepal.Length)
+
+# Calcular el coeficiente de variación para la longitud del sépalo
+(sd(iris$Sepal.Length) / mean(iris$Sepal.Length)) * 100
+```
+
+## Medidas de Posición Relativa
+
+### Cuartiles
+
+La función `quantile()` calcula los cuartiles y otros percentiles de un vector numérico.
+
+1.  `x`: Vector numérico del cual se calcularán los cuantiles.
+
+2.  `probs`: Vector de probabilidades (0.25 para Q₁, 0.75 para Q₃).
+
+3.  `na.rm`: Valor lógico que indica si se deben remover los valores `NA` (por defecto `FALSE`).
+
+4.  `type`: Método de cálculo (entero entre 1 y 9, por defecto 7).
+
+```{r}
+# Calcular cuartiles para la longitud del sépalo
+quantile(iris$Sepal.Length, probs = c(0.25, 0.5, 0.75))
+
+# Calcular Q1 y Q3 por separado
+Q1 <- quantile(iris$Sepal.Length, 0.25); Q1
+Q3 <- quantile(iris$Sepal.Length, 0.75); Q3
+
+
+```
+
+### Rango intercuartílico
+
+La función `IQR()` calcula en automático el rango intercuartílico (Q1-Q3) de un vector numérico.
+
+1.  `x`: Vector numérico del cual se calcularán los cuantiles.
+
+2.  `na.rm`: Valor lógico que indica si se deben remover los valores `NA` (por defecto `FALSE`).
+
+3.  `type`: Método de cálculo (entero entre 1 y 9, por defecto 7).
+
+```{r}
+# Rango intercuartílico
+IQR(iris$Sepal.Length)
+```
+
+### Percentiles
+
+La función `quantile()` también se utiliza para calcular percentiles.
+
+1.  `x`: Vector numérico del cual se calcularán los cuantiles.
+
+2.  `probs`: Vector de probabilidades (ej. 0.10 para el percentil 10, 0.90 para el percentil 90).
+
+3.  `na.rm`: Valor lógico que indica si se deben remover los valores `NA` (por defecto `FALSE`).
+
+4.  `type`: Método de cálculo (entero entre 1 y 9, por defecto 7).
+
+```{r}
+# Calcular percentiles específicos
+quantile(iris$Sepal.Length, c(0.10, 0.90))
+
+# Calcular el percentil 95
+quantile(iris$Sepal.Length, 0.95)
+
+```
+
+## Análisis Completo con el Paquete psych
+
+La función `describe()` del paquete `psych` calcula múltiples estadísticas descriptivas en una sola línea de código.
+
+1.  `x`: Data frame o vector numérico.
+
+2.  `na.rm`: Remover valores faltantes (por defecto `TRUE`).
+
+3.  `trim`: Fracción para la media recortada (por defecto 0.1).
+
+4.  `skew`: Calcular asimetría (por defecto `TRUE`).
+
+5.  `kurtosis`: Calcular curtosis (por defecto `TRUE`).
+
+6.  `ranges`: Calcular rangos (por defecto `TRUE`).
+
+```{r}
+# Análisis descriptivo completo del dataset iris
+describe(iris[,1:4])
+
+```
+
+**Interpretación de los Estimadores de la Función describe()**
+
+La función `describe()` proporciona los siguientes estimadores estadísticos:
+
+1.  **n**: Número de observaciones válidas (sin valores faltantes)
+
+2.  **mean**: Media aritmética de los datos
+
+3.  **sd**: Desviación estándar muestral
+
+4.  **median**: Mediana o percentil 50
+
+5.  **trimmed**: Media recortada al 10% (elimina el 10% de valores extremos de cada cola)
+
+6.  **mad**: Desviación absoluta mediana, medida robusta de dispersión
+
+7.  **min**: Valor mínimo observado
+
+8.  **max**: Valor máximo observado
+
+9.  **range**: Diferencia entre el valor máximo y mínimo
+
+10. **skew**: Coeficiente de asimetría. Valores cercanos a 0 indican distribución simétrica, valores positivos indican asimetría hacia la derecha, valores negativos hacia la izquierda
+
+11. **kurtosis**: Coeficiente de curtosis. Valores cercanos a 0 indican distribución normal, valores positivos indican distribución leptocúrtica (más puntiaguda), valores negativos indican distribución platicúrtica (más aplanada)
+
+12. **se**: Error estándar de la media, calculado como sd/√n
+
+## Visualización de Datos
+
+La visualización de datos es una parte esencial del análisis estadístico descriptivo, ya que permite identificar patrones, tendencias y anomalías en los datos de manera gráfica. A continuación, se presentan ejemplos de diferentes tipos de gráficos que se pueden utilizar para visualizar el dataset `iris`.
+
+### Diagrama de Caja (Boxplot)
+
+El diagrama de caja es una herramienta útil para visualizar la distribución de una variable numérica y comparar distribuciones entre diferentes grupos. Este gráfico muestra la mediana, los cuartiles (Q1 y Q3), los valores atípicos y los bigotes (valores mínimo y máximo dentro de un rango razonable).
+
+```{r}
+# Diagrama de caja para visualizar la longitud del sépalo por especie
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
+  geom_boxplot() +
+  theme_minimal() +
+  labs(title = "Distribución de la Longitud del Sépalo por Especie",
+       y = "Longitud del Sépalo (cm)")
+```
+
+**Interpretación:**
+
+1.  La línea dentro de la caja representa la mediana.
+
+2.  Los bordes de la caja representan los cuartiles Q1 (25%) y Q3 (75%).
+
+3.  Los bigotes se extienden hasta los valores mínimo y máximo dentro de 1.5 veces el rango intercuartílico (IQR).
+
+4.  Los puntos fuera de los bigotes son considerados valores atípicos.
+
+### Histograma
+
+El histograma es un gráfico que muestra la distribución de frecuencia de una variable numérica. Divide los datos en intervalos (bins) y muestra la frecuencia de observaciones en cada intervalo.
+
+```{r}
+# Histograma de la longitud del sépalo
+ggplot(iris, aes(x = Sepal.Length)) +
+  geom_histogram(binwidth = 0.1, fill = "steelblue", color = "black") +
+  theme_minimal() +
+  labs(title = "Distribución de la Longitud del Sépalo",
+       x = "Longitud del Sépalo (cm)",
+       y = "Frecuencia")
+```
+
+**Interpretación:**
+
+1.  El eje x representa los valores de la variable.
+
+2.  El eje y representa la frecuencia de observaciones en cada intervalo.
+
+3.  La forma del histograma puede indicar la simetría, asimetría y curtosis de la distribución.
+
+### Gráfico de Dispersión (Scatter Plot)
+
+El gráfico de dispersión se utiliza para visualizar la relación entre dos variables numéricas. Cada punto en el gráfico representa una observación, con la posición del punto determinada por los valores de las dos variables.
+
+```{r}
+# Gráfico de dispersión entre la longitud y el ancho del sépalo
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point() +
+  theme_minimal() +
+  labs(title = "Relación entre Longitud y Ancho del Sépalo",
+       x = "Longitud del Sépalo (cm)",
+       y = "Ancho del Sépalo (cm)")
+```
+
+**Interpretación:**
+
+1.  El gráfico muestra la relación entre dos variables.
+
+2.  Los patrones en el gráfico pueden indicar correlación positiva, negativa o ninguna correlación.
+
+3.  Se pueden utilizar diferentes colores o formas para representar diferentes grupos.

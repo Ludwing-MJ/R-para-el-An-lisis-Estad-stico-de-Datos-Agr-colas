@@ -372,6 +372,11 @@ window.Quarto = {
   <a href="./c4.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Otros tipos de medias</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./c4.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cálculos en R</span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
  <span class="menu-text">5. Medidas de tendencia central y dispersión (datos agrupados)</span></span>
@@ -471,6 +476,7 @@ window.Quarto = {
   <li><a href="#medidas-de-posición-relativa" id="toc-medidas-de-posición-relativa" class="nav-link" data-scroll-target="#medidas-de-posición-relativa">Medidas de Posición Relativa</a>
   <ul class="collapse">
   <li><a href="#cuartiles" id="toc-cuartiles" class="nav-link" data-scroll-target="#cuartiles">Cuartiles</a></li>
+  <li><a href="#rango-intercuartílico-ric" id="toc-rango-intercuartílico-ric" class="nav-link" data-scroll-target="#rango-intercuartílico-ric">Rango intercuartílico (RIC)</a></li>
   <li><a href="#percentiles" id="toc-percentiles" class="nav-link" data-scroll-target="#percentiles">Percentiles</a></li>
   <li><a href="#interpretación-de-los-resultados" id="toc-interpretación-de-los-resultados" class="nav-link" data-scroll-target="#interpretación-de-los-resultados">Interpretación de los Resultados</a></li>
   </ul></li>
@@ -638,6 +644,22 @@ s^2 &amp;=  \frac{0.0025 + 0.1225 + 0.1225 + 0.0225 + 0.0225 + 0.0625 + 0.0625 +
 <p><strong>Tercer cuartil (</strong><span class="math inline">\(Q_3\)</span>):</p>
 <p><span class="math display">\[\large\text{Posición de } Q_3 = 0.75 \times (8+1) = 6.75\]</span></p>
 <p><span class="math display">\[Q_3 = x_6 + 0.75 \times (x_7 - x_6) = 6.3 + 0.75 \times (6.4 - 6.3) = 6.375\; \text{t ha}^{-1}\]</span></p>
+</section>
+<section id="rango-intercuartílico-ric" class="level3">
+<h3 class="anchored" data-anchor-id="rango-intercuartílico-ric">Rango intercuartílico (RIC)</h3>
+<p>El rango intercuartílico es una medida de dispersión que representa la diferencia entre el tercer cuartil y el primer cuartil. Esta medida indica la amplitud del 50% central de los datos y es menos sensible a valores extremos que el rango total (Steel &amp; Torrie, 1980).</p>
+<p><strong>Fórmula:</strong></p>
+<p><span class="math display">\[\huge RIC = Q_3 - Q_1\]</span></p>
+<p><strong>Cálculo con los datos de ejemplo:</strong></p>
+<p><span class="math display">\[\Large RIC = 6.375 - 5.925 = 0.450\; \text{t ha}^{-1}\]</span></p>
+<p><strong>Interpretación del rango intercuartílico:</strong></p>
+<p>El rango intercuartílico de 0.450 t ha⁻¹ indica que el 50% central de las parcelas presenta una variación de rendimiento de 0.450 toneladas por hectárea. Esta medida es particularmente útil para:</p>
+<ol type="1">
+<li>Identificar la dispersión de la porción central de los datos</li>
+<li>Detectar valores atípicos (observaciones que se encuentran más allá de <span class="math inline">\(Q_1 - 1.5 \times RIC\)</span> o <span class="math inline">\(Q_3 + 1.5 \times RIC\)</span>)</li>
+<li>Comparar la variabilidad entre diferentes conjuntos de datos de manera robusta</li>
+</ol>
+<p>En el contexto agronómico, un RIC relativamente pequeño sugiere que la mayoría de las parcelas tienen rendimientos similares, lo que puede indicar condiciones de cultivo homogéneas y prácticas de manejo consistentes (Montgomery, 2017).</p>
 </section>
 <section id="percentiles" class="level3">
 <h3 class="anchored" data-anchor-id="percentiles">Percentiles</h3>
