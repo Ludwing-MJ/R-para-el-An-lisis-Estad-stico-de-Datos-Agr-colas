@@ -6,7 +6,7 @@ El conjunto de datos IRIS es uno de los conjuntos de datos más utilizados en la
 
 **Referencia del dataset:** Fisher, R. (1936). Iris \[Dataset\]. UCI Machine Learning Repository. <https://doi.org/10.24432/C56C76>
 
-**Acceso a recursos:** El script completo con el ejemplo desarrollado y la base de datos IRIS pueden descargarse en el siguiente repositorio:
+**Acceso a recursos:** El script completo con el ejemplo desarrollado y la base de datos IRIS pueden descargarse en el siguiente repositorio: <https://github.com/Ludwing-MJ/MTCDPR_sin_agrupar>
 
 ## Configuración del Entorno de Trabajo
 
