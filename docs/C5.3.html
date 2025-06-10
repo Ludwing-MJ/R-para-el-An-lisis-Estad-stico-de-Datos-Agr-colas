@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Introducción y formulario – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>Ejemplo en R – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./C5.2.html" rel="next">
-<link href="./c4.3.html" rel="prev">
+<link href="./C6.1.html" rel="next">
+<link href="./C5.2.html" rel="prev">
 <link href="./logo_cete_vector.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -75,35 +75,6 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -279,7 +250,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C5.1.html"><span class="chapter-title">Introducción y formulario</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C5.3.html"><span class="chapter-title">Ejemplo en R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -383,7 +354,7 @@ window.Quarto = {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Introducción y formulario</span></a>
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción y formulario</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -393,7 +364,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo en R</span></a>
+  <a href="./C5.3.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Ejemplo en R</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -465,41 +436,8 @@ window.Quarto = {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Tabla de contenidos</h2>
-   
-  <ul>
-  <li><a href="#construcción-de-la-tabla-de-frecuencia-para-datos-agrupados" id="toc-construcción-de-la-tabla-de-frecuencia-para-datos-agrupados" class="nav-link active" data-scroll-target="#construcción-de-la-tabla-de-frecuencia-para-datos-agrupados">Construcción de la Tabla de Frecuencia para Datos Agrupados</a>
-  <ul class="collapse">
-  <li><a href="#determinación-del-número-de-clases" id="toc-determinación-del-número-de-clases" class="nav-link" data-scroll-target="#determinación-del-número-de-clases">Determinación del número de clases</a></li>
-  <li><a href="#cálculo-del-intervalo-de-clase" id="toc-cálculo-del-intervalo-de-clase" class="nav-link" data-scroll-target="#cálculo-del-intervalo-de-clase">Cálculo del intervalo de clase</a></li>
-  <li><a href="#definición-de-los-límites-de-clase" id="toc-definición-de-los-límites-de-clase" class="nav-link" data-scroll-target="#definición-de-los-límites-de-clase">Definición de los límites de clase</a></li>
-  <li><a href="#frecuencia-absoluta" id="toc-frecuencia-absoluta" class="nav-link" data-scroll-target="#frecuencia-absoluta">Frecuencia Absoluta</a></li>
-  <li><a href="#frecuencia-relativa" id="toc-frecuencia-relativa" class="nav-link" data-scroll-target="#frecuencia-relativa">Frecuencia Relativa</a></li>
-  <li><a href="#frecuencia-acumulada" id="toc-frecuencia-acumulada" class="nav-link" data-scroll-target="#frecuencia-acumulada">Frecuencia Acumulada</a></li>
-  <li><a href="#frecuencia-relativa-acumulada" id="toc-frecuencia-relativa-acumulada" class="nav-link" data-scroll-target="#frecuencia-relativa-acumulada">Frecuencia Relativa Acumulada</a></li>
-  </ul></li>
-  <li><a href="#medidas-de-tendencia-central-para-datos-agrupados" id="toc-medidas-de-tendencia-central-para-datos-agrupados" class="nav-link" data-scroll-target="#medidas-de-tendencia-central-para-datos-agrupados">Medidas de Tendencia Central para Datos Agrupados</a>
-  <ul class="collapse">
-  <li><a href="#media-aritmética" id="toc-media-aritmética" class="nav-link" data-scroll-target="#media-aritmética">Media Aritmética</a></li>
-  <li><a href="#mediana" id="toc-mediana" class="nav-link" data-scroll-target="#mediana">Mediana</a></li>
-  <li><a href="#moda" id="toc-moda" class="nav-link" data-scroll-target="#moda">Moda</a></li>
-  </ul></li>
-  <li><a href="#medidas-de-dispersión-para-datos-agrupados" id="toc-medidas-de-dispersión-para-datos-agrupados" class="nav-link" data-scroll-target="#medidas-de-dispersión-para-datos-agrupados">Medidas de Dispersión para Datos Agrupados</a>
-  <ul class="collapse">
-  <li><a href="#rango" id="toc-rango" class="nav-link" data-scroll-target="#rango">Rango</a></li>
-  <li><a href="#varianza" id="toc-varianza" class="nav-link" data-scroll-target="#varianza">Varianza</a></li>
-  <li><a href="#desviación-estándar" id="toc-desviación-estándar" class="nav-link" data-scroll-target="#desviación-estándar">Desviación Estándar</a></li>
-  <li><a href="#coeficiente-de-variación" id="toc-coeficiente-de-variación" class="nav-link" data-scroll-target="#coeficiente-de-variación">Coeficiente de Variación</a></li>
-  </ul></li>
-  <li><a href="#medidas-de-posición-relativa-para-datos-agrupados" id="toc-medidas-de-posición-relativa-para-datos-agrupados" class="nav-link" data-scroll-target="#medidas-de-posición-relativa-para-datos-agrupados">Medidas de Posición Relativa para Datos Agrupados</a>
-  <ul class="collapse">
-  <li><a href="#cuartiles" id="toc-cuartiles" class="nav-link" data-scroll-target="#cuartiles">Cuartiles</a></li>
-  <li><a href="#percentiles" id="toc-percentiles" class="nav-link" data-scroll-target="#percentiles">Percentiles</a></li>
-  </ul></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -507,7 +445,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Introducción y formulario</span></h1>
+<h1 class="title"><span class="chapter-title">Ejemplo en R</span></h1>
 </div>
 
 
@@ -524,138 +462,8 @@ window.Quarto = {
 </header>
 
 
-<p>El análisis de datos agrupados es una técnica que permite resumir y describir conjuntos extensos de observaciones mediante la organización de los valores en intervalos o clases (Lind, Marchal, &amp; Wathen, 2017). Esta agrupación facilita la identificación de patrones y tendencias generales, así como la comparación entre diferentes conjuntos de datos. Para caracterizar la distribución de los datos agrupados, se emplean varios tipos de medidas: las medidas de tendencia central, las medidas de dispersión y las medidas de posición relativa (Triola, 2018).</p>
-<p><strong>Aplicaciones de la estadística descriptiva para datos agrupados</strong></p>
-<p>A pesar de la disponibilidad de software estadístico avanzado, el análisis de datos agrupados sigue siendo relevante en diversas situaciones prácticas (Anderson et al., 2018). A continuación, se presentan algunos campos de aplicación:</p>
-<ol type="1">
-<li><p><strong>Estudios epidemiológicos:</strong> Los datos sobre la incidencia de enfermedades a menudo se presentan en forma de rangos de edad o niveles de exposición, lo que requiere el uso de técnicas de datos agrupados para calcular tasas y comparar poblaciones (Triola, 2018).</p></li>
-<li><p><strong>Investigaciones de mercado:</strong> Los datos sobre ingresos o gastos de los consumidores pueden estar disponibles solo en forma de intervalos, lo que exige el uso de métodos de datos agrupados para estimar promedios y evaluar la distribución del gasto (Lind et al., 2017).</p></li>
-<li><p><strong>Agronomía:</strong> Los datos sobre rendimientos de cultivos o características del suelo pueden estar agrupados debido a limitaciones en la precisión de la medición o a la necesidad de proteger la confidencialidad de los datos (López &amp; González, 2018).</p></li>
-<li><p><strong>Control de calidad:</strong> En la industria, los datos sobre las dimensiones de productos o el tiempo de vida útil pueden estar agrupados en rangos para facilitar el análisis y la toma de decisiones (Anderson et al., 2018).</p></li>
-<li><p><strong>Análisis demográfico:</strong> Los datos sobre la distribución de la población por grupos de edad y nivel socioeconómico se analizan mediante técnicas de datos agrupados para comprender las características de una población (Lind et al., 2017).</p></li>
-<li><p><strong>Análisis de riesgos:</strong> En finanzas y seguros, los datos sobre pérdidas o siniestros se agrupan para evaluar la probabilidad de eventos extremos y establecer primas o reservas adecuadas (Triola, 2018).</p></li>
-</ol>
-<section id="construcción-de-la-tabla-de-frecuencia-para-datos-agrupados" class="level2">
-<h2 class="anchored" data-anchor-id="construcción-de-la-tabla-de-frecuencia-para-datos-agrupados">Construcción de la Tabla de Frecuencia para Datos Agrupados</h2>
-<p>Antes de calcular estas medidas, es necesario construir una tabla de frecuencia para los datos agrupados. Este proceso implica los siguientes pasos:</p>
-<section id="determinación-del-número-de-clases" class="level3">
-<h3 class="anchored" data-anchor-id="determinación-del-número-de-clases">Determinación del número de clases</h3>
-<p>El número de clases, denotado como <span class="math inline">\(k\)</span>, se estima frecuentemente mediante la regla de Sturges, que se expresa como:</p>
-<p><span class="math display">\[\huge k = 1 + 3.322 \log_{10}(N)\]</span></p>
-<p>donde <span class="math inline">\(N\)</span> representa el número total de observaciones. Esta fórmula proporciona una guía para seleccionar un número de clases que permita un análisis adecuado, evitando tanto la excesiva fragmentación como la pérdida de información relevante (Triola, 2014).</p>
-<p><strong>Recomendación para la aproximación del resultado de la regla de Sturges:</strong> Dado que el número de clases debe ser un entero, es común redondear el resultado de la fórmula de Sturges al entero más cercano. Sin embargo, es importante considerar el contexto del análisis y la naturaleza de los datos. En algunos casos, puede ser preferible redondear hacia arriba o hacia abajo para obtener un número de clases que facilite la interpretación y la comparación. Por ejemplo, si el resultado de la fórmula es 6.2, se podría optar por 6 o 7 clases, dependiendo de si se prefiere una representación más resumida o más detallada de los datos. En general, se recomienda experimentar con diferentes números de clases y evaluar el impacto en la claridad y la utilidad del análisis (Anderson et al., 2018).</p>
-</section>
-<section id="cálculo-del-intervalo-de-clase" class="level3">
-<h3 class="anchored" data-anchor-id="cálculo-del-intervalo-de-clase">Cálculo del intervalo de clase</h3>
-<p>El intervalo de clase, simbolizado como <span class="math inline">\(c\)</span>, corresponde a la amplitud de cada clase y se calcula dividiendo el rango de los datos entre el número de clases: <span class="math display">\[\huge
-c = \frac{Rango}{k}
-\]</span></p>
-<p>El rango se obtiene restando el valor mínimo del valor máximo del conjunto de datos. Es recomendable ajustar el valor de <span class="math inline">\(c\)</span> a un número conveniente para facilitar la interpretación y la construcción de la tabla (Lind et al., 2017).</p>
-</section>
-<section id="definición-de-los-límites-de-clase" class="level3">
-<h3 class="anchored" data-anchor-id="definición-de-los-límites-de-clase">Definición de los límites de clase</h3>
-<p>Cada clase se define por un límite inferior y un límite superior. Para evitar ambigüedades en la asignación de los datos a las clases, se utiliza una notación estándar:</p>
-<ol type="1">
-<li><p><strong>Corchete [ :</strong> Indica que el límite está incluido en el intervalo.</p></li>
-<li><p><strong>Paréntesis ) :</strong> Indica que el límite no está incluido en el intervalo.</p></li>
-</ol>
-<p>Por ejemplo, el intervalo [10, 20) incluye todos los valores desde 10 hasta 19.999…, pero no incluye el valor 20. Esta distinción es crucial para evitar ambigüedades y asegurar que cada dato se clasifique en un único intervalo. La correcta definición de los límites de clase garantiza que cada observación se asigne a una única clase, evitando la superposición y facilitando el análisis (López &amp; González, 2018).</p>
-</section>
-<section id="frecuencia-absoluta" class="level3">
-<h3 class="anchored" data-anchor-id="frecuencia-absoluta">Frecuencia Absoluta</h3>
-<p>La frecuencia absoluta, denotada como <span class="math inline">\(f_i\)</span>​, representa el número de observaciones que pertenecen a la clase <span class="math inline">\(i\)</span>. Este valor proporciona una medida directa de la concentración de datos en cada intervalo y es fundamental para el cálculo de las demás medidas estadísticas (Triola, 2014).</p>
-</section>
-<section id="frecuencia-relativa" class="level3">
-<h3 class="anchored" data-anchor-id="frecuencia-relativa">Frecuencia Relativa</h3>
-<p>La frecuencia relativa, denotada como <span class="math inline">\(fr_i\)</span>​, se calcula dividiendo la frecuencia absoluta de la clase <span class="math inline">\(i\)</span> entre el número total de observaciones <span class="math inline">\(N\)</span>:</p>
-<p><span class="math display">\[\huge fr_i = \frac{f_i}{N}\]</span></p>
-<p>La frecuencia relativa expresa la proporción de observaciones que pertenecen a cada clase y permite comparar la distribución de diferentes conjuntos de datos, independientemente de su tamaño. La suma de las frecuencias relativas de todas las clases debe ser igual a 1 (Lind et al., 2017).</p>
-</section>
-<section id="frecuencia-acumulada" class="level3">
-<h3 class="anchored" data-anchor-id="frecuencia-acumulada">Frecuencia Acumulada</h3>
-<p>La frecuencia acumulada, denotada como <span class="math inline">\(Fa_i\)</span>​, representa el número total de observaciones que son menores o iguales al límite superior de la clase <span class="math inline">\(i\)</span>. Se calcula sumando las frecuencias absolutas de todas las clases anteriores a la clase <span class="math inline">\(i\)</span> y la frecuencia absoluta de la clase <span class="math inline">\(i\)</span>: <span class="math display">\[\huge Fa_i = \sum_{j=1}^{i} f_j\]</span></p>
-<p>La frecuencia acumulada proporciona información sobre la distribución de los datos a lo largo de todo el rango de valores y es útil para identificar percentiles y cuartiles (Anderson et al., 2018).</p>
-</section>
-<section id="frecuencia-relativa-acumulada" class="level3">
-<h3 class="anchored" data-anchor-id="frecuencia-relativa-acumulada">Frecuencia Relativa Acumulada</h3>
-<p>La frecuencia relativa acumulada, denotada como <span class="math inline">\(Fra_i\)</span>​, se calcula dividiendo la frecuencia acumulada de la clase <span class="math inline">\(i\)</span> entre el número total de observaciones <span class="math inline">\(N\)</span>:</p>
-<p><span class="math display">\[\huge Fra_i = \frac{Fa_i}{N}\]</span></p>
-<p>La frecuencia relativa acumulada expresa la proporción de observaciones que son menores o iguales al límite superior de la clase <span class="math inline">\(i\)</span> y permite comparar la distribución de diferentes conjuntos de datos en términos de proporciones acumuladas. La frecuencia relativa acumulada del último intervalo debe ser igual a 1 (Triola, 2014).</p>
-</section>
-</section>
-<section id="medidas-de-tendencia-central-para-datos-agrupados" class="level2">
-<h2 class="anchored" data-anchor-id="medidas-de-tendencia-central-para-datos-agrupados">Medidas de Tendencia Central para Datos Agrupados</h2>
-<p>Una vez construida la tabla de frecuencia, se procede a calcular las medidas de tendencia central, que resumen la posición central de la distribución de los datos. Las principales medidas de tendencia central para datos agrupados son la media aritmética, la mediana y la moda.</p>
-<section id="media-aritmética" class="level3">
-<h3 class="anchored" data-anchor-id="media-aritmética">Media Aritmética</h3>
-<p>La media aritmética para datos agrupados, denotada como <span class="math inline">\(\bar{x}\)</span>, se calcula como la suma ponderada de los puntos medios de cada clase, donde los pesos son las frecuencias absolutas de cada clase: <span class="math display">\[\huge \bar{x} = \frac{\sum_{i=1}^{k} f_i \cdot x_i}{N}\]</span></p>
-<p>donde <span class="math inline">\(f_i\)</span>​ es la frecuencia absoluta de la clase <span class="math inline">\(i\)</span>, <span class="math inline">\(x_i\)</span>​ es el punto medio de la clase <span class="math inline">\(i\)</span>, <span class="math inline">\(k\)</span> es el número de clases y <span class="math inline">\(N\)</span> es el número total de observaciones. El punto medio de cada clase se calcula como el promedio de los límites inferior y superior de la clase (Lind et al., 2017).</p>
-</section>
-<section id="mediana" class="level3">
-<h3 class="anchored" data-anchor-id="mediana">Mediana</h3>
-<p>La mediana es el valor que divide la distribución de los datos en dos partes iguales. Para calcular la mediana en datos agrupados, primero se identifica la clase mediana, que es la primera clase cuya frecuencia acumulada es mayor o igual a <span class="math inline">\(N/2\)</span>. Luego, se aplica la siguiente fórmula:</p>
-<p><span class="math display">\[\huge Me = L_{inf} + \frac{\frac{N}{2} - Fa_{ant}}{f_m} \cdot c\]</span></p>
-<p>donde <span class="math inline">\(L_{inf}\)</span>​ es el límite inferior de la clase mediana, <span class="math inline">\(N\)</span> es el número total de observaciones, <span class="math inline">\(Fa_{ant}\)</span>​ es la frecuencia acumulada de la clase anterior a la clase mediana, <span class="math inline">\(f_m\)</span>​ es la frecuencia absoluta de la clase mediana y <span class="math inline">\(c\)</span> es el intervalo de clase (Triola, 2014).</p>
-</section>
-<section id="moda" class="level3">
-<h3 class="anchored" data-anchor-id="moda">Moda</h3>
-<p>La moda es el valor que ocurre con mayor frecuencia en la distribución de los datos. Para calcular la moda en datos agrupados, primero se identifica la clase modal, que es la clase con la mayor frecuencia absoluta. Luego, se aplica la siguiente fórmula: <span class="math display">\[ \huge Mo = L_{inf} + \frac{d_1}{d_1 + d_2} \cdot c\]</span></p>
-<p>donde <span class="math inline">\(L_{inf}\)</span>​ es el límite inferior de la clase modal, <span class="math inline">\(d_1\)</span>​ es la diferencia entre la frecuencia de la clase modal y la frecuencia de la clase anterior, <span class="math inline">\(d_2\)</span>​ es la diferencia entre la frecuencia de la clase modal y la frecuencia de la clase posterior, y <span class="math inline">\(c\)</span> es el intervalo de clase (Anderson et al., 2018).</p>
-</section>
-</section>
-<section id="medidas-de-dispersión-para-datos-agrupados" class="level2">
-<h2 class="anchored" data-anchor-id="medidas-de-dispersión-para-datos-agrupados">Medidas de Dispersión para Datos Agrupados</h2>
-<p>Las medidas de dispersión cuantifican el grado de variabilidad o dispersión de los datos respecto a las medidas de tendencia central. Las principales medidas de dispersión para datos agrupados son el rango, la varianza, la desviación estándar y el coeficiente de variación.</p>
-<section id="rango" class="level3">
-<h3 class="anchored" data-anchor-id="rango">Rango</h3>
-<p>El rango es la medida de dispersión más simple y se calcula como la diferencia entre el valor máximo y el valor mínimo de los datos. Para datos agrupados, el rango se aproxima restando el límite inferior de la primera clase al límite superior de la última clase:</p>
-<p><span class="math display">\[\huge Rango = L_{sup,k} - L_{inf,1}\]</span></p>
-<p>donde <span class="math inline">\(L_{sup,k}\)</span>​ es el límite superior de la última clase y <span class="math inline">\(L_{inf,1}\)</span> es el límite inferior de la primera clase. Aunque es fácil de calcular, el rango es sensible a los valores extremos y no proporciona información sobre la distribución de los datos entre los extremos (Triola, 2014).</p>
-</section>
-<section id="varianza" class="level3">
-<h3 class="anchored" data-anchor-id="varianza">Varianza</h3>
-<p>La varianza es una medida que cuantifica la dispersión de los datos respecto a la media aritmética. En el caso de datos agrupados, la varianza muestral se calcula considerando la frecuencia de cada clase y el punto medio correspondiente. La fórmula clásica para la varianza es la siguiente:<br>
-<span class="math display">\[\huge s^2 = \frac{\sum_{i=1}^{k} f_i \cdot (x_i - \bar{x})^2}{N - 1}\]</span></p>
-<p>donde <span class="math inline">\(f_i\)</span>​ es la frecuencia absoluta de la clase <span class="math inline">\(i\)</span>, <span class="math inline">\(x_i\)</span>​ es el punto medio de la clase <span class="math inline">\(i\)</span>, <span class="math inline">\(\bar{x}\)</span> es la media aritmética y <span class="math inline">\(N\)</span> es el número total de observaciones. La varianza proporciona una medida de la dispersión de los datos alrededor de la media, pero se expresa en unidades al cuadrado, lo que dificulta su interpretación directa (Lind et al., 2017).</p>
-<p>Como alternativa, la varianza también puede calcularse utilizando una fórmula operativa, que resulta especialmente útil cuando se dispone de la suma de los productos de las frecuencias por los puntos medios y sus cuadrados. Esta fórmula es algebraicamente equivalente a la anterior y se expresa así:</p>
-<p><span class="math display">\[ \LARGE s^2 = \frac{\sum_{i=1}^{k} f_i x_i^2 - \frac{\left(\sum_{i=1}^{k} f_i x_i\right)^2}{N}}{N - 1}\]</span></p>
-<p>donde <span class="math inline">\(f_i\)</span>​ es la frecuencia absoluta de la clase <span class="math inline">\(i\)</span>, <span class="math inline">\(x_i\)</span>​ es el punto medio de la clase <span class="math inline">\(i\)</span>, <span class="math inline">\(N\)</span> es el número total de observaciones y kkk es el número de clases. En esta fórmula, <span class="math inline">\(\sum_{i=1}^{k} f_i x_i^2\)</span> representa la suma de los productos de la frecuencia por el cuadrado del punto medio de cada clase, mientras que <span class="math inline">\(\sum_{i=1}^{k} f_i x_i\)</span> corresponde a la suma de los productos de la frecuencia por el punto medio de cada clase.</p>
-<p>Ambas fórmulas, la clásica y la operativa, son equivalentes y proporcionan el mismo resultado si se aplican correctamente (Lind et al., 2017; López &amp; González, 2018; Triola, 2018).</p>
-</section>
-<section id="desviación-estándar" class="level3">
-<h3 class="anchored" data-anchor-id="desviación-estándar">Desviación Estándar</h3>
-<p>La desviación estándar es la raíz cuadrada de la varianza y se expresa en las mismas unidades que los datos originales. Para datos agrupados, la desviación estándar se calcula como: <span class="math display">\[\huge s = \sqrt{s^2}\]</span></p>
-<p>La desviación estándar proporciona una medida de la dispersión de los datos alrededor de la media y es más fácil de interpretar que la varianza. Un valor alto de la desviación estándar indica una mayor dispersión de los datos, mientras que un valor bajo indica una menor dispersión (Anderson et al., 2018).</p>
-</section>
-<section id="coeficiente-de-variación" class="level3">
-<h3 class="anchored" data-anchor-id="coeficiente-de-variación">Coeficiente de Variación</h3>
-<p>El coeficiente de variación es una medida relativa de dispersión que se calcula dividiendo la desviación estándar entre la media aritmética: <span class="math display">\[ \huge CV = \frac{s}{\bar{x}} \cdot 100\%\]</span></p>
-<p>El coeficiente de variación expresa la dispersión de los datos como un porcentaje de la media y permite comparar la variabilidad de diferentes conjuntos de datos, independientemente de sus unidades de medida. Un valor alto del coeficiente de variación indica una mayor variabilidad relativa, mientras que un valor bajo indica una menor variabilidad relativa (Triola, 2014).</p>
-</section>
-</section>
-<section id="medidas-de-posición-relativa-para-datos-agrupados" class="level2">
-<h2 class="anchored" data-anchor-id="medidas-de-posición-relativa-para-datos-agrupados">Medidas de Posición Relativa para Datos Agrupados</h2>
-<p>Las medidas de posición relativa describen la ubicación de un valor específico en relación con el resto de los datos. Las principales medidas de posición relativa son los cuartiles y los percentiles.</p>
-<section id="cuartiles" class="level3">
-<h3 class="anchored" data-anchor-id="cuartiles">Cuartiles</h3>
-<p>Los cuartiles dividen la distribución de los datos en cuatro partes iguales, cada una conteniendo el 25% de las observaciones. Los tres cuartiles se denotan como <span class="math inline">\(Q_1\)</span>​, <span class="math inline">\(Q_2\)</span>​ y <span class="math inline">\(Q_3\)</span>​.</p>
-<ol type="1">
-<li><p><span class="math inline">\(Q_1\)</span>​ (Primer Cuartil): Es el valor que separa el 25% inferior de los datos del 75% superior.</p></li>
-<li><p><span class="math inline">\(Q_2\)</span>​ (Segundo Cuartil): Es el valor que coincide con la mediana y separa el 50% inferior de los datos del 50% superior.</p></li>
-<li><p><span class="math inline">\(Q_3\)</span>​ (Tercer Cuartil): Es el valor que separa el 75% inferior de los datos del 25% superior.</p></li>
-</ol>
-<p>Para calcular los cuartiles en datos agrupados, primero se identifica la clase cuartil, que es la primera clase cuya frecuencia acumulada es mayor o igual a <span class="math inline">\(i \cdot N/4\)</span>, donde <span class="math inline">\(i\)</span> es el número del cuartil (1, 2 o 3). Luego, se aplica la siguiente fórmula: <span class="math display">\[\huge Q_i = L_{inf} + \frac{\frac{i \cdot N}{4} - Fa_{ant}}{f_q} \cdot c\]</span></p>
-<p>donde <span class="math inline">\(L_{inf}\)</span>​ es el límite inferior de la clase cuartil, <span class="math inline">\(N\)</span> es el número total de observaciones, <span class="math inline">\(Fa_{ant}\)</span>​ es la frecuencia acumulada de la clase anterior a la clase cuartil, <span class="math inline">\(f_q\)</span>​ es la frecuencia absoluta de la clase cuartil y <span class="math inline">\(c\)</span> es el intervalo de clase (Lind et al., 2017).</p>
-</section>
-<section id="percentiles" class="level3">
-<h3 class="anchored" data-anchor-id="percentiles">Percentiles</h3>
-<p>Los percentiles dividen la distribución de los datos en cien partes iguales, cada una conteniendo el 1% de las observaciones. El percentil <span class="math inline">\(P_p\)</span>​ es el valor que separa el <span class="math inline">\(p \%\)</span> inferior de los datos del <span class="math inline">\((100−p) \%\)</span> superior.</p>
-<p>Para calcular los percentiles en datos agrupados, primero se identifica la clase percentil, que es la primera clase cuya frecuencia acumulada es mayor o igual a <span class="math inline">\(p \cdot N/100\)</span>. Luego, se aplica la siguiente fórmula: <span class="math display">\[\LARGE P_p = L_{inf} + \frac{\frac{p \cdot N}{100} - Fa_{ant}}{f_p} \cdot c\]</span></p>
-<p>donde <span class="math inline">\(L_{inf}\)</span>​ es el límite inferior de la clase percentil, <span class="math inline">\(N\)</span> es el número total de observaciones, <span class="math inline">\(Fa_{ant}\)</span>​ es la frecuencia acumulada de la clase anterior a la clase percentil, <span class="math inline">\(f_p\)</span>​ es la frecuencia absoluta de la clase percentil y <span class="math inline">\(c\)</span> es el intervalo de clase (Triola, 2014).</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -1079,13 +887,13 @@ c = \frac{Rango}{k}
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./c4.3.html" class="pagination-link" aria-label="Cálculos en R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Cálculos en R</span></span>
+      <a href="./C5.2.html" class="pagination-link" aria-label="Ejemplo empleando el formulario">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Ejemplo empleando el formulario</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./C5.2.html" class="pagination-link" aria-label="Ejemplo empleando el formulario">
-        <span class="nav-page-text"><span class="chapter-title">Ejemplo empleando el formulario</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./C6.1.html" class="pagination-link" aria-label="Introducción a probabilidades">
+        <span class="nav-page-text"><span class="chapter-title">Introducción a probabilidades</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

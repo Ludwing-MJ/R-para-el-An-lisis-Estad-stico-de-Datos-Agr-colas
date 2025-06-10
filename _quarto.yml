@@ -31,16 +31,18 @@ book:
     - C3.1.qmd
     - C3.2.qmd
     - C3.3.qmd
-    - part: "4. Medidas de tendencia central y dispersión (datos no agrupados)"
+    - part: "4. Estadística descriptiva para datos sin agrupar"
       attributes:
         class: part
     - C4.1.qmd
     - c4.2.qmd
     - c4.3.qmd
-    - part: "5. Medidas de tendencia central y dispersión (datos agrupados)"
+    - part: "5. Estadística descriptiva para datos agrupados"
       attributes:
         class: part
     - C5.1.qmd
+    - C5.2.qmd
+    - C5.3.qmd
     - part: "6. Introducción a probabilidades"
       attributes:
         class: part

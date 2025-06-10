@@ -1,0 +1,111 @@
+# Ejemplo empleando el formulario
+
+## Base de datos
+
+**Referencia del dataset:** Fisher, R. (1936). Iris \[Dataset\]. UCI Machine Learning Repository. <https://doi.org/10.24432/C56C76>
+
+**Acceso a recursos:** El script completo con el ejemplo desarrollado y la base de datos IRIS pueden descargarse en el siguiente repositorio:
+
+En el análisis estadístico descriptivo, es fundamental comprender la distribución de los datos para extraer información relevante. A continuación, se presenta un conjunto de datos correspondientes a la longitud del pétalo (en cm) de 150 flores de la especie *Iris*, organizados en formato matricial para facilitar su visualización y análisis. Estos datos serán utilizados para ilustrar el cálculo de estadísticos descriptivos para datos agrupados, siguiendo las metodologías propuestas en notas de estadística general (López & González, 2018).
+
+|     |     |     |     |     |     |     |     |     |     |
+|-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
+| 1.4 | 1.4 | 1.3 | 1.5 | 1.4 | 1.7 | 1.4 | 1.5 | 1.4 | 1.5 |
+| 1.5 | 1.6 | 1.4 | 1.1 | 1.2 | 1.5 | 1.3 | 1.4 | 1.7 | 1.5 |
+| 1.7 | 1.5 | 1.0 | 1.7 | 1.9 | 1.6 | 1.6 | 1.5 | 1.4 | 1.6 |
+| 1.6 | 1.5 | 1.5 | 1.4 | 1.5 | 1.2 | 1.3 | 1.4 | 1.3 | 1.5 |
+| 1.3 | 1.3 | 1.3 | 1.6 | 1.9 | 1.4 | 1.6 | 1.4 | 1.5 | 1.4 |
+| 4.7 | 4.5 | 4.9 | 4.0 | 4.6 | 4.5 | 4.7 | 3.3 | 4.6 | 3.9 |
+| 3.5 | 4.2 | 4.0 | 4.7 | 3.6 | 4.4 | 4.5 | 4.1 | 4.5 | 3.9 |
+| 4.8 | 4.0 | 4.9 | 4.7 | 4.3 | 4.4 | 4.8 | 5.0 | 4.5 | 3.5 |
+| 3.8 | 3.7 | 3.9 | 5.1 | 4.5 | 4.5 | 4.7 | 4.4 | 4.1 | 4.0 |
+| 4.4 | 4.6 | 4.0 | 3.3 | 4.2 | 4.2 | 4.2 | 4.3 | 3.0 | 4.1 |
+| 6.0 | 5.1 | 5.9 | 5.6 | 5.8 | 6.6 | 4.5 | 6.3 | 5.8 | 6.1 |
+| 5.1 | 5.3 | 5.5 | 5.0 | 5.1 | 5.3 | 5.5 | 6.7 | 6.9 | 5.0 |
+| 5.7 | 4.9 | 6.7 | 4.9 | 5.7 | 6.0 | 4.8 | 4.9 | 5.6 | 5.8 |
+| 6.1 | 6.4 | 5.6 | 5.1 | 5.6 | 6.1 | 5.6 | 5.5 | 4.8 | 5.4 |
+| 5.6 | 5.1 | 5.1 | 5.9 | 5.7 | 5.2 | 5.0 | 5.2 | 5.4 | 5.1 |
+
+## Construcción de la Tabla de Frecuencias para Datos Agrupados
+
+### Determinación del rango (R)
+
+El rango es la diferencia entre el valor máximo y el valor mínimo de la variable:
+
+$$\huge R = X_{\text{max}} - X_{\text{min}}$$ Para la longitud de pétalo: $$\huge R = 6.9 - 1.0 = 5.9$$
+
+### Cálculo del número de clases (K)
+
+El número de clases se determina con la Regla de Sturges: $$\huge k = 1 + 3.322 \log_{10} N$$ Donde $n$ es el número total de datos: $$\LARGE k = 1 + 3.322 \log_{10} 150 \approx 1 + 3.322 \times 2.1761 \approx 8.22$$ Se redondea al entero más cercano:
+
+$$\Huge k = 8$$
+
+### Cálculo de la amplitud de clase (C)
+
+La amplitud de clase se calcula así: $$\Huge C = \frac{R}{k}$$ Sustituyendo valores: $$\Huge C = \frac{5.9}{8} = 0.7375 \approx 0.75$$
+
+### Determinación de los límites de clase
+
+El primer límite inferior es el valor mínimo ($1.0\$). Los siguientes se obtienen sumando la amplitud de clase ($C\$).\
+Para evitar que un valor pertenezca a dos clases al mismo tiempo, se utiliza la notación de intervalos semiabiertos:
+
+1.  El corchete $[$ indica que el límite inferior está incluido en la clase.
+
+2.  El paréntesis $)$ indica que el límite superior no está incluido en la clase.
+
+Por ejemplo, el primer intervalo se escribe:
+
+$$\LARGE [1.00, 1.75)$$
+
+Esto significa que la clase incluye todos los valores $x$ tales que $1.00≤x<1.75$.
+
+Los intervalos de clase quedan así: $$\large \begin{align*}
+\text{Clase 1:} & \quad [1.00, 1.75) \\
+\text{Clase 2:} & \quad [1.75, 2.50) \\
+\text{Clase 3:} & \quad [2.50, 3.25) \\
+\text{Clase 4:} & \quad [3.25, 4.00) \\
+\text{Clase 5:} & \quad [4.00, 4.75) \\
+\text{Clase 6:} & \quad [4.75, 5.50) \\
+\text{Clase 7:} & \quad [5.50, 6.25) \\
+\text{Clase 8:} & \quad [6.25, 7.00] \\
+\end{align*}$$
+
+Nótese que en la última clase se utiliza el corchete de cierre $]$ para incluir el valor máximo.
+
+### Cálculo de la marca de clase
+
+La marca de clase es el punto medio de cada intervalo: $$\huge x_i = \frac{L_i + L_s}{2}$$ Por ejemplo, para la primera clase: $$ \huge x_1 = \frac{1.00 + 1.75}{2} = 1.375$$
+
+### Cálculo de la frecuencia absoluta
+
+La frecuencia absoluta es el número de datos en cada clase, obtenida por conteo directo.
+
+### Cálculo de la frecuencia relativa
+
+La frecuencia relativa se calcula así: $$\huge fr_i = \frac{f_i}{N}$$
+
+Por ejemplo, para la primera clase: $$\huge fr_i = \frac{48}{150} = 0.32$$
+
+### Cálculo de la frecuencia acumulada
+
+La frecuencia acumulada es la suma de las frecuencias absolutas hasta la clase $i$: $$\huge fa_i = \sum_{j=1}^{i} f_j$$
+
+Por ejemplo, para la cuarta clase: $$ \Large fa_4 = f_1 + f_2 + f_3 + f_4 = 48 + 0 + 0 + 15 = 63$$
+
+### Cálculo de $f_i*x_i$​ y $f_i*x_i^2$
+
+Estos productos se utilizan para cálculos posteriores: $$\huge f_i x_i = f_i \times x_i$$ $$\huge f_i x_i^2 = f_i \times (x_i)^2$$ Por ejemplo, para la primera clase: $$\LARGE f_1 x_1 = 48 \times 1.375 = 66.00$$ $$\LARGE f_1 x_1^2 = 48 \times (1.375)^2 = 48 \times 1.890625 = 90.75$$
+
+## Tabla de frecuencia
+
+| Clase | Límite Inferior (LI) | Límite Superior (LS) | Marca de clase ($x_i$) | Frecuencia ( $f_i$ ​) | Frecuencia relativa ($fr_i$​) | Frecuencia acumulada ($fa_i$) | $f_i x_i$ | $f_i x_i^2$ |
+|----|----|----|----|----|----|----|----|----|
+| 1 | 1.00 | 1.75 | 1.375 | 48 | 0.32 | 48 | 66.000 | 90.750 |
+| 2 | 1.75 | 2.50 | 2.125 | 0 | 0.00 | 48 | 0.000 | 0.000 |
+| 3 | 2.50 | 3.25 | 2.875 | 0 | 0.00 | 48 | 0.000 | 0.000 |
+| 4 | 3.25 | 4.00 | 3.625 | 15 | 0.10 | 63 | 54.375 | 197.156 |
+| 5 | 4.00 | 4.75 | 4.375 | 27 | 0.18 | 90 | 118.125 | 516.891 |
+| 6 | 4.75 | 5.50 | 5.125 | 21 | 0.14 | 111 | 107.625 | 551.641 |
+| 7 | 5.50 | 6.25 | 5.875 | 24 | 0.16 | 135 | 141.000 | 828.375 |
+| 8 | 6.25 | 7.00 | 6.625 | 15 | 0.10 | 150 | 99.375 | 658.359 |
+| **Total** |  |  |  | **150** | **1.00** |  | **586.500** | **2843.172** |

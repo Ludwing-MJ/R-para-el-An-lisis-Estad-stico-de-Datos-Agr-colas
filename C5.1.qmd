@@ -1,1 +1,166 @@
-# Estadística descriptiva para datos agrupados
+# Introducción y formulario
+
+El análisis de datos agrupados es una técnica que permite resumir y describir conjuntos extensos de observaciones mediante la organización de los valores en intervalos o clases (Lind, Marchal, & Wathen, 2017). Esta agrupación facilita la identificación de patrones y tendencias generales, así como la comparación entre diferentes conjuntos de datos. Para caracterizar la distribución de los datos agrupados, se emplean varios tipos de medidas: las medidas de tendencia central, las medidas de dispersión y las medidas de posición relativa (Triola, 2018).
+
+**Aplicaciones de la estadística descriptiva para datos agrupados**
+
+A pesar de la disponibilidad de software estadístico avanzado, el análisis de datos agrupados sigue siendo relevante en diversas situaciones prácticas (Anderson et al., 2018). A continuación, se presentan algunos campos de aplicación:
+
+1.  **Estudios epidemiológicos:** Los datos sobre la incidencia de enfermedades a menudo se presentan en forma de rangos de edad o niveles de exposición, lo que requiere el uso de técnicas de datos agrupados para calcular tasas y comparar poblaciones (Triola, 2018).
+
+2.  **Investigaciones de mercado:** Los datos sobre ingresos o gastos de los consumidores pueden estar disponibles solo en forma de intervalos, lo que exige el uso de métodos de datos agrupados para estimar promedios y evaluar la distribución del gasto (Lind et al., 2017).
+
+3.  **Agronomía:** Los datos sobre rendimientos de cultivos o características del suelo pueden estar agrupados debido a limitaciones en la precisión de la medición o a la necesidad de proteger la confidencialidad de los datos (López & González, 2018).
+
+4.  **Control de calidad:** En la industria, los datos sobre las dimensiones de productos o el tiempo de vida útil pueden estar agrupados en rangos para facilitar el análisis y la toma de decisiones (Anderson et al., 2018).
+
+5.  **Análisis demográfico:** Los datos sobre la distribución de la población por grupos de edad y nivel socioeconómico se analizan mediante técnicas de datos agrupados para comprender las características de una población (Lind et al., 2017).
+
+6.  **Análisis de riesgos:** En finanzas y seguros, los datos sobre pérdidas o siniestros se agrupan para evaluar la probabilidad de eventos extremos y establecer primas o reservas adecuadas (Triola, 2018).
+
+## Construcción de la Tabla de Frecuencia para Datos Agrupados
+
+Antes de calcular estas medidas, es necesario construir una tabla de frecuencia para los datos agrupados. Este proceso implica los siguientes pasos:
+
+### Determinación del número de clases
+
+El número de clases, denotado como $k$, se estima frecuentemente mediante la regla de Sturges, que se expresa como:
+
+$$\huge k = 1 + 3.322 \log_{10}(N)$$
+
+donde $N$ representa el número total de observaciones. Esta fórmula proporciona una guía para seleccionar un número de clases que permita un análisis adecuado, evitando tanto la excesiva fragmentación como la pérdida de información relevante (Triola, 2014).
+
+**Recomendación para la aproximación del resultado de la regla de Sturges:** Dado que el número de clases debe ser un entero, es común redondear el resultado de la fórmula de Sturges al entero más cercano. Sin embargo, es importante considerar el contexto del análisis y la naturaleza de los datos. En algunos casos, puede ser preferible redondear hacia arriba o hacia abajo para obtener un número de clases que facilite la interpretación y la comparación. Por ejemplo, si el resultado de la fórmula es 6.2, se podría optar por 6 o 7 clases, dependiendo de si se prefiere una representación más resumida o más detallada de los datos. En general, se recomienda experimentar con diferentes números de clases y evaluar el impacto en la claridad y la utilidad del análisis (Anderson et al., 2018).
+
+### Cálculo del intervalo de clase
+
+El intervalo de clase, simbolizado como $c$, corresponde a la amplitud de cada clase y se calcula dividiendo el rango de los datos entre el número de clases: $$\huge
+c = \frac{Rango}{k}
+$$
+
+El rango se obtiene restando el valor mínimo del valor máximo del conjunto de datos. Es recomendable ajustar el valor de $c$ a un número conveniente para facilitar la interpretación y la construcción de la tabla (Lind et al., 2017).
+
+### Definición de los límites de clase
+
+Cada clase se define por un límite inferior y un límite superior. Para evitar ambigüedades en la asignación de los datos a las clases, se utiliza una notación estándar:
+
+1.  **Corchete \[ :** Indica que el límite está incluido en el intervalo.
+
+2.  **Paréntesis ) :** Indica que el límite no está incluido en el intervalo.
+
+Por ejemplo, el intervalo \[10, 20) incluye todos los valores desde 10 hasta 19.999..., pero no incluye el valor 20. Esta distinción es crucial para evitar ambigüedades y asegurar que cada dato se clasifique en un único intervalo. La correcta definición de los límites de clase garantiza que cada observación se asigne a una única clase, evitando la superposición y facilitando el análisis (López & González, 2018).
+
+### Frecuencia Absoluta
+
+La frecuencia absoluta, denotada como $f_i$​, representa el número de observaciones que pertenecen a la clase $i$. Este valor proporciona una medida directa de la concentración de datos en cada intervalo y es fundamental para el cálculo de las demás medidas estadísticas (Triola, 2014).
+
+### Frecuencia Relativa
+
+La frecuencia relativa, denotada como $fr_i$​, se calcula dividiendo la frecuencia absoluta de la clase $i$ entre el número total de observaciones $N$:
+
+$$\huge fr_i = \frac{f_i}{N}$$
+
+La frecuencia relativa expresa la proporción de observaciones que pertenecen a cada clase y permite comparar la distribución de diferentes conjuntos de datos, independientemente de su tamaño. La suma de las frecuencias relativas de todas las clases debe ser igual a 1 (Lind et al., 2017).
+
+### Frecuencia Acumulada
+
+La frecuencia acumulada, denotada como $Fa_i$​, representa el número total de observaciones que son menores o iguales al límite superior de la clase $i$. Se calcula sumando las frecuencias absolutas de todas las clases anteriores a la clase $i$ y la frecuencia absoluta de la clase $i$: $$\huge Fa_i = \sum_{j=1}^{i} f_j$$
+
+La frecuencia acumulada proporciona información sobre la distribución de los datos a lo largo de todo el rango de valores y es útil para identificar percentiles y cuartiles (Anderson et al., 2018).
+
+### Frecuencia Relativa Acumulada
+
+La frecuencia relativa acumulada, denotada como $Fra_i$​, se calcula dividiendo la frecuencia acumulada de la clase $i$ entre el número total de observaciones $N$:
+
+$$\huge Fra_i = \frac{Fa_i}{N}$$
+
+La frecuencia relativa acumulada expresa la proporción de observaciones que son menores o iguales al límite superior de la clase $i$ y permite comparar la distribución de diferentes conjuntos de datos en términos de proporciones acumuladas. La frecuencia relativa acumulada del último intervalo debe ser igual a 1 (Triola, 2014).
+
+## Medidas de Tendencia Central para Datos Agrupados
+
+Una vez construida la tabla de frecuencia, se procede a calcular las medidas de tendencia central, que resumen la posición central de la distribución de los datos. Las principales medidas de tendencia central para datos agrupados son la media aritmética, la mediana y la moda.
+
+### Media Aritmética
+
+La media aritmética para datos agrupados, denotada como $\bar{x}$, se calcula como la suma ponderada de los puntos medios de cada clase, donde los pesos son las frecuencias absolutas de cada clase: $$\huge \bar{x} = \frac{\sum_{i=1}^{k} f_i \cdot x_i}{N}$$
+
+donde $f_i$​ es la frecuencia absoluta de la clase $i$, $x_i$​ es el punto medio de la clase $i$, $k$ es el número de clases y $N$ es el número total de observaciones. El punto medio de cada clase se calcula como el promedio de los límites inferior y superior de la clase (Lind et al., 2017).
+
+### Mediana
+
+La mediana es el valor que divide la distribución de los datos en dos partes iguales. Para calcular la mediana en datos agrupados, primero se identifica la clase mediana, que es la primera clase cuya frecuencia acumulada es mayor o igual a $N/2$. Luego, se aplica la siguiente fórmula:
+
+$$\huge Me = L_{inf} + \frac{\frac{N}{2} - Fa_{ant}}{f_m} \cdot c$$
+
+donde $L_{inf}$​ es el límite inferior de la clase mediana, $N$ es el número total de observaciones, $Fa_{ant}$​ es la frecuencia acumulada de la clase anterior a la clase mediana, $f_m$​ es la frecuencia absoluta de la clase mediana y $c$ es el intervalo de clase (Triola, 2014).
+
+### Moda
+
+La moda es el valor que ocurre con mayor frecuencia en la distribución de los datos. Para calcular la moda en datos agrupados, primero se identifica la clase modal, que es la clase con la mayor frecuencia absoluta. Luego, se aplica la siguiente fórmula: $$ \huge Mo = L_{inf} + \frac{d_1}{d_1 + d_2} \cdot c$$
+
+donde $L_{inf}$​ es el límite inferior de la clase modal, $d_1$​ es la diferencia entre la frecuencia de la clase modal y la frecuencia de la clase anterior, $d_2$​ es la diferencia entre la frecuencia de la clase modal y la frecuencia de la clase posterior, y $c$ es el intervalo de clase (Anderson et al., 2018).
+
+## Medidas de Dispersión para Datos Agrupados
+
+Las medidas de dispersión cuantifican el grado de variabilidad o dispersión de los datos respecto a las medidas de tendencia central. Las principales medidas de dispersión para datos agrupados son el rango, la varianza, la desviación estándar y el coeficiente de variación.
+
+### Rango
+
+El rango es la medida de dispersión más simple y se calcula como la diferencia entre el valor máximo y el valor mínimo de los datos. Para datos agrupados, el rango se aproxima restando el límite inferior de la primera clase al límite superior de la última clase:
+
+$$\huge Rango = L_{sup,k} - L_{inf,1}$$
+
+donde $L_{sup,k}$​ es el límite superior de la última clase y $L_{inf,1}$ es el límite inferior de la primera clase. Aunque es fácil de calcular, el rango es sensible a los valores extremos y no proporciona información sobre la distribución de los datos entre los extremos (Triola, 2014).
+
+### Varianza
+
+La varianza es una medida que cuantifica la dispersión de los datos respecto a la media aritmética. En el caso de datos agrupados, la varianza muestral se calcula considerando la frecuencia de cada clase y el punto medio correspondiente. La fórmula clásica para la varianza es la siguiente:\
+$$\huge s^2 = \frac{\sum_{i=1}^{k} f_i \cdot (x_i - \bar{x})^2}{N - 1}$$
+
+donde $f_i$​ es la frecuencia absoluta de la clase $i$, $x_i$​ es el punto medio de la clase $i$, $\bar{x}$ es la media aritmética y $N$ es el número total de observaciones. La varianza proporciona una medida de la dispersión de los datos alrededor de la media, pero se expresa en unidades al cuadrado, lo que dificulta su interpretación directa (Lind et al., 2017).
+
+Como alternativa, la varianza también puede calcularse utilizando una fórmula operativa, que resulta especialmente útil cuando se dispone de la suma de los productos de las frecuencias por los puntos medios y sus cuadrados. Esta fórmula es algebraicamente equivalente a la anterior y se expresa así:
+
+$$ \LARGE s^2 = \frac{\sum_{i=1}^{k} f_i x_i^2 - \frac{\left(\sum_{i=1}^{k} f_i x_i\right)^2}{N}}{N - 1}$$
+
+donde $f_i$​ es la frecuencia absoluta de la clase $i$, $x_i$​ es el punto medio de la clase $i$, $N$ es el número total de observaciones y kkk es el número de clases. En esta fórmula, $\sum_{i=1}^{k} f_i x_i^2$ representa la suma de los productos de la frecuencia por el cuadrado del punto medio de cada clase, mientras que $\sum_{i=1}^{k} f_i x_i$ corresponde a la suma de los productos de la frecuencia por el punto medio de cada clase.
+
+Ambas fórmulas, la clásica y la operativa, son equivalentes y proporcionan el mismo resultado si se aplican correctamente (Lind et al., 2017; López & González, 2018; Triola, 2018).
+
+### Desviación Estándar
+
+La desviación estándar es la raíz cuadrada de la varianza y se expresa en las mismas unidades que los datos originales. Para datos agrupados, la desviación estándar se calcula como: $$\huge s = \sqrt{s^2}$$
+
+La desviación estándar proporciona una medida de la dispersión de los datos alrededor de la media y es más fácil de interpretar que la varianza. Un valor alto de la desviación estándar indica una mayor dispersión de los datos, mientras que un valor bajo indica una menor dispersión (Anderson et al., 2018).
+
+### Coeficiente de Variación
+
+El coeficiente de variación es una medida relativa de dispersión que se calcula dividiendo la desviación estándar entre la media aritmética: $$ \huge CV = \frac{s}{\bar{x}} \cdot 100\%$$
+
+El coeficiente de variación expresa la dispersión de los datos como un porcentaje de la media y permite comparar la variabilidad de diferentes conjuntos de datos, independientemente de sus unidades de medida. Un valor alto del coeficiente de variación indica una mayor variabilidad relativa, mientras que un valor bajo indica una menor variabilidad relativa (Triola, 2014).
+
+## Medidas de Posición Relativa para Datos Agrupados
+
+Las medidas de posición relativa describen la ubicación de un valor específico en relación con el resto de los datos. Las principales medidas de posición relativa son los cuartiles y los percentiles.
+
+### Cuartiles
+
+Los cuartiles dividen la distribución de los datos en cuatro partes iguales, cada una conteniendo el 25% de las observaciones. Los tres cuartiles se denotan como $Q_1$​, $Q_2$​ y $Q_3$​.
+
+1.  $Q_1$​ (Primer Cuartil): Es el valor que separa el 25% inferior de los datos del 75% superior.
+
+2.  $Q_2$​ (Segundo Cuartil): Es el valor que coincide con la mediana y separa el 50% inferior de los datos del 50% superior.
+
+3.  $Q_3$​ (Tercer Cuartil): Es el valor que separa el 75% inferior de los datos del 25% superior.
+
+Para calcular los cuartiles en datos agrupados, primero se identifica la clase cuartil, que es la primera clase cuya frecuencia acumulada es mayor o igual a $i \cdot N/4$, donde $i$ es el número del cuartil (1, 2 o 3). Luego, se aplica la siguiente fórmula: $$\huge Q_i = L_{inf} + \frac{\frac{i \cdot N}{4} - Fa_{ant}}{f_q} \cdot c$$
+
+donde $L_{inf}$​ es el límite inferior de la clase cuartil, $N$ es el número total de observaciones, $Fa_{ant}$​ es la frecuencia acumulada de la clase anterior a la clase cuartil, $f_q$​ es la frecuencia absoluta de la clase cuartil y $c$ es el intervalo de clase (Lind et al., 2017).
+
+### Percentiles
+
+Los percentiles dividen la distribución de los datos en cien partes iguales, cada una conteniendo el 1% de las observaciones. El percentil $P_p$​ es el valor que separa el $p \%$ inferior de los datos del $(100−p) \%$ superior.
+
+Para calcular los percentiles en datos agrupados, primero se identifica la clase percentil, que es la primera clase cuya frecuencia acumulada es mayor o igual a $p \cdot N/100$. Luego, se aplica la siguiente fórmula: $$\LARGE P_p = L_{inf} + \frac{\frac{p \cdot N}{100} - Fa_{ant}}{f_p} \cdot c$$
+
+donde $L_{inf}$​ es el límite inferior de la clase percentil, $N$ es el número total de observaciones, $Fa_{ant}$​ es la frecuencia acumulada de la clase anterior a la clase percentil, $f_p$​ es la frecuencia absoluta de la clase percentil y $c$ es el intervalo de clase (Triola, 2014).
