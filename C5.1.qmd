@@ -18,7 +18,7 @@ A pesar de la disponibilidad de software estadístico avanzado, el análisis de 
 
 6.  **Análisis de riesgos:** En finanzas y seguros, los datos sobre pérdidas o siniestros se agrupan para evaluar la probabilidad de eventos extremos y establecer primas o reservas adecuadas (Triola, 2018).
 
-## Construcción de la Tabla de Frecuencia para Datos Agrupados
+## Construcción de la Tabla de Frecuencia
 
 Antes de calcular estas medidas, es necesario construir una tabla de frecuencia para los datos agrupados. Este proceso implica los siguientes pasos:
 

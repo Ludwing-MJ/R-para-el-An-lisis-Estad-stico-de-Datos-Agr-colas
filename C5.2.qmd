@@ -6,7 +6,7 @@
 
 **Acceso a recursos:** El script completo con el ejemplo desarrollado y la base de datos IRIS pueden descargarse en el siguiente repositorio:
 
-En el análisis estadístico descriptivo, es fundamental comprender la distribución de los datos para extraer información relevante. A continuación, se presenta un conjunto de datos correspondientes a la longitud del pétalo (en cm) de 150 flores de la especie *Iris*, organizados en formato matricial para facilitar su visualización y análisis. Estos datos serán utilizados para ilustrar el cálculo de estadísticos descriptivos para datos agrupados, siguiendo las metodologías propuestas en notas de estadística general (López & González, 2018).
+A continuación, se presenta un conjunto de datos correspondientes a la longitud del pétalo (en cm) de 150 flores de la especie *Iris*, organizados en formato matricial para facilitar su visualización y análisis. Estos datos serán utilizados para ilustrar el cálculo de estadísticos descriptivos para datos agrupados, siguiendo las metodologías propuestas en la sección aterior.
 
 |     |     |     |     |     |     |     |     |     |     |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
@@ -26,7 +26,7 @@ En el análisis estadístico descriptivo, es fundamental comprender la distribuc
 | 6.1 | 6.4 | 5.6 | 5.1 | 5.6 | 6.1 | 5.6 | 5.5 | 4.8 | 5.4 |
 | 5.6 | 5.1 | 5.1 | 5.9 | 5.7 | 5.2 | 5.0 | 5.2 | 5.4 | 5.1 |
 
-## Construcción de la Tabla de Frecuencias para Datos Agrupados
+## Construcción de la Tabla de Frecuencias
 
 ### Determinación del rango (R)
 
@@ -46,7 +46,7 @@ La amplitud de clase se calcula así: $$\Huge C = \frac{R}{k}$$ Sustituyendo val
 
 ### Determinación de los límites de clase
 
-El primer límite inferior es el valor mínimo ($1.0\$). Los siguientes se obtienen sumando la amplitud de clase ($C\$).\
+El primer límite inferior es el valor mínimo ($1.0$). Los siguientes se obtienen sumando la amplitud de clase ($C$).\
 Para evitar que un valor pertenezca a dos clases al mismo tiempo, se utiliza la notación de intervalos semiabiertos:
 
 1.  El corchete $[$ indica que el límite inferior está incluido en la clase.
@@ -70,7 +70,7 @@ Los intervalos de clase quedan así: $$\large \begin{align*}
 \text{Clase 8:} & \quad [6.25, 7.00] \\
 \end{align*}$$
 
-Nótese que en la última clase se utiliza el corchete de cierre $]$ para incluir el valor máximo.
+**Nótese** que en la última clase se utiliza el corchete de cierre $]$ para incluir el valor máximo.
 
 ### Cálculo de la marca de clase
 
@@ -92,20 +92,145 @@ La frecuencia acumulada es la suma de las frecuencias absolutas hasta la clase $
 
 Por ejemplo, para la cuarta clase: $$ \Large fa_4 = f_1 + f_2 + f_3 + f_4 = 48 + 0 + 0 + 15 = 63$$
 
-### Cálculo de $f_i*x_i$​ y $f_i*x_i^2$
+### Cálculo de $f_i x_i$​ y $f_i x_i^2$
 
 Estos productos se utilizan para cálculos posteriores: $$\huge f_i x_i = f_i \times x_i$$ $$\huge f_i x_i^2 = f_i \times (x_i)^2$$ Por ejemplo, para la primera clase: $$\LARGE f_1 x_1 = 48 \times 1.375 = 66.00$$ $$\LARGE f_1 x_1^2 = 48 \times (1.375)^2 = 48 \times 1.890625 = 90.75$$
 
 ## Tabla de frecuencia
 
 | Clase | Límite Inferior (LI) | Límite Superior (LS) | Marca de clase ($x_i$) | Frecuencia ( $f_i$ ​) | Frecuencia relativa ($fr_i$​) | Frecuencia acumulada ($fa_i$) | $f_i x_i$ | $f_i x_i^2$ |
-|----|----|----|----|----|----|----|----|----|
-| 1 | 1.00 | 1.75 | 1.375 | 48 | 0.32 | 48 | 66.000 | 90.750 |
-| 2 | 1.75 | 2.50 | 2.125 | 0 | 0.00 | 48 | 0.000 | 0.000 |
-| 3 | 2.50 | 3.25 | 2.875 | 0 | 0.00 | 48 | 0.000 | 0.000 |
-| 4 | 3.25 | 4.00 | 3.625 | 15 | 0.10 | 63 | 54.375 | 197.156 |
-| 5 | 4.00 | 4.75 | 4.375 | 27 | 0.18 | 90 | 118.125 | 516.891 |
-| 6 | 4.75 | 5.50 | 5.125 | 21 | 0.14 | 111 | 107.625 | 551.641 |
-| 7 | 5.50 | 6.25 | 5.875 | 24 | 0.16 | 135 | 141.000 | 828.375 |
-| 8 | 6.25 | 7.00 | 6.625 | 15 | 0.10 | 150 | 99.375 | 658.359 |
-| **Total** |  |  |  | **150** | **1.00** |  | **586.500** | **2843.172** |
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|
+| 1 | 1.000 | 1.750 | 1.375 | 48 | 0.320 | 48 | 66.000 | 90.750 |
+| 2 | 1.750 | 2.500 | 2.125 | 2 | 0.013 | 50 | 4.250 | 9.031 |
+| 3 | 2.500 | 3.250 | 2.875 | 1 | 0.007 | 51 | 2.875 | 8.266 |
+| 4 | 3.250 | 4.000 | 3.625 | 10 | 0.067 | 61 | 36.250 | 131.406 |
+| 5 | 4.000 | 4.750 | 4.375 | 34 | 0.227 | 95 | 148.750 | 650.781 |
+| 6 | 4.750 | 5.500 | 5.125 | 27 | 0.180 | 122 | 138.375 | 709.172 |
+| 7 | 5.500 | 6.250 | 5.875 | 22 | 0.147 | 144 | 129.250 | 759.344 |
+| 8 | 6.250 | 7.000 | 6.625 | 6 | 0.040 | 150 | 39.750 | 263.344 |
+| Total |  |  |  | 150 | 1.000 |  | 565.500 | 2622.094 |
+
+## Medidas de tendencia central
+
+Una vez construida la tabla de frecuencia, se procede a calcular las medidas de tendencia central, que resumen la posición central de la distribución de los datos.
+
+### Media Aritmética
+
+La formula para calcular la media aritmpetica es la siguiente:
+
+$$\huge \bar{x} = \frac{\sum_{i=1}^{k} f_i \cdot x_i}{N}$$
+
+Sustituyendo valores
+
+$$\huge \bar{x} = \frac{565.50}{150}=3.77$$
+
+### Mediana
+
+Para el calculo de la mediana hay que identificar la primera clase donde la frecuencia acumulada $fa_i$ supera $N/2$. Para este ejemplo $N/2$ al sustituir valores equivale a $150/2=75$ siendo la clase numero 5 aquella donde la frecuencia acumulada supera $N/2$ siendo la formula para el cálculo de la mediana la siguiente:\
+$$\huge Me = L_{inf} + \frac{\frac{N}{2} - Fa_{ant}}{f_m} \cdot c$$ Sustituyendo valores $$\huge Me = 4.00 + \frac{\frac{150}{2} - 61}{34} \cdot 0.75=4.31$$
+
+### Moda
+
+Para el calculo de la moda hay que identificar clase con mayor frecuencia absoluta siendo la clase numero 1 para este ejemplo. Siendo la formula para el cálculo de la moda la siguiente:
+
+$$ \huge Mo = L_{inf} + \frac{d_1}{d_1 + d_2} \cdot c$$
+
+Sustituyendo valores:
+
+$$ \LARGE Mo = 1.00 + \frac{(48-0)}{(48-0) + (48-2)} \cdot 0.75=1.383$$
+
+## Medidas de dispersión
+
+### Rango
+
+El rango se aproxima restando el límite inferior de la primera clase al límite superior de la última clase siendo su formula la siguiente:
+
+$$\huge Rango = L_{sup,k} - L_{inf,1}$$
+
+Sustituyendo valores:
+
+$$\huge Rango = 7.00 - 1.00=6.00$$
+
+### Varianza
+
+Para el calculo de la varianza se utilizará la siguiente formula operativa, que resulta especialmente útil porque se dispone de la suma de los productos de las frecuencias por los puntos medios y sus cuadrados.
+
+$$ \LARGE s^2 = \frac{\sum_{i=1}^{k} f_i x_i^2 - \frac{\left(\sum_{i=1}^{k} f_i x_i\right)^2}{N}}{N - 1}$$
+
+Sustituyendo valores:
+
+$$ \LARGE s^2 = \frac{2622.094 - \frac{\left(565.500\right)^2}{150}}{150 - 1}=3.29$$
+
+### Desviación Estándar
+
+La desviación estándar es la raíz cuadrada de la varianza y se expresa en las mismas unidades que los datos originales. Para datos agrupados, la desviación estándar se calcula como:
+
+$$\huge s = \sqrt{s^2}$$
+
+Sustituyendo valores
+
+$$\huge s = \sqrt{3.29}=1.645$$
+
+### Coeficiente de Variación
+
+El coeficiente de variación es una medida relativa de dispersión que se calcula dividiendo la desviación estándar entre la media aritmética: $$ \huge CV = \frac{s}{\bar{x}} \cdot 100\%$$
+
+Sustituyendo valores:
+
+$$ \huge CV = \frac{1.645}{3.77} \cdot 100\%=43.63\%$$
+
+## Medidas de posición relativa
+
+### Cuartiles
+
+Para calcular los cuartiles en datos agrupados, primero se identifica la clase cuartil, que es la primera clase cuya frecuencia acumulada es mayor o igual a $i⋅N/4$, donde $i$ es el número del cuartil (1, 2 o 3). Luego, se aplica la siguiente fórmula:
+
+$$\huge Q_i = L_{inf} + \frac{\frac{i \cdot N}{4} - Fa_{ant}}{f_q} \cdot c$$
+
+Para el ejemplo se calculará el cuartil 1 (Q1) por lo que primero se identifica la clase dentro de la que se encuentra, para ello se usa la formula $i⋅N/4$, sustituyendo valores esto sería $1\cdot 150/4=38.5$ siendo la clase donde la frecuencia acumulada supera este valor por primera vez la clase 1, ya con esta información se procede a sustituir valores en la fórmula.
+
+$$\huge Q_1 = 1.0 + \frac{\frac{1 \cdot 150}{4} - 0}{48} \cdot 0.75=1.59$$
+
+### Percentiles
+
+Para calcular los percentiles en datos agrupados, primero se identifica la clase percentil, que es la primera clase cuya frecuencia acumulada es mayor o igual a $p \cdot N/100$. Luego, se aplica la siguiente fórmula:
+
+$$\huge P_p = L_{inf} + \frac{\frac{p \cdot N}{100} - Fa_{ant}}{f_p} \cdot c$$
+
+Para el ejemplo se calculará el percentil 80 ($p=80$) para ello primero se identifica la clase a la que pertenece este percentil usando la formula $p \cdot N/100$ la cual al sustituir los valores equivale a: $80 \cdot 150/100= 120$ con este dato se ubica la clase 6 como la clase donde se encuentra el percentil 80 al ser la primera donde la frecuencia acumulada supera 120. Una vez obtenida esta información se procede a sustituir valores en la formula:
+
+$$\huge P_{80} = 4.75 + \frac {120 - 95}{27} \cdot 0.75=5.44$$
+
+## Interpretación de Resultados
+
+### Media aritmética
+
+La media aritmética obtenida fue de 3.77 cm. Esto indica que, en promedio, la longitud del pétalo de las flores analizadas es de 3.77 centímetros. Esta medida representa el valor central alrededor del cual tienden a agruparse los datos y es útil para describir el comportamiento general de la variable en estudio (López & González, 2018).
+
+### Mediana
+
+La mediana calculada fue de 4.31 cm. Esto significa que el 50% de las flores tiene una longitud de pétalo menor o igual a 4.31 cm, mientras que el otro 50% tiene una longitud mayor o igual a este valor. La mediana es especialmente útil cuando la distribución de los datos es asimétrica o presenta valores extremos, ya que no se ve afectada por estos (López & González, 2018).
+
+### Moda
+
+La moda resultó ser 1.375 cm, correspondiente a la clase con mayor frecuencia absoluta. Esto indica que la longitud de pétalo más común entre las flores analizadas se encuentra en el intervalo de 1.00 a 1.75 cm. La moda es relevante para identificar el valor o rango de valores que se presentan con mayor frecuencia en el conjunto de datos (López & González, 2018).
+
+### Rango
+
+El rango calculado fue de 6.00 cm, lo que representa la diferencia entre la longitud máxima y mínima de los pétalos observados. Este valor proporciona una idea general de la dispersión de los datos, mostrando el intervalo total en el que se distribuyen las observaciones (López & González, 2018).
+
+### Varianza y desviación estándar
+
+La varianza obtenida fue de 3.67 cm² y la desviación estándar fue de 1.83 cm. Estos valores indican que, en promedio, las longitudes de los pétalos se desvían 1.83 cm respecto a la media. Una desviación estándar relativamente alta, como en este caso, sugiere que existe una considerable variabilidad en la longitud de los pétalos dentro del grupo analizado (López & González, 2018).
+
+### Coeficiente de variación
+
+El coeficiente de variación fue de 46.88%. Este valor, al ser mayor al 30%, indica que la dispersión relativa de los datos respecto a la media es alta. En términos prácticos, esto significa que la longitud de los pétalos presenta una considerable heterogeneidad dentro del conjunto de flores estudiadas (López & González, 2018).
+
+### Cuartil 1 (Q1)
+
+El primer cuartil (Q1) se ubicó en 1.59 cm. Esto implica que el 25% de las flores tiene una longitud de pétalo menor o igual a 1.59 cm. El análisis de los cuartiles permite identificar la distribución de los datos en segmentos y facilita la detección de posibles asimetrías o concentraciones de valores (López & González, 2018).
+
+### Percentil 80 (P80)
+
+El percentil 80 se calculó en 5.78 cm, lo que significa que el 80% de las flores tiene una longitud de pétalo menor o igual a 5.78 cm. El percentil 80 es útil para identificar valores altos dentro de la distribución y para realizar comparaciones entre diferentes grupos o tratamientos (López & González, 2018).

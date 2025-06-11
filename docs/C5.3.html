@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -436,8 +471,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#base-de-datos" id="toc-base-de-datos" class="nav-link active" data-scroll-target="#base-de-datos">Base de datos</a></li>
+  <li><a href="#carga-y-preparación-de-datos" id="toc-carga-y-preparación-de-datos" class="nav-link" data-scroll-target="#carga-y-preparación-de-datos">Carga y Preparación de Datos</a></li>
+  <li><a href="#construcción-de-la-tabla-de-frecuencias" id="toc-construcción-de-la-tabla-de-frecuencias" class="nav-link" data-scroll-target="#construcción-de-la-tabla-de-frecuencias">Construcción de la Tabla de Frecuencias</a>
+  <ul class="collapse">
+  <li><a href="#determinación-de-parámetros-básicos" id="toc-determinación-de-parámetros-básicos" class="nav-link" data-scroll-target="#determinación-de-parámetros-básicos">Determinación de Parámetros Básicos</a></li>
+  <li><a href="#construcción-de-intervalos-y-cálculo-de-frecuencias" id="toc-construcción-de-intervalos-y-cálculo-de-frecuencias" class="nav-link" data-scroll-target="#construcción-de-intervalos-y-cálculo-de-frecuencias">Construcción de Intervalos y Cálculo de Frecuencias</a></li>
+  </ul></li>
+  <li><a href="#medidas-de-tendencia-central" id="toc-medidas-de-tendencia-central" class="nav-link" data-scroll-target="#medidas-de-tendencia-central">Medidas de Tendencia Central</a></li>
+  <li><a href="#medidas-de-dispersión" id="toc-medidas-de-dispersión" class="nav-link" data-scroll-target="#medidas-de-dispersión">Medidas de Dispersión</a></li>
+  <li><a href="#medidas-de-posición-relativa" id="toc-medidas-de-posición-relativa" class="nav-link" data-scroll-target="#medidas-de-posición-relativa">Medidas de Posición Relativa</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -462,8 +512,470 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="base-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="base-de-datos">Base de datos</h2>
+<p><strong>Referencia del dataset:</strong> Fisher, R. (1936). Iris [Dataset]. UCI Machine Learning Repository. <a href="https://doi.org/10.24432/C56C76" class="uri">https://doi.org/10.24432/C56C76</a></p>
+<p><strong>Acceso a recursos:</strong> El script completo con el ejemplo desarrollado y la base de datos IRIS pueden descargarse en el siguiente repositorio:</p>
+<p>A continuación, se presenta un conjunto de datos correspondientes a la longitud del pétalo (en cm) de 150 flores de la especie <em>Iris</em>, organizados en formato matricial para facilitar su visualización y análisis. Estos datos serán utilizados para ilustrar el cálculo de estadísticos descriptivos para datos agrupados, siguiendo las metodologías propuestas en la sección aterior.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>1.4</td>
+<td>1.4</td>
+<td>1.3</td>
+<td>1.5</td>
+<td>1.4</td>
+<td>1.7</td>
+<td>1.4</td>
+<td>1.5</td>
+<td>1.4</td>
+<td>1.5</td>
+</tr>
+<tr class="even">
+<td>1.5</td>
+<td>1.6</td>
+<td>1.4</td>
+<td>1.1</td>
+<td>1.2</td>
+<td>1.5</td>
+<td>1.3</td>
+<td>1.4</td>
+<td>1.7</td>
+<td>1.5</td>
+</tr>
+<tr class="odd">
+<td>1.7</td>
+<td>1.5</td>
+<td>1.0</td>
+<td>1.7</td>
+<td>1.9</td>
+<td>1.6</td>
+<td>1.6</td>
+<td>1.5</td>
+<td>1.4</td>
+<td>1.6</td>
+</tr>
+<tr class="even">
+<td>1.6</td>
+<td>1.5</td>
+<td>1.5</td>
+<td>1.4</td>
+<td>1.5</td>
+<td>1.2</td>
+<td>1.3</td>
+<td>1.4</td>
+<td>1.3</td>
+<td>1.5</td>
+</tr>
+<tr class="odd">
+<td>1.3</td>
+<td>1.3</td>
+<td>1.3</td>
+<td>1.6</td>
+<td>1.9</td>
+<td>1.4</td>
+<td>1.6</td>
+<td>1.4</td>
+<td>1.5</td>
+<td>1.4</td>
+</tr>
+<tr class="even">
+<td>4.7</td>
+<td>4.5</td>
+<td>4.9</td>
+<td>4.0</td>
+<td>4.6</td>
+<td>4.5</td>
+<td>4.7</td>
+<td>3.3</td>
+<td>4.6</td>
+<td>3.9</td>
+</tr>
+<tr class="odd">
+<td>3.5</td>
+<td>4.2</td>
+<td>4.0</td>
+<td>4.7</td>
+<td>3.6</td>
+<td>4.4</td>
+<td>4.5</td>
+<td>4.1</td>
+<td>4.5</td>
+<td>3.9</td>
+</tr>
+<tr class="even">
+<td>4.8</td>
+<td>4.0</td>
+<td>4.9</td>
+<td>4.7</td>
+<td>4.3</td>
+<td>4.4</td>
+<td>4.8</td>
+<td>5.0</td>
+<td>4.5</td>
+<td>3.5</td>
+</tr>
+<tr class="odd">
+<td>3.8</td>
+<td>3.7</td>
+<td>3.9</td>
+<td>5.1</td>
+<td>4.5</td>
+<td>4.5</td>
+<td>4.7</td>
+<td>4.4</td>
+<td>4.1</td>
+<td>4.0</td>
+</tr>
+<tr class="even">
+<td>4.4</td>
+<td>4.6</td>
+<td>4.0</td>
+<td>3.3</td>
+<td>4.2</td>
+<td>4.2</td>
+<td>4.2</td>
+<td>4.3</td>
+<td>3.0</td>
+<td>4.1</td>
+</tr>
+<tr class="odd">
+<td>6.0</td>
+<td>5.1</td>
+<td>5.9</td>
+<td>5.6</td>
+<td>5.8</td>
+<td>6.6</td>
+<td>4.5</td>
+<td>6.3</td>
+<td>5.8</td>
+<td>6.1</td>
+</tr>
+<tr class="even">
+<td>5.1</td>
+<td>5.3</td>
+<td>5.5</td>
+<td>5.0</td>
+<td>5.1</td>
+<td>5.3</td>
+<td>5.5</td>
+<td>6.7</td>
+<td>6.9</td>
+<td>5.0</td>
+</tr>
+<tr class="odd">
+<td>5.7</td>
+<td>4.9</td>
+<td>6.7</td>
+<td>4.9</td>
+<td>5.7</td>
+<td>6.0</td>
+<td>4.8</td>
+<td>4.9</td>
+<td>5.6</td>
+<td>5.8</td>
+</tr>
+<tr class="even">
+<td>6.1</td>
+<td>6.4</td>
+<td>5.6</td>
+<td>5.1</td>
+<td>5.6</td>
+<td>6.1</td>
+<td>5.6</td>
+<td>5.5</td>
+<td>4.8</td>
+<td>5.4</td>
+</tr>
+<tr class="odd">
+<td>5.6</td>
+<td>5.1</td>
+<td>5.1</td>
+<td>5.9</td>
+<td>5.7</td>
+<td>5.2</td>
+<td>5.0</td>
+<td>5.2</td>
+<td>5.4</td>
+<td>5.1</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="carga-y-preparación-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="carga-y-preparación-de-datos">Carga y Preparación de Datos</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargar el dataset iris</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraer la variable longitud de pétalo</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>longitud_petalo <span class="ot">&lt;-</span> iris<span class="sc">$</span>Petal.Length</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="construcción-de-la-tabla-de-frecuencias" class="level2">
+<h2 class="anchored" data-anchor-id="construcción-de-la-tabla-de-frecuencias">Construcción de la Tabla de Frecuencias</h2>
+<section id="determinación-de-parámetros-básicos" class="level3">
+<h3 class="anchored" data-anchor-id="determinación-de-parámetros-básicos">Determinación de Parámetros Básicos</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para calcular parámetros de agrupamiento</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>calcular_parametros_agrupamiento <span class="ot">&lt;-</span> <span class="cf">function</span>(datos) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">length</span>(datos)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  x_min <span class="ot">&lt;-</span> <span class="fu">min</span>(datos)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  x_max <span class="ot">&lt;-</span> <span class="fu">max</span>(datos)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  rango <span class="ot">&lt;-</span> x_max <span class="sc">-</span> x_min</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Regla de Sturges para número de clases</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="dv">1</span> <span class="sc">+</span> <span class="fl">3.322</span> <span class="sc">*</span> <span class="fu">log10</span>(n))</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Amplitud de clase</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  amplitud <span class="ot">&lt;-</span> rango <span class="sc">/</span> k</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> n,</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_min =</span> x_min,</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_max =</span> x_max,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">rango =</span> rango,</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">k =</span> k,</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">amplitud =</span> amplitud</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar función</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>parametros <span class="ot">&lt;-</span> <span class="fu">calcular_parametros_agrupamiento</span>(longitud_petalo)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>parametros</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$n
+[1] 150
+
+$x_min
+[1] 1
+
+$x_max
+[1] 6.9
+
+$rango
+[1] 5.9
+
+$k
+[1] 8
+
+$amplitud
+[1] 0.7375</code></pre>
+</div>
+</div>
+</section>
+<section id="construcción-de-intervalos-y-cálculo-de-frecuencias" class="level3">
+<h3 class="anchored" data-anchor-id="construcción-de-intervalos-y-cálculo-de-frecuencias">Construcción de Intervalos y Cálculo de Frecuencias</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para construir tabla de frecuencias</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>construir_tabla_frecuencias <span class="ot">&lt;-</span> <span class="cf">function</span>(datos, parametros) {</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Crear límites de clase</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  limite_inferior <span class="ot">&lt;-</span> <span class="fu">seq</span>(parametros<span class="sc">$</span>x_min, </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                        parametros<span class="sc">$</span>x_max <span class="sc">-</span> parametros<span class="sc">$</span>amplitud, </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">by =</span> parametros<span class="sc">$</span>amplitud)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  limite_superior <span class="ot">&lt;-</span> <span class="fu">seq</span>(parametros<span class="sc">$</span>x_min <span class="sc">+</span> parametros<span class="sc">$</span>amplitud, </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>                        parametros<span class="sc">$</span>x_max, </span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>                        <span class="at">by =</span> parametros<span class="sc">$</span>amplitud)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ajustar último límite superior</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  limite_superior[<span class="fu">length</span>(limite_superior)] <span class="ot">&lt;-</span> parametros<span class="sc">$</span>x_max</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular marcas de clase</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>  marca_clase <span class="ot">&lt;-</span> (limite_inferior <span class="sc">+</span> limite_superior) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular frecuencias absolutas usando cut()</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>  intervalos <span class="ot">&lt;-</span> <span class="fu">cut</span>(datos, </span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks =</span> <span class="fu">c</span>(limite_inferior, parametros<span class="sc">$</span>x_max),</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>                   <span class="at">include.lowest =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>                   <span class="at">right =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  frecuencia_absoluta <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">table</span>(intervalos))</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular frecuencias derivadas</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  frecuencia_relativa <span class="ot">&lt;-</span> frecuencia_absoluta <span class="sc">/</span> parametros<span class="sc">$</span>n</span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>  frecuencia_acumulada <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(frecuencia_absoluta)</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>  fi_xi <span class="ot">&lt;-</span> frecuencia_absoluta <span class="sc">*</span> marca_clase</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  fi_xi2 <span class="ot">&lt;-</span> frecuencia_absoluta <span class="sc">*</span> (marca_clase<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Crear tabla</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>  tabla <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">Clase =</span> <span class="dv">1</span><span class="sc">:</span>parametros<span class="sc">$</span>k,</span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">Limite_Inferior =</span> limite_inferior,</span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">Limite_Superior =</span> limite_superior,</span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">Marca_Clase =</span> <span class="fu">round</span>(marca_clase, <span class="dv">3</span>),</span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">Frecuencia_Absoluta =</span> frecuencia_absoluta,</span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">Frecuencia_Relativa =</span> <span class="fu">round</span>(frecuencia_relativa, <span class="dv">4</span>),</span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">Frecuencia_Acumulada =</span> frecuencia_acumulada,</span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">fi_xi =</span> <span class="fu">round</span>(fi_xi, <span class="dv">3</span>),</span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">fi_xi2 =</span> <span class="fu">round</span>(fi_xi2, <span class="dv">3</span>)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(tabla)</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Construir tabla de frecuencias</span></span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a>tabla_freq <span class="ot">&lt;-</span> <span class="fu">construir_tabla_frecuencias</span>(longitud_petalo, parametros)</span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar tabla</span></span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a>tabla_freq</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Clase Limite_Inferior Limite_Superior Marca_Clase Frecuencia_Absoluta
+1     1          1.0000          1.7375       1.369                  48
+2     2          1.7375          2.4750       2.106                   2
+3     3          2.4750          3.2125       2.844                   1
+4     4          3.2125          3.9500       3.581                  10
+5     5          3.9500          4.6875       4.319                  29
+6     6          4.6875          5.4250       5.056                  32
+7     7          5.4250          6.1625       5.794                  22
+8     8          6.1625          6.9000       6.531                   6
+  Frecuencia_Relativa Frecuencia_Acumulada   fi_xi  fi_xi2
+1              0.3200                   48  65.700  89.927
+2              0.0133                   50   4.213   8.873
+3              0.0067                   51   2.844   8.087
+4              0.0667                   61  35.812 128.254
+5              0.1933                   90 125.244 540.896
+6              0.2133                  122 161.800 818.101
+7              0.1467                  144 127.463 738.486
+8              0.0400                  150  39.188 255.943</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="medidas-de-tendencia-central" class="level2">
+<h2 class="anchored" data-anchor-id="medidas-de-tendencia-central">Medidas de Tendencia Central</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para calcular medidas de tendencia central</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>calcular_tendencia_central <span class="ot">&lt;-</span> <span class="cf">function</span>(tabla, parametros) {</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Media aritmética</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  media <span class="ot">&lt;-</span> <span class="fu">sum</span>(tabla<span class="sc">$</span>fi_xi) <span class="sc">/</span> parametros<span class="sc">$</span>n</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mediana</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  posicion_mediana <span class="ot">&lt;-</span> parametros<span class="sc">$</span>n <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  clase_mediana <span class="ot">&lt;-</span> <span class="fu">which</span>(tabla<span class="sc">$</span>Frecuencia_Acumulada <span class="sc">&gt;=</span> posicion_mediana)[<span class="dv">1</span>]</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  fa_anterior <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(clase_mediana <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">0</span>, </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>                       tabla<span class="sc">$</span>Frecuencia_Acumulada[clase_mediana <span class="sc">-</span> <span class="dv">1</span>])</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  mediana <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Limite_Inferior[clase_mediana] <span class="sc">+</span> </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            ((posicion_mediana <span class="sc">-</span> fa_anterior) <span class="sc">/</span> </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>             tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_mediana]) <span class="sc">*</span> parametros<span class="sc">$</span>amplitud</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Moda</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  clase_modal <span class="ot">&lt;-</span> <span class="fu">which.max</span>(tabla<span class="sc">$</span>Frecuencia_Absoluta)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  d1 <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_modal] <span class="sc">-</span> </span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>       <span class="fu">ifelse</span>(clase_modal <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">0</span>, </span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>              tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_modal <span class="sc">-</span> <span class="dv">1</span>])</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  d2 <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_modal] <span class="sc">-</span> </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>       <span class="fu">ifelse</span>(clase_modal <span class="sc">==</span> parametros<span class="sc">$</span>k, <span class="dv">0</span>, </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>              tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_modal <span class="sc">+</span> <span class="dv">1</span>])</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  moda <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Limite_Inferior[clase_modal] <span class="sc">+</span> </span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>         (d1 <span class="sc">/</span> (d1 <span class="sc">+</span> d2)) <span class="sc">*</span> parametros<span class="sc">$</span>amplitud</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">media =</span> media, <span class="at">mediana =</span> mediana, <span class="at">moda =</span> moda))</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular medidas</span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>tendencia <span class="ot">&lt;-</span> <span class="fu">calcular_tendencia_central</span>(tabla_freq, parametros)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar resultados </span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>tendencia</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$media
+[1] 3.748427
+
+$mediana
+[1] 4.306034
+
+$moda
+[1] 1.376596</code></pre>
+</div>
+</div>
+</section>
+<section id="medidas-de-dispersión" class="level2">
+<h2 class="anchored" data-anchor-id="medidas-de-dispersión">Medidas de Dispersión</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para calcular medidas de dispersión</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>calcular_dispersion <span class="ot">&lt;-</span> <span class="cf">function</span>(tabla, parametros, media) {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Rango aproximado</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  rango_aprox <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Limite_Superior[parametros<span class="sc">$</span>k] <span class="sc">-</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                tabla<span class="sc">$</span>Limite_Inferior[<span class="dv">1</span>]</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Varianza</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  varianza <span class="ot">&lt;-</span> (<span class="fu">sum</span>(tabla<span class="sc">$</span>fi_xi2) <span class="sc">-</span> (<span class="fu">sum</span>(tabla<span class="sc">$</span>fi_xi)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> parametros<span class="sc">$</span>n)) <span class="sc">/</span> </span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>             (parametros<span class="sc">$</span>n <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Desviación estándar</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  desviacion_std <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(varianza)</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Coeficiente de variación</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  cv <span class="ot">&lt;-</span> (desviacion_std <span class="sc">/</span> media) <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">rango =</span> rango_aprox,</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">varianza =</span> varianza,</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">desviacion_std =</span> desviacion_std,</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">cv =</span> cv</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular medidas de dispersión</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>dispersion <span class="ot">&lt;-</span> <span class="fu">calcular_dispersion</span>(tabla_freq, parametros, tendencia<span class="sc">$</span>media)</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>dispersion</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$rango
+[1] 5.9
+
+$varianza
+[1] 3.22793
+
+$desviacion_std
+[1] 1.796644
+
+$cv
+[1] 47.93062</code></pre>
+</div>
+</div>
+</section>
+<section id="medidas-de-posición-relativa" class="level2">
+<h2 class="anchored" data-anchor-id="medidas-de-posición-relativa">Medidas de Posición Relativa</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para calcular cuartiles y percentiles</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>calcular_posicion_relativa <span class="ot">&lt;-</span> <span class="cf">function</span>(tabla, parametros, posicion, <span class="at">tipo =</span> <span class="st">"cuartil"</span>) {</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (tipo <span class="sc">==</span> <span class="st">"cuartil"</span>) {</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    pos_valor <span class="ot">&lt;-</span> posicion <span class="sc">*</span> parametros<span class="sc">$</span>n <span class="sc">/</span> <span class="dv">4</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (tipo <span class="sc">==</span> <span class="st">"percentil"</span>) {</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    pos_valor <span class="ot">&lt;-</span> posicion <span class="sc">*</span> parametros<span class="sc">$</span>n <span class="sc">/</span> <span class="dv">100</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  clase_objetivo <span class="ot">&lt;-</span> <span class="fu">which</span>(tabla<span class="sc">$</span>Frecuencia_Acumulada <span class="sc">&gt;=</span> pos_valor)[<span class="dv">1</span>]</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  fa_anterior <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(clase_objetivo <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">0</span>, </span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>                       tabla<span class="sc">$</span>Frecuencia_Acumulada[clase_objetivo <span class="sc">-</span> <span class="dv">1</span>])</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  valor <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Limite_Inferior[clase_objetivo] <span class="sc">+</span> </span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>          ((pos_valor <span class="sc">-</span> fa_anterior) <span class="sc">/</span> </span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>           tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_objetivo]) <span class="sc">*</span> parametros<span class="sc">$</span>amplitud</span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(valor)</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular Q1 y P80</span></span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>Q1 <span class="ot">&lt;-</span> <span class="fu">calcular_posicion_relativa</span>(tabla_freq, parametros, <span class="dv">1</span>, <span class="st">"cuartil"</span>)</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>P80 <span class="ot">&lt;-</span> <span class="fu">calcular_posicion_relativa</span>(tabla_freq, parametros, <span class="dv">80</span>, <span class="st">"percentil"</span>)</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar resultados</span></span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>Q1</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.576172</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>P80</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.378906</code></pre>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
