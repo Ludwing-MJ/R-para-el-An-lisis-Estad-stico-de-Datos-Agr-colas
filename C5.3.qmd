@@ -26,7 +26,20 @@ A continuación, se presenta un conjunto de datos correspondientes a la longitud
 | 6.1 | 6.4 | 5.6 | 5.1 | 5.6 | 6.1 | 5.6 | 5.5 | 4.8 | 5.4 |
 | 5.6 | 5.1 | 5.1 | 5.9 | 5.7 | 5.2 | 5.0 | 5.2 | 5.4 | 5.1 |
 
+## Preparación del entorno de trabajo
+
+```{r warning=FALSE, message=FALSE}
+# Instalación y carga de paquetes necesarios
+## Para manipulación y visualización de datos
+if (!require(tidyverse)) install.packages("tidyverse")
+## Para estadísticas exportar archivos en excel
+if (!require(writexl)) install.packages("writexl")
+
+```
+
 ## Carga y Preparación de Datos
+
+Primero, se carga el dataset iris y se extrae la variable de interés, en este caso, la longitud del pétalo.
 
 ```{r}
 # Cargar el dataset iris
@@ -37,9 +50,9 @@ longitud_petalo <- iris$Petal.Length
 
 ```
 
-## Construcción de la Tabla de Frecuencias 
+## Determinación de parámetros básicos para la agrupación
 
-### Determinación de Parámetros Básicos
+Se define una función personalizada para calcular los parámetros necesarios para agrupar los datos: número de observaciones, valores mínimo y máximo, rango, número de clases (usando la regla de Sturges) y amplitud de clase.
 
 ```{r}
 # Función para calcular parámetros de agrupamiento
@@ -65,12 +78,23 @@ calcular_parametros_agrupamiento <- function(datos) {
   ))
 }
 
+
+
+
+```
+
+Una vez ya definida la función para calcular los parametros necesarios para la agrupación de los datos (tarea que se realiza la cada vez que se abre el software y se desea cargar la función en el entorno de trabajo). Se procede a calcularlos:
+
+```{r}
 # Aplicar función
 parametros <- calcular_parametros_agrupamiento(longitud_petalo)
+# Visualizar el resultado
 parametros
 ```
 
-### Construcción de Intervalos y Cálculo de Frecuencias
+##  Construcción de la tabla de frecuencias
+
+Se utiliza una función personalizada para construir la tabla de frecuencias, calculando los límites de clase, marcas de clase, frecuencias absolutas, relativas y acumuladas, así como sumas necesarias para los cálculos posteriores.
 
 ```{r}
 # Función para construir tabla de frecuencias
@@ -118,6 +142,12 @@ construir_tabla_frecuencias <- function(datos, parametros) {
   return(tabla)
 }
 
+
+```
+
+Una vez ya definida la función para construir la tabla de frecuencias (tarea que se realiza la cada vez que se abre el software y se desea cargar la función en el entorno de trabajo). Se procede a emplear la función para construir la tabla:
+
+```{r}
 # Construir tabla de frecuencias
 tabla_freq <- construir_tabla_frecuencias(longitud_petalo, parametros)
 
@@ -125,7 +155,18 @@ tabla_freq <- construir_tabla_frecuencias(longitud_petalo, parametros)
 tabla_freq
 ```
 
+La tabla de frecuencias es la base para calcular las medidas de tendencia central y dispersión en datos agrupados. Cada fila representa un intervalo de clase y sus frecuencias asociadas. Si se desea exportar la tabla de frecuencias en un formato tabular para su presentación se utiliza la función `write_xlsx` como se muestra a continuación.
+
+```{r}
+# Exportar la tabla de frecuencias
+write_xlsx(tabla_freq, "tabla_frecuencias.xlsx")
+```
+
+Al ejecutar esta linea de código R automáticamente guardará un archivo .xlsx en la carpeta del proyecto.
+
 ## Medidas de Tendencia Central
+
+Se define una función personalizada para calcular la media, mediana y moda a partir de la tabla de frecuencias.
 
 ```{r}
 # Función para calcular medidas de tendencia central
@@ -158,6 +199,12 @@ calcular_tendencia_central <- function(tabla, parametros) {
   return(list(media = media, mediana = mediana, moda = moda))
 }
 
+
+```
+
+En esta función la media se calcula como el promedio ponderado de las marcas de clase. La mediana y la moda se estiman usando fórmulas específicas para datos agrupados, considerando la posición dentro de la clase correspondiente, una vez ya definida la función se procede a utilizarla para calcular las medidas de tendencia central.
+
+```{r}
 # Calcular medidas
 tendencia <- calcular_tendencia_central(tabla_freq, parametros)
 
@@ -166,6 +213,8 @@ tendencia
 ```
 
 ## Medidas de Dispersión
+
+Se utiliza una función personalizada para calcular el rango, la varianza, la desviación estándar y el coeficiente de variación.
 
 ```{r}
 # Función para calcular medidas de dispersión
@@ -192,6 +241,12 @@ calcular_dispersion <- function(tabla, parametros, media) {
   ))
 }
 
+
+```
+
+El rango es la diferencia entre el límite superior del último intervalo y el límite inferior del primero. La varianza y la desviación estándar se calculan usando las sumas ponderadas de las marcas de clase al cuadrado. El coeficiente de variación expresa la dispersión relativa respecto a la media. Para estos cálculos la función emplea las formulas presentadas en la seccion anterior y una vez definida se procede al cálculo de las medidas de dispersión:
+
+```{r}
 # Calcular medidas de dispersión
 dispersion <- calcular_dispersion(tabla_freq, parametros, tendencia$media)
 
@@ -201,9 +256,13 @@ dispersion
 
 ## Medidas de Posición Relativa
 
+Finalmente, se puede calcular cualquier cuartil o percentil usando una función personalizada.
+
 ```{r}
 # Función para calcular cuartiles y percentiles
-calcular_posicion_relativa <- function(tabla, parametros, posicion, tipo = "cuartil") {
+calcular_posicion_relativa <- function(tabla,
+                                       parametros, posicion, 
+                                       tipo = "cuartil") {
   if (tipo == "cuartil") {
     pos_valor <- posicion * parametros$n / 4
   } else if (tipo == "percentil") {
@@ -221,11 +280,128 @@ calcular_posicion_relativa <- function(tabla, parametros, posicion, tipo = "cuar
   return(valor)
 }
 
-# Calcular Q1 y P80
-Q1 <- calcular_posicion_relativa(tabla_freq, parametros, 1, "cuartil")
-P80 <- calcular_posicion_relativa(tabla_freq, parametros, 80, "percentil")
 
-# Mostrar resultados
-Q1
-P80
 ```
+
+Esta función permite calcular cualquier medida de posición relativa, como cuartiles o percentiles, utilizando la tabla de frecuencias y la fórmula correspondiente para datos agrupados. Una vez definida en el entorno de trabajo se procede a utlizar para calcular Q1 y P80 como en el ejemplo anterior:
+
+```{r}
+# Calcular Q1 y P80
+Q1 <- calcular_posicion_relativa(tabla_freq, parametros, 1, "cuartil");Q1
+P80 <- calcular_posicion_relativa(tabla_freq, parametros, 80, "percentil");P80
+
+
+```
+
+## Histograma
+
+El histograma es un gráfico de barras que representa la distribución de frecuencias de los datos agrupados. Cada barra corresponde a un intervalo de clase, y su altura es proporcional a la frecuencia absoluta o relativa de ese intervalo.
+
+**Construcción en R:**
+
+```{r}
+hist(longitud_petalo, 
+     breaks = seq(min(iris$Petal.Length), 
+                  max(iris$Petal.Length), 
+                  length.out = parametros$k + 1),
+     main = "Histograma de la Longitud del Pétalo",
+     xlab = "Longitud del Pétalo (cm)",
+     ylab = "Frecuencia",
+     col = "skyblue",
+     border = "black")
+```
+
+**Explicación:**
+
+1.  `hist()`: Función para crear histogramas en R.
+
+2.  `longitud_pedalo`: Variable a graficar.
+
+3.  `breaks`: Define los límites de los intervalos de clase. Se utiliza `seq()` para generar una secuencia de valores desde el mínimo hasta el máximo de la variable, dividida en `k + 1` puntos (donde `k` es el número de clases).
+
+4.  `main`, `xlab`, `ylab`: Títulos y etiquetas de los ejes.
+
+5.  `col`, `border`: Colores de las barras y del borde.
+
+## Polígono de Frecuencias
+
+El polígono de frecuencias es un gráfico de líneas que conecta los puntos medios de las barras del histograma. Se construye uniendo los puntos correspondientes a las marcas de clase y sus respectivas frecuencias.
+
+**Construcción en R:**
+
+```{r}
+
+# Crear el polígono de frecuencias
+plot(tabla_freq$Marca_Clase,
+     tabla_freq$Frecuencia_Absoluta, 
+     type = "l",  # "l" para líneas
+     main = "Polígono de Frecuencias de la Longitud del Pétalo",
+     xlab = "Longitud del Pétalo (cm)",
+     ylab = "Frecuencia",
+     col = "blue",
+     lwd = 2)  # Grosor de la línea
+
+# Agregar puntos en las marcas de clase
+points(tabla_freq$Marca_Clase,
+       tabla_freq$Frecuencia_Absoluta, 
+       col = "red", pch = 16)  
+# pch = 16 para círculos rellenos
+```
+
+**Explicación:**
+
+1.  `plot(type = "l")`: Crea un gráfico de líneas.
+
+2.  `tabla_freq$Marca_Clase`y `tabla_freq$Frecuencia_Absoluta`: Vectores con las marcas de clase y las frecuencias absolutas.
+
+3.  `points()`: Agrega puntos en las marcas de clase para resaltar los valores.
+
+## Ojiva (Polígono de Frecuencias Acumuladas)
+
+La ojiva es un gráfico de líneas que representa las frecuencias acumuladas. Se construye uniendo los puntos correspondientes a los límites superiores de los intervalos de clase y sus respectivas frecuencias acumuladas.
+
+**Construcción en R:**
+
+```{r}
+# Ojiva "Menor Que"
+plot(tabla_freq$Limite_Superior, tabla_freq$Frecuencia_Acumulada, 
+     type = "l",
+     main = "Ojiva 'Menor Que' de la Longitud del Pétalo",
+     xlab = "Longitud del Pétalo (cm)",
+     ylab = "Frecuencia Acumulada",
+     col = "blue")
+
+# Ojiva "Mayor Que"
+frecuencia_acumulada_mayor_que <- rev(cumsum(rev(tabla_freq$Frecuencia_Absoluta)))
+plot(tabla_freq$Limite_Inferior, frecuencia_acumulada_mayor_que,
+     type = "l",
+     main = "Ojiva 'Mayor Que' de la Longitud del Pétalo",
+     xlab = "Longitud del Pétalo (cm)",
+     ylab = "Frecuencia Acumulada",
+     col = "red")
+
+```
+
+## Gráfico de Barras
+
+Aunque el histograma es el gráfico más común para datos agrupados, también se puede utilizar un gráfico de barras para representar las frecuencias de cada clase.
+
+**Construcción en R:**
+
+```{r}
+barplot(tabla_freq$Frecuencia_Absoluta,
+        names.arg = tabla_freq$Marca_Clase,
+        main = "Gráfico de Barras de la Longitud del Pétalo",
+        xlab = "Marca de Clase (cm)",
+        ylab = "Frecuencia Absoluta",
+        col = "orange",
+        border = "black")
+```
+
+**Explicación:**
+
+1.  `barplot()`: Función para crear gráficos de barras en R.
+
+2.  `tabla_freq$Frecuencia_Absoluta`: Vector con las frecuencias absolutas.
+
+3.  `names.arg`: Etiquetas para cada barra (en este caso, las marcas de clase).
