@@ -32,8 +32,10 @@ A continuación, se presenta un conjunto de datos correspondientes a la longitud
 # Instalación y carga de paquetes necesarios
 ## Para manipulación y visualización de datos
 if (!require(tidyverse)) install.packages("tidyverse")
-## Para estadísticas exportar archivos en excel
+## Para exportar archivos en excel
 if (!require(writexl)) install.packages("writexl")
+## Para importar archivos en excel
+if (!require(readxl)) install.packages("readxl")
 
 ```
 
@@ -157,7 +159,7 @@ tabla_freq
 
 La tabla de frecuencias es la base para calcular las medidas de tendencia central y dispersión en datos agrupados. Cada fila representa un intervalo de clase y sus frecuencias asociadas. Si se desea exportar la tabla de frecuencias en un formato tabular para su presentación se utiliza la función `write_xlsx` como se muestra a continuación.
 
-```{r}
+```{r eval=FALSE}
 # Exportar la tabla de frecuencias
 write_xlsx(tabla_freq, "tabla_frecuencias.xlsx")
 ```
@@ -405,3 +407,88 @@ barplot(tabla_freq$Frecuencia_Absoluta,
 2.  `tabla_freq$Frecuencia_Absoluta`: Vector con las frecuencias absolutas.
 
 3.  `names.arg`: Etiquetas para cada barra (en este caso, las marcas de clase).
+
+## Cálculos a partir de una tabla de frecuencias
+
+No siempre es posible encontrar la base de datos completa para poder contruir la tabla de frecuencias y realizar las estimaciones, muchas veces se parte de una tabla de frecuencias debido a la sensibilidad de los datos, privacidad o porque los datos son muy antiguos y se han perdido los registos, para este ejemplo se va a explicar como usar las funciones partiendo de la tabla de frecuencias exportada a un archivo excel previamente en esta sección:
+
+### Importar la tabla de frecuencias
+
+Cabe resaltar que para que esto funcione la tabla de frecuencias que se vaya a importar debe tener el mismo formato (numero y nombre de columnas ) que la tabla que se muestra a continuación:
+
+![](tabla_frecuencias.jpg){fig-align="center" width="800"}
+
+```{r}
+#Importar tabla de frecuencias
+tabla<-read_excel("tabla_frecuencias.xlsx")
+
+```
+
+### Estimación de los parámetros de agrupación
+
+Una vez importada la tabla de frecuencias adecuadamente se procede a estimar los parámetros de agrupación a partir de ella, ya que estos son indispensables para las funciones elaboradas para estimar las medidas de tendencia central, dispersión y posición relativa.
+
+```{r}
+# Funcion personalizada para calcular los parametros
+calcular_parametros_desde_tabla <- function(tabla) {
+  n <- sum(tabla$Frecuencia_Absoluta)
+  x_min <- min(tabla$Limite_Inferior)
+  x_max <- max(tabla$Limite_Superior)
+  rango <- x_max - x_min
+  k <- nrow(tabla)
+  amplitud <- (tabla$Limite_Superior[1] - tabla$Limite_Inferior[1])
+
+  return(list(
+    n = n,
+    x_min = x_min,
+    x_max = x_max,
+    rango = rango,
+    k = k,
+    amplitud = amplitud
+  ))
+}
+```
+
+Una vez cargada la funcion al entorno de trabajo esta se utiliza con la tabla de frecuencias previamente importada para estimar los parametros de agrupacion
+
+```{r}
+# Estimar los parametros de agrupacion a partir de la tabla de frecuencias
+parametros_tabla <- calcular_parametros_desde_tabla(tabla)
+
+```
+
+### Estimación de los parámetros con las mismas funciones
+
+Una vez ya se ha importado la tabla de frecuencias y estimado los parametros de agrupacion a partir de la tabla de frecuencias es posible usar las funciones previamente establecidas para calculas los parametros como se muestra a continuación:
+
+1.  Medidas de tendencia central
+
+    ```{r}
+    # Calcular medidas
+    tendencia_tabla <- calcular_tendencia_central(tabla, parametros_tabla)
+
+    # Mostrar resultados 
+    tendencia_tabla
+    ```
+
+2.  Medidas de dispersión
+
+    ```{r}
+    # Calcular medidas de dispersión
+    dispersion_tabla <- calcular_dispersion(tabla, 
+                                            parametros_tabla, 
+                                            tendencia_tabla$media)
+
+    # Mostrar los resultados
+    dispersion_tabla
+    ```
+
+3.  Medidas de posición relativa
+
+    ```{r}
+    # Calcular Q1 y P80
+    Q1_tabla <- calcular_posicion_relativa(tabla, parametros_tabla, 1, "cuartil");Q1_tabla
+    P80_tabla <- calcular_posicion_relativa(tabla, parametros_tabla, 80, "percentil");P80_tabla
+    ```
+
+Como se puede observar siempre y cuando la tabla de frecuencias siga el formato propuesto las funciones seguirán operando con normalidad partiendo desde una base de datos completa o únicamente desde una tabla de frecuencias, cabe resaltar que el ajustar el formato de la tabla de frecuencias cuando se trabaja con una tabla de frecuencias y no con una base de datos completa es una tarea adicional que se debe llevar a cabo previo al análisis.

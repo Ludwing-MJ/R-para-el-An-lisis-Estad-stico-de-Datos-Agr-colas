@@ -488,6 +488,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#polígono-de-frecuencias" id="toc-polígono-de-frecuencias" class="nav-link" data-scroll-target="#polígono-de-frecuencias">Polígono de Frecuencias</a></li>
   <li><a href="#ojiva-polígono-de-frecuencias-acumuladas" id="toc-ojiva-polígono-de-frecuencias-acumuladas" class="nav-link" data-scroll-target="#ojiva-polígono-de-frecuencias-acumuladas">Ojiva (Polígono de Frecuencias Acumuladas)</a></li>
   <li><a href="#gráfico-de-barras" id="toc-gráfico-de-barras" class="nav-link" data-scroll-target="#gráfico-de-barras">Gráfico de Barras</a></li>
+  <li><a href="#cálculos-a-partir-de-una-tabla-de-frecuencias" id="toc-cálculos-a-partir-de-una-tabla-de-frecuencias" class="nav-link" data-scroll-target="#cálculos-a-partir-de-una-tabla-de-frecuencias">Cálculos a partir de una tabla de frecuencias</a>
+  <ul class="collapse">
+  <li><a href="#importar-la-tabla-de-frecuencias" id="toc-importar-la-tabla-de-frecuencias" class="nav-link" data-scroll-target="#importar-la-tabla-de-frecuencias">Importar la tabla de frecuencias</a></li>
+  <li><a href="#estimación-de-los-parámetros-de-agrupación" id="toc-estimación-de-los-parámetros-de-agrupación" class="nav-link" data-scroll-target="#estimación-de-los-parámetros-de-agrupación">Estimación de los parámetros de agrupación</a></li>
+  <li><a href="#estimación-de-los-parámetros-con-las-mismas-funciones" id="toc-estimación-de-los-parámetros-con-las-mismas-funciones" class="nav-link" data-scroll-target="#estimación-de-los-parámetros-con-las-mismas-funciones">Estimación de los parámetros con las mismas funciones</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -710,8 +716,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalación y carga de paquetes necesarios</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Para manipulación y visualización de datos</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(tidyverse)) <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Para estadísticas exportar archivos en excel</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(writexl)) <span class="fu">install.packages</span>(<span class="st">"writexl"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Para exportar archivos en excel</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(writexl)) <span class="fu">install.packages</span>(<span class="st">"writexl"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="do">## Para importar archivos en excel</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(readxl)) <span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="carga-y-preparación-de-datos" class="level2">
@@ -1132,8 +1140,114 @@ $cv
 <li><p><code>tabla_freq$Frecuencia_Absoluta</code>: Vector con las frecuencias absolutas.</p></li>
 <li><p><code>names.arg</code>: Etiquetas para cada barra (en este caso, las marcas de clase).</p></li>
 </ol>
+</section>
+<section id="cálculos-a-partir-de-una-tabla-de-frecuencias" class="level2">
+<h2 class="anchored" data-anchor-id="cálculos-a-partir-de-una-tabla-de-frecuencias">Cálculos a partir de una tabla de frecuencias</h2>
+<p>No siempre es posible encontrar la base de datos completa para poder contruir la tabla de frecuencias y realizar las estimaciones, muchas veces se parte de una tabla de frecuencias debido a la sensibilidad de los datos, privacidad o porque los datos son muy antiguos y se han perdido los registos, para este ejemplo se va a explicar como usar las funciones partiendo de la tabla de frecuencias exportada a un archivo excel previamente en esta sección:</p>
+<section id="importar-la-tabla-de-frecuencias" class="level3">
+<h3 class="anchored" data-anchor-id="importar-la-tabla-de-frecuencias">Importar la tabla de frecuencias</h3>
+<p>Cabe resaltar que para que esto funcione la tabla de frecuencias que se vaya a importar debe tener el mismo formato (numero y nombre de columnas ) que la tabla que se muestra a continuación:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="tabla_frecuencias.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+</figure>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Importar tabla de frecuencias</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>tabla<span class="ot">&lt;-</span><span class="fu">read_excel</span>(<span class="st">"tabla_frecuencias.xlsx"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="estimación-de-los-parámetros-de-agrupación" class="level3">
+<h3 class="anchored" data-anchor-id="estimación-de-los-parámetros-de-agrupación">Estimación de los parámetros de agrupación</h3>
+<p>Una vez importada la tabla de frecuencias adecuadamente se procede a estimar los parámetros de agrupación a partir de ella, ya que estos son indispensables para las funciones elaboradas para estimar las medidas de tendencia central, dispersión y posición relativa.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Funcion personalizada para calcular los parametros</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>calcular_parametros_desde_tabla <span class="ot">&lt;-</span> <span class="cf">function</span>(tabla) {</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">sum</span>(tabla<span class="sc">$</span>Frecuencia_Absoluta)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  x_min <span class="ot">&lt;-</span> <span class="fu">min</span>(tabla<span class="sc">$</span>Limite_Inferior)</span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  x_max <span class="ot">&lt;-</span> <span class="fu">max</span>(tabla<span class="sc">$</span>Limite_Superior)</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  rango <span class="ot">&lt;-</span> x_max <span class="sc">-</span> x_min</span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  k <span class="ot">&lt;-</span> <span class="fu">nrow</span>(tabla)</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  amplitud <span class="ot">&lt;-</span> (tabla<span class="sc">$</span>Limite_Superior[<span class="dv">1</span>] <span class="sc">-</span> tabla<span class="sc">$</span>Limite_Inferior[<span class="dv">1</span>])</span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(</span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> n,</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_min =</span> x_min,</span>
+<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">x_max =</span> x_max,</span>
+<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">rango =</span> rango,</span>
+<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">k =</span> k,</span>
+<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">amplitud =</span> amplitud</span>
+<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Una vez cargada la funcion al entorno de trabajo esta se utiliza con la tabla de frecuencias previamente importada para estimar los parametros de agrupacion</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimar los parametros de agrupacion a partir de la tabla de frecuencias</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>parametros_tabla <span class="ot">&lt;-</span> <span class="fu">calcular_parametros_desde_tabla</span>(tabla)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="estimación-de-los-parámetros-con-las-mismas-funciones" class="level3">
+<h3 class="anchored" data-anchor-id="estimación-de-los-parámetros-con-las-mismas-funciones">Estimación de los parámetros con las mismas funciones</h3>
+<p>Una vez ya se ha importado la tabla de frecuencias y estimado los parametros de agrupacion a partir de la tabla de frecuencias es posible usar las funciones previamente establecidas para calculas los parametros como se muestra a continuación:</p>
+<ol type="1">
+<li><p>Medidas de tendencia central</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular medidas</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>tendencia_tabla <span class="ot">&lt;-</span> <span class="fu">calcular_tendencia_central</span>(tabla, parametros_tabla)</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar resultados </span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>tendencia_tabla</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$media
+[1] 3.748427
+
+$mediana
+[1] 4.306034
+
+$moda
+[1] 1.376596</code></pre>
+</div>
+</div></li>
+<li><p>Medidas de dispersión</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular medidas de dispersión</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>dispersion_tabla <span class="ot">&lt;-</span> <span class="fu">calcular_dispersion</span>(tabla, </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                                        parametros_tabla, </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>                                        tendencia_tabla<span class="sc">$</span>media)</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los resultados</span></span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>dispersion_tabla</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$rango
+[1] 5.9
+
+$varianza
+[1] 3.22793
+
+$desviacion_std
+[1] 1.796644
+
+$cv
+[1] 47.93062</code></pre>
+</div>
+</div></li>
+<li><p>Medidas de posición relativa</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular Q1 y P80</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>Q1_tabla <span class="ot">&lt;-</span> <span class="fu">calcular_posicion_relativa</span>(tabla, parametros_tabla, <span class="dv">1</span>, <span class="st">"cuartil"</span>);Q1_tabla</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.576172</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>P80_tabla <span class="ot">&lt;-</span> <span class="fu">calcular_posicion_relativa</span>(tabla, parametros_tabla, <span class="dv">80</span>, <span class="st">"percentil"</span>);P80_tabla</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5.378906</code></pre>
+</div>
+</div></li>
+</ol>
+<p>Como se puede observar siempre y cuando la tabla de frecuencias siga el formato propuesto las funciones seguirán operando con normalidad partiendo desde una base de datos completa o únicamente desde una tabla de frecuencias, cabe resaltar que el ajustar el formato de la tabla de frecuencias cuando se trabaja con una tabla de frecuencias y no con una base de datos completa es una tarea adicional que se debe llevar a cabo previo al análisis.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
