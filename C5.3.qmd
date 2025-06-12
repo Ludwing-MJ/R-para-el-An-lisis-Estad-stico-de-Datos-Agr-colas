@@ -4,7 +4,7 @@
 
 **Referencia del dataset:** Fisher, R. (1936). Iris \[Dataset\]. UCI Machine Learning Repository. <https://doi.org/10.24432/C56C76>
 
-**Acceso a recursos:** El script completo con el ejemplo desarrollado y la base de datos IRIS pueden descargarse en el siguiente repositorio:
+**Acceso a recursos:** El script completo con el ejemplo desarrollado y la base de datos IRIS pueden descargarse en el siguiente repositorio: <https://github.com/Ludwing-MJ/MTCDPR_datos_agrupados>
 
 A continuación, se presenta un conjunto de datos correspondientes a la longitud del pétalo (en cm) de 150 flores de la especie *Iris*, organizados en formato matricial para facilitar su visualización y análisis. Estos datos serán utilizados para ilustrar el cálculo de estadísticos descriptivos para datos agrupados, siguiendo las metodologías propuestas en la sección aterior.
 
@@ -41,7 +41,7 @@ if (!require(readxl)) install.packages("readxl")
 
 ## Carga y Preparación de Datos
 
-Primero, se carga el dataset iris y se extrae la variable de interés, en este caso, la longitud del pétalo.
+Primero, se carga el conjunto de datos iris y se extrae la variable de interés, en este caso, la longitud del pétalo.
 
 ```{r}
 # Cargar el dataset iris
@@ -94,7 +94,7 @@ parametros <- calcular_parametros_agrupamiento(longitud_petalo)
 parametros
 ```
 
-##  Construcción de la tabla de frecuencias
+## Construcción de la tabla de frecuencias
 
 Se utiliza una función personalizada para construir la tabla de frecuencias, calculando los límites de clase, marcas de clase, frecuencias absolutas, relativas y acumuladas, así como sumas necesarias para los cálculos posteriores.
 
