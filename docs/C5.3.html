@@ -791,50 +791,54 @@ $amplitud
 <h2 class="anchored" data-anchor-id="construcción-de-la-tabla-de-frecuencias">Construcción de la tabla de frecuencias</h2>
 <p>Se utiliza una función personalizada para construir la tabla de frecuencias, calculando los límites de clase, marcas de clase, frecuencias absolutas, relativas y acumuladas, así como sumas necesarias para los cálculos posteriores.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para construir tabla de frecuencias</span></span>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función corregida para construir tabla de frecuencias</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>construir_tabla_frecuencias <span class="ot">&lt;-</span> <span class="cf">function</span>(datos, parametros) {</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Crear límites de clase</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  limite_inferior <span class="ot">&lt;-</span> <span class="fu">seq</span>(parametros<span class="sc">$</span>x_min, </span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>                        parametros<span class="sc">$</span>x_max <span class="sc">-</span> parametros<span class="sc">$</span>amplitud, </span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>                        <span class="at">by =</span> parametros<span class="sc">$</span>amplitud)</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  limite_superior <span class="ot">&lt;-</span> <span class="fu">seq</span>(parametros<span class="sc">$</span>x_min <span class="sc">+</span> parametros<span class="sc">$</span>amplitud, </span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>                        parametros<span class="sc">$</span>x_max, </span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>                        <span class="at">by =</span> parametros<span class="sc">$</span>amplitud)</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ajustar último límite superior</span></span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  limite_superior[<span class="fu">length</span>(limite_superior)] <span class="ot">&lt;-</span> parametros<span class="sc">$</span>x_max</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular marcas de clase</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  marca_clase <span class="ot">&lt;-</span> (limite_inferior <span class="sc">+</span> limite_superior) <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular frecuencias absolutas usando cut()</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>  intervalos <span class="ot">&lt;-</span> <span class="fu">cut</span>(datos, </span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                   <span class="at">breaks =</span> <span class="fu">c</span>(limite_inferior, parametros<span class="sc">$</span>x_max),</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                   <span class="at">include.lowest =</span> <span class="cn">TRUE</span>,</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>                   <span class="at">right =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  frecuencia_absoluta <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">table</span>(intervalos))</span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular frecuencias derivadas</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  frecuencia_relativa <span class="ot">&lt;-</span> frecuencia_absoluta <span class="sc">/</span> parametros<span class="sc">$</span>n</span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  frecuencia_acumulada <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(frecuencia_absoluta)</span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  fi_xi <span class="ot">&lt;-</span> frecuencia_absoluta <span class="sc">*</span> marca_clase</span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  fi_xi2 <span class="ot">&lt;-</span> frecuencia_absoluta <span class="sc">*</span> (marca_clase<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Crear tabla</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  tabla <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">Clase =</span> <span class="dv">1</span><span class="sc">:</span>parametros<span class="sc">$</span>k,</span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">Limite_Inferior =</span> limite_inferior,</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">Limite_Superior =</span> limite_superior,</span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">Marca_Clase =</span> <span class="fu">round</span>(marca_clase, <span class="dv">3</span>),</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">Frecuencia_Absoluta =</span> frecuencia_absoluta,</span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">Frecuencia_Relativa =</span> <span class="fu">round</span>(frecuencia_relativa, <span class="dv">4</span>),</span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">Frecuencia_Acumulada =</span> frecuencia_acumulada,</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">fi_xi =</span> <span class="fu">round</span>(fi_xi, <span class="dv">3</span>),</span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">fi_xi2 =</span> <span class="fu">round</span>(fi_xi2, <span class="dv">3</span>)</span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(tabla)</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Crear breaks (puntos de corte) para las clases</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Esto garantiza exactamente k clases</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  breaks <span class="ot">&lt;-</span> <span class="fu">seq</span>(parametros<span class="sc">$</span>x_min, parametros<span class="sc">$</span>x_max, <span class="at">length.out =</span> parametros<span class="sc">$</span>k <span class="sc">+</span> <span class="dv">1</span>)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Crear límites de clase a partir de los breaks</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>  limite_inferior <span class="ot">&lt;-</span> breaks[<span class="sc">-</span><span class="fu">length</span>(breaks)]  <span class="co"># Todos excepto el último</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  limite_superior <span class="ot">&lt;-</span> breaks[<span class="sc">-</span><span class="dv">1</span>]               <span class="co"># Todos excepto el primero</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular marcas de clase</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>  marca_clase <span class="ot">&lt;-</span> (limite_inferior <span class="sc">+</span> limite_superior) <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular frecuencias absolutas usando cut()</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  intervalos <span class="ot">&lt;-</span> <span class="fu">cut</span>(datos, </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>                    <span class="at">breaks =</span> breaks,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>                    <span class="at">include.lowest =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                    <span class="at">right =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="cn">FALSE</span>)  <span class="co"># Usar números en lugar de etiquetas</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Contar frecuencias por clase</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  frecuencia_absoluta <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">table</span>(<span class="fu">factor</span>(intervalos, <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span>parametros<span class="sc">$</span>k)))</span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Reemplazar NA por 0 si alguna clase queda vacía</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>  frecuencia_absoluta[<span class="fu">is.na</span>(frecuencia_absoluta)] <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular frecuencias derivadas</span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>  frecuencia_relativa <span class="ot">&lt;-</span> frecuencia_absoluta <span class="sc">/</span> parametros<span class="sc">$</span>n</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>  frecuencia_acumulada <span class="ot">&lt;-</span> <span class="fu">cumsum</span>(frecuencia_absoluta)</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>  fi_xi <span class="ot">&lt;-</span> frecuencia_absoluta <span class="sc">*</span> marca_clase</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>  fi_xi2 <span class="ot">&lt;-</span> frecuencia_absoluta <span class="sc">*</span> (marca_clase<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Crear tabla</span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>  tabla <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">Clase =</span> <span class="dv">1</span><span class="sc">:</span>parametros<span class="sc">$</span>k,</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">Limite_Inferior =</span> <span class="fu">round</span>(limite_inferior, <span class="dv">3</span>),</span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">Limite_Superior =</span> <span class="fu">round</span>(limite_superior, <span class="dv">3</span>),</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">Marca_Clase =</span> <span class="fu">round</span>(marca_clase, <span class="dv">3</span>),</span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">Frecuencia_Absoluta =</span> frecuencia_absoluta,</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">Frecuencia_Relativa =</span> <span class="fu">round</span>(frecuencia_relativa, <span class="dv">4</span>),</span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">Frecuencia_Acumulada =</span> frecuencia_acumulada,</span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">fi_xi =</span> <span class="fu">round</span>(fi_xi, <span class="dv">3</span>),</span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">fi_xi2 =</span> <span class="fu">round</span>(fi_xi2, <span class="dv">3</span>)</span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(tabla)</span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Una vez ya definida la función para construir la tabla de frecuencias (tarea que se realiza la cada vez que se abre el software y se desea cargar la función en el entorno de trabajo). Se procede a emplear la función para construir la tabla:</p>
 <div class="cell">
@@ -845,14 +849,14 @@ $amplitud
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>tabla_freq</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Clase Limite_Inferior Limite_Superior Marca_Clase Frecuencia_Absoluta
-1     1          1.0000          1.7375       1.369                  48
-2     2          1.7375          2.4750       2.106                   2
-3     3          2.4750          3.2125       2.844                   1
-4     4          3.2125          3.9500       3.581                  10
-5     5          3.9500          4.6875       4.319                  29
-6     6          4.6875          5.4250       5.056                  32
-7     7          5.4250          6.1625       5.794                  22
-8     8          6.1625          6.9000       6.531                   6
+1     1           1.000           1.738       1.369                  48
+2     2           1.738           2.475       2.106                   2
+3     3           2.475           3.213       2.844                   1
+4     4           3.213           3.950       3.581                  10
+5     5           3.950           4.688       4.319                  29
+6     6           4.688           5.425       5.056                  32
+7     7           5.425           6.163       5.794                  22
+8     8           6.163           6.900       6.531                   6
   Frecuencia_Relativa Frecuencia_Acumulada   fi_xi  fi_xi2
 1              0.3200                   48  65.700  89.927
 2              0.0133                   50   4.213   8.873
@@ -881,26 +885,26 @@ $amplitud
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  media <span class="ot">&lt;-</span> <span class="fu">sum</span>(tabla<span class="sc">$</span>fi_xi) <span class="sc">/</span> parametros<span class="sc">$</span>n</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mediana</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  posicion_mediana <span class="ot">&lt;-</span> parametros<span class="sc">$</span>n <span class="sc">/</span> <span class="dv">2</span></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  clase_mediana <span class="ot">&lt;-</span> <span class="fu">which</span>(tabla<span class="sc">$</span>Frecuencia_Acumulada <span class="sc">&gt;=</span> posicion_mediana)[<span class="dv">1</span>]</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  fa_anterior <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(clase_mediana <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">0</span>, </span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>                       tabla<span class="sc">$</span>Frecuencia_Acumulada[clase_mediana <span class="sc">-</span> <span class="dv">1</span>])</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  mediana <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Limite_Inferior[clase_mediana] <span class="sc">+</span> </span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>            ((posicion_mediana <span class="sc">-</span> fa_anterior) <span class="sc">/</span> </span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>             tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_mediana]) <span class="sc">*</span> parametros<span class="sc">$</span>amplitud</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> parametros<span class="sc">$</span>n</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  posicion_mediana <span class="ot">&lt;-</span> n <span class="sc">/</span> <span class="dv">2</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  clase_mediana <span class="ot">&lt;-</span> <span class="fu">which</span>(tabla<span class="sc">$</span>Frecuencia_Acumulada <span class="sc">&gt;=</span> posicion_mediana)[<span class="dv">1</span>]</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  L <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Limite_Inferior[clase_mediana]</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>  F_anterior <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(clase_mediana <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">0</span>, tabla<span class="sc">$</span>Frecuencia_Acumulada[clase_mediana <span class="sc">-</span> <span class="dv">1</span>])</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  f_m <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_mediana]</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  A <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Limite_Superior[clase_mediana] <span class="sc">-</span> tabla<span class="sc">$</span>Limite_Inferior[clase_mediana]</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  mediana <span class="ot">&lt;-</span> L <span class="sc">+</span> ((posicion_mediana <span class="sc">-</span> F_anterior) <span class="sc">/</span> f_m) <span class="sc">*</span> A</span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Moda</span></span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>  clase_modal <span class="ot">&lt;-</span> <span class="fu">which.max</span>(tabla<span class="sc">$</span>Frecuencia_Absoluta)</span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  d1 <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_modal] <span class="sc">-</span> </span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>       <span class="fu">ifelse</span>(clase_modal <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">0</span>, </span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>              tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_modal <span class="sc">-</span> <span class="dv">1</span>])</span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  d2 <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_modal] <span class="sc">-</span> </span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>       <span class="fu">ifelse</span>(clase_modal <span class="sc">==</span> parametros<span class="sc">$</span>k, <span class="dv">0</span>, </span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>              tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_modal <span class="sc">+</span> <span class="dv">1</span>])</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>  moda <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Limite_Inferior[clase_modal] <span class="sc">+</span> </span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>         (d1 <span class="sc">/</span> (d1 <span class="sc">+</span> d2)) <span class="sc">*</span> parametros<span class="sc">$</span>amplitud</span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  fa_ant <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(clase_modal <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">0</span>, tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_modal <span class="sc">-</span> <span class="dv">1</span>])</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  fa_sig <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(clase_modal <span class="sc">==</span> parametros<span class="sc">$</span>k, <span class="dv">0</span>, tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_modal <span class="sc">+</span> <span class="dv">1</span>])</span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  d1 <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_modal] <span class="sc">-</span> fa_ant</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  d2 <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_modal] <span class="sc">-</span> fa_sig</span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> ((d1 <span class="sc">+</span> d2) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    moda <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    moda <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Limite_Inferior[clase_modal] <span class="sc">+</span> (d1 <span class="sc">/</span> (d1 <span class="sc">+</span> d2)) <span class="sc">*</span> A</span>
+<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">media =</span> media, <span class="at">mediana =</span> mediana, <span class="at">moda =</span> moda))</span>
 <span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -917,10 +921,10 @@ $amplitud
 [1] 3.748427
 
 $mediana
-[1] 4.306034
+[1] 4.306276
 
 $moda
-[1] 1.376596</code></pre>
+[1] 1.376851</code></pre>
 </div>
 </div>
 </section>
@@ -932,11 +936,11 @@ $moda
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>calcular_dispersion <span class="ot">&lt;-</span> <span class="cf">function</span>(tabla, parametros, media) {</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Rango aproximado</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  rango_aprox <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Limite_Superior[parametros<span class="sc">$</span>k] <span class="sc">-</span> </span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>                tabla<span class="sc">$</span>Limite_Inferior[<span class="dv">1</span>]</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    tabla<span class="sc">$</span>Limite_Inferior[<span class="dv">1</span>]</span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Varianza</span></span>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  varianza <span class="ot">&lt;-</span> (<span class="fu">sum</span>(tabla<span class="sc">$</span>fi_xi2) <span class="sc">-</span> (<span class="fu">sum</span>(tabla<span class="sc">$</span>fi_xi)<span class="sc">^</span><span class="dv">2</span> <span class="sc">/</span> parametros<span class="sc">$</span>n)) <span class="sc">/</span> </span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>             (parametros<span class="sc">$</span>n <span class="sc">-</span> <span class="dv">1</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    (parametros<span class="sc">$</span>n <span class="sc">-</span> <span class="dv">1</span>)</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Desviación estándar</span></span>
 <span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  desviacion_std <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(varianza)</span>
@@ -990,11 +994,11 @@ $cv
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  clase_objetivo <span class="ot">&lt;-</span> <span class="fu">which</span>(tabla<span class="sc">$</span>Frecuencia_Acumulada <span class="sc">&gt;=</span> pos_valor)[<span class="dv">1</span>]</span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  fa_anterior <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(clase_objetivo <span class="sc">==</span> <span class="dv">1</span>, <span class="dv">0</span>, </span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>                       tabla<span class="sc">$</span>Frecuencia_Acumulada[clase_objetivo <span class="sc">-</span> <span class="dv">1</span>])</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>                        tabla<span class="sc">$</span>Frecuencia_Acumulada[clase_objetivo <span class="sc">-</span> <span class="dv">1</span>])</span>
 <span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  valor <span class="ot">&lt;-</span> tabla<span class="sc">$</span>Limite_Inferior[clase_objetivo] <span class="sc">+</span> </span>
-<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>          ((pos_valor <span class="sc">-</span> fa_anterior) <span class="sc">/</span> </span>
-<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>           tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_objetivo]) <span class="sc">*</span> parametros<span class="sc">$</span>amplitud</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>    ((pos_valor <span class="sc">-</span> fa_anterior) <span class="sc">/</span> </span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>       tabla<span class="sc">$</span>Frecuencia_Absoluta[clase_objetivo]) <span class="sc">*</span> parametros<span class="sc">$</span>amplitud</span>
 <span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(valor)</span>
 <span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1008,7 +1012,7 @@ $cv
 </div>
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>P80 <span class="ot">&lt;-</span> <span class="fu">calcular_posicion_relativa</span>(tabla_freq, parametros, <span class="dv">80</span>, <span class="st">"percentil"</span>);P80</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 5.378906</code></pre>
+<pre><code>[1] 5.379406</code></pre>
 </div>
 </div>
 </section>
@@ -1018,8 +1022,8 @@ $cv
 <p><strong>Construcción en R:</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(longitud_petalo, </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(iris<span class="sc">$</span>Petal.Length), </span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">max</span>(iris<span class="sc">$</span>Petal.Length), </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="fu">min</span>(longitud_petalo), </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">max</span>(longitud_petalo), </span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">length.out =</span> parametros<span class="sc">$</span>k <span class="sc">+</span> <span class="dv">1</span>),</span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"Histograma de la Longitud del Pétalo"</span>,</span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="st">"Longitud del Pétalo (cm)"</span>,</span>
