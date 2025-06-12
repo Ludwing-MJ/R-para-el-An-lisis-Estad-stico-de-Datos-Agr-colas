@@ -1190,7 +1190,7 @@ $cv
 <h3 class="anchored" data-anchor-id="estimación-de-los-parámetros-con-las-mismas-funciones">Estimación de los parámetros con las mismas funciones</h3>
 <p>Una vez ya se ha importado la tabla de frecuencias y estimado los parametros de agrupacion a partir de la tabla de frecuencias es posible usar las funciones previamente establecidas para calculas los parametros como se muestra a continuación:</p>
 <ol type="1">
-<li><p>Medidas de tendencia central</p>
+<li><p><strong>Medidas de tendencia central</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular medidas</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>tendencia_tabla <span class="ot">&lt;-</span> <span class="fu">calcular_tendencia_central</span>(tabla, parametros_tabla)</span>
@@ -1208,7 +1208,7 @@ $moda
 [1] 1.376596</code></pre>
 </div>
 </div></li>
-<li><p>Medidas de dispersión</p>
+<li><p><strong>Medidas de dispersión</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular medidas de dispersión</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>dispersion_tabla <span class="ot">&lt;-</span> <span class="fu">calcular_dispersion</span>(tabla, </span>
@@ -1231,14 +1231,16 @@ $cv
 [1] 47.93062</code></pre>
 </div>
 </div></li>
-<li><p>Medidas de posición relativa</p>
+<li><p><strong>Medidas de posición relativa</strong></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular Q1 y P80</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>Q1_tabla <span class="ot">&lt;-</span> <span class="fu">calcular_posicion_relativa</span>(tabla, parametros_tabla, <span class="dv">1</span>, <span class="st">"cuartil"</span>);Q1_tabla</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>Q1_tabla <span class="ot">&lt;-</span> <span class="fu">calcular_posicion_relativa</span>(tabla, parametros_tabla,</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>                                       <span class="dv">1</span>, <span class="st">"cuartil"</span>);Q1_tabla</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1.576172</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>P80_tabla <span class="ot">&lt;-</span> <span class="fu">calcular_posicion_relativa</span>(tabla, parametros_tabla, <span class="dv">80</span>, <span class="st">"percentil"</span>);P80_tabla</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>P80_tabla <span class="ot">&lt;-</span> <span class="fu">calcular_posicion_relativa</span>(tabla, parametros_tabla,</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>                                        <span class="dv">80</span>, <span class="st">"percentil"</span>);P80_tabla</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 5.378906</code></pre>
 </div>

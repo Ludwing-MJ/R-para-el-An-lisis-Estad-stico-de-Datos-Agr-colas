@@ -461,7 +461,7 @@ parametros_tabla <- calcular_parametros_desde_tabla(tabla)
 
 Una vez ya se ha importado la tabla de frecuencias y estimado los parametros de agrupacion a partir de la tabla de frecuencias es posible usar las funciones previamente establecidas para calculas los parametros como se muestra a continuación:
 
-1.  Medidas de tendencia central
+1.  **Medidas de tendencia central**
 
     ```{r}
     # Calcular medidas
@@ -471,7 +471,7 @@ Una vez ya se ha importado la tabla de frecuencias y estimado los parametros de 
     tendencia_tabla
     ```
 
-2.  Medidas de dispersión
+2.  **Medidas de dispersión**
 
     ```{r}
     # Calcular medidas de dispersión
@@ -483,12 +483,14 @@ Una vez ya se ha importado la tabla de frecuencias y estimado los parametros de 
     dispersion_tabla
     ```
 
-3.  Medidas de posición relativa
+3.  **Medidas de posición relativa**
 
     ```{r}
     # Calcular Q1 y P80
-    Q1_tabla <- calcular_posicion_relativa(tabla, parametros_tabla, 1, "cuartil");Q1_tabla
-    P80_tabla <- calcular_posicion_relativa(tabla, parametros_tabla, 80, "percentil");P80_tabla
+    Q1_tabla <- calcular_posicion_relativa(tabla, parametros_tabla,
+                                           1, "cuartil");Q1_tabla
+    P80_tabla <- calcular_posicion_relativa(tabla, parametros_tabla,
+                                            80, "percentil");P80_tabla
     ```
 
 Como se puede observar siempre y cuando la tabla de frecuencias siga el formato propuesto las funciones seguirán operando con normalidad partiendo desde una base de datos completa o únicamente desde una tabla de frecuencias, cabe resaltar que el ajustar el formato de la tabla de frecuencias cuando se trabaja con una tabla de frecuencias y no con una base de datos completa es una tarea adicional que se debe llevar a cabo previo al análisis.
