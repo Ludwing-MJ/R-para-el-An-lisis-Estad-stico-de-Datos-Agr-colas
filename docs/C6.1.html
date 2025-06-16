@@ -75,6 +75,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -436,8 +465,46 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#conceptos-fundamentales" id="toc-conceptos-fundamentales" class="nav-link active" data-scroll-target="#conceptos-fundamentales">Conceptos Fundamentales</a>
+  <ul class="collapse">
+  <li><a href="#experimento-y-experimento-aleatorio" id="toc-experimento-y-experimento-aleatorio" class="nav-link" data-scroll-target="#experimento-y-experimento-aleatorio">Experimento y Experimento Aleatorio</a></li>
+  <li><a href="#espacio-muestral" id="toc-espacio-muestral" class="nav-link" data-scroll-target="#espacio-muestral">Espacio Muestral</a></li>
+  <li><a href="#evento" id="toc-evento" class="nav-link" data-scroll-target="#evento">Evento</a></li>
+  </ul></li>
+  <li><a href="#métodos-para-asignar-probabilidades" id="toc-métodos-para-asignar-probabilidades" class="nav-link" data-scroll-target="#métodos-para-asignar-probabilidades">Métodos para Asignar Probabilidades</a>
+  <ul class="collapse">
+  <li><a href="#método-clásico" id="toc-método-clásico" class="nav-link" data-scroll-target="#método-clásico">Método Clásico</a></li>
+  <li><a href="#método-de-la-frecuencia-relativa" id="toc-método-de-la-frecuencia-relativa" class="nav-link" data-scroll-target="#método-de-la-frecuencia-relativa">Método de la Frecuencia Relativa</a></li>
+  <li><a href="#método-subjetivo" id="toc-método-subjetivo" class="nav-link" data-scroll-target="#método-subjetivo">Método Subjetivo</a></li>
+  </ul></li>
+  <li><a href="#relaciones-básicas-de-probabilidad" id="toc-relaciones-básicas-de-probabilidad" class="nav-link" data-scroll-target="#relaciones-básicas-de-probabilidad">Relaciones Básicas de Probabilidad</a>
+  <ul class="collapse">
+  <li><a href="#complemento-de-un-evento" id="toc-complemento-de-un-evento" class="nav-link" data-scroll-target="#complemento-de-un-evento">Complemento de un Evento</a></li>
+  <li><a href="#ley-aditiva" id="toc-ley-aditiva" class="nav-link" data-scroll-target="#ley-aditiva">Ley Aditiva</a></li>
+  <li><a href="#eventos-mutuamente-excluyentes" id="toc-eventos-mutuamente-excluyentes" class="nav-link" data-scroll-target="#eventos-mutuamente-excluyentes">Eventos Mutuamente Excluyentes</a></li>
+  </ul></li>
+  <li><a href="#probabilidad-condicional" id="toc-probabilidad-condicional" class="nav-link" data-scroll-target="#probabilidad-condicional">Probabilidad Condicional</a></li>
+  <li><a href="#eventos-independientes" id="toc-eventos-independientes" class="nav-link" data-scroll-target="#eventos-independientes">Eventos Independientes</a></li>
+  <li><a href="#ley-multiplicativa" id="toc-ley-multiplicativa" class="nav-link" data-scroll-target="#ley-multiplicativa">Ley Multiplicativa</a>
+  <ul class="collapse">
+  <li><a href="#ley-multiplicativa-para-eventos-independientes" id="toc-ley-multiplicativa-para-eventos-independientes" class="nav-link" data-scroll-target="#ley-multiplicativa-para-eventos-independientes">Ley Multiplicativa para Eventos Independientes</a></li>
+  </ul></li>
+  <li><a href="#diagramas-de-árbol" id="toc-diagramas-de-árbol" class="nav-link" data-scroll-target="#diagramas-de-árbol">Diagramas de Árbol</a>
+  <ul class="collapse">
+  <li><a href="#uso-de-diagramas-de-árbol-en-probabilidad-condicional" id="toc-uso-de-diagramas-de-árbol-en-probabilidad-condicional" class="nav-link" data-scroll-target="#uso-de-diagramas-de-árbol-en-probabilidad-condicional">Uso de Diagramas de Árbol en Probabilidad Condicional</a></li>
+  </ul></li>
+  <li><a href="#teorema-de-bayes" id="toc-teorema-de-bayes" class="nav-link" data-scroll-target="#teorema-de-bayes">Teorema de Bayes</a>
+  <ul class="collapse">
+  <li><a href="#tabla-de-análisis-para-el-teorema-de-bayes" id="toc-tabla-de-análisis-para-el-teorema-de-bayes" class="nav-link" data-scroll-target="#tabla-de-análisis-para-el-teorema-de-bayes">Tabla de Análisis para el Teorema de Bayes</a></li>
+  </ul></li>
+  <li><a href="#notación-correcta-para-probabilidades" id="toc-notación-correcta-para-probabilidades" class="nav-link" data-scroll-target="#notación-correcta-para-probabilidades">Notación Correcta para Probabilidades</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -462,8 +529,286 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>La mayor parte de los problemas en estadística involucran elementos de incertidumbre, ya que usualmente no es posible determinar anticipadamente las características de una población desconocida o prever las consecuencias exactas de la toma de una decisión. Por lo tanto, es conveniente disponer de una medida que exprese esa incertidumbre en términos de una escala numérica. Esta medida es la <strong>probabilidad</strong> (López &amp; González, 2018).</p>
+<p>En el contexto agronómico, la probabilidad permite modelar y cuantificar la variabilidad inherente en los procesos biológicos, climáticos y productivos. Por ejemplo, se puede utilizar para evaluar la probabilidad de ocurrencia de plagas, el éxito de tratamientos fitosanitarios, o la variabilidad en rendimientos de cultivos.</p>
+<section id="conceptos-fundamentales" class="level2">
+<h2 class="anchored" data-anchor-id="conceptos-fundamentales">Conceptos Fundamentales</h2>
+<section id="experimento-y-experimento-aleatorio" class="level3">
+<h3 class="anchored" data-anchor-id="experimento-y-experimento-aleatorio">Experimento y Experimento Aleatorio</h3>
+<p>Un <strong>experimento</strong> es el proceso mediante el cual se obtiene una observación o medida de un fenómeno. Cuando el resultado del experimento no puede preverse con certeza debido a la variabilidad inherente del fenómeno, se denomina <strong>experimento aleatorio</strong> (López &amp; González, 2018).</p>
+<p><strong>Ejemplos de experimentos aleatorios:</strong></p>
+<ol type="1">
+<li><p>Lanzamiento de un dado y observación del número mostrado en la cara superior</p></li>
+<li><p>Lanzamiento de una moneda cuatro veces y observación del número de caras obtenido</p></li>
+<li><p>Prueba de duración de una lámpara, anotando el tiempo transcurrido desde que se enciende hasta que se quema</p></li>
+<li><p>Cruzamiento de animales y observación del sexo del primero que nace</p></li>
+<li><p>Conteo del número de larvas de gusano cogollero en plantas de maíz</p></li>
+<li><p>Conteo del número de piezas defectuosas producidas en una línea de producción durante 24 horas</p></li>
+</ol>
+</section>
+<section id="espacio-muestral" class="level3">
+<h3 class="anchored" data-anchor-id="espacio-muestral">Espacio Muestral</h3>
+<p>El <strong>espacio muestral</strong> es el conjunto de todos los posibles resultados de un experimento aleatorio. Se denota con el símbolo <span class="math inline">\(\Omega\)</span> (López &amp; González, 2018).</p>
+<p><strong>Ejemplos de espacios muestrales:</strong></p>
+<ol type="1">
+<li><p>Para el lanzamiento de un dado: <span class="math inline">\(\Omega = \{1, 2, 3, 4, 5, 6\}\)</span></p></li>
+<li><p>Para el lanzamiento de una moneda cuatro veces: <span class="math inline">\(\Omega = \{0, 1, 2, 3, 4\}\)</span></p></li>
+<li><p>Para la duración de una lámpara: <span class="math inline">\(\Omega = \{t | t \geq 0\}\)</span></p></li>
+<li><p>Para el sexo de una cría: <span class="math inline">\(\Omega = \{\text{Macho, Hembra}\}\)</span></p></li>
+<li><p>Para el conteo de larvas: <span class="math inline">\(\Omega = \{0, 1, 2, ...\}\)</span></p></li>
+</ol>
+</section>
+<section id="evento" class="level3">
+<h3 class="anchored" data-anchor-id="evento">Evento</h3>
+<p>Un <strong>evento</strong> A es un subconjunto del espacio muestral <span class="math inline">\(\Omega\)</span>. En terminología de conjuntos, un evento es simplemente un conjunto de resultados posibles del experimento aleatorio. Los eventos se denotan con letras mayúsculas como A, B, C, etc. (López &amp; González, 2018).</p>
+<p><strong>Ejemplos de eventos:</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(A_1\)</span>​: Sale un número par en el lanzamiento de un dado, <span class="math inline">\(A_1 = \{2, 4, 6\}\)</span></p></li>
+<li><p><span class="math inline">\(A_2\)</span>​: Ocurren dos caras en cuatro lanzamientos, <span class="math inline">\(A_2 = \{2\}\)</span></p></li>
+<li><p><span class="math inline">\(A_3\)</span>​: La lámpara se quema en menos de 3 horas, <span class="math inline">\(A_3 = \{t | 0 \leq t &lt; 3\}\)</span></p></li>
+</ol>
+</section>
+</section>
+<section id="métodos-para-asignar-probabilidades" class="level2">
+<h2 class="anchored" data-anchor-id="métodos-para-asignar-probabilidades">Métodos para Asignar Probabilidades</h2>
+<p>Independientemente del método utilizado, se deben satisfacer dos requisitos básicos:</p>
+<ol type="1">
+<li><p>Los valores de probabilidad asignados a cada resultado experimental deben estar entre 0 y 1: <span class="math display">\[\LARGE 0 \leq P(E_i) \leq 1, \text{ para toda } i\]</span></p></li>
+<li><p>La suma de todas las probabilidades de resultados experimentales debe ser 1: <span class="math display">\[\LARGE \sum_{i=1}^{k} P(E_i) = 1\]</span></p></li>
+</ol>
+<section id="método-clásico" class="level3">
+<h3 class="anchored" data-anchor-id="método-clásico">Método Clásico</h3>
+<p>Si un evento A puede ocurrir en <span class="math inline">\(h\)</span> maneras diferentes de un número total de <span class="math inline">\(n\)</span> maneras posibles, todas igualmente probables, entonces la probabilidad del evento es:</p>
+<p><span class="math display">\[\LARGE P(A) = \frac{h}{n} = \frac{\text{número de resultados favorables}}{\text{número de resultados posibles}}\]</span></p>
+<p><strong>Ejemplo:</strong> En el lanzamiento de dos dados honestos, calcule las probabilidades de los siguientes eventos:</p>
+<p><strong>A:</strong> La suma de los valores es igual a 7</p>
+<p><strong>B:</strong> Los resultados en los dados son iguales</p>
+<p><strong>C:</strong> La suma de los valores es 9 o más</p>
+<p>El espacio muestral contiene 36 resultados posibles. Contando los casos favorables:</p>
+<ul>
+<li><p>Para A: <span class="math inline">\({(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)}\)</span>, entonces <span class="math inline">\(P(A) = \frac{6}{36} = 0.167\)</span></p></li>
+<li><p>Para B: <span class="math inline">\({(1,1), (2,2), (3,3), (4,4), (5,5), (6,6)}\)</span>, entonces <span class="math inline">\(P(B) = \frac{6}{36} = 0.167\)</span></p></li>
+<li><p>Para C: 10 casos favorables, entonces <span class="math inline">\(P(C) = \frac{10}{36} = 0.278P\)</span></p></li>
+</ul>
+</section>
+<section id="método-de-la-frecuencia-relativa" class="level3">
+<h3 class="anchored" data-anchor-id="método-de-la-frecuencia-relativa">Método de la Frecuencia Relativa</h3>
+<p>Si después de nnn repeticiones de un experimento donde nnn es “muy grande”, un evento ocurre hhh veces, entonces la probabilidad del evento es:</p>
+<p><span class="math display">\[\huge P(A) = \frac{h}{n}\]</span></p>
+<p><strong>Ejemplo:</strong> Si se lanza una moneda 1000 veces y resultan 532 caras, se puede estimar que: <span class="math display">\[\Large P(\text{cara}) = \frac{532}{1000} = 0.532\]</span></p>
+</section>
+<section id="método-subjetivo" class="level3">
+<h3 class="anchored" data-anchor-id="método-subjetivo">Método Subjetivo</h3>
+<p>Este método está basado en el juicio personal. Se puede usar cualquier dato disponible junto con la experiencia e intuición del investigador.</p>
+</section>
+</section>
+<section id="relaciones-básicas-de-probabilidad" class="level2">
+<h2 class="anchored" data-anchor-id="relaciones-básicas-de-probabilidad">Relaciones Básicas de Probabilidad</h2>
+<section id="complemento-de-un-evento" class="level3">
+<h3 class="anchored" data-anchor-id="complemento-de-un-evento">Complemento de un Evento</h3>
+<p>Dado un evento A, el <strong>complemento</strong> de A se define como el evento formado por todos los puntos muestrales que no están en A, y se representa por <span class="math inline">\(A^c\)</span>.</p>
+<p><span class="math display">\[\LARGE P(A) + P(A^c) = 1\]</span></p>
+<p>Por lo tanto: <span class="math inline">\(P(A) = 1 - P(A^c)\)</span></p>
+</section>
+<section id="ley-aditiva" class="level3">
+<h3 class="anchored" data-anchor-id="ley-aditiva">Ley Aditiva</h3>
+<p>La ley aditiva es útil cuando se tienen dos eventos y se desea conocer la probabilidad de que ocurra por lo menos uno de ellos. Para eventos A y B:</p>
+<p><span class="math display">\[\Large P(A \cup B) = P(A) + P(B) - P(A \cap B)\]</span></p>
+<p><strong>Ejemplo:</strong> El gerente de personal de una empresa agroforestal encontró que el 30% de los empleados que salieron lo hicieron por insatisfacción salarial, el 20% por insatisfacción laboral, y el 12% por ambas razones.</p>
+<p>Sean:</p>
+<ol type="1">
+<li><p>S: evento de salida por salario</p></li>
+<li><p>W: evento de salida por trabajo</p></li>
+</ol>
+<p><span class="math display">\[\large P(S \cup W) = P(S) + P(W) - P(S \cap W) = 0.30 + 0.20 - 0.12 = 0.38\]</span></p>
+</section>
+<section id="eventos-mutuamente-excluyentes" class="level3">
+<h3 class="anchored" data-anchor-id="eventos-mutuamente-excluyentes">Eventos Mutuamente Excluyentes</h3>
+<p>Dos eventos son <strong>mutuamente excluyentes</strong> si no tienen puntos muestrales en común, es decir, <span class="math inline">\(P(A \cap B) = 0\)</span>.</p>
+<p>Para eventos mutuamente excluyentes:<br>
+<span class="math display">\[\LARGE P(A \cup B) = P(A) + P(B)\]</span></p>
+</section>
+</section>
+<section id="probabilidad-condicional" class="level2">
+<h2 class="anchored" data-anchor-id="probabilidad-condicional">Probabilidad Condicional</h2>
+<p>La <strong>probabilidad condicional</strong> de un evento A dado que ha ocurrido B se denota como <span class="math inline">\(P(A|B)\)</span> y se define como:</p>
+<p><span class="math display">\[\LARGE P(A|B) = \frac{P(A \cap B)}{P(B)}, \text{ siempre que } P(B) &gt; 0\]</span></p>
+<p>Esta notación se lee como “la probabilidad de A dado B” y representa la probabilidad de que ocurra A sabiendo que B ya ha ocurrido.</p>
+<p><strong>Ejemplo:</strong> En una facultad de agronomía se tiene la siguiente distribución de estudiantes:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Carrera</th>
+<th>Masculino</th>
+<th>Femenino</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Agronomía</td>
+<td>160</td>
+<td>40</td>
+<td>200</td>
+</tr>
+<tr class="even">
+<td>Forestal</td>
+<td>30</td>
+<td>10</td>
+<td>40</td>
+</tr>
+<tr class="odd">
+<td>Agroindustrial</td>
+<td>15</td>
+<td>10</td>
+<td>25</td>
+</tr>
+<tr class="even">
+<td><strong>Total</strong></td>
+<td><strong>205</strong></td>
+<td><strong>60</strong></td>
+<td><strong>265</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Dado que un alumno cursa Agronomía (A), ¿cuál es la probabilidad de que sea masculino (H)?</p>
+<p><span class="math display">\[\Large P(H|A) = \frac{P(H \cap A)}{P(A)} = \frac{160/265}{200/265} = \frac{160}{200} = 0.80\]</span></p>
+</section>
+<section id="eventos-independientes" class="level2">
+<h2 class="anchored" data-anchor-id="eventos-independientes">Eventos Independientes</h2>
+<p>Dos eventos A y B son <strong>independientes</strong> si:</p>
+<p><span class="math display">\[\Large P(A|B) = P(A) \text{ o } P(B|A) = P(B)\]</span></p>
+<p>De lo contrario, los eventos son dependientes.</p>
+</section>
+<section id="ley-multiplicativa" class="level2">
+<h2 class="anchored" data-anchor-id="ley-multiplicativa">Ley Multiplicativa</h2>
+<p>Mientras que la ley aditiva se utiliza para determinar la probabilidad de una unión entre dos eventos, la <strong>ley multiplicativa</strong> se usa para determinar la probabilidad de una intersección de dos eventos:</p>
+<p><span class="math display">\[\LARGE P(A \cap B) = P(B) \cdot P(A|B)\]</span></p>
+<p>o también:</p>
+<p><span class="math display">\[\LARGE P(A \cap B) = P(A) \cdot P(B|A)\]</span></p>
+<section id="ley-multiplicativa-para-eventos-independientes" class="level3">
+<h3 class="anchored" data-anchor-id="ley-multiplicativa-para-eventos-independientes">Ley Multiplicativa para Eventos Independientes</h3>
+<p>Para eventos independientes:</p>
+<p><span class="math display">\[\LARGE P(A \cap B) = P(A) \cdot P(B)\]</span></p>
+<p><strong>Ejemplo:</strong> El gerente de una gasolinera sabe que el 80% de los clientes usan tarjeta de crédito. ¿Cuál es la probabilidad de que dos clientes consecutivos usen tarjeta de crédito?</p>
+<p><span class="math display">\[\LARGE P(A \cap B) = P(A) \cdot P(B) = 0.8 \times 0.8 = 0.64\]</span></p>
+</section>
+</section>
+<section id="diagramas-de-árbol" class="level2">
+<h2 class="anchored" data-anchor-id="diagramas-de-árbol">Diagramas de Árbol</h2>
+<p>Un <strong>diagrama de árbol</strong> es una herramienta gráfica que se emplea frecuentemente en conexión con el principio multiplicativo. Debido a su apariencia, permite visualizar todos los posibles resultados de un experimento compuesto y facilita el cálculo de probabilidades.</p>
+<p><strong>Ejemplo:</strong> Si un hombre tiene 2 camisas (<span class="math inline">\(S_1, S_2\)</span>) y 4 corbatas (<span class="math inline">\(T_1, T_2, T_3, T_4\)</span>), entonces tiene <span class="math inline">\(2 \times 4 = 8\)</span> maneras de escoger una camisa y luego una corbata.</p>
+<p>El diagrama de árbol correspondiente sería:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="diagrama_ct.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="450"></p>
+</figure>
+</div>
+<section id="uso-de-diagramas-de-árbol-en-probabilidad-condicional" class="level3">
+<h3 class="anchored" data-anchor-id="uso-de-diagramas-de-árbol-en-probabilidad-condicional">Uso de Diagramas de Árbol en Probabilidad Condicional</h3>
+<p>Los diagramas de árbol son especialmente útiles para problemas de probabilidad condicional, donde las probabilidades en las ramas posteriores dependen de los resultados de las ramas anteriores.</p>
+<p><strong>Ejemplo aplicado:</strong> Una empresa agrícola tiene tres proveedores de semillas. El proveedor A suministra el 40% de las semillas, el proveedor B el 35%, y el proveedor C el 25%. Las tasas de germinación son del 95%, 90%, y 85% respectivamente.</p>
+<p>El diagrama de árbol sería:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="arbol_semillas.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="650"></p>
+</figure>
+</div>
+</section>
+</section>
+<section id="teorema-de-bayes" class="level2">
+<h2 class="anchored" data-anchor-id="teorema-de-bayes">Teorema de Bayes</h2>
+<p>El <strong>teorema de Bayes</strong> también se conoce como “probabilidad de las causas”, es decir, la probabilidad de un hecho anterior sabiendo la probabilidad de un hecho posterior. Se basa en que los eventos definidos sobre un espacio muestral son particiones del mismo.</p>
+<p>Si <span class="math inline">\(A_1, A_2, A_3, ..., A_n\)</span>​ son eventos mutuamente excluyentes y exhaustivos, y <span class="math inline">\(B\)</span> es un evento observado, entonces:</p>
+<p><span class="math display">\[\LARGE P(A_i|B) = \frac{P(A_i) \cdot P(B|A_i)}{\sum_{j=1}^{n} P(A_j) \cdot P(B|A_j)}\]</span></p>
+<p>donde:</p>
+<ol type="1">
+<li><p><span class="math inline">\(P(A_i)\)</span> son las probabilidades a priori</p></li>
+<li><p><span class="math inline">\(P(B|A_i)\)</span> son las probabilidades condicionales</p></li>
+<li><p><span class="math inline">\(P(A_i|B)\)</span> son las probabilidades a posteriori</p></li>
+</ol>
+<p><strong>Ejemplo resuelto:</strong> Una fábrica con 3 sucursales produce 40%, 35% y 25% del total de la producción. Tienen porcentajes de artículos defectuosos de 4%, 6% y 8%, respectivamente. Si se elige aleatoriamente un artículo:</p>
+<p>a) ¿Cuál es la probabilidad de que no sea defectuoso?</p>
+<p>Usando la ley de probabilidad total:<br>
+<span class="math display">\[\large P(C) = P(A_1) \cdot P(C|A_1) + P(A_2) \cdot P(C|A_2) + P(A_3) \cdot P(C|A_3)\]</span></p>
+<p><span class="math display">\[\large P(C) = 0.40 \times 0.96 + 0.35 \times 0.94 + 0.25 \times 0.92 = 0.943\]</span></p>
+<p>b) Si resultó defectuoso, ¿cuál es la probabilidad de que proceda de la primera sucursal?</p>
+<p>Primero calculamos <span class="math display">\[\Large P(B) = 1 - P(C) = 1 - 0.943 = 0.057\]</span></p>
+<p>Luego aplicamos Bayes:<br>
+<span class="math display">\[\Large P(A_1|B) = \frac{P(A_1) \cdot P(B|A_1)}{P(B)} = \frac{0.40 \times 0.04}{0.057} = 0.2807\]</span></p>
+<section id="tabla-de-análisis-para-el-teorema-de-bayes" class="level3">
+<h3 class="anchored" data-anchor-id="tabla-de-análisis-para-el-teorema-de-bayes">Tabla de Análisis para el Teorema de Bayes</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Eventos</th>
+<th>Probabilidades previas</th>
+<th>Probabilidades condicionales</th>
+<th>Probabilidades conjuntas</th>
+<th>Probabilidades posteriores</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(A_i\)</span>​</td>
+<td><span class="math inline">\(P(A_i)\)</span></td>
+<td><span class="math inline">\(P(C)\)</span></td>
+<td><span class="math inline">\(P(A_i) \cdot P(C|A_i)\)</span></td>
+<td><span class="math inline">\(P(A_i|  B)\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(A_1\)</span>​</td>
+<td>0.40</td>
+<td>0.04</td>
+<td>0.016</td>
+<td>0.2807</td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(A_2\)</span>​</td>
+<td>0.35</td>
+<td>0.06</td>
+<td>0.021</td>
+<td>0.3684</td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(A_3\)</span>​</td>
+<td>0.25</td>
+<td>0.08</td>
+<td>0.020</td>
+<td>0.3509</td>
+</tr>
+<tr class="odd">
+<td><strong>Total</strong></td>
+<td><strong>1.00</strong></td>
+<td></td>
+<td><strong>P(B) = 0.057</strong></td>
+<td><strong>1.0000</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section id="notación-correcta-para-probabilidades" class="level2">
+<h2 class="anchored" data-anchor-id="notación-correcta-para-probabilidades">Notación Correcta para Probabilidades</h2>
+<p>Es fundamental utilizar la notación correcta para evitar confusiones:</p>
+<ol type="1">
+<li><p><span class="math inline">\(P(A)\)</span>: Probabilidad marginal del evento A</p></li>
+<li><p><span class="math inline">\(P(A \cap B)\)</span>: Probabilidad conjunta de A y B (intersección)</p></li>
+<li><p><span class="math inline">\(P(A \cup B)\)</span>: Probabilidad de la unión de A y B</p></li>
+<li><p><span class="math inline">\(P(A|B)\)</span>: Probabilidad condicional de A dado B</p></li>
+<li><p><span class="math inline">\(P(A^c)\)</span>: Probabilidad del complemento de A</p></li>
+<li><p><span class="math inline">\(A \perp B\)</span>: A y B son independientes</p></li>
+</ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
