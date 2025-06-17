@@ -768,5 +768,65 @@
     "crumbs": [
       "<span class='chapter-number'>13</span>  <span class='chapter-title'>Introducción a probabilidades</span>"
     ]
+  },
+  {
+    "objectID": "C7.1.html",
+    "href": "C7.1.html",
+    "title": "Distribuciones Binomial y Poisson en R",
+    "section": "",
+    "text": "Introducción\nEl estudio de las distribuciones de probabilidad constituye uno de los pilares fundamentales de la estadística aplicada. En el contexto de las ciencias agronómicas, estas herramientas matemáticas permiten modelar y analizar fenómenos aleatorios que ocurren frecuentemente en la investigación y práctica agrícola. Las distribuciones binomial y de Poisson, como distribuciones discretas, son especialmente útiles para describir eventos de conteo, tales como el número de semillas germinadas, la cantidad de plagas observadas en una parcela, o la ocurrencia de eventos climáticos adversos.\nSegún López y González (2018), las variables aleatorias discretas son aquellas que pueden tomar un conjunto finito o numerable de valores, generalmente asociados a conteos de eventos. El software estadístico R proporciona funciones específicas para el cálculo de probabilidades en estas distribuciones, facilitando el análisis estadístico y la toma de decisiones basada en evidencia.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Distribuciones Binomial y Poisson en R</span>"
+    ]
+  },
+  {
+    "objectID": "C7.1.html#distribución-binomial",
+    "href": "C7.1.html#distribución-binomial",
+    "title": "Distribuciones Binomial y Poisson en R",
+    "section": "Distribución Binomial",
+    "text": "Distribución Binomial\n\nCaracterísticas y definición\nLa distribución binomial describe el número de éxitos obtenidos en una secuencia de ensayos independientes, donde cada ensayo presenta únicamente dos posibles resultados: éxito o fracaso. López y González (2018) establecen que un experimento binomial posee las siguientes características fundamentales:\n\nConsta de \\(n\\) ensayos o pruebas idénticas (ensayos de Bernoulli)\nCada prueba puede tener uno de dos resultados posibles (éxito o fracaso)\nLa probabilidad de un éxito en una sola prueba es igual a \\(p\\), y permanece constante de una prueba a otra. La probabilidad de fracaso es igual a \\((1-p)\\) y se denota con la letra \\(q\\)\nEl resultado obtenido en cada prueba es independiente de los resultados obtenidos anteriormente\n\nLa distribución binomial se representa como \\(B(n,p)\\), siendo \\(n\\) y \\(p\\) los parámetros de dicha distribución.\n\n\nFunción de probabilidad\nLa función de probabilidad de la distribución binomial se expresa matemáticamente como:\n\\[\\LARGE P(X = x) = \\binom{n}{x} p^x q^{n-x}, \\quad x = 0,1,2,\\ldots,n\\]\ndonde:\n\n\\(X\\) es la variable aleatoria que representa el número de éxitos\n\\(x\\) es el número de éxitos observados\n\\(n\\) es el número total de ensayos\n\\(p\\) es la probabilidad de éxito en cada ensayo\n\\(q = 1-p\\) es la probabilidad de fracaso\n\\(\\binom{n}{x} = \\frac{n!}{x!(n-x)!}\\) es el coeficiente binomial\n\n\n\nParámetros de la distribución binomial\nLos parámetros de tendencia central y dispersión de la distribución binomial son:\n\nMedia: \\(E(X) = np\\)\nVarianza: \\(V(X) = npq\\)",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Distribuciones Binomial y Poisson en R</span>"
+    ]
+  },
+  {
+    "objectID": "C7.1.html#cálculo-de-probabilidades-binomiales-en-r",
+    "href": "C7.1.html#cálculo-de-probabilidades-binomiales-en-r",
+    "title": "Distribuciones Binomial y Poisson en R",
+    "section": "Cálculo de probabilidades binomiales en R",
+    "text": "Cálculo de probabilidades binomiales en R\nEl software R proporciona funciones específicas para el cálculo de probabilidades binomiales. A continuación se describen las funciones principales y sus argumentos.\n\nFunción para calcular P(X = x)\nPara calcular la probabilidad de obtener exactamente xxx éxitos, se utiliza la función:\n\\[\\LARGE \\texttt{dbinom(x, size, prob)} \\]\nArgumentos en orden:\n\n\\(\\texttt{x}\\): número de éxitos deseados (valor específico de la variable aleatoria)\n\\(\\texttt{size}\\): número total de ensayos (\\(n\\))\n\\(\\texttt{prob}\\): probabilidad de éxito en cada ensayo (\\(p\\))\n\n\n\nFunción para calcular P(X ≤ x) y P(X &gt; x)\nPara calcular probabilidades acumuladas, se utiliza la función:\n\\[\\LARGE \\texttt{pbinom(q, size, prob, lower.tail)}\\]\nArgumentos en orden:\n\n\\(\\texttt{q}\\): valor hasta el cual se desea calcular la probabilidad acumulada\n\\(\\texttt{size}\\): número total de ensayos (nnn)\n\\(\\texttt{prob}\\): probabilidad de éxito en cada ensayo (ppp)\n\\(\\texttt{lower.tail}\\): argumento lógico que indica si se calcula \\(P(X \\leq x) (\\texttt{TRUE}, por defecto)\\) o \\(P(X &gt; x) (\\texttt{FALSE})\\)\n\n\n\nEjemplo práctico: Germinación de semillas\nSupóngase que se siembran 20 semillas de maíz y se sabe que la probabilidad de germinación de cada semilla es de 0.8. Se desea calcular las siguientes probabilidades:\n\nCaso 1: P(X = 16) - Probabilidad de que germinen exactamente 16 semillas\n\ndbinom(16, 20, 0.8)\n\n[1] 0.2181994\n\n\n\n\nCaso 2: P(X ≤ 15) - Probabilidad de que germinen 15 o menos semillas\n\npbinom(15, 20, 0.8)\n\n[1] 0.3703517\n\n\n\n\nCaso 3: P(X &gt; 18) - Probabilidad de que germinen más de 18 semillas\n\npbinom(18, 20, 0.8, lower.tail = FALSE)\n\n[1] 0.06917529",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Distribuciones Binomial y Poisson en R</span>"
+    ]
+  },
+  {
+    "objectID": "C7.1.html#distribución-de-poisson",
+    "href": "C7.1.html#distribución-de-poisson",
+    "title": "Distribuciones Binomial y Poisson en R",
+    "section": "Distribución de Poisson",
+    "text": "Distribución de Poisson\n\nCaracterísticas y definición\nLa distribución de Poisson, desarrollada por Simeón Dennis Poisson (1781-1840), es un modelo apropiado para describir el número de eventos raros que ocurren en un intervalo de tiempo o espacio específico. López y González (2018) indican que esta distribución es útil para modelar eventos con las siguientes características:\n\nLos eventos ocurren de manera independiente\nLa tasa promedio de ocurrencia permanece constante\nLos eventos son raros o poco frecuentes\n\n\n\nFunción de probabilidad\nUna variable aleatoria \\(X\\) tiene distribución de Poisson con parámetro \\(\\lambda &gt; 0\\), si su función de probabilidad está dada por:\n\\[\\Large P(X = x) = \\frac{e^{-\\lambda} \\lambda^x}{x!}, \\quad x = 0,1,2,\\ldots  \\]\ndonde:\n\n\\(\\lambda\\) representa el número medio de ocurrencias por intervalo de tiempo\n\\(e = 2.71828\\) es la base de los logaritmos naturales\n\nLa notación utilizada es: \\(X \\sim Po(\\lambda)\\)\n\n\nParámetros de la distribución de Poisson\nLos parámetros de la distribución de Poisson son:\n\nMedia:\\(E(X) = \\lambda\\)\nVarianza: \\(V(X) = \\lambda\\)",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Distribuciones Binomial y Poisson en R</span>"
+    ]
+  },
+  {
+    "objectID": "C7.1.html#cálculo-de-probabilidades-de-poisson-en-r",
+    "href": "C7.1.html#cálculo-de-probabilidades-de-poisson-en-r",
+    "title": "Distribuciones Binomial y Poisson en R",
+    "section": "Cálculo de probabilidades de Poisson en R",
+    "text": "Cálculo de probabilidades de Poisson en R\n\nFunción para calcular P(X = x)\nPara calcular la probabilidad de observar exactamente \\(x\\) eventos, se utiliza:\n\\[\\LARGE \\texttt{dpois(x, lambda)}\\]\nArgumentos en orden:\n\n\\(\\texttt{x}\\): número de eventos observados\n\\(\\texttt{lambda}\\): tasa promedio de ocurrencia (\\(\\lambda\\))\n\n\n\nFunción para calcular P(X ≤ x) y P(X &gt; x)\nPara probabilidades acumuladas, se utiliza:\n\\[\\LARGE \\texttt{ppois(q, lambda, lower.tail)}  \\]\nArgumentos en orden:\n\n\\(\\texttt{q}\\): valor hasta el cual se desea calcular la probabilidad acumulada\n\\(\\texttt{lambda}\\): tasa promedio de ocurrencia (λ)\n\\(\\texttt{lower.tail}\\): argumento lógico para \\(P(X \\leq x)\\) (\\(\\texttt{TRUE}\\)) o \\(P(X &gt; x)\\) (\\(\\texttt{FALSE}\\))\n\n\n\nEjemplo práctico: Incidencia de plagas\nSupóngase que en un cultivo de tomate se observa un promedio de 3 plagas por metro cuadrado. Se desea calcular las siguientes probabilidades:\n\nCaso 1: P(X = 5) - Probabilidad de observar exactamente 5 plagas\n\ndpois(5, 3)\n\n[1] 0.1008188\n\n\n\n\nCaso 2: P(X ≤ 2) - Probabilidad de observar 2 o menos plagas\n\nppois(2, 3)\n\n[1] 0.4231901\n\n\n\n\nCaso 3: P(X &gt; 4) - Probabilidad de observar más de 4 plagas\n\nppois(4, 3, lower.tail = FALSE)\n\n[1] 0.1847368",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Distribuciones Binomial y Poisson en R</span>"
+    ]
+  },
+  {
+    "objectID": "C7.1.html#interpretación-y-aplicaciones-en-agronomía",
+    "href": "C7.1.html#interpretación-y-aplicaciones-en-agronomía",
+    "title": "Distribuciones Binomial y Poisson en R",
+    "section": "Interpretación y aplicaciones en agronomía",
+    "text": "Interpretación y aplicaciones en agronomía\nLas distribuciones binomial y de Poisson encuentran numerosas aplicaciones en el campo agronómico. La distribución binomial es particularmente útil para modelar situaciones donde se evalúa el éxito o fracaso de un proceso, como la germinación de semillas, la supervivencia de plantas trasplantadas, o la efectividad de tratamientos fitosanitarios.\nPor su parte, la distribución de Poisson es apropiada para modelar la ocurrencia de eventos raros, tales como la aparición de plagas específicas, la incidencia de enfermedades en cultivos, o la ocurrencia de eventos climáticos extremos.",
+    "crumbs": [
+      "<span class='chapter-number'>14</span>  <span class='chapter-title'>Distribuciones Binomial y Poisson en R</span>"
+    ]
   }
 ]
