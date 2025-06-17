@@ -1,1 +1,109 @@
 # Distribución normal
+
+## Introducción
+
+La distribución normal, también conocida como distribución gaussiana o campana de Gauss, es una de las distribuciones de probabilidad continua más importantes en estadística. Su relevancia radica en que muchos fenómenos naturales y sociales tienden a seguir esta distribución, y además, sirve como base para numerosas pruebas y modelos estadísticos.
+
+Según López y González (2018), la distribución normal es fundamental en bioestadística debido a que muchas variables biométricas tienden a distribuirse normalmente, la distribución de las medias muestrales de una variable cualquiera tiende a ser normal (Teorema del Límite Central), y muchas pruebas estadísticas asumen la normalidad de los datos.
+
+## Características y definición
+
+La distribución normal se caracteriza por ser simétrica y tener forma de campana. Está completamente definida por dos parámetros: la media ($\mu$) y la desviación estándar ($\sigma$). La función de densidad de probabilidad de la distribución normal se expresa como:
+
+$$\Large f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2} \left(\frac{x - \mu}{\sigma}\right)^2}, \quad -\infty < x < \infty  $$
+
+donde:
+
+1.  $x$ es la variable aleatoria continua
+
+2.  $\mu$ es la media de la distribución
+
+3.  $\sigma$ es la desviación estándar de la distribución
+
+4.  $e$ es la base del logaritmo natural (aproximadamente 2.71828)
+
+5.  $\pi$ es la constante pi (aproximadamente 3.14159)
+
+La notación utilizada es: $X \sim N(\mu, \sigma^2)$, donde $\mu$ es la media y $\sigma^2$ es la varianza.
+
+### Propiedades de la distribución normal
+
+López y González (2018) destacan las siguientes propiedades de la distribución normal:
+
+1.  Existe una familia de distribuciones normales, cada una definida por su media ($\mu$) y desviación estándar ($\sigma$).
+
+2.  El punto más alto de la curva normal es la media, que coincide con la mediana y la moda.
+
+3.  La distribución es simétrica alrededor de la media.
+
+4.  Los extremos de la distribución se extienden indefinidamente sin tocar el eje horizontal.
+
+5.  La desviación estándar ($\sigma$) determina el ancho de la curva; valores mayores indican mayor dispersión.
+
+6.  El área total bajo la curva es igual a 1.
+
+7.  Las probabilidades se determinan mediante áreas bajo la curva.
+
+8.  La regla empírica establece que aproximadamente el 68% de las observaciones se encuentran dentro de una desviación estándar de la media ($\mu \pm \sigma$), el 95% dentro de dos desviaciones estándar ($\mu \pm 2\sigma$), y el 99.7% dentro de tres desviaciones estándar ($\mu \pm 3\sigma$).
+
+## Cálculo de probabilidades normales en R
+
+El software R proporciona funciones para calcular probabilidades asociadas a la distribución normal.
+
+### Función para calcular la función de densidad de probabilidad
+
+Para calcular la función de densidad de probabilidad en un punto $x$, se utiliza la función:
+
+$$\LARGE \texttt{dnorm(x, mean, sd)}  $$
+
+**Argumentos en orden:**
+
+1.  $\texttt{x}$: valor de la variable aleatoria en el que se evalúa la función de densidad
+
+2.  $\texttt{mean}$: media de la distribución ($\mu$)
+
+3.  $\texttt{sd}$: desviación estándar de la distribución ($\sigma$)
+
+### Función para calcular probabilidades acumuladas
+
+Para calcular la probabilidad acumulada $P(X \leq x)$, se utiliza la función:
+
+$$\LARGE \texttt{pnorm(q, mean, sd, lower.tail)}  $$
+
+**Argumentos en orden:**
+
+1.  $\texttt{q}$: valor hasta el cual se desea calcular la probabilidad acumulada
+
+2.  $\texttt{mean}$: media de la distribución ($\mu$)
+
+3.  $\texttt{sd}$: desviación estándar de la distribución ($\sigma$)
+
+4.  $\texttt{lower.tail}$: argumento lógico que indica si se calcula $P(X \leq x)$ ($\texttt{TRUE}, por defecto$) o $P(X > x)$ ($\texttt{FALSE}$)
+
+### Ejemplo práctico: Estatura de estudiantes
+
+Supóngase que la estatura de los estudiantes de una universidad se distribuye normalmente con una media de 170 cm y una desviación estándar de 10 cm. Se desea calcular las siguientes probabilidades:
+
+#### Caso 1: P(X ≤ 180) - Probabilidad de que un estudiante mida 180 cm o menos
+
+```{r}
+pnorm(180, 170, 10)
+```
+
+#### Caso 2: P(X \> 160) - Probabilidad de que un estudiante mida más de 160 cm
+
+```{r}
+pnorm(160, 170, 10, lower.tail = FALSE)
+```
+
+#### Caso 3: P(165 ≤ X ≤ 175) - Probabilidad de que un estudiante mida entre 165 cm y 175 cm
+
+Para calcular esta probabilidad, se resta la probabilidad acumulada hasta 165 cm de la probabilidad acumulada hasta 175 cm:
+
+```{r}
+pnorm(175, 170, 10) - pnorm(165, 170, 10)
+```
+
+## Interpretación y aplicaciones en agronomía
+
+La distribución normal es ampliamente utilizada en agronomía para modelar variables continuas como la altura de las plantas, el rendimiento de los cultivos, el peso de los frutos, y las temperaturas. Permite realizar inferencias estadísticas, como la estimación de intervalos de confianza y la realización de pruebas de hipótesis, que son fundamentales para la investigación y la toma de decisiones en el sector agropecuario.
