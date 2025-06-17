@@ -516,6 +516,10 @@ window.Quarto = {
   <li><a href="#función-para-calcular-probabilidades-acumuladas" id="toc-función-para-calcular-probabilidades-acumuladas" class="nav-link" data-scroll-target="#función-para-calcular-probabilidades-acumuladas">Función para calcular probabilidades acumuladas</a></li>
   <li><a href="#ejemplo-práctico-estatura-de-estudiantes" id="toc-ejemplo-práctico-estatura-de-estudiantes" class="nav-link" data-scroll-target="#ejemplo-práctico-estatura-de-estudiantes">Ejemplo práctico: Estatura de estudiantes</a></li>
   </ul></li>
+  <li><a href="#estandarización-de-la-variable-normal" id="toc-estandarización-de-la-variable-normal" class="nav-link" data-scroll-target="#estandarización-de-la-variable-normal">Estandarización de la variable normal</a>
+  <ul class="collapse">
+  <li><a href="#ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala" id="toc-ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala" class="nav-link" data-scroll-target="#ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala">Ejemplo práctico: Duración de la temporada de heladas en Guatemala</a></li>
+  </ul></li>
   <li><a href="#interpretación-y-aplicaciones-en-agronomía" id="toc-interpretación-y-aplicaciones-en-agronomía" class="nav-link" data-scroll-target="#interpretación-y-aplicaciones-en-agronomía">Interpretación y aplicaciones en agronomía</a></li>
   </ul>
 </nav>
@@ -632,6 +636,79 @@ window.Quarto = {
 <pre><code>[1] 0.3829249</code></pre>
 </div>
 </div>
+</section>
+</section>
+</section>
+<section id="estandarización-de-la-variable-normal" class="level2">
+<h2 class="anchored" data-anchor-id="estandarización-de-la-variable-normal">Estandarización de la variable normal</h2>
+<section id="ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala">Ejemplo práctico: Duración de la temporada de heladas en Guatemala</h3>
+<p>El Instituto Nacional de Sismología, Vulcanología, Meteorología e Hidrología (INSIVUMEH) de Guatemala ha determinado que la duración de la temporada de heladas sigue una distribución normal. Se conoce la siguiente información:</p>
+<ol type="1">
+<li><p>La duración promedio de la temporada de heladas es de 120 días (<span class="math inline">\(\mu = 120\)</span>)</p></li>
+<li><p>La probabilidad de que la temporada dure más de 133 días es del 25.78% (<span class="math inline">\(P(X &gt; 133) = 0.2578\)</span>)</p></li>
+</ol>
+<p><strong>Objetivo:</strong> Determinar la desviación estándar (<span class="math inline">\(\sigma\)</span>) de la distribución normal.</p>
+<section id="paso-1-estandarización-de-la-variable" class="level4">
+<h4 class="anchored" data-anchor-id="paso-1-estandarización-de-la-variable">Paso 1: Estandarización de la variable</h4>
+<p>Para resolver este problema, se debe estandarizar la variable <span class="math inline">\(X\)</span> (duración de la temporada de heladas) utilizando la transformación a <span class="math inline">\(Z\)</span>:</p>
+<p><span class="math display">\[\huge Z = \frac{X - \mu}{\sigma} \]</span></p>
+<p>donde:</p>
+<ol type="1">
+<li><p><span class="math inline">\(X = 133\)</span> días</p></li>
+<li><p><span class="math inline">\(\mu = 120\)</span> días</p></li>
+<li><p><span class="math inline">\(\sigma\)</span> = desviación estándar (valor a determinar)</p></li>
+</ol>
+<p>Sustituyendo los valores conocidos:</p>
+<p><span class="math display">\[\LARGE Z = \frac{133 - 120}{\sigma} = \frac{13}{\sigma} \]</span></p>
+</section>
+<section id="paso-2-cálculo-de-la-probabilidad-acumulada" class="level4">
+<h4 class="anchored" data-anchor-id="paso-2-cálculo-de-la-probabilidad-acumulada">Paso 2: Cálculo de la probabilidad acumulada</h4>
+<p>Dado que P(X &gt; 133) = 0.2578, se puede determinar la probabilidad acumulada hasta 133:</p>
+<p><span class="math display">\[\Large P(X \leq 133) = 1 - P(X &gt; 133) = 1 - 0.2578 = 0.7422 \]</span></p>
+<p>Por lo tanto:</p>
+<p><span class="math display">\[\Large P\left(Z \leq \frac{13}{\sigma}\right) = 0.7422 )=0.7422\]</span></p>
+</section>
+<section id="paso-3-encontrar-el-valor-z-correspondiente" class="level4">
+<h4 class="anchored" data-anchor-id="paso-3-encontrar-el-valor-z-correspondiente">Paso 3: Encontrar el valor Z correspondiente</h4>
+<p>Se debe encontrar el valor <span class="math inline">\(z\)</span> tal que P(<span class="math inline">\(Z \leq z\)</span>) = 0.7422 en la distribución normal estándar.</p>
+<p><strong>En R, se utiliza la función:</strong></p>
+<p><span class="math display">\[\huge \texttt{qnorm(p, mean, sd)} \]</span></p>
+<p><strong>Argumentos:</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(\texttt{p}\)</span>: probabilidad acumulada deseada</p></li>
+<li><p><span class="math inline">\(\texttt{mean}\)</span>: media de la distribución (0 para la normal estándar)</p></li>
+<li><p><span class="math inline">\(\texttt{sd}\)</span>: desviación estándar de la distribución (1 para la normal estándar)</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">qnorm</span>(<span class="fl">0.7422</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6501428</code></pre>
+</div>
+</div>
+</section>
+<section id="paso-4-despejar-la-desviación-estándar" class="level4">
+<h4 class="anchored" data-anchor-id="paso-4-despejar-la-desviación-estándar">Paso 4: Despejar la desviación estándar</h4>
+<p>Igualando la expresión estandarizada con el valor <span class="math inline">\(z\)</span> encontrado:</p>
+<p><span class="math display">\[\huge \frac{13}{\sigma} = 0.65  \]</span></p>
+<p><strong>Despejando:</strong></p>
+<p><span class="math display">\[\huge \sigma = \frac{13}{0.65} = 20 \]</span></p>
+</section>
+<section id="verificación-en-r" class="level4">
+<h4 class="anchored" data-anchor-id="verificación-en-r">Verificación en R</h4>
+<p>Para verificar el resultado, se puede calcular la probabilidad <span class="math inline">\(P(X &gt; 133)\)</span> con los parámetros encontrados:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">133</span>, <span class="at">mean =</span> <span class="dv">120</span>, <span class="at">sd =</span> <span class="dv">20</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2578461</code></pre>
+</div>
+</div>
+<p>Este resultado confirma que la desviación estándar calculada es correcta.</p>
+</section>
+<section id="interpretación" class="level4">
+<h4 class="anchored" data-anchor-id="interpretación">Interpretación</h4>
+<p>La desviación estándar de la duración de la temporada de heladas en Guatemala es de 20 días (<span class="math inline">\(\sigma = 20\)</span>). Esto significa que la duración de la temporada de heladas varía alrededor de la media (120 días) con una dispersión de 20 días.</p>
+<p>Con esta información, se puede establecer que la duración de la temporada de heladas en Guatemala sigue una distribución <span class="math inline">\(N(120, 20^2)\)</span>, lo que permite realizar predicciones y análisis probabilísticos para la planificación agrícola y la gestión de riesgos climáticos.</p>
 </section>
 </section>
 </section>

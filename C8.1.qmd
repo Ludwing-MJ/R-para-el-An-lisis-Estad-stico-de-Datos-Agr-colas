@@ -104,6 +104,92 @@ Para calcular esta probabilidad, se resta la probabilidad acumulada hasta 165 cm
 pnorm(175, 170, 10) - pnorm(165, 170, 10)
 ```
 
+## Estandarización de la variable normal
+
+### Ejemplo práctico: Duración de la temporada de heladas en Guatemala
+
+El Instituto Nacional de Sismología, Vulcanología, Meteorología e Hidrología (INSIVUMEH) de Guatemala ha determinado que la duración de la temporada de heladas sigue una distribución normal. Se conoce la siguiente información:
+
+1.  La duración promedio de la temporada de heladas es de 120 días ($\mu = 120$)
+
+2.  La probabilidad de que la temporada dure más de 133 días es del 25.78% ($P(X > 133) = 0.2578$)
+
+**Objetivo:** Determinar la desviación estándar ($\sigma$) de la distribución normal.
+
+#### Paso 1: Estandarización de la variable
+
+Para resolver este problema, se debe estandarizar la variable $X$ (duración de la temporada de heladas) utilizando la transformación a $Z$:
+
+$$\huge Z = \frac{X - \mu}{\sigma} $$
+
+donde:
+
+1.  $X = 133$ días
+
+2.  $\mu = 120$ días
+
+3.  $\sigma$ = desviación estándar (valor a determinar)
+
+Sustituyendo los valores conocidos:
+
+$$\LARGE Z = \frac{133 - 120}{\sigma} = \frac{13}{\sigma} $$
+
+#### Paso 2: Cálculo de la probabilidad acumulada
+
+Dado que P(X \> 133) = 0.2578, se puede determinar la probabilidad acumulada hasta 133:
+
+$$\Large P(X \leq 133) = 1 - P(X > 133) = 1 - 0.2578 = 0.7422 $$
+
+Por lo tanto:
+
+$$\Large P\left(Z \leq \frac{13}{\sigma}\right) = 0.7422 )=0.7422$$
+
+#### Paso 3: Encontrar el valor Z correspondiente
+
+Se debe encontrar el valor $z$ tal que P($Z \leq z$) = 0.7422 en la distribución normal estándar.
+
+**En R, se utiliza la función:**
+
+$$\huge \texttt{qnorm(p, mean, sd)} $$
+
+**Argumentos:**
+
+1.  $\texttt{p}$: probabilidad acumulada deseada
+
+2.  $\texttt{mean}$: media de la distribución (0 para la normal estándar)
+
+3.  $\texttt{sd}$: desviación estándar de la distribución (1 para la normal estándar)
+
+```{r}
+qnorm(0.7422, mean = 0, sd = 1)
+```
+
+#### Paso 4: Despejar la desviación estándar
+
+Igualando la expresión estandarizada con el valor $z$ encontrado:
+
+$$\huge \frac{13}{\sigma} = 0.65  $$
+
+**Despejando:**
+
+$$\huge \sigma = \frac{13}{0.65} = 20 $$
+
+#### Verificación en R
+
+Para verificar el resultado, se puede calcular la probabilidad $P(X > 133)$ con los parámetros encontrados:
+
+```{r}
+pnorm(133, mean = 120, sd = 20, lower.tail = FALSE)
+```
+
+Este resultado confirma que la desviación estándar calculada es correcta.
+
+#### Interpretación
+
+La desviación estándar de la duración de la temporada de heladas en Guatemala es de 20 días ($\sigma = 20$). Esto significa que la duración de la temporada de heladas varía alrededor de la media (120 días) con una dispersión de 20 días.
+
+Con esta información, se puede establecer que la duración de la temporada de heladas en Guatemala sigue una distribución $N(120, 20^2)$, lo que permite realizar predicciones y análisis probabilísticos para la planificación agrícola y la gestión de riesgos climáticos.
+
 ## Interpretación y aplicaciones en agronomía
 
 La distribución normal es ampliamente utilizada en agronomía para modelar variables continuas como la altura de las plantas, el rendimiento de los cultivos, el peso de los frutos, y las temperaturas. Permite realizar inferencias estadísticas, como la estimación de intervalos de confianza y la realización de pruebas de hipótesis, que son fundamentales para la investigación y la toma de decisiones en el sector agropecuario.
