@@ -1,1 +1,663 @@
-# Intervalos de confianza
+# Estimación puntual e intervalos de confianza en R
+
+## Introducción
+
+La estimación de parámetros poblacionales a partir de muestras es una de las tareas fundamentales en la estadística aplicada, especialmente en la investigación agronómica. En la toma de decisiones sobre producción, selección de variedades o evaluación de innovaciones tecnológicas, es común que el investigador disponga únicamente de datos muestrales. Por ello, resulta esencial contar con herramientas que permitan inferir, con un nivel de confianza conocido, los valores verdaderos de la población a partir de la información obtenida en el laboratorio o en campo (López & González, 2018).
+
+El uso de intervalos de confianza permite cuantificar la incertidumbre inherente a la estimación de parámetros, como la media o la varianza, y facilita la comunicación de resultados de manera rigurosa y transparente. El software R proporciona funciones específicas para calcular estimaciones puntuales e intervalos de confianza, lo que agiliza el análisis estadístico y la interpretación de los datos en contextos agronómicos.
+
+## Fundamentos teóricos
+
+### Estimación puntual
+
+La estimación puntual consiste en asignar un único valor numérico, calculado a partir de los datos muestrales, como mejor aproximación del parámetro poblacional de interés. Por ejemplo, la media muestral ($\bar{x}$) se utiliza como estimador puntual de la media poblacional ($\mu$).
+
+### Intervalo de confianza
+
+Un intervalo de confianza es un rango de valores, calculado a partir de los datos muestrales, que con una determinada probabilidad (nivel de confianza) contiene al verdadero valor del parámetro poblacional. Matemáticamente, para la media poblacional, el intervalo de confianza se expresa como:
+
+$$\huge \bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$
+
+1.  $\bar{x}$ es la media muestral,
+
+2.  $z_{\alpha/2}$ es el valor crítico de la distribución normal estándar para el nivel de confianza deseado,
+
+3.  $\sigma$ es la desviación estándar poblacional (o muestral, si $\sigma$ es desconocida),
+
+4.  $n$ es el tamaño de la muestra.
+
+Cuando la desviación estándar poblacional es desconocida y el tamaño de la muestra es pequeño (n \< 30), se utiliza la distribución t de Student en lugar de la normal estándar.
+
+### Nivel de confianza y significancia
+
+El nivel de confianza ($1 - \alpha$) representa la probabilidad de que el intervalo calculado contenga al verdadero parámetro poblacional. Comúnmente, se utilizan niveles de confianza del 90%, 95% o 99%. El valor $\alpha$ representa la significancia, es decir, la probabilidad de que el intervalo no contenga al parámetro poblacional.
+
+**Factores que afectan la amplitud del intervalo**
+
+La amplitud del intervalo de confianza está influenciada por varios factores:
+
+1.  **Tamaño de la muestra (**$n$**):** A mayor tamaño de la muestra, menor es la amplitud del intervalo.
+
+2.  **Desviación estándar (**$\sigma$**) :** A mayor variabilidad en los datos, mayor es la amplitud del intervalo.
+
+3.  **Nivel de confianza (**$1 - \alpha$**):** A mayor nivel de confianza, mayor es la amplitud del intervalo.
+
+## Formulas para el calculo de intervalos de confianza
+
+### Intervalos de confianza para la media con desviación estándar conocida
+
+Cuando la desviación estándar de la población ($\sigma$) es conocida, el intervalo de confianza para la media poblacional ($\mu$) se calcula utilizando la distribución normal estándar ($z$):
+
+$$\huge \bar{x} \pm z_{\alpha/2} \cdot \frac{\sigma}{\sqrt{n}}$$
+
+Para automatizar este proceso en R se puede emplear la siguiente formula personalizada:
+
+```{r}
+# Función personalizada para intervalo de confianza (sigma conocida)
+ic_media_sigma <- function(x_barra, sigma, n, confianza = 0.95) {
+  # Cálculos
+  error_estandar <- sigma / sqrt(n)
+  alpha <- 1 - confianza
+  z_critico <- qnorm(1 - alpha/2)
+  margen_error <- z_critico * error_estandar
+  
+  # Límites del intervalo
+  limite_inf <- x_barra - margen_error
+  limite_sup <- x_barra + margen_error
+  
+  # Resultados organizados
+  resultados <- list(
+    media_muestra = x_barra,
+    error_estandar = error_estandar,
+    z_critico = z_critico,
+    margen_error = margen_error,
+    limite_inferior = limite_inf,
+    limite_superior = limite_sup,
+    intervalo = c(limite_inf, limite_sup),
+    confianza = confianza * 100
+  )
+  
+  # Mostrar resultados
+  cat("=== INTERVALO DE CONFIANZA PARA LA MEDIA ===\n")
+  cat("Desviación estándar poblacional conocida\n\n")
+  cat("Datos:\n")
+  cat("- Media muestral:", x_barra, "\n")
+  cat("- Desviación estándar poblacional:", sigma, "\n")
+  cat("- Tamaño de muestra:", n, "\n")
+  cat("- Nivel de confianza:", confianza*100, "%\n\n")
+  cat("Cálculos:\n")
+  cat("- Error estándar:", round(error_estandar, 4), "\n")
+  cat("- Valor z crítico:", round(z_critico, 4), "\n")
+  cat("- Margen de error:", round(margen_error, 4), "\n\n")
+  cat("RESULTADO:\n")
+  cat("IC al", confianza*100, "%: [", round(limite_inf, 4), 
+      ",", round(limite_sup, 4), "]\n")
+  
+  return(invisible(resultados))
+}
+
+
+```
+
+Esta función cuenta con la siguiente sintaxis para su uso:
+
+$$\Large \texttt{ic_media_sigma(x_barra, sigma, n, confianza)}$$
+
+**Argumentos en orden:**
+
+1.  x_barra: Media muestral
+
+2.  sigma: Desviación estandar poblacional conocida
+
+3.  n: Tamaño de la muestra
+
+4.  confianza: Nivel de confianza
+
+### Intervalos de confianza para la media con desviación estándar desconocida
+
+Cuando la desviación estándar de la población ($\sigma$) es desconocida, se utiliza la desviación estándar muestral ($s$) como estimación, y el intervalo de confianza se calcula utilizando la distribución t de Student:
+
+$$\huge \bar{x} \pm t\_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} $$
+
+donde $t_{\alpha/2, n-1}$ es el valor crítico de la distribución t de Student con $n-1$ grados de libertad.
+
+Para automatizar este proceso en R se puede emplear la siguiente formula personalizada:
+
+```{r}
+# Función personalizada para intervalo de confianza (sigma desconocida)
+ic_media_t <- function(datos = NULL, x_barra = NULL, s = NULL, n = NULL, confianza = 0.95) {
+  
+  # Si se proporcionan los datos directamente
+  if (!is.null(datos)) {
+    n <- length(datos)
+    x_barra <- mean(datos)
+    s <- sd(datos)
+  }
+  
+  # Verificar que tenemos todos los parámetros necesarios
+  if (is.null(x_barra) || is.null(s) || is.null(n)) {
+    stop("Debe proporcionar los datos o los valores de x_barra, s y n")
+  }
+  
+  # Cálculos
+  gl <- n - 1  # grados de libertad
+  alpha <- 1 - confianza
+  t_critico <- qt(1 - alpha/2, gl)
+  error_estandar <- s / sqrt(n)
+  margen_error <- t_critico * error_estandar
+  
+  # Límites del intervalo
+  limite_inf <- x_barra - margen_error
+  limite_sup <- x_barra + margen_error
+  
+  # Resultados organizados
+  resultados <- list(
+    datos = if(!is.null(datos)) datos else "No proporcionados",
+    n = n,
+    media_muestra = x_barra,
+    desv_estandar_muestra = s,
+    grados_libertad = gl,
+    error_estandar = error_estandar,
+    t_critico = t_critico,
+    margen_error = margen_error,
+    limite_inferior = limite_inf,
+    limite_superior = limite_sup,
+    intervalo = c(limite_inf, limite_sup),
+    confianza = confianza * 100
+  )
+  
+  # Mostrar resultados
+  cat("=== INTERVALO DE CONFIANZA PARA LA MEDIA ===\n")
+  cat("Desviación estándar poblacional desconocida (Distribución t)\n\n")
+  
+  if (!is.null(datos)) {
+    cat("Datos originales:\n")
+    cat(paste(datos, collapse = ", "), "\n\n")
+  }
+  
+  cat("Estadísticos calculados:\n")
+  cat("- Tamaño de muestra (n):", n, "\n")
+  cat("- Media muestral (x̄):", round(x_barra, 4), "\n")
+  cat("- Desviación estándar muestral (s):", round(s, 4), "\n")
+  cat("- Grados de libertad:", gl, "\n")
+  cat("- Nivel de confianza:", confianza*100, "%\n\n")
+  
+  cat("Cálculos del intervalo:\n")
+  cat("- Error estándar:", round(error_estandar, 4), "\n")
+  cat("- Valor t crítico:", round(t_critico, 4), "\n")
+  cat("- Margen de error:", round(margen_error, 4), "\n\n")
+  
+  cat("RESULTADO:\n")
+  cat("IC al", confianza*100, "%: [", round(limite_inf, 4), 
+      ",", round(limite_sup, 4), "]\n\n")
+  
+  return(invisible(resultados))
+}
+```
+
+Esta función cuenta con la siguiente sintaxis para su uso:
+
+$$\Large \texttt{ic_media_t(datos, confianza)}$$
+
+**Argumentos en orden:**
+
+1.  datos: Vector con los datos muestrales
+
+2.  confianza: Nivel de confianza
+
+También tiene la siguiente sintaxis cuando no se cuenta con los datos de la muestra directamente:
+
+$$\Large \texttt{ic_media_t(x_barra, s, n, confianza)}$$
+
+**Argumentos en orden:**
+
+1.  x_barra: Media muestral
+
+2.  s: Desviación estandar muestral
+
+3.  n: Tamaño de la muestra
+
+4.  confianza: Nivel de confianza
+
+### Intervalos de confianza para la varianza
+
+El intervalo de confianza para la varianza poblacional ($\sigma^2$) se calcula utilizando la distribución chi-cuadrado ($\chi^2$):
+
+$$\LARGE \frac{(n-1)s^2}{\chi^2_{\alpha/2, n-1}} \leq \sigma^2 \leq \frac{(n-1)s^2}{\chi^2_{1-\alpha/2, n-1}} $$
+
+donde:
+
+1.  $s^2$ es la varianza muestral,
+
+2.  $\chi^2_{\alpha/2, n-1}$ y $\chi^2_{1-\alpha/2, n-1}$ son los valores críticos de la distribución chi-cuadrado con $n-1$ grados de libertad.
+
+Para automatizar este proceso en R se puede emplear la siguiente formula personalizada:
+
+```{r}
+# Función personalizada para intervalo de confianza de varianza
+ic_varianza <- function(datos = NULL, s = NULL, n = NULL, confianza = 0.90) {
+  
+  # Si se proporcionan los datos directamente
+  if (!is.null(datos)) {
+    n <- length(datos)
+    s <- sd(datos)
+  }
+  
+  # Verificar que tenemos todos los parámetros necesarios
+  if (is.null(s) || is.null(n)) {
+    stop("Debe proporcionar los datos o los valores de s y n")
+  }
+  
+  # Cálculos básicos
+  s2 <- s^2  # varianza muestral
+  gl <- n - 1  # grados de libertad
+  alpha <- 1 - confianza
+  
+  # Valores críticos de chi-cuadrado
+  chi2_inf <- qchisq(alpha/2, gl)        # límite inferior
+  chi2_sup <- qchisq(1 - alpha/2, gl)    # límite superior
+  
+  # Intervalos de confianza para la varianza
+  ic_var_inf <- (gl * s2) / chi2_sup
+  ic_var_sup <- (gl * s2) / chi2_inf
+  
+  # Intervalos de confianza para la desviación estándar
+  ic_sd_inf <- sqrt(ic_var_inf)
+  ic_sd_sup <- sqrt(ic_var_sup)
+  
+  # Resultados organizados
+  resultados <- list(
+    datos = if(!is.null(datos)) datos else "No proporcionados",
+    n = n,
+    desv_estandar_muestra = s,
+    varianza_muestra = s2,
+    grados_libertad = gl,
+    chi2_inferior = chi2_inf,
+    chi2_superior = chi2_sup,
+    ic_varianza = c(ic_var_inf, ic_var_sup),
+    ic_desv_estandar = c(ic_sd_inf, ic_sd_sup),
+    confianza = confianza * 100
+  )
+  
+  # Mostrar resultados
+  cat("=== INTERVALO DE CONFIANZA PARA LA VARIANZA ===\n")
+  cat("Distribución Chi-cuadrado\n\n")
+  
+  if (!is.null(datos)) {
+    cat("Datos originales:\n")
+    if (length(datos) <= 20) {
+      cat(paste(datos, collapse = ", "), "\n\n")
+    } else {
+      cat("Muestra de", length(datos), "observaciones\n\n")
+    }
+  }
+  
+  cat("Estadísticos calculados:\n")
+  cat("- Tamaño de muestra (n):", n, "\n")
+  cat("- Desviación estándar muestral (s):", round(s, 4), "\n")
+  cat("- Varianza muestral (s²):", round(s2, 4), "\n")
+  cat("- Grados de libertad:", gl, "\n")
+  cat("- Nivel de confianza:", confianza*100, "%\n")
+  cat("- Nivel de significancia (α):", alpha, "\n\n")
+  
+  cat("Valores críticos de Chi-cuadrado:\n")
+  cat("- χ²", alpha/2, ",", gl, "=", round(chi2_inf, 4), "\n")
+  cat("- χ²", 1-alpha/2, ",", gl, "=", round(chi2_sup, 4), "\n\n")
+  
+  cat("Cálculos del intervalo:\n")
+  cat("- Límite inferior varianza: (", gl, "×", round(s2,1), ") /", 
+      round(chi2_sup,3), "=", round(ic_var_inf, 1), "\n")
+  cat("- Límite superior varianza: (", gl, "×", round(s2,1), ") /", 
+      round(chi2_inf,3), "=", round(ic_var_sup, 1), "\n\n")
+  
+  cat("RESULTADOS:\n")
+  cat("IC al", confianza*100, "% para σ²: [", round(ic_var_inf, 1), 
+      ",", round(ic_var_sup, 1), "] ")
+  cat("IC al", confianza*100, "% para σ:  [", round(ic_sd_inf, 2), 
+      ",", round(ic_sd_sup, 2), "] ")
+  
+  return(invisible(resultados))
+}
+```
+
+Esta función cuenta con la siguiente sintaxis para su uso:
+
+$$\Large \texttt{ic_varianza(datos, confianza)}$$
+
+**Argumentos en orden:**
+
+1.  datos: Vector con los datos de la muestra
+
+2.  confianza: Nivel de confianza
+
+También tiene la siguiente sintaxis cuando no se cuenta con los datos de la muestra directamente:
+
+$$\Large \texttt{ic_varianza(s, n, confianza)} $$
+
+**Argumentos en orden:**
+
+1.  s: Desviación estándar muestral
+
+2.  n: Tamaño de la muestra
+
+3.  confianza: Nivel de confianza
+
+### Intervalos de confianza para la proporción
+
+El intervalo de confianza para la proporción poblacional (p) se calcula como:
+
+$$\LARGE \hat{p} \pm z_{\alpha/2} \cdot \sqrt{\frac{\hat{p}(1-\hat{p})}{n}} $$​
+
+donde:
+
+1.  $\hat{p}$ es la proporción muestral,
+
+2.  $z_{\alpha/2}$ es el valor crítico de la distribución normal estándar.
+
+Para automatizar este proceso en R se puede emplear la siguiente formula personalizada:
+
+```{r}
+# Función personalizada para intervalo de confianza de una proporción
+ic_proporcion <- function(x, n, confianza = 0.95) {
+  p_hat <- x / n
+  alpha <- 1 - confianza
+  z_critico <- qnorm(1 - alpha/2)
+  error_estandar <- sqrt(p_hat * (1 - p_hat) / n)
+  margen_error <- z_critico * error_estandar
+  limite_inf <- p_hat - margen_error
+  limite_sup <- p_hat + margen_error
+  
+  # Resultados organizados
+  resultados <- list(
+    proporcion_muestral = p_hat,
+    error_estandar = error_estandar,
+    z_critico = z_critico,
+    margen_error = margen_error,
+    limite_inferior = limite_inf,
+    limite_superior = limite_sup,
+    intervalo = c(limite_inf, limite_sup),
+    confianza = confianza * 100
+  )
+  
+  # Mostrar resultados
+  cat("=== INTERVALO DE CONFIANZA PARA UNA PROPORCIÓN ===\n")
+  cat("Datos:\n")
+  cat("- Éxitos (x):", x, "\n")
+  cat("- Tamaño de muestra (n):", n, "\n")
+  cat("- Proporción muestral (p̂):", round(p_hat, 4), "\n")
+  cat("- Nivel de confianza:", confianza*100, "%\n\n")
+  
+  cat("Cálculos:\n")
+  cat("- Error estándar:", round(error_estandar, 4), "\n")
+  cat("- Valor z crítico:", round(z_critico, 4), "\n")
+  cat("- Margen de error:", round(margen_error, 4), "\n\n")
+  
+  cat("RESULTADO:\n")
+  cat("IC al", confianza*100, "%: [", round(limite_inf, 4), 
+      ",", round(limite_sup, 4), "]\n")
+  
+  return(invisible(resultados))
+}
+```
+
+Esta función cuenta con la siguiente sintaxis para su uso:
+
+$$\Large \texttt{ic_proporcion(x, n, confianza)}$$
+
+**Argumentos en orden:**
+
+1.  x: numero de observaciones "exitosas" en la muestra
+
+2.  n: Tamaño de la muestra
+
+3.  confianza: Nivel de confianza
+
+## Ejemplos de cálculo de intervalos de confianza en R
+
+### **Ejemplo 1: Intervalo de confianza para la media con desviación estándar conocida**
+
+*Contexto agronómico:* Una empresa productora de semillas de maíz conoce que la desviación estándar del peso de las semillas es de 0.15 gramos. Se toma una muestra aleatoria de 25 semillas y se obtiene un peso promedio de 0.85 gramos. Se desea construir un intervalo de confianza del 95% para el peso promedio poblacional.
+
+*Cálculo manual:*
+
+$$
+\begin{aligned}
+n &= 25 \\
+\bar{x} &= 0.85 \text{ g} \\
+\sigma &= 0.15 \text{ g} \\
+\alpha &= 0.05 \\
+z_{\alpha/2} &= z_{0.025} = 1.96
+\end{aligned}
+$$
+
+**Cálculo del error estándar:**
+
+$$
+\text{Error estándar} = \frac{\sigma}{\sqrt{n}} = \frac{0.15}{\sqrt{25}} = \frac{0.15}{5} = 0.03
+$$
+
+**Margen de error:**
+
+$$
+\text{Margen de error} = z_{\alpha/2} \times \text{Error estándar} = 1.96 \times 0.03 = 0.0588
+$$
+
+**Intervalo de confianza al 95%:**
+
+$$
+\begin{aligned}
+IC_{95\%} = \bar{x} \pm \text{Margen de error}  \\ 
+IC_{95\%} = 0.85 \pm 0.0588  \\
+IC_{95\%} = [0.7912,\ 0.9088]
+ \end{aligned}
+$$
+
+**Implementación en R:**
+
+```{r}
+
+# Uso de la función con los datos del ejemplo
+resultado <- ic_media_sigma(x_barra = 0.85,
+                            sigma = 0.15, 
+                            n = 25, 
+                            confianza = 0.95)
+```
+
+### Ejemplo 2: Intervalo de confianza para la media con desviación estándar desconocida
+
+*Contexto agronómico:* Un investigador desea estimar la altura promedio de plantas de frijol a los 30 días después de la siembra. Se selecciona una muestra aleatoria de 15 plantas y se registran las siguientes alturas en centímetros:
+
+|      |      |      |
+|:----:|:----:|:----:|
+| 12.5 | 14.2 | 13.8 |
+| 15.1 | 12.9 | 14.7 |
+| 13.3 | 14.9 | 13.6 |
+| 14.4 | 12.8 | 15.3 |
+| 13.9 | 14.1 | 13.7 |
+
+**Datos:**
+
+$$
+\begin{aligned}
+n &= 15 \\
+\bar{x} &= 13.89 \text{ cm} \\
+s &= 0.85 \text{ cm} \\
+\alpha &= 0.05
+\end{aligned}
+$$
+
+**Grados de libertad:**
+
+$$
+gl = n - 1 = 15 - 1 = 14
+$$
+
+**Valor crítico de t:**
+
+$$
+t_{\alpha/2, 14} = t_{0.025, 14} = 2.145
+$$
+
+**Error estándar:**
+
+$$
+\text{Error estándar} = \frac{s}{\sqrt{n}} = \frac{0.85}{\sqrt{15}} = 0.2195
+$$
+
+**Margen de error:**
+
+$$
+\text{Margen de error} = t_{\alpha/2,14} \times \text{Error estándar} = 2.145 \times 0.2195 = 0.4708
+$$
+
+**Intervalo de confianza al 95%:**
+
+$$
+IC_{95\%} = \bar{x} \pm \text{Margen de error} = 13.89 \pm 0.4708 = [13.42,\ 14.36]
+$$
+
+**Implementación en R:**
+
+Usando la función por defecto de R:
+
+```{r}
+# Datos del problema
+alturas <- c(12.5, 14.2, 13.8, 15.1, 12.9, 14.7, 13.3, 14.9, 
+             13.6, 14.4, 12.8, 15.3, 13.9, 14.1, 13.7)
+
+# Cálculo directo con función incorporada
+resultado <- t.test(alturas, conf.level = 0.95)
+print(resultado)
+```
+
+Usando la función personalizada:
+
+```{r}
+
+# Opción 1: Pasando los datos directamente
+resultado1 <- ic_media_t(datos = alturas, confianza = 0.95)
+
+# Opción 2: Pasando los estadísticos calculados
+resultado2 <- ic_media_t(x_barra = 13.89, s = 0.85, n = 15, confianza = 0.95)
+```
+
+### Ejemplo 3: Intervalo de confianza para la varianza
+
+*Contexto agronómico:* Se evalúa la variabilidad en el peso de 20 tomates con una desviación estándar muestral de 45 gramos.
+
+**Datos:**
+
+$$
+\begin{aligned}
+n &= 20 \\
+s &= 45 \text{ g} \\
+s^2 &= 2025 \text{ g}^2 \\
+\alpha &= 0.10
+\end{aligned}
+$$
+
+**Grados de libertad:**
+
+$$
+gl = n - 1 = 20 - 1 = 19
+$$
+
+**Valores críticos de la distribución chi-cuadrado:**
+
+$$
+\chi^2_{0.05, 19} = 30.144, \quad \chi^2_{0.95, 19} = 10.117
+$$
+
+**Límite inferior para la varianza:**
+
+$$
+\frac{(n - 1) \cdot s^2}{\chi^2_{\alpha/2, \, n-1}} = \frac{19 \cdot 2025}{30.144} = 1276.9
+$$
+
+**Límite superior para la varianza:**
+
+$$
+\frac{(n - 1) \cdot s^2}{\chi^2_{1 - \alpha/2, \, n-1}} = \frac{19 \cdot 2025}{10.117} = 3803.8
+$$
+
+**Intervalo de confianza del 90 % para la varianza** $\sigma^2$:
+
+$$
+IC_{90\%} \text{ para } \sigma^2 = [1276.9,\ 3803.8] \text{ g}^2
+$$
+
+**Intervalo de confianza del 90 % para la desviación estándar** $\sigma$:
+
+$$
+IC_{90\%} \text{ para } \sigma = [\sqrt{1276.9},\ \sqrt{3803.8}] = [35.73,\ 61.68] \text{ g}
+$$
+
+**Implementación en R:**
+
+```{r}
+# Ejemplo con los datos del problema
+resultado <- ic_varianza(s = 45, n = 20, confianza = 0.90)
+
+
+```
+
+### Ejemplo 4: Intervalo de confianza para la proporción
+
+*Contexto agronómico:* De 200 plantas de trigo evaluadas, 156 mostraron resistencia a una enfermedad.
+
+**Cálculo manual:**
+
+**Datos:**
+
+$$
+\begin{aligned}
+n &= 200 \\
+x &= 156 \\
+\hat{p} &= \frac{156}{200} = 0.78 \\
+\alpha &= 0.05 \\
+z_{\alpha/2} &= z_{0.025} = 1.96
+\end{aligned}
+$$
+
+**Error estándar:**
+
+$$
+\text{Error estándar} = \sqrt{ \frac{\hat{p}(1 - \hat{p})}{n} } = \sqrt{ \frac{0.78 \cdot 0.22}{200} } = \sqrt{0.000858} = 0.0293
+$$
+
+**Margen de error:**
+
+$$
+\text{Margen de error} = z_{\alpha/2} \cdot \text{Error estándar} = 1.96 \cdot 0.0293 = 0.0574
+$$
+
+**Intervalo de confianza al 95 %:**
+
+$$
+IC_{95\%} = \hat{p} \pm \text{Margen de error} = 0.78 \pm 0.0574 = [0.7226,\ 0.8374]
+$$
+
+**Implementación en R:**
+
+Usando la función base de R:
+
+```{r}
+# Datos del problema
+n <- 200
+x <- 156
+confianza <- 0.95
+
+# Cálculo directo con función incorporada
+prop.test(x, n, conf.level = confianza, correct = FALSE)
+```
+
+*Nota: `correct = FALSE` evita la corrección de continuidad para que el resultado sea idéntico al cálculo manual.*
+
+Usando la función personalizada:
+
+```{r}
+# Uso con los datos del ejemplo
+ic_proporcion(x = 156,
+              n = 200, 
+              confianza = 0.95)
+```
