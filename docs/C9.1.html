@@ -521,7 +521,7 @@ window.Quarto = {
   </ul></li>
   <li><a href="#ejemplos-de-cálculo-de-intervalos-de-confianza-en-r" id="toc-ejemplos-de-cálculo-de-intervalos-de-confianza-en-r" class="nav-link" data-scroll-target="#ejemplos-de-cálculo-de-intervalos-de-confianza-en-r">Ejemplos de cálculo de intervalos de confianza en R</a>
   <ul class="collapse">
-  <li><a href="#ejemplo-1-intervalo-de-confianza-para-la-media-con-desviación-estándar-conocida" id="toc-ejemplo-1-intervalo-de-confianza-para-la-media-con-desviación-estándar-conocida" class="nav-link" data-scroll-target="#ejemplo-1-intervalo-de-confianza-para-la-media-con-desviación-estándar-conocida"><strong>Ejemplo 1: Intervalo de confianza para la media con desviación estándar conocida</strong></a></li>
+  <li><a href="#ejemplo-1-intervalo-de-confianza-para-la-media-con-desviación-estándar-conocida" id="toc-ejemplo-1-intervalo-de-confianza-para-la-media-con-desviación-estándar-conocida" class="nav-link" data-scroll-target="#ejemplo-1-intervalo-de-confianza-para-la-media-con-desviación-estándar-conocida">Ejemplo 1: Intervalo de confianza para la media con desviación estándar conocida</a></li>
   <li><a href="#ejemplo-2-intervalo-de-confianza-para-la-media-con-desviación-estándar-desconocida" id="toc-ejemplo-2-intervalo-de-confianza-para-la-media-con-desviación-estándar-desconocida" class="nav-link" data-scroll-target="#ejemplo-2-intervalo-de-confianza-para-la-media-con-desviación-estándar-desconocida">Ejemplo 2: Intervalo de confianza para la media con desviación estándar desconocida</a></li>
   <li><a href="#ejemplo-3-intervalo-de-confianza-para-la-varianza" id="toc-ejemplo-3-intervalo-de-confianza-para-la-varianza" class="nav-link" data-scroll-target="#ejemplo-3-intervalo-de-confianza-para-la-varianza">Ejemplo 3: Intervalo de confianza para la varianza</a></li>
   <li><a href="#ejemplo-4-intervalo-de-confianza-para-la-proporción" id="toc-ejemplo-4-intervalo-de-confianza-para-la-proporción" class="nav-link" data-scroll-target="#ejemplo-4-intervalo-de-confianza-para-la-proporción">Ejemplo 4: Intervalo de confianza para la proporción</a></li>
@@ -639,7 +639,9 @@ window.Quarto = {
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Esta función cuenta con la siguiente sintaxis para su uso:</p>
-<p><span class="math display">\[\Large \texttt{ic_media_sigma(x_barra, sigma, n, confianza)}\]</span></p>
+<p><span class="math display">\[
+\Large \text{ic\_media\_sigma(x\_barra, sigma, n, confianza)}
+\]</span></p>
 <p><strong>Argumentos en orden:</strong></p>
 <ol type="1">
 <li><p>x_barra: Media muestral</p></li>
@@ -726,14 +728,17 @@ window.Quarto = {
 <span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Esta función cuenta con la siguiente sintaxis para su uso:</p>
-<p><span class="math display">\[\Large \texttt{ic_media_t(datos, confianza)}\]</span></p>
-<p><strong>Argumentos en orden:</strong></p>
+<p><span class="math display">\[
+\Large \text{ic\_media\_t(datos, confianza)}
+\]</span> <strong>Argumentos en orden:</strong></p>
 <ol type="1">
 <li><p>datos: Vector con los datos muestrales</p></li>
 <li><p>confianza: Nivel de confianza</p></li>
 </ol>
 <p>También tiene la siguiente sintaxis cuando no se cuenta con los datos de la muestra directamente:</p>
-<p><span class="math display">\[\Large \texttt{ic_media_t(x_barra, s, n, confianza)}\]</span></p>
+<p><span class="math display">\[
+\Large \text{ic\_media\_t(x\_barra, s, n, confianza)}
+\]</span></p>
 <p><strong>Argumentos en orden:</strong></p>
 <ol type="1">
 <li><p>x_barra: Media muestral</p></li>
@@ -839,15 +844,17 @@ window.Quarto = {
 <span id="cb3-84"><a href="#cb3-84" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Esta función cuenta con la siguiente sintaxis para su uso:</p>
-<p><span class="math display">\[\Large \texttt{ic_varianza(datos, confianza)}\]</span></p>
-<p><strong>Argumentos en orden:</strong></p>
+<p><span class="math display">\[
+\Large \text{ic\_varianza(datos, confianza)}
+\]</span> <strong>Argumentos en orden:</strong></p>
 <ol type="1">
 <li><p>datos: Vector con los datos de la muestra</p></li>
 <li><p>confianza: Nivel de confianza</p></li>
 </ol>
 <p>También tiene la siguiente sintaxis cuando no se cuenta con los datos de la muestra directamente:</p>
-<p><span class="math display">\[\Large \texttt{ic_varianza(s, n, confianza)} \]</span></p>
-<p><strong>Argumentos en orden:</strong></p>
+<p><span class="math display">\[
+\Large \text{ic\_varianza(s, n, confianza)}
+\]</span> <strong>Argumentos en orden:</strong></p>
 <ol type="1">
 <li><p>s: Desviación estándar muestral</p></li>
 <li><p>n: Tamaño de la muestra</p></li>
@@ -908,8 +915,9 @@ window.Quarto = {
 <span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Esta función cuenta con la siguiente sintaxis para su uso:</p>
-<p><span class="math display">\[\Large \texttt{ic_proporcion(x, n, confianza)}\]</span></p>
-<p><strong>Argumentos en orden:</strong></p>
+<p><span class="math display">\[
+\Large \text{ic\_proporcion(x, n, confianza)}
+\]</span> <strong>Argumentos en orden:</strong></p>
 <ol type="1">
 <li><p>x: numero de observaciones “exitosas” en la muestra</p></li>
 <li><p>n: Tamaño de la muestra</p></li>
@@ -920,7 +928,7 @@ window.Quarto = {
 <section id="ejemplos-de-cálculo-de-intervalos-de-confianza-en-r" class="level2">
 <h2 class="anchored" data-anchor-id="ejemplos-de-cálculo-de-intervalos-de-confianza-en-r">Ejemplos de cálculo de intervalos de confianza en R</h2>
 <section id="ejemplo-1-intervalo-de-confianza-para-la-media-con-desviación-estándar-conocida" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-1-intervalo-de-confianza-para-la-media-con-desviación-estándar-conocida"><strong>Ejemplo 1: Intervalo de confianza para la media con desviación estándar conocida</strong></h3>
+<h3 class="anchored" data-anchor-id="ejemplo-1-intervalo-de-confianza-para-la-media-con-desviación-estándar-conocida">Ejemplo 1: Intervalo de confianza para la media con desviación estándar conocida</h3>
 <p><em>Contexto agronómico:</em> Una empresa productora de semillas de maíz conoce que la desviación estándar del peso de las semillas es de 0.15 gramos. Se toma una muestra aleatoria de 25 semillas y se obtiene un peso promedio de 0.85 gramos. Se desea construir un intervalo de confianza del 95% para el peso promedio poblacional.</p>
 <p><em>Cálculo manual:</em></p>
 <p><span class="math display">\[

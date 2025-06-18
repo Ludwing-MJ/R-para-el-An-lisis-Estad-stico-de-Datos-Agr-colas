@@ -101,7 +101,9 @@ ic_media_sigma <- function(x_barra, sigma, n, confianza = 0.95) {
 
 Esta función cuenta con la siguiente sintaxis para su uso:
 
-$$\Large \texttt{ic_media_sigma(x_barra, sigma, n, confianza)}$$
+$$
+\Large \text{ic\_media\_sigma(x\_barra, sigma, n, confianza)}
+$$
 
 **Argumentos en orden:**
 
@@ -197,8 +199,9 @@ ic_media_t <- function(datos = NULL, x_barra = NULL, s = NULL, n = NULL, confian
 
 Esta función cuenta con la siguiente sintaxis para su uso:
 
-$$\Large \texttt{ic_media_t(datos, confianza)}$$
-
+$$
+\Large \text{ic\_media\_t(datos, confianza)}
+$$
 **Argumentos en orden:**
 
 1.  datos: Vector con los datos muestrales
@@ -207,7 +210,9 @@ $$\Large \texttt{ic_media_t(datos, confianza)}$$
 
 También tiene la siguiente sintaxis cuando no se cuenta con los datos de la muestra directamente:
 
-$$\Large \texttt{ic_media_t(x_barra, s, n, confianza)}$$
+$$
+\Large \text{ic\_media\_t(x\_barra, s, n, confianza)}
+$$
 
 **Argumentos en orden:**
 
@@ -322,8 +327,9 @@ ic_varianza <- function(datos = NULL, s = NULL, n = NULL, confianza = 0.90) {
 
 Esta función cuenta con la siguiente sintaxis para su uso:
 
-$$\Large \texttt{ic_varianza(datos, confianza)}$$
-
+$$
+\Large \text{ic\_varianza(datos, confianza)}
+$$
 **Argumentos en orden:**
 
 1.  datos: Vector con los datos de la muestra
@@ -332,8 +338,9 @@ $$\Large \texttt{ic_varianza(datos, confianza)}$$
 
 También tiene la siguiente sintaxis cuando no se cuenta con los datos de la muestra directamente:
 
-$$\Large \texttt{ic_varianza(s, n, confianza)} $$
-
+$$
+\Large \text{ic\_varianza(s, n, confianza)}
+$$
 **Argumentos en orden:**
 
 1.  s: Desviación estándar muestral
@@ -402,8 +409,9 @@ ic_proporcion <- function(x, n, confianza = 0.95) {
 
 Esta función cuenta con la siguiente sintaxis para su uso:
 
-$$\Large \texttt{ic_proporcion(x, n, confianza)}$$
-
+$$
+\Large \text{ic\_proporcion(x, n, confianza)}
+$$
 **Argumentos en orden:**
 
 1.  x: numero de observaciones "exitosas" en la muestra
@@ -414,7 +422,7 @@ $$\Large \texttt{ic_proporcion(x, n, confianza)}$$
 
 ## Ejemplos de cálculo de intervalos de confianza en R
 
-### **Ejemplo 1: Intervalo de confianza para la media con desviación estándar conocida**
+### Ejemplo 1: Intervalo de confianza para la media con desviación estándar conocida
 
 *Contexto agronómico:* Una empresa productora de semillas de maíz conoce que la desviación estándar del peso de las semillas es de 0.15 gramos. Se toma una muestra aleatoria de 25 semillas y se obtiene un peso promedio de 0.85 gramos. Se desea construir un intervalo de confianza del 95% para el peso promedio poblacional.
 
