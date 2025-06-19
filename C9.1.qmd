@@ -117,17 +117,26 @@ $$
 
 ### Intervalos de confianza para la media con desviación estándar desconocida
 
-Cuando la desviación estándar de la población ($\sigma$) es desconocida, se utiliza la desviación estándar muestral ($s$) como estimación, y el intervalo de confianza se calcula utilizando la distribución t de Student:
+Cuando la desviación estándar de la población ($\sigma$) es desconocida, se utiliza la desviación estándar muestral ($s$) como estimación. La elección de la distribución apropiada para calcular el intervalo de confianza depende del tamaño de la muestra:
 
-$$\huge \bar{x} \pm t\_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} $$
+#### Criterio de selección de distribución
+
+**Para muestras pequeñas (n \< 30):** Se utiliza la distribución t de Student:
+
+$$\huge \bar{x} \pm t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} $$
 
 donde $t_{\alpha/2, n-1}$ es el valor crítico de la distribución t de Student con $n-1$ grados de libertad.
+
+**Para muestras grandes (n ≥ 30):** Se puede utilizar la distribución normal estándar (Z)\
+$$\huge \bar{x} \pm z_{\alpha/2} \cdot \frac{s}{\sqrt{n}}$$
+
+donde $z_{\alpha/2}$ es el valor crítico de la distribución normal estándar.
 
 Para automatizar este proceso en R se puede emplear la siguiente formula personalizada:
 
 ```{r}
-# Función personalizada para intervalo de confianza (sigma desconocida)
-ic_media_t <- function(datos = NULL, x_barra = NULL, s = NULL, n = NULL, confianza = 0.95) {
+# Función robusta que decide automáticamente entre Z y t
+ic_media_s <- function(datos = NULL, x_barra = NULL, s = NULL, n = NULL, confianza = 0.95) {
   
   # Si se proporcionan los datos directamente
   if (!is.null(datos)) {
@@ -141,12 +150,26 @@ ic_media_t <- function(datos = NULL, x_barra = NULL, s = NULL, n = NULL, confian
     stop("Debe proporcionar los datos o los valores de x_barra, s y n")
   }
   
-  # Cálculos
-  gl <- n - 1  # grados de libertad
+  # Decidir qué distribución usar
+  usar_z <- n >= 30
+  
+  # Cálculos comunes
   alpha <- 1 - confianza
-  t_critico <- qt(1 - alpha/2, gl)
   error_estandar <- s / sqrt(n)
-  margen_error <- t_critico * error_estandar
+  
+  if (usar_z) {
+    # Usar distribución Z
+    valor_critico <- qnorm(1 - alpha/2)
+    distribucion <- "Z (Normal estándar)"
+    gl <- NA
+  } else {
+    # Usar distribución t
+    gl <- n - 1
+    valor_critico <- qt(1 - alpha/2, gl)
+    distribucion <- "t de Student"
+  }
+  
+  margen_error <- valor_critico * error_estandar
   
   # Límites del intervalo
   limite_inf <- x_barra - margen_error
@@ -158,9 +181,10 @@ ic_media_t <- function(datos = NULL, x_barra = NULL, s = NULL, n = NULL, confian
     n = n,
     media_muestra = x_barra,
     desv_estandar_muestra = s,
-    grados_libertad = gl,
+    distribucion_usada = distribucion,
+    grados_libertad = if(usar_z) NA else gl,
     error_estandar = error_estandar,
-    t_critico = t_critico,
+    valor_critico = valor_critico,
     margen_error = margen_error,
     limite_inferior = limite_inf,
     limite_superior = limite_sup,
@@ -170,23 +194,29 @@ ic_media_t <- function(datos = NULL, x_barra = NULL, s = NULL, n = NULL, confian
   
   # Mostrar resultados
   cat("=== INTERVALO DE CONFIANZA PARA LA MEDIA ===\n")
-  cat("Desviación estándar poblacional desconocida (Distribución t)\n\n")
+  cat("Desviación estándar poblacional desconocida\n")
+  cat("Distribución utilizada:", distribucion, "\n")
+  cat("Criterio: n", if(usar_z) "≥" else "<", "30\n\n")
   
   if (!is.null(datos)) {
     cat("Datos originales:\n")
-    cat(paste(datos, collapse = ", "), "\n\n")
+    if (length(datos) <= 20) {
+      cat(paste(datos, collapse = ", "), "\n\n")
+    } else {
+      cat("Muestra de", length(datos), "observaciones\n\n")
+    }
   }
   
   cat("Estadísticos calculados:\n")
   cat("- Tamaño de muestra (n):", n, "\n")
   cat("- Media muestral (x̄):", round(x_barra, 4), "\n")
   cat("- Desviación estándar muestral (s):", round(s, 4), "\n")
-  cat("- Grados de libertad:", gl, "\n")
+  if (!usar_z) cat("- Grados de libertad:", gl, "\n")
   cat("- Nivel de confianza:", confianza*100, "%\n\n")
   
   cat("Cálculos del intervalo:\n")
   cat("- Error estándar:", round(error_estandar, 4), "\n")
-  cat("- Valor t crítico:", round(t_critico, 4), "\n")
+  cat("- Valor", if(usar_z) "z" else "t", "crítico:", round(valor_critico, 4), "\n")
   cat("- Margen de error:", round(margen_error, 4), "\n\n")
   
   cat("RESULTADO:\n")
@@ -200,9 +230,8 @@ ic_media_t <- function(datos = NULL, x_barra = NULL, s = NULL, n = NULL, confian
 Esta función cuenta con la siguiente sintaxis para su uso:
 
 $$
-\Large \text{ic\_media\_t(datos, confianza)}
-$$
-**Argumentos en orden:**
+\Large \text{ic\_media\_s(datos, confianza)}
+$$ **Argumentos en orden:**
 
 1.  datos: Vector con los datos muestrales
 
@@ -211,7 +240,7 @@ $$
 También tiene la siguiente sintaxis cuando no se cuenta con los datos de la muestra directamente:
 
 $$
-\Large \text{ic\_media\_t(x\_barra, s, n, confianza)}
+\Large \text{ic\_media\_s(x\_barra, s, n, confianza)}
 $$
 
 **Argumentos en orden:**
@@ -329,8 +358,7 @@ Esta función cuenta con la siguiente sintaxis para su uso:
 
 $$
 \Large \text{ic\_varianza(datos, confianza)}
-$$
-**Argumentos en orden:**
+$$ **Argumentos en orden:**
 
 1.  datos: Vector con los datos de la muestra
 
@@ -340,8 +368,7 @@ También tiene la siguiente sintaxis cuando no se cuenta con los datos de la mue
 
 $$
 \Large \text{ic\_varianza(s, n, confianza)}
-$$
-**Argumentos en orden:**
+$$ **Argumentos en orden:**
 
 1.  s: Desviación estándar muestral
 
@@ -411,8 +438,7 @@ Esta función cuenta con la siguiente sintaxis para su uso:
 
 $$
 \Large \text{ic\_proporcion(x, n, confianza)}
-$$
-**Argumentos en orden:**
+$$ **Argumentos en orden:**
 
 1.  x: numero de observaciones "exitosas" en la muestra
 
@@ -543,10 +569,10 @@ Usando la función personalizada:
 ```{r}
 
 # Opción 1: Pasando los datos directamente
-resultado1 <- ic_media_t(datos = alturas, confianza = 0.95)
+resultado1 <- ic_media_s(datos = alturas, confianza = 0.95)
 
 # Opción 2: Pasando los estadísticos calculados
-resultado2 <- ic_media_t(x_barra = 13.89, s = 0.85, n = 15, confianza = 0.95)
+resultado2 <- ic_media_s(x_barra = 13.89, s = 0.85, n = 15, confianza = 0.95)
 ```
 
 ### Ejemplo 3: Intervalo de confianza para la varianza

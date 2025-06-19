@@ -652,13 +652,19 @@ window.Quarto = {
 </section>
 <section id="intervalos-de-confianza-para-la-media-con-desviación-estándar-desconocida" class="level3">
 <h3 class="anchored" data-anchor-id="intervalos-de-confianza-para-la-media-con-desviación-estándar-desconocida">Intervalos de confianza para la media con desviación estándar desconocida</h3>
-<p>Cuando la desviación estándar de la población (<span class="math inline">\(\sigma\)</span>) es desconocida, se utiliza la desviación estándar muestral (<span class="math inline">\(s\)</span>) como estimación, y el intervalo de confianza se calcula utilizando la distribución t de Student:</p>
-<p><span class="math display">\[\huge \bar{x} \pm t\_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} \]</span></p>
+<p>Cuando la desviación estándar de la población (<span class="math inline">\(\sigma\)</span>) es desconocida, se utiliza la desviación estándar muestral (<span class="math inline">\(s\)</span>) como estimación. La elección de la distribución apropiada para calcular el intervalo de confianza depende del tamaño de la muestra:</p>
+<section id="criterio-de-selección-de-distribución" class="level4">
+<h4 class="anchored" data-anchor-id="criterio-de-selección-de-distribución">Criterio de selección de distribución</h4>
+<p><strong>Para muestras pequeñas (n &lt; 30):</strong> Se utiliza la distribución t de Student:</p>
+<p><span class="math display">\[\huge \bar{x} \pm t_{\alpha/2, n-1} \cdot \frac{s}{\sqrt{n}} \]</span></p>
 <p>donde <span class="math inline">\(t_{\alpha/2, n-1}\)</span> es el valor crítico de la distribución t de Student con <span class="math inline">\(n-1\)</span> grados de libertad.</p>
+<p><strong>Para muestras grandes (n ≥ 30):</strong> Se puede utilizar la distribución normal estándar (Z)<br>
+<span class="math display">\[\huge \bar{x} \pm z_{\alpha/2} \cdot \frac{s}{\sqrt{n}}\]</span></p>
+<p>donde <span class="math inline">\(z_{\alpha/2}\)</span> es el valor crítico de la distribución normal estándar.</p>
 <p>Para automatizar este proceso en R se puede emplear la siguiente formula personalizada:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función personalizada para intervalo de confianza (sigma desconocida)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ic_media_t <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">datos =</span> <span class="cn">NULL</span>, <span class="at">x_barra =</span> <span class="cn">NULL</span>, <span class="at">s =</span> <span class="cn">NULL</span>, <span class="at">n =</span> <span class="cn">NULL</span>, <span class="at">confianza =</span> <span class="fl">0.95</span>) {</span>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función robusta que decide automáticamente entre Z y t</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>ic_media_s <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">datos =</span> <span class="cn">NULL</span>, <span class="at">x_barra =</span> <span class="cn">NULL</span>, <span class="at">s =</span> <span class="cn">NULL</span>, <span class="at">n =</span> <span class="cn">NULL</span>, <span class="at">confianza =</span> <span class="fl">0.95</span>) {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Si se proporcionan los datos directamente</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(datos)) {</span>
@@ -672,64 +678,85 @@ window.Quarto = {
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Debe proporcionar los datos o los valores de x_barra, s y n"</span>)</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cálculos</span></span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  gl <span class="ot">&lt;-</span> n <span class="sc">-</span> <span class="dv">1</span>  <span class="co"># grados de libertad</span></span>
-<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  alpha <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> confianza</span>
-<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  t_critico <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, gl)</span>
-<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  error_estandar <span class="ot">&lt;-</span> s <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
-<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  margen_error <span class="ot">&lt;-</span> t_critico <span class="sc">*</span> error_estandar</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Decidir qué distribución usar</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>  usar_z <span class="ot">&lt;-</span> n <span class="sc">&gt;=</span> <span class="dv">30</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Cálculos comunes</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  alpha <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">-</span> confianza</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  error_estandar <span class="ot">&lt;-</span> s <span class="sc">/</span> <span class="fu">sqrt</span>(n)</span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Límites del intervalo</span></span>
-<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  limite_inf <span class="ot">&lt;-</span> x_barra <span class="sc">-</span> margen_error</span>
-<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>  limite_sup <span class="ot">&lt;-</span> x_barra <span class="sc">+</span> margen_error</span>
-<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Resultados organizados</span></span>
-<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  resultados <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">datos =</span> <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(datos)) datos <span class="cf">else</span> <span class="st">"No proporcionados"</span>,</span>
-<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> n,</span>
-<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_muestra =</span> x_barra,</span>
-<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="at">desv_estandar_muestra =</span> s,</span>
-<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="at">grados_libertad =</span> gl,</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">error_estandar =</span> error_estandar,</span>
-<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">t_critico =</span> t_critico,</span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">margen_error =</span> margen_error,</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">limite_inferior =</span> limite_inf,</span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">limite_superior =</span> limite_sup,</span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">intervalo =</span> <span class="fu">c</span>(limite_inf, limite_sup),</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">confianza =</span> confianza <span class="sc">*</span> <span class="dv">100</span></span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mostrar resultados</span></span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"=== INTERVALO DE CONFIANZA PARA LA MEDIA ===</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Desviación estándar poblacional desconocida (Distribución t)</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(datos)) {</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Datos originales:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">paste</span>(datos, <span class="at">collapse =</span> <span class="st">", "</span>), <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Estadísticos calculados:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Tamaño de muestra (n):"</span>, n, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Media muestral (x̄):"</span>, <span class="fu">round</span>(x_barra, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Desviación estándar muestral (s):"</span>, <span class="fu">round</span>(s, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Grados de libertad:"</span>, gl, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Nivel de confianza:"</span>, confianza<span class="sc">*</span><span class="dv">100</span>, <span class="st">"%</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
-<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Cálculos del intervalo:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Error estándar:"</span>, <span class="fu">round</span>(error_estandar, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Valor t crítico:"</span>, <span class="fu">round</span>(t_critico, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Margen de error:"</span>, <span class="fu">round</span>(margen_error, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (usar_z) {</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Usar distribución Z</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    valor_critico <span class="ot">&lt;-</span> <span class="fu">qnorm</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    distribucion <span class="ot">&lt;-</span> <span class="st">"Z (Normal estándar)"</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    gl <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Usar distribución t</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>    gl <span class="ot">&lt;-</span> n <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>    valor_critico <span class="ot">&lt;-</span> <span class="fu">qt</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, gl)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    distribucion <span class="ot">&lt;-</span> <span class="st">"t de Student"</span></span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  margen_error <span class="ot">&lt;-</span> valor_critico <span class="sc">*</span> error_estandar</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Límites del intervalo</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>  limite_inf <span class="ot">&lt;-</span> x_barra <span class="sc">-</span> margen_error</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>  limite_sup <span class="ot">&lt;-</span> x_barra <span class="sc">+</span> margen_error</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Resultados organizados</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  resultados <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">datos =</span> <span class="cf">if</span>(<span class="sc">!</span><span class="fu">is.null</span>(datos)) datos <span class="cf">else</span> <span class="st">"No proporcionados"</span>,</span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">n =</span> n,</span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">media_muestra =</span> x_barra,</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">desv_estandar_muestra =</span> s,</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">distribucion_usada =</span> distribucion,</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">grados_libertad =</span> <span class="cf">if</span>(usar_z) <span class="cn">NA</span> <span class="cf">else</span> gl,</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">error_estandar =</span> error_estandar,</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    <span class="at">valor_critico =</span> valor_critico,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="at">margen_error =</span> margen_error,</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>    <span class="at">limite_inferior =</span> limite_inf,</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">limite_superior =</span> limite_sup,</span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">intervalo =</span> <span class="fu">c</span>(limite_inf, limite_sup),</span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">confianza =</span> confianza <span class="sc">*</span> <span class="dv">100</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mostrar resultados</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"=== INTERVALO DE CONFIANZA PARA LA MEDIA ===</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Desviación estándar poblacional desconocida</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Distribución utilizada:"</span>, distribucion, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Criterio: n"</span>, <span class="cf">if</span>(usar_z) <span class="st">"≥"</span> <span class="cf">else</span> <span class="st">"&lt;"</span>, <span class="st">"30</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
 <span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"RESULTADO:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"IC al"</span>, confianza<span class="sc">*</span><span class="dv">100</span>, <span class="st">"%: ["</span>, <span class="fu">round</span>(limite_inf, <span class="dv">4</span>), </span>
-<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>      <span class="st">","</span>, <span class="fu">round</span>(limite_sup, <span class="dv">4</span>), <span class="st">"]</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
-<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">invisible</span>(resultados))</span>
-<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(datos)) {</span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Datos originales:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(datos) <span class="sc">&lt;=</span> <span class="dv">20</span>) {</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="fu">paste</span>(datos, <span class="at">collapse =</span> <span class="st">", "</span>), <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true" tabindex="-1"></a>      <span class="fu">cat</span>(<span class="st">"Muestra de"</span>, <span class="fu">length</span>(datos), <span class="st">"observaciones</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Estadísticos calculados:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Tamaño de muestra (n):"</span>, n, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Media muestral (x̄):"</span>, <span class="fu">round</span>(x_barra, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Desviación estándar muestral (s):"</span>, <span class="fu">round</span>(s, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span>usar_z) <span class="fu">cat</span>(<span class="st">"- Grados de libertad:"</span>, gl, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Nivel de confianza:"</span>, confianza<span class="sc">*</span><span class="dv">100</span>, <span class="st">"%</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Cálculos del intervalo:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Error estándar:"</span>, <span class="fu">round</span>(error_estandar, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-82"><a href="#cb2-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Valor"</span>, <span class="cf">if</span>(usar_z) <span class="st">"z"</span> <span class="cf">else</span> <span class="st">"t"</span>, <span class="st">"crítico:"</span>, <span class="fu">round</span>(valor_critico, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-83"><a href="#cb2-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"- Margen de error:"</span>, <span class="fu">round</span>(margen_error, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb2-84"><a href="#cb2-84" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-85"><a href="#cb2-85" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"RESULTADO:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb2-86"><a href="#cb2-86" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"IC al"</span>, confianza<span class="sc">*</span><span class="dv">100</span>, <span class="st">"%: ["</span>, <span class="fu">round</span>(limite_inf, <span class="dv">4</span>), </span>
+<span id="cb2-87"><a href="#cb2-87" aria-hidden="true" tabindex="-1"></a>      <span class="st">","</span>, <span class="fu">round</span>(limite_sup, <span class="dv">4</span>), <span class="st">"]</span><span class="sc">\n\n</span><span class="st">"</span>)</span>
+<span id="cb2-88"><a href="#cb2-88" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-89"><a href="#cb2-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">invisible</span>(resultados))</span>
+<span id="cb2-90"><a href="#cb2-90" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Esta función cuenta con la siguiente sintaxis para su uso:</p>
 <p><span class="math display">\[
-\Large \text{ic\_media\_t(datos, confianza)}
+\Large \text{ic\_media\_s(datos, confianza)}
 \]</span> <strong>Argumentos en orden:</strong></p>
 <ol type="1">
 <li><p>datos: Vector con los datos muestrales</p></li>
@@ -737,7 +764,7 @@ window.Quarto = {
 </ol>
 <p>También tiene la siguiente sintaxis cuando no se cuenta con los datos de la muestra directamente:</p>
 <p><span class="math display">\[
-\Large \text{ic\_media\_t(x\_barra, s, n, confianza)}
+\Large \text{ic\_media\_s(x\_barra, s, n, confianza)}
 \]</span></p>
 <p><strong>Argumentos en orden:</strong></p>
 <ol type="1">
@@ -746,6 +773,7 @@ window.Quarto = {
 <li><p>n: Tamaño de la muestra</p></li>
 <li><p>confianza: Nivel de confianza</p></li>
 </ol>
+</section>
 </section>
 <section id="intervalos-de-confianza-para-la-varianza" class="level3">
 <h3 class="anchored" data-anchor-id="intervalos-de-confianza-para-la-varianza">Intervalos de confianza para la varianza</h3>
@@ -1071,10 +1099,12 @@ mean of x
 <p>Usando la función personalizada:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 1: Pasando los datos directamente</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>resultado1 <span class="ot">&lt;-</span> <span class="fu">ic_media_t</span>(<span class="at">datos =</span> alturas, <span class="at">confianza =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>resultado1 <span class="ot">&lt;-</span> <span class="fu">ic_media_s</span>(<span class="at">datos =</span> alturas, <span class="at">confianza =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>=== INTERVALO DE CONFIANZA PARA LA MEDIA ===
-Desviación estándar poblacional desconocida (Distribución t)
+Desviación estándar poblacional desconocida
+Distribución utilizada: t de Student 
+Criterio: n &lt; 30
 
 Datos originales:
 12.5, 14.2, 13.8, 15.1, 12.9, 14.7, 13.3, 14.9, 13.6, 14.4, 12.8, 15.3, 13.9, 14.1, 13.7 
@@ -1095,10 +1125,12 @@ RESULTADO:
 IC al 95 %: [ 13.4773 , 14.416 ]</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Opción 2: Pasando los estadísticos calculados</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>resultado2 <span class="ot">&lt;-</span> <span class="fu">ic_media_t</span>(<span class="at">x_barra =</span> <span class="fl">13.89</span>, <span class="at">s =</span> <span class="fl">0.85</span>, <span class="at">n =</span> <span class="dv">15</span>, <span class="at">confianza =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>resultado2 <span class="ot">&lt;-</span> <span class="fu">ic_media_s</span>(<span class="at">x_barra =</span> <span class="fl">13.89</span>, <span class="at">s =</span> <span class="fl">0.85</span>, <span class="at">n =</span> <span class="dv">15</span>, <span class="at">confianza =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>=== INTERVALO DE CONFIANZA PARA LA MEDIA ===
-Desviación estándar poblacional desconocida (Distribución t)
+Desviación estándar poblacional desconocida
+Distribución utilizada: t de Student 
+Criterio: n &lt; 30
 
 Estadísticos calculados:
 - Tamaño de muestra (n): 15 
