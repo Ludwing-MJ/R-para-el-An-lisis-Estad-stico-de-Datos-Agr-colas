@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Pruebas de hipótesis – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>Pruebas de Hipótesis Paramétricas en R – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -75,6 +110,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -250,7 +314,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C10.1.html"><span class="chapter-title">Pruebas de hipótesis</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C10.1.html"><span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -382,7 +446,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C7.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribuciones de probabilidad discretas</span></a>
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribuciones Binomial y Poisson en R</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -400,7 +464,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Intervalos de confianza</span></a>
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -409,7 +473,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C10.1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Pruebas de hipótesis</span></a>
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -436,8 +500,49 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#fundamentos-de-las-pruebas-de-hipótesis" id="toc-fundamentos-de-las-pruebas-de-hipótesis" class="nav-link active" data-scroll-target="#fundamentos-de-las-pruebas-de-hipótesis">Fundamentos de las pruebas de hipótesis</a></li>
+  <li><a href="#prueba-de-hipótesis-sobre-una-media" id="toc-prueba-de-hipótesis-sobre-una-media" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-una-media">Prueba de hipótesis sobre una media</a>
+  <ul class="collapse">
+  <li><a href="#criterios-de-selección" id="toc-criterios-de-selección" class="nav-link" data-scroll-target="#criterios-de-selección">Criterios de selección</a></li>
+  <li><a href="#fórmulas" id="toc-fórmulas" class="nav-link" data-scroll-target="#fórmulas">Fórmulas</a></li>
+  <li><a href="#ejemplo-hipotético" id="toc-ejemplo-hipotético" class="nav-link" data-scroll-target="#ejemplo-hipotético">Ejemplo hipotético</a></li>
+  <li><a href="#código-en-r-explicado" id="toc-código-en-r-explicado" class="nav-link" data-scroll-target="#código-en-r-explicado">Código en R explicado</a></li>
+  </ul></li>
+  <li><a href="#prueba-de-hipótesis-sobre-dos-medias" id="toc-prueba-de-hipótesis-sobre-dos-medias" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-dos-medias">Prueba de hipótesis sobre dos medias</a>
+  <ul class="collapse">
+  <li><a href="#criterios-de-selección-1" id="toc-criterios-de-selección-1" class="nav-link" data-scroll-target="#criterios-de-selección-1">Criterios de selección</a></li>
+  <li><a href="#fórmulas-1" id="toc-fórmulas-1" class="nav-link" data-scroll-target="#fórmulas-1">Fórmulas</a></li>
+  <li><a href="#ejemplo-hipotético-independientes-varianzas-iguales" id="toc-ejemplo-hipotético-independientes-varianzas-iguales" class="nav-link" data-scroll-target="#ejemplo-hipotético-independientes-varianzas-iguales">Ejemplo hipotético (independientes, varianzas iguales)</a></li>
+  <li><a href="#código-en-r-explicado-1" id="toc-código-en-r-explicado-1" class="nav-link" data-scroll-target="#código-en-r-explicado-1">Código en R explicado</a></li>
+  <li><a href="#ejemplo-hipotético-pareadas" id="toc-ejemplo-hipotético-pareadas" class="nav-link" data-scroll-target="#ejemplo-hipotético-pareadas">Ejemplo hipotético (pareadas)</a></li>
+  <li><a href="#código-en-r-explicado-2" id="toc-código-en-r-explicado-2" class="nav-link" data-scroll-target="#código-en-r-explicado-2">Código en R explicado</a></li>
+  </ul></li>
+  <li><a href="#prueba-de-hipótesis-sobre-una-proporción" id="toc-prueba-de-hipótesis-sobre-una-proporción" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-una-proporción">Prueba de hipótesis sobre una proporción</a>
+  <ul class="collapse">
+  <li><a href="#criterios-de-selección-2" id="toc-criterios-de-selección-2" class="nav-link" data-scroll-target="#criterios-de-selección-2">Criterios de selección</a></li>
+  <li><a href="#ejemplo-hipotético-1" id="toc-ejemplo-hipotético-1" class="nav-link" data-scroll-target="#ejemplo-hipotético-1">Ejemplo hipotético</a></li>
+  <li><a href="#código-en-r-explicado-3" id="toc-código-en-r-explicado-3" class="nav-link" data-scroll-target="#código-en-r-explicado-3">Código en R explicado</a></li>
+  </ul></li>
+  <li><a href="#prueba-de-hipótesis-sobre-dos-proporciones" id="toc-prueba-de-hipótesis-sobre-dos-proporciones" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-dos-proporciones">Prueba de hipótesis sobre dos proporciones</a>
+  <ul class="collapse">
+  <li><a href="#criterios-de-selección-3" id="toc-criterios-de-selección-3" class="nav-link" data-scroll-target="#criterios-de-selección-3">Criterios de selección</a></li>
+  <li><a href="#fórmulas-2" id="toc-fórmulas-2" class="nav-link" data-scroll-target="#fórmulas-2">Fórmulas</a></li>
+  <li><a href="#ejemplo-hipotético-2" id="toc-ejemplo-hipotético-2" class="nav-link" data-scroll-target="#ejemplo-hipotético-2">Ejemplo hipotético</a></li>
+  <li><a href="#código-en-r-explicado-4" id="toc-código-en-r-explicado-4" class="nav-link" data-scroll-target="#código-en-r-explicado-4">Código en R explicado</a></li>
+  </ul></li>
+  <li><a href="#prueba-de-hipótesis-sobre-varianzas" id="toc-prueba-de-hipótesis-sobre-varianzas" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-varianzas">Prueba de hipótesis sobre varianzas</a>
+  <ul class="collapse">
+  <li><a href="#criterios-de-selección-4" id="toc-criterios-de-selección-4" class="nav-link" data-scroll-target="#criterios-de-selección-4">Criterios de selección</a></li>
+  <li><a href="#fórmulas-3" id="toc-fórmulas-3" class="nav-link" data-scroll-target="#fórmulas-3">Fórmulas</a></li>
+  <li><a href="#ejemplo-hipotético-dos-varianzas" id="toc-ejemplo-hipotético-dos-varianzas" class="nav-link" data-scroll-target="#ejemplo-hipotético-dos-varianzas">Ejemplo hipotético (dos varianzas)</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -445,7 +550,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Pruebas de hipótesis</span></h1>
+<h1 class="title"><span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></h1>
 </div>
 
 
@@ -462,8 +567,418 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>En la investigación agronómica, es fundamental tomar decisiones basadas en datos. Las pruebas de hipótesis permiten evaluar si los resultados observados en una muestra pueden generalizarse a la población de interés o si son producto del azar. Este capítulo guía al estudiante en la aplicación de pruebas de hipótesis paramétricas utilizando R, desde la formulación de hipótesis hasta la interpretación de resultados, empleando ejemplos prácticos y reales del ámbito agronómico (López &amp; González, 2018).</p>
+<section id="fundamentos-de-las-pruebas-de-hipótesis" class="level2">
+<h2 class="anchored" data-anchor-id="fundamentos-de-las-pruebas-de-hipótesis">Fundamentos de las pruebas de hipótesis</h2>
+<p>Una prueba de hipótesis es un procedimiento estadístico que permite decidir, con un nivel de confianza predefinido, si una afirmación sobre un parámetro poblacional es compatible con los datos muestrales. El proceso general incluye:</p>
+<ol type="1">
+<li><p>Plantear la hipótesis nula (<span class="math inline">\(H_0\)</span>) y la alternativa (<span class="math inline">\(H_a\)</span>).</p></li>
+<li><p>Seleccionar el estadístico de prueba adecuado según el tipo de dato y los supuestos.</p></li>
+<li><p>Calcular el valor del estadístico y el valor-p.</p></li>
+<li><p>Comparar el valor-p con el nivel de significancia (<span class="math inline">\(\alpha\)</span>), generalmente 0.05.</p></li>
+<li><p>Tomar una decisión: rechazar o no rechazar <span class="math inline">\(H_0\)</span>.</p></li>
+</ol>
+<p><strong>Criterios de selección de la prueba:</strong></p>
+<ol type="1">
+<li><p>Tipo de variable (cuantitativa o cualitativa).</p></li>
+<li><p>Tamaño de la muestra.</p></li>
+<li><p>Conocimiento de la varianza poblacional.</p></li>
+<li><p>Independencia o dependencia entre muestras.</p></li>
+<li><p>Homogeneidad de varianzas.</p></li>
+</ol>
+</section>
+<section id="prueba-de-hipótesis-sobre-una-media" class="level2">
+<h2 class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-una-media">Prueba de hipótesis sobre una media</h2>
+<p>Esta prueba se utiliza para determinar si la media de una población difiere de un valor específico. Es útil, por ejemplo, para verificar si el peso promedio de semillas, el rendimiento de un cultivo o el contenido de un nutriente cumple con un estándar.</p>
+<section id="criterios-de-selección" class="level3">
+<h3 class="anchored" data-anchor-id="criterios-de-selección">Criterios de selección</h3>
+<ol type="1">
+<li><p>Variable cuantitativa continua.</p></li>
+<li><p>La muestra debe ser aleatoria.</p></li>
+<li><p>Si la varianza poblacional es conocida y la muestra es grande (<span class="math inline">\(n \geq 30\)</span>), se usa la prueba z.</p></li>
+<li><p>Si la varianza es desconocida y la muestra es pequeña (<span class="math inline">\(n&lt;30\)</span>), se usa la prueba t de Student.</p></li>
+</ol>
+</section>
+<section id="fórmulas" class="level3">
+<h3 class="anchored" data-anchor-id="fórmulas">Fórmulas</h3>
+<p><strong>a) Prueba z (varianza conocida):</strong></p>
+<p><span class="math display">\[\huge z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}}  \]</span>​​</p>
+<p><strong>b) Prueba t (varianza desconocida):</strong></p>
+<p><span class="math display">\[\huge t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} \]</span></p>
+<p>donde <span class="math inline">\(gl = n-1\)</span>.</p>
+</section>
+<section id="ejemplo-hipotético" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-hipotético">Ejemplo hipotético</h3>
+<p>Supóngase que se afirma que el peso promedio de semillas de maíz es de 250 mg. Se toma una muestra de 20 semillas, obteniéndose una media de 242 mg y una desviación estándar de 15 mg. Se desea saber, con un nivel de significancia del 5%, si el peso medio difiere del valor afirmado.</p>
+<p><strong>1. Planteamiento de hipótesis:</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(H_0: \mu = 250\)</span> mg</p></li>
+<li><p><span class="math inline">\(H_a: \mu \neq 250\)</span> mg</p></li>
+</ol>
+<p><strong>2. Cálculo del estadístico:</strong></p>
+<p><span class="math display">\[\Large t = \frac{242 - 250}{15 / \sqrt{20}} = \frac{-8}{3.354} = -2.39 \]</span></p>
+<p><strong>3. Región crítica:</strong></p>
+<p>Para <span class="math inline">\(gl=19\)</span> y <span class="math inline">\(\alpha = 0.05\)</span> (bilateral), el valor crítico es <span class="math inline">\(\pm 2.093\)</span>.</p>
+<p><strong>4. Decisión:</strong></p>
+<p>Como <span class="math inline">\(|-2.39| &gt; 2.093\)</span>, se rechaza H_0.</p>
+<p><strong>5. Conclusión:</strong></p>
+<p>Con un 5% de significancia, existe evidencia de que el peso medio difiere de 250 mg.</p>
+</section>
+<section id="código-en-r-explicado" class="level3">
+<h3 class="anchored" data-anchor-id="código-en-r-explicado">Código en R explicado</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalar paquete si no está instalado</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Para manipulación y visualización de datos</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(BSDA)) <span class="fu">install.packages</span>(<span class="st">"BSDA"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba t con estadísticos resumidos usando tsum.test()</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tsum.test</span>(<span class="at">mean.x =</span> <span class="dv">242</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">s.x =</span> <span class="dv">15</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">n.x =</span> <span class="dv">20</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">mu =</span> <span class="dv">250</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One-sample t-Test
+
+data:  Summarized x
+t = -2.3851, df = 19, p-value = 0.02765
+alternative hypothesis: true mean is not equal to 250
+95 percent confidence interval:
+ 234.9798 249.0202
+sample estimates:
+mean of x 
+      242 </code></pre>
+</div>
+</div>
+<p><strong>Parámetros de <code>tsum.test()</code>:</strong></p>
+<ol type="1">
+<li><p><strong>mean.x</strong>: media muestral (242 mg)</p></li>
+<li><p><strong>s.x</strong>: desviación estándar muestral (15 mg)</p></li>
+<li><p><strong>n.x</strong>: tamaño de muestra (20)</p></li>
+<li><p><strong>mu</strong>: valor hipotético bajo H₀ (250 mg)</p></li>
+<li><p><strong>alternative</strong>: tipo de prueba (“two.sided” para bilateral)</p></li>
+<li><p><strong>conf.level</strong>: nivel de confianza (0.95 para 95%)</p></li>
+</ol>
+</section>
+</section>
+<section id="prueba-de-hipótesis-sobre-dos-medias" class="level2">
+<h2 class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-dos-medias">Prueba de hipótesis sobre dos medias</h2>
+<p>Permite comparar si las medias de dos poblaciones son iguales o diferentes. Es útil, por ejemplo, para comparar el rendimiento de dos variedades de cultivo, el efecto de dos tratamientos o la altura de plantas de dos especies.</p>
+<section id="criterios-de-selección-1" class="level3">
+<h3 class="anchored" data-anchor-id="criterios-de-selección-1">Criterios de selección</h3>
+<ol type="1">
+<li><p>Las muestras pueden ser independientes (grupos distintos) o dependientes (mediciones pareadas).</p></li>
+<li><p>Se debe verificar si las varianzas son iguales o diferentes.</p></li>
+<li><p>Si las muestras son grandes (<span class="math inline">\(n_1, n_2 \geq 30\)</span>), se puede usar la prueba z; si son pequeñas y la varianza es desconocida, se usa la prueba t.</p></li>
+</ol>
+</section>
+<section id="fórmulas-1" class="level3">
+<h3 class="anchored" data-anchor-id="fórmulas-1">Fórmulas</h3>
+<p><strong>a) Muestras independientes, varianzas iguales (t “pooled”):</strong></p>
+<p><span class="math display">\[\huge t = \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}  \]</span></p>
+<p>donde</p>
+<p><span class="math display">\[\huge s_p^2 = \frac{(n_1-1)s_1^2 + (n_2-1)s_2^2}{n_1 + n_2 - 2}  \]</span></p>
+<p><strong>b) Muestras independientes, varianzas diferentes (Welch):</strong></p>
+<p><span class="math display">\[\huge t = \frac{\bar{x}_1 - \bar{x}_2}{\sqrt{\frac{s_1^2}{n_1} + \frac{s_2^2}{n_2}}} \]</span></p>
+<p><strong>c) Muestras dependientes (pareadas):</strong></p>
+<p><span class="math display">\[\huge t = \frac{\bar{d}}{s_d / \sqrt{n}}\]</span> ​</p>
+<p>donde <span class="math inline">\(\bar{d}\)</span> es la media de las diferencias y <span class="math inline">\(s_d\)</span>​ su desviación estándar.</p>
+</section>
+<section id="ejemplo-hipotético-independientes-varianzas-iguales" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-hipotético-independientes-varianzas-iguales">Ejemplo hipotético (independientes, varianzas iguales)</h3>
+<p>Se comparan las alturas de dos especies forestales.</p>
+<ol type="1">
+<li><p>Especie 1: <span class="math inline">\(\bar{x}_1 = 25.97\)</span> m, <span class="math inline">\(s_1 = 1.36\)</span>, <span class="math inline">\(n_1 = 13\)</span></p></li>
+<li><p>Especie 2: <span class="math inline">\(\bar{x}_2 = 25.39\)</span> m, <span class="math inline">\(s_2 = 1.77\)</span>, <span class="math inline">\(n_2 = 14\)</span></p></li>
+</ol>
+<p><strong>1. Hipótesis:</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(H_0: \mu_1 = \mu_2\)</span></p></li>
+<li><p><span class="math inline">\(H_a: \mu_1 \neq \mu_2\)</span></p></li>
+</ol>
+<p><strong>2. Cálculo:</strong></p>
+<p><span class="math display">\[\LARGE s_p^2 = \frac{12 \times 1.36^2 + 13 \times 1.77^2}{25} = 2.30  \]</span></p>
+<p><span class="math display">\[\huge s_p = \sqrt{2.30} = 1.52  \]</span></p>
+<p><span class="math display">\[\huge t = \frac{25.97 - 25.39}{1.52 \sqrt{\frac{1}{13} + \frac{1}{14}}} = 0.94\]</span></p>
+<p><strong>3. Decisión:</strong> Para <span class="math inline">\(gl=25\)</span>, <span class="math inline">\(t_{0.025} = 2.060\)</span>. Como <span class="math inline">\(0.94 &lt; 2.060\)</span>, no se rechaza <span class="math inline">\(H_0\)</span>.</p>
+</section>
+<section id="código-en-r-explicado-1" class="level3">
+<h3 class="anchored" data-anchor-id="código-en-r-explicado-1">Código en R explicado</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del ejercicio</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mean1 <span class="ot">&lt;-</span> <span class="fl">25.97</span>; s1 <span class="ot">&lt;-</span> <span class="fl">1.36</span>; n1 <span class="ot">&lt;-</span> <span class="dv">13</span>  <span class="co"># Especie 1</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mean2 <span class="ot">&lt;-</span> <span class="fl">25.39</span>; s2 <span class="ot">&lt;-</span> <span class="fl">1.77</span>; n2 <span class="ot">&lt;-</span> <span class="dv">14</span>  <span class="co"># Especie 2</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba t para dos muestras independientes con varianzas iguales</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tsum.test</span>(<span class="at">mean.x =</span> mean1, <span class="at">s.x =</span> s1, <span class="at">n.x =</span> n1,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">mean.y =</span> mean2, <span class="at">s.y =</span> s2, <span class="at">n.y =</span> n2,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">mu =</span> <span class="dv">0</span>,                    <span class="co"># diferencia hipotética (H₀: μ₁ - μ₂ = 0)</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">var.equal =</span> <span class="cn">TRUE</span>,          <span class="co"># asume varianzas iguales (pooled)</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.level =</span> <span class="fl">0.95</span>)         <span class="co"># nivel de confianza</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Standard Two-Sample t-Test
+
+data:  Summarized x and y
+t = 0.94918, df = 25, p-value = 0.3516
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -0.678492  1.838492
+sample estimates:
+mean of x mean of y 
+    25.97     25.39 </code></pre>
+</div>
+</div>
+<p><strong>Parámetros de <code>tsum.test()</code> para dos muestras:</strong></p>
+<ol type="1">
+<li><p><strong>mean.x, s.x, n.x</strong>: estadísticos de la muestra 1</p></li>
+<li><p><strong>mean.y, s.y, n.y</strong>: estadísticos de la muestra 2</p></li>
+<li><p><strong>mu</strong>: diferencia hipotética bajo H₀ (0 para igualdad de medias)</p></li>
+<li><p><strong>var.equal = TRUE</strong>: usa varianza pooled (varianzas iguales)</p></li>
+<li><p><strong>alternative</strong>: “two.sided” para prueba bilateral</p></li>
+</ol>
+</section>
+<section id="ejemplo-hipotético-pareadas" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-hipotético-pareadas">Ejemplo hipotético (pareadas)</h3>
+<p>Se evalúa el efecto de una capacitación en 10 empleados, midiendo el puntaje antes y después.</p>
+<p><strong>1. Hipótesis:</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(H_0: \mu_D = 0\)</span> (no hay diferencia)</p></li>
+<li><p><span class="math inline">\(H_a: \mu_D \neq 0\)</span> (hay diferencia)</p></li>
+</ol>
+<p><strong>2. Cálculo:</strong><br>
+Supóngase que la media de las diferencias es <span class="math inline">\(-0.4\)</span> y la desviación estándar <span class="math inline">\(0.8\)</span> .</p>
+<p><span class="math display">\[\huge t = \frac{-0.4}{0.8/\sqrt{10}} = -1.58 \]</span></p>
+<p><strong>3. Decisión:</strong><br>
+Para <span class="math inline">\(gl = 9\)</span>, <span class="math inline">\(t_{0.05} = 2.262\)</span> . Como <span class="math inline">\(|-1.58| &lt; 2.262\)</span>, no se rechaza <span class="math inline">\(H_0\)</span>.</p>
+</section>
+<section id="código-en-r-explicado-2" class="level3">
+<h3 class="anchored" data-anchor-id="código-en-r-explicado-2">Código en R explicado</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del ejercicio (estadísticos de las diferencias)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>mean_diff <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.4</span>    <span class="co"># media de diferencias (antes - después)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>sd_diff <span class="ot">&lt;-</span> <span class="fl">0.8</span>       <span class="co"># desviación estándar de diferencias</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba t pareada usando estadísticos resumidos</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Para muestras pareadas, usamos tsum.test() con una sola muestra</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># (las diferencias)</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">tsum.test</span>(<span class="at">mean.x =</span> mean_diff,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">s.x =</span> sd_diff,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">n.x =</span> n,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">mu =</span> <span class="dv">0</span>,                    <span class="co"># H₀: μ_D = 0</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in tsum.test(mean.x = mean_diff, s.x = sd_diff, n.x = n, mu = 0, :
+argument 'var.equal' ignored for one-sample test.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One-sample t-Test
+
+data:  Summarized x
+t = -1.5811, df = 9, p-value = 0.1483
+alternative hypothesis: true mean is not equal to 0
+95 percent confidence interval:
+ -0.9722855  0.1722855
+sample estimates:
+mean of x 
+     -0.4 </code></pre>
+</div>
+</div>
+<p><strong>Una prueba t pareada es equivalente a una prueba t de una muestra sobre las diferencias.</strong></p>
+<p>Por eso usamos <code>tsum.test()</code> con:</p>
+<ol type="1">
+<li><p><strong>mean.x</strong>: media de las diferencias (-0.4)</p></li>
+<li><p><strong>s.x</strong>: desviación estándar de las diferencias (0.8)</p></li>
+<li><p><strong>n.x</strong>: número de pares (10)</p></li>
+<li><p><strong>mu = 0</strong>: hipótesis nula (no hay diferencia promedio)</p></li>
+</ol>
+<p><strong>Alternativa con datos individuales:</strong></p>
+<p>Si tuvieras los datos originales:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>antes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">9.0</span>,<span class="fl">7.3</span>,<span class="fl">6.7</span>,<span class="fl">5.3</span>,<span class="fl">8.7</span>,<span class="fl">6.3</span>,<span class="fl">7.9</span>,<span class="fl">7.3</span>,<span class="fl">8.0</span>,<span class="fl">8.5</span>)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>despues <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">9.2</span>,<span class="fl">8.2</span>,<span class="fl">8.5</span>,<span class="fl">4.9</span>,<span class="fl">8.9</span>,<span class="fl">5.8</span>,<span class="fl">8.2</span>,<span class="fl">7.8</span>,<span class="fl">9.5</span>,<span class="fl">8.0</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Test para datos pareados</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(antes, despues,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  antes and despues
+t = -1.5784, df = 9, p-value = 0.1489
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -0.9732782  0.1732782
+sample estimates:
+mean difference 
+           -0.4 </code></pre>
+</div>
+</div>
+<p>Por eso usamos <code>t.test()</code> con:</p>
+<ol type="1">
+<li><p><strong>antes</strong>: Vector numerico con los datos iniciales.</p></li>
+<li><p><strong>despues</strong>: Vector numerico con los datos finales o pareados.</p></li>
+<li><p><strong>paired</strong>: si es una prueba de t pareada (TRUE)</p></li>
+<li><p><strong>alternative</strong>: “two.sided” hace referencia a que compara una igualdad.</p></li>
+</ol>
+</section>
+</section>
+<section id="prueba-de-hipótesis-sobre-una-proporción" class="level2">
+<h2 class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-una-proporción">Prueba de hipótesis sobre una proporción</h2>
+<p>Permite determinar si la proporción de una característica en la población es igual a un valor específico. Por ejemplo, si la proporción de agricultores que adopta una tecnología supera el 60%.</p>
+<section id="criterios-de-selección-2" class="level3">
+<h3 class="anchored" data-anchor-id="criterios-de-selección-2">Criterios de selección</h3>
+<ol type="1">
+<li><p>Variable cualitativa dicotómica.</p></li>
+<li><p>Tamaño muestral suficiente para aproximación normal (<span class="math inline">\(np_0 &gt; 5np\)</span> y <span class="math inline">\(n(1-p_0) &gt; 5\)</span>).</p></li>
+</ol>
+<p><strong>Fórmula</strong></p>
+<p><span class="math display">\[\huge z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}\]</span></p>
+</section>
+<section id="ejemplo-hipotético-1" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-hipotético-1">Ejemplo hipotético</h3>
+<p>De 180 agricultores, 120 adoptaron un fertilizante. Se desea saber si la proporción es diferente de 0.60.</p>
+<p><span class="math display">\[\LARGE \hat{p} = \frac{120}{180} = 0.667\]</span></p>
+<p><span class="math display">\[\LARGE z = \frac{0.667 - 0.60}{\sqrt{0.60 \times 0.40 / 180}} = 1.56\]</span></p>
+<p>Para <span class="math inline">\(\alpha = 0.05\)</span>, <span class="math inline">\(z_{0.025} = 1.96\)</span>. Como <span class="math inline">\(1.56 &lt; 1.96\)</span>, no se rechaza <span class="math inline">\(H_0\)</span>.</p>
+</section>
+<section id="código-en-r-explicado-3" class="level3">
+<h3 class="anchored" data-anchor-id="código-en-r-explicado-3">Código en R explicado</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="dv">120</span>, <span class="at">n =</span> <span class="dv">180</span>,</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">p =</span> <span class="fl">0.60</span>,                <span class="co"># valor bajo H0</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>          <span class="at">correct =</span> <span class="cn">FALSE</span>)         <span class="co"># sin corrección de continuidad</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    1-sample proportions test without continuity correction
+
+data:  120 out of 180, null probability 0.6
+X-squared = 3.3333, df = 1, p-value = 0.06789
+alternative hypothesis: true p is not equal to 0.6
+95 percent confidence interval:
+ 0.5949523 0.7314158
+sample estimates:
+        p 
+0.6666667 </code></pre>
+</div>
+</div>
+<ol type="1">
+<li><p><strong>x</strong>: número de éxitos.</p></li>
+<li><p><strong>n</strong>: tamaño de la muestra.</p></li>
+<li><p><strong>p</strong>: proporción bajo <span class="math inline">\(H_0\)</span>​.</p></li>
+</ol>
+</section>
+</section>
+<section id="prueba-de-hipótesis-sobre-dos-proporciones" class="level2">
+<h2 class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-dos-proporciones">Prueba de hipótesis sobre dos proporciones</h2>
+<p>Permite comparar si la proporción de una característica es igual en dos poblaciones. Por ejemplo, comparar la proporción de adopción de una tecnología entre hombres y mujeres.</p>
+<section id="criterios-de-selección-3" class="level3">
+<h3 class="anchored" data-anchor-id="criterios-de-selección-3">Criterios de selección</h3>
+<ol type="1">
+<li><p>Variable cualitativa dicotómica.</p></li>
+<li><p>Muestras independientes.</p></li>
+<li><p>Tamaño muestral suficiente.</p></li>
+</ol>
+</section>
+<section id="fórmulas-2" class="level3">
+<h3 class="anchored" data-anchor-id="fórmulas-2">Fórmulas</h3>
+<p><span class="math display">\[\huge \hat{p}_c = \frac{x_1 + x_2}{n_1 + n_2}\]</span></p>
+<p><span class="math display">\[\LARGE z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}_c(1-\hat{p}_c)\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}}\]</span></p>
+</section>
+<section id="ejemplo-hipotético-2" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-hipotético-2">Ejemplo hipotético</h3>
+<p>En una encuesta, 110 de 200 hombres y 210 de 300 mujeres respondieron. ¿Existe diferencia en las proporciones?</p>
+<p><span class="math display">\[\LARGE \hat{p}_1 = 0.55,; \hat{p}_2 = 0.70\]</span></p>
+<p><span class="math display">\[\LARGE \hat{p}_c = \frac{110+210}{200+300} = 0.64\]</span></p>
+<p><span class="math display">\[\LARGE z = \frac{0.55 - 0.70}{\sqrt{0.64 \times 0.36 \left(\frac{1}{200} + \frac{1}{300}\right)}} = -3.42\]</span></p>
+<p>Como <span class="math inline">\(|-3.42| &gt; 1.96\)</span>, se rechaza <span class="math inline">\(H_0\)</span>.</p>
+</section>
+<section id="código-en-r-explicado-4" class="level3">
+<h3 class="anchored" data-anchor-id="código-en-r-explicado-4">Código en R explicado</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>xp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">110</span>, <span class="dv">210</span>)   <span class="co"># éxitos en cada grupo</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>np <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">200</span>, <span class="dv">300</span>)   <span class="co"># tamaño de cada grupo</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(xp, np,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">correct =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    2-sample test for equality of proportions without continuity correction
+
+data:  xp out of np
+X-squared = 11.719, df = 1, p-value = 0.0006187
+alternative hypothesis: two.sided
+95 percent confidence interval:
+ -0.23627182 -0.06372818
+sample estimates:
+prop 1 prop 2 
+  0.55   0.70 </code></pre>
+</div>
+</div>
+<ol type="1">
+<li><p><strong>xp</strong>: vector de éxitos.</p></li>
+<li><p><strong>np</strong>: vector de tamaños.</p></li>
+</ol>
+</section>
+</section>
+<section id="prueba-de-hipótesis-sobre-varianzas" class="level2">
+<h2 class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-varianzas">Prueba de hipótesis sobre varianzas</h2>
+<p>Permite verificar si la variabilidad de un proceso cumple con un estándar o si dos poblaciones tienen la misma varianza. Es útil, por ejemplo, para comparar la uniformidad de dos métodos de riego.</p>
+<section id="criterios-de-selección-4" class="level3">
+<h3 class="anchored" data-anchor-id="criterios-de-selección-4">Criterios de selección</h3>
+<ol type="1">
+<li><p>Variable cuantitativa continua.</p></li>
+<li><p>Normalidad de los datos.</p></li>
+</ol>
+</section>
+<section id="fórmulas-3" class="level3">
+<h3 class="anchored" data-anchor-id="fórmulas-3">Fórmulas</h3>
+<p><strong>a) Una varianza (</strong><span class="math inline">\(\chi^2\)</span>):</p>
+<p><span class="math display">\[\huge \chi^2 = \frac{(n-1)s^2}{\sigma_0^2} \]</span>​</p>
+<p><strong>b) Dos varianzas (F de Fisher):</strong></p>
+<p><span class="math display">\[\huge F = \frac{s_1^2}{s_2^2}\]</span></p>
+</section>
+<section id="ejemplo-hipotético-dos-varianzas" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-hipotético-dos-varianzas">Ejemplo hipotético (dos varianzas)</h3>
+<p>Se desea comparar la varianza de dos tratamientos de riego.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>trat1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">12</span>,<span class="dv">11</span>,<span class="dv">14</span>,<span class="dv">13</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>trat2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">10</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(trat1, trat2,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    F test to compare two variances
+
+data:  trat1 and trat2
+F = 2.0426, num df = 7, denom df = 7, p-value = 0.3667
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+  0.408927 10.202368
+sample estimates:
+ratio of variances 
+          2.042553 </code></pre>
+</div>
+</div>
+<p><code>var.test</code>: realiza la prueba F para comparar varianzas.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -887,8 +1402,8 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./C9.1.html" class="pagination-link" aria-label="Intervalos de confianza">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Intervalos de confianza</span></span>
+      <a href="./C9.1.html" class="pagination-link" aria-label="Estimación puntual e intervalos de confianza en R">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
