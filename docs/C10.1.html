@@ -539,6 +539,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#criterios-de-selección-4" id="toc-criterios-de-selección-4" class="nav-link" data-scroll-target="#criterios-de-selección-4">Criterios de selección</a></li>
   <li><a href="#fórmulas-3" id="toc-fórmulas-3" class="nav-link" data-scroll-target="#fórmulas-3">Fórmulas</a></li>
+  <li><a href="#ejemplo-hipotético-una-varianza" id="toc-ejemplo-hipotético-una-varianza" class="nav-link" data-scroll-target="#ejemplo-hipotético-una-varianza">Ejemplo hipotético (una varianza)</a></li>
   <li><a href="#ejemplo-hipotético-dos-varianzas" id="toc-ejemplo-hipotético-dos-varianzas" class="nav-link" data-scroll-target="#ejemplo-hipotético-dos-varianzas">Ejemplo hipotético (dos varianzas)</a></li>
   </ul></li>
   </ul>
@@ -628,17 +629,18 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="código-en-r-explicado">Código en R explicado</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalar paquete si no está instalado</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Para manipulación y visualización de datos</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Para realizar pruebas de hipotesis</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(BSDA)) <span class="fu">install.packages</span>(<span class="st">"BSDA"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(EnvStats)) <span class="fu">install.packages</span>(<span class="st">"EnvStats"</span>)</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba t con estadísticos resumidos usando tsum.test()</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tsum.test</span>(<span class="at">mean.x =</span> <span class="dv">242</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">s.x =</span> <span class="dv">15</span>,</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">n.x =</span> <span class="dv">20</span>,</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">mu =</span> <span class="dv">250</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Prueba t con estadísticos resumidos usando tsum.test()</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tsum.test</span>(<span class="at">mean.x =</span> <span class="dv">242</span>,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">s.x =</span> <span class="dv">15</span>,</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">n.x =</span> <span class="dv">20</span>,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">mu =</span> <span class="dv">250</span>,</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One-sample t-Test
@@ -935,31 +937,231 @@ prop 1 prop 2
 </section>
 <section id="prueba-de-hipótesis-sobre-varianzas" class="level2">
 <h2 class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-varianzas">Prueba de hipótesis sobre varianzas</h2>
-<p>Permite verificar si la variabilidad de un proceso cumple con un estándar o si dos poblaciones tienen la misma varianza. Es útil, por ejemplo, para comparar la uniformidad de dos métodos de riego.</p>
+<p>La prueba de hipótesis sobre varianzas permite evaluar si la variabilidad observada en una muestra es compatible con un valor de referencia o si existen diferencias en la variabilidad entre dos poblaciones. Este tipo de prueba es fundamental en agronomía para analizar la uniformidad de procesos, como la comparación de la variabilidad en el rendimiento de cultivos bajo diferentes métodos de riego o el control de calidad de productos agrícolas.</p>
 <section id="criterios-de-selección-4" class="level3">
 <h3 class="anchored" data-anchor-id="criterios-de-selección-4">Criterios de selección</h3>
 <ol type="1">
-<li><p>Variable cuantitativa continua.</p></li>
-<li><p>Normalidad de los datos.</p></li>
+<li><p>La variable de interés debe ser cuantitativa y continua.</p></li>
+<li><p>Los datos deben provenir de poblaciones con distribución normal.</p></li>
+<li><p>Para comparar dos varianzas, las muestras deben ser independientes.</p></li>
 </ol>
 </section>
 <section id="fórmulas-3" class="level3">
 <h3 class="anchored" data-anchor-id="fórmulas-3">Fórmulas</h3>
-<p><strong>a) Una varianza (</strong><span class="math inline">\(\chi^2\)</span>):</p>
+<p><strong>a) Una varianza (</strong><span class="math inline">\(\chi^2\)</span>): Esta prueba se utiliza para determinar si la varianza de una población es igual a un valor específico, generalmente un estándar de calidad o una especificación técnica.</p>
 <p><span class="math display">\[\huge \chi^2 = \frac{(n-1)s^2}{\sigma_0^2} \]</span>​</p>
+<p>donde:</p>
+<ol type="1">
+<li><p><span class="math inline">\(n\)</span> es el tamaño de la muestra,</p></li>
+<li><p><span class="math inline">\(s^2\)</span> es la varianza muestral,</p></li>
+<li><p><span class="math inline">\(\sigma_0^2\)</span> es la varianza poblacional bajo la hipótesis nula.</p></li>
+</ol>
+<p>Para este calculo no existe una función predefinida en R que lo realice con fines prácticos se desarrollo la siguiente función personalizada para esta tarea:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función personalizada para prueba de hipótesis de una varianza</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>var_test_chi <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">n =</span> <span class="cn">NULL</span>, <span class="at">s2 =</span> <span class="cn">NULL</span>, sigma0_2, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">alpha =</span> <span class="fl">0.05</span>) {</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Validación de argumentos</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(x) <span class="sc">&amp;&amp;</span> (<span class="fu">is.null</span>(n) <span class="sc">||</span> <span class="fu">is.null</span>(s2))) {</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Debe proporcionar 'x' (vector de datos) o 'n' y 's2' (estadísticos muestrales)"</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(x) <span class="sc">&amp;&amp;</span> (<span class="sc">!</span><span class="fu">is.null</span>(n) <span class="sc">||</span> <span class="sc">!</span><span class="fu">is.null</span>(s2))) {</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">warning</span>(<span class="st">"Se proporcionaron datos y estadísticos. Se usarán los datos 'x'"</span>)</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular estadísticos si se proporcionan los datos</span></span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(x)) {</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    s2 <span class="ot">&lt;-</span> <span class="fu">var</span>(x)</span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Validar alternative</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  alternative <span class="ot">&lt;-</span> <span class="fu">match.arg</span>(alternative, <span class="fu">c</span>(<span class="st">"two.sided"</span>, <span class="st">"less"</span>, <span class="st">"greater"</span>))</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular estadístico chi-cuadrado</span></span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  chi_sq <span class="ot">&lt;-</span> (n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> s2 <span class="sc">/</span> sigma0_2</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> n <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular valor-p según el tipo de prueba</span></span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (alternative <span class="sc">==</span> <span class="st">"two.sided"</span>) {</span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Para prueba bilateral, usar el mínimo de las dos colas multiplicado por 2</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    p_value <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">min</span>(<span class="fu">pchisq</span>(chi_sq, df), <span class="fu">pchisq</span>(chi_sq, df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (alternative <span class="sc">==</span> <span class="st">"greater"</span>) {</span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    p_value <span class="ot">&lt;-</span> <span class="fu">pchisq</span>(chi_sq, df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { <span class="co"># alternative == "less"</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>    p_value <span class="ot">&lt;-</span> <span class="fu">pchisq</span>(chi_sq, df, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Decisión</span></span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>  decision <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p_value <span class="sc">&lt;</span> alpha, <span class="st">"Rechazar H0"</span>, <span class="st">"No rechazar H0"</span>)</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Valor crítico</span></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (alternative <span class="sc">==</span> <span class="st">"two.sided"</span>) {</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>    crit_lower <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(alpha<span class="sc">/</span><span class="dv">2</span>, df)</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>    crit_upper <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, df)</span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>    critical_value <span class="ot">&lt;-</span> <span class="fu">c</span>(crit_lower, crit_upper)</span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (alternative <span class="sc">==</span> <span class="st">"greater"</span>) {</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>    critical_value <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="dv">1</span> <span class="sc">-</span> alpha, df)</span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { <span class="co"># alternative == "less"</span></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>    critical_value <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(alpha, df)</span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Crear objeto de resultado</span></span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> chi_sq,</span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">parameter =</span> df,</span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.value =</span> p_value,</span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">critical.value =</span> critical_value,</span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">alternative =</span> alternative,</span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"Prueba de hipótesis para una varianza (Chi-cuadrado)"</span>,</span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">data.name =</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(x)),</span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">sample.size =</span> n,</span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">sample.variance =</span> s2,</span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">null.variance =</span> sigma0_2,</span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> alpha,</span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">decision =</span> decision</span>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">class</span>(result) <span class="ot">&lt;-</span> <span class="st">"var_test_custom"</span></span>
+<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Método print personalizado para mostrar resultados de forma clara</span></span>
+<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a>print.var_test_custom <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(x<span class="sc">$</span>method, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Datos:"</span>, x<span class="sc">$</span>data.name, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Hipótesis:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x<span class="sc">$</span>alternative <span class="sc">==</span> <span class="st">"two.sided"</span>) {</span>
+<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"H0: sigma^2 ="</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Ha: sigma^2 ≠"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (x<span class="sc">$</span>alternative <span class="sc">==</span> <span class="st">"greater"</span>) {</span>
+<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"H0: sigma^2 ≤"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Ha: sigma^2 &gt;"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"H0: sigma^2 ≥"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Ha: sigma^2 &lt;"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Estadísticos de la muestra:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"n ="</span>, x<span class="sc">$</span>sample.size, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"s^2 ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>sample.variance, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Estadístico de prueba:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Chi-cuadrado ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>statistic, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Grados de libertad ="</span>, x<span class="sc">$</span>parameter, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Valor crítico(s):</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(x<span class="sc">$</span>critical.value) <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Chi^2("</span>, x<span class="sc">$</span>alpha<span class="sc">/</span><span class="dv">2</span>, <span class="st">","</span>, x<span class="sc">$</span>parameter, <span class="st">") ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>critical.value[<span class="dv">1</span>], <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Chi^2("</span>, <span class="dv">1</span><span class="sc">-</span>x<span class="sc">$</span>alpha<span class="sc">/</span><span class="dv">2</span>, <span class="st">","</span>, x<span class="sc">$</span>parameter, <span class="st">") ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>critical.value[<span class="dv">2</span>], <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Chi^2 crítico ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>critical.value, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Valor-p ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>p.value, <span class="dv">6</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Nivel de significancia ="</span>, x<span class="sc">$</span>alpha, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Decisión:"</span>, x<span class="sc">$</span>decision, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Esta función cuenta con la siguiente sintaxis para su uso:</p>
+<p><span class="math display">\[ \Large \text{var\_test\_chi}(x, sigma0_2, alternative, alpha) \]</span> <strong>Argumentos en orden:</strong></p>
+<ol type="1">
+<li><p><strong>x</strong>: Vector con los datos de la muestra</p></li>
+<li><p><strong>sigma0_2</strong>: Varianza poblacional con la que se está comparando</p></li>
+<li><p><strong>alternative</strong>: Opción en carácter que indica el tipo de prueba utilizando los mismos argumentos que las otras funciones “greater”, “less” y “two.sided”.</p></li>
+<li><p><strong>alpha</strong>: nivel de significacia</p></li>
+</ol>
+<p>También tiene la siguiente sintaxis cuando no se cuenta con los datos de la muestra directamente:</p>
+<p><span class="math display">\[ \Large \text{var\_test\_chi}(n, s2, sigma0_2, alternative, alpha) \]</span> <strong>Argumentos en orden:</strong></p>
+<ol type="1">
+<li><p><strong>n</strong>: Tamaño de la muestra</p></li>
+<li><p><strong>s2</strong>: Varianza muestral</p></li>
+<li><p><strong>sigma0_2</strong>: Varianza poblacional con la que se está comparando</p></li>
+<li><p><strong>alternative</strong>: Opción en carácter que indica el tipo de prueba utilizando los mismos argumentos que las otras funciones “greater”, “less” y “two.sided”.</p></li>
+<li><p><strong>alpha</strong>: nivel de significacia</p></li>
+</ol>
 <p><strong>b) Dos varianzas (F de Fisher):</strong></p>
 <p><span class="math display">\[\huge F = \frac{s_1^2}{s_2^2}\]</span></p>
+<p>donde:</p>
+<ol type="1">
+<li><p><span class="math inline">\(s_1^2\)</span> y <span class="math inline">\(s_2^2\)</span> son las varianzas muestrales de los dos grupos,</p></li>
+<li><p><span class="math inline">\(n_1\)</span> y <span class="math inline">\(n_2\)</span> son los tamaños de muestra de cada grupo.</p></li>
+</ol>
+</section>
+<section id="ejemplo-hipotético-una-varianza" class="level3">
+<h3 class="anchored" data-anchor-id="ejemplo-hipotético-una-varianza">Ejemplo hipotético (una varianza)</h3>
+<p>Supóngase que una empresa agrícola establece que la varianza máxima aceptable en el peso de frutos de tomate es de <span class="math inline">\(\sigma_0^2 = 4\)</span> g². Se toma una muestra de 10 frutos y se obtiene una varianza muestral de <span class="math inline">\(s^2 = 5.8\)</span> g². Se desea saber, con un nivel de significancia del 5%, si la variabilidad excede el estándar.</p>
+<p><strong>1. Planteamiento de hipótesis:</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(H_0: \sigma^2 = 4\)</span> g² (la varianza cumple el estándar)</p></li>
+<li><p><span class="math inline">\(H_a: \sigma^2 &gt; 4\)</span> g² (la varianza excede el estándar)</p></li>
+</ol>
+<p><strong>2. Cálculo del estadístico:</strong></p>
+<p><span class="math display">\[\LARGE \chi^2 = \frac{(10-1) \times 5.8}{4} = \frac{52.2}{4} = 13.05\]</span></p>
+<p><strong>Decisión:</strong></p>
+<p>El valor crítico para <span class="math inline">\(\alpha = 0.05\)</span> y <span class="math inline">\(gl = 9\)</span> es <span class="math inline">\(\chi^2\_{0.05,9} = 16.92\)</span>. Como <span class="math inline">\(13.05 &lt; 16.92\)</span>, no se rechaza <span class="math inline">\(H_0\)</span>​.</p>
+<p><strong>Código en R explicado:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicacion de la funcion personalizada</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">var_test_chi</span>(<span class="at">n =</span> <span class="dv">10</span>, <span class="at">s2 =</span> <span class="fl">5.8</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>                              <span class="at">sigma0_2 =</span> <span class="dv">4</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alternative =</span> <span class="st">"greater"</span>,</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>                              <span class="at">alpha =</span> <span class="fl">0.05</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Prueba de hipótesis para una varianza (Chi-cuadrado) 
+Datos: NULL 
+
+Hipótesis:
+H0: sigma^2 ≤ 4 
+Ha: sigma^2 &gt; 4 
+
+Estadísticos de la muestra:
+n = 10 
+s^2 = 5.8 
+
+Estadístico de prueba:
+Chi-cuadrado = 13.05 
+Grados de libertad = 9 
+
+Valor crítico(s):
+Chi^2 crítico = 16.919 
+
+Valor-p = 0.160357 
+Nivel de significancia = 0.05 
+
+Decisión: No rechazar H0 </code></pre>
+</div>
+</div>
+<p>Para la solución de este problema se emplea la funcion personalizada <code>var_test_chi</code>que permite realizar una prueba de hipotesis de la varianza para una muestra empleando los argumentos mencionados en la sección donde se presentó la función.</p>
 </section>
 <section id="ejemplo-hipotético-dos-varianzas" class="level3">
 <h3 class="anchored" data-anchor-id="ejemplo-hipotético-dos-varianzas">Ejemplo hipotético (dos varianzas)</h3>
-<p>Se desea comparar la varianza de dos tratamientos de riego.</p>
+<p>Se desea comparar la varianza del rendimiento de dos tratamientos de riego.</p>
+<p><strong>Datos:</strong></p>
+<ol type="1">
+<li><p>Tratamiento 1: 10, 12, 11, 13, 12, 11, 14, 13</p></li>
+<li><p>Tratamiento 2: 9, 10, 11, 10, 12, 10, 11, 10</p></li>
+</ol>
+<p><strong>Planteamiento de hipótesis:</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(H_0: \sigma_1^2 = \sigma_2^2\)</span>​ (las varianzas son iguales)</p></li>
+<li><p><span class="math inline">\(H_a: \sigma_1^2 \neq \sigma_2^2\)</span> (las varianzas son diferentes)</p></li>
+</ol>
+<p><strong>Cálculo y decisión en R:</strong></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>trat1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">11</span>,<span class="dv">13</span>,<span class="dv">12</span>,<span class="dv">11</span>,<span class="dv">14</span>,<span class="dv">13</span>)</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>trat2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">10</span>,<span class="dv">11</span>,<span class="dv">10</span>)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(trat1, trat2,</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>trat1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">13</span>, <span class="dv">12</span>, <span class="dv">11</span>, <span class="dv">14</span>, <span class="dv">13</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>trat2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">9</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">10</span>, <span class="dv">12</span>, <span class="dv">10</span>, <span class="dv">11</span>, <span class="dv">10</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(trat1, trat2,</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="co"># prueba bilateral</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">conf.level =</span> <span class="fl">0.95</span>)         <span class="co"># nivel de confianza</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     F test to compare two variances
@@ -974,7 +1176,11 @@ ratio of variances
           2.042553 </code></pre>
 </div>
 </div>
-<p><code>var.test</code>: realiza la prueba F para comparar varianzas.</p>
+<ol type="1">
+<li><p><strong>var.test</strong>: realiza la prueba F para comparar varianzas.</p></li>
+<li><p><strong>alternative</strong>: define si la prueba es bilateral o unilateral.</p></li>
+<li><p><strong>conf.level</strong>: establece el nivel de confianza.</p></li>
+</ol>
 
 
 </section>
