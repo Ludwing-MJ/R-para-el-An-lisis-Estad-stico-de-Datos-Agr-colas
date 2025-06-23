@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Clasificación de Variables – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>Regresión Lineal Simple usando R – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./C3.1.html" rel="next">
-<link href="./C1.1.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./C11.1.html" rel="prev">
 <link href="./logo_cete_vector.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -75,6 +110,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="custom.css">
 </head>
@@ -250,7 +314,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C2.1.html"><span class="chapter-title">Clasificación de Variables</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C11.2.html"><span class="chapter-title">Regresión Lineal Simple usando R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -307,7 +371,7 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C2.1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clasificación de Variables</span></a>
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clasificación de Variables</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -423,7 +487,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión Lineal Simple</span></a>
+  <a href="./C11.2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Regresión Lineal Simple usando R</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -446,19 +510,23 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#definición-de-variable" id="toc-definición-de-variable" class="nav-link active" data-scroll-target="#definición-de-variable">Definición de Variable</a></li>
-  <li><a href="#tipos-de-variables" id="toc-tipos-de-variables" class="nav-link" data-scroll-target="#tipos-de-variables">Tipos de Variables</a>
+  <li><a href="#fundamentos-teóricos" id="toc-fundamentos-teóricos" class="nav-link active" data-scroll-target="#fundamentos-teóricos">Fundamentos Teóricos</a></li>
+  <li><a href="#supuestos-del-modelo" id="toc-supuestos-del-modelo" class="nav-link" data-scroll-target="#supuestos-del-modelo">Supuestos del Modelo</a></li>
+  <li><a href="#análisis-práctico-en-r" id="toc-análisis-práctico-en-r" class="nav-link" data-scroll-target="#análisis-práctico-en-r">Análisis Práctico en R</a>
   <ul class="collapse">
-  <li><a href="#variables-cuantitativas" id="toc-variables-cuantitativas" class="nav-link" data-scroll-target="#variables-cuantitativas">Variables Cuantitativas</a></li>
-  <li><a href="#variables-cualitativas" id="toc-variables-cualitativas" class="nav-link" data-scroll-target="#variables-cualitativas">Variables Cualitativas</a></li>
+  <li><a href="#instalación-y-carga-de-paquetes" id="toc-instalación-y-carga-de-paquetes" class="nav-link" data-scroll-target="#instalación-y-carga-de-paquetes">Instalación y carga de paquetes</a></li>
+  <li><a href="#ajuste-del-modelo" id="toc-ajuste-del-modelo" class="nav-link" data-scroll-target="#ajuste-del-modelo">Ajuste del Modelo</a></li>
+  <li><a href="#evaluación-crítica-de-supuestos" id="toc-evaluación-crítica-de-supuestos" class="nav-link" data-scroll-target="#evaluación-crítica-de-supuestos">Evaluación Crítica de Supuestos</a></li>
   </ul></li>
-  <li><a href="#mapa-mental-de-la-clasificación-de-variables-estadísticas" id="toc-mapa-mental-de-la-clasificación-de-variables-estadísticas" class="nav-link" data-scroll-target="#mapa-mental-de-la-clasificación-de-variables-estadísticas">Mapa mental de la clasificación de variables estadísticas</a></li>
-  <li><a href="#escalas-de-medición" id="toc-escalas-de-medición" class="nav-link" data-scroll-target="#escalas-de-medición">Escalas de Medición</a>
+  <li><a href="#predicción-con-el-modelo-ajustado" id="toc-predicción-con-el-modelo-ajustado" class="nav-link" data-scroll-target="#predicción-con-el-modelo-ajustado">Predicción con el modelo ajustado</a></li>
+  <li><a href="#interpretación-de-resultados" id="toc-interpretación-de-resultados" class="nav-link" data-scroll-target="#interpretación-de-resultados">Interpretación de Resultados</a>
   <ul class="collapse">
-  <li><a href="#escalas-para-información-cualitativa" id="toc-escalas-para-información-cualitativa" class="nav-link" data-scroll-target="#escalas-para-información-cualitativa">Escalas para Información Cualitativa</a></li>
-  <li><a href="#escalas-para-información-cuantitativa" id="toc-escalas-para-información-cuantitativa" class="nav-link" data-scroll-target="#escalas-para-información-cuantitativa">Escalas para Información Cuantitativa</a></li>
+  <li><a href="#coeficientes-del-modelo" id="toc-coeficientes-del-modelo" class="nav-link" data-scroll-target="#coeficientes-del-modelo">Coeficientes del Modelo</a></li>
+  <li><a href="#bondad-de-ajuste" id="toc-bondad-de-ajuste" class="nav-link" data-scroll-target="#bondad-de-ajuste">Bondad de Ajuste</a></li>
+  <li><a href="#significancia-estadística" id="toc-significancia-estadística" class="nav-link" data-scroll-target="#significancia-estadística">Significancia Estadística</a></li>
+  <li><a href="#criterios-de-decisión-para-los-supuestos" id="toc-criterios-de-decisión-para-los-supuestos" class="nav-link" data-scroll-target="#criterios-de-decisión-para-los-supuestos">Criterios de Decisión para los supuestos</a></li>
+  <li><a href="#pasos-para-una-interpretación-integral-y-conclusiones" id="toc-pasos-para-una-interpretación-integral-y-conclusiones" class="nav-link" data-scroll-target="#pasos-para-una-interpretación-integral-y-conclusiones">Pasos para una Interpretación Integral y Conclusiones</a></li>
   </ul></li>
-  <li><a href="#mapa-mental-de-las-escalas-de-medición" id="toc-mapa-mental-de-las-escalas-de-medición" class="nav-link" data-scroll-target="#mapa-mental-de-las-escalas-de-medición">Mapa mental de las escalas de medición</a></li>
   </ul>
 </nav>
     </div>
@@ -468,7 +536,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Clasificación de Variables</span></h1>
+<h1 class="title"><span class="chapter-title">Regresión Lineal Simple usando R</span></h1>
 </div>
 
 
@@ -485,85 +553,285 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="definición-de-variable" class="level2">
-<h2 class="anchored" data-anchor-id="definición-de-variable">Definición de Variable</h2>
-<p>Una variable en estadística se define como aquello que se observa o mide sobre las unidades estadísticas (López &amp; González, 2018). Constituye una característica que varía de un individuo a otro dentro de la población o muestra bajo estudio. Las variables representan los atributos o propiedades que pueden ser medidos, observados o categorizados en las unidades de análisis.</p>
-<p>Desde el punto de vista de la notación estadística, las variables se representan mediante letras mayúsculas del alfabeto (X, Y, Z), mientras que los valores específicos que estas asumen se denotan con letras minúsculas correspondientes (x, y, z) (López &amp; González, 2018). Esta distinción notacional permite diferenciar claramente entre el concepto abstracto de la variable y sus manifestaciones concretas en los datos.</p>
-</section>
-<section id="tipos-de-variables" class="level2">
-<h2 class="anchored" data-anchor-id="tipos-de-variables">Tipos de Variables</h2>
-<p>Dependiendo de su naturaleza, las variables estadísticas se clasifican en dos categorías principales que determinan tanto los métodos de análisis apropiados como las técnicas de presentación de datos más adecuadas (López &amp; González, 2018).</p>
-<section id="variables-cuantitativas" class="level3">
-<h3 class="anchored" data-anchor-id="variables-cuantitativas">Variables Cuantitativas</h3>
-<p>Las variables cuantitativas son aquellas que expresan cantidades y cuyos resultados son de naturaleza numérica (López &amp; González, 2018). Estas variables permiten realizar operaciones matemáticas y estadísticas avanzadas debido a su carácter numérico. Se subdividen en dos tipos fundamentales:</p>
-<section id="variables-cuantitativas-discretas" class="level4">
-<h4 class="anchored" data-anchor-id="variables-cuantitativas-discretas">Variables Cuantitativas Discretas</h4>
-<p>También denominadas variables de conteo, son aquellas que no aceptan valores decimales y típicamente resultan de procesos de enumeración (López &amp; González, 2018). Ejemplos relevantes en el contexto agronómico incluyen: número de plantas de café por metro cuadrado, cantidad de áfidos por planta, número de brotes por planta, número de racimos de banano por hectárea, y número de ausencias de un trabajador por mes.</p>
-<p>Matemáticamente, estas variables pueden representarse mediante conjuntos discretos. Por ejemplo, si X representa el número de árboles con cáncer en una muestra de 10 árboles, entonces X ∈ {0, 1, 2, 3, …, 9, 10} (López &amp; González, 2018).</p>
-</section>
-<section id="variables-cuantitativas-continuas" class="level4">
-<h4 class="anchored" data-anchor-id="variables-cuantitativas-continuas">Variables Cuantitativas Continuas</h4>
-<p>Este tipo de variables pueden asumir cualquier valor dentro de un rango determinado, incluyendo valores decimales, y resultan típicamente de procesos de medición (López &amp; González, 2018). En el ámbito agronómico, ejemplos representativos incluyen: altura de plantas, peso de semillas, temperatura de almacenamiento, diámetro de árboles, caudal de ríos, y precipitación pluvial.</p>
-<p>La representación matemática de estas variables utiliza intervalos continuos. Por ejemplo, si D representa el diámetro de árboles de <em>Pinus maximinoii</em> en una plantación, entonces D ∈ [10, 50] centímetros (López &amp; González, 2018).</p>
-</section>
-</section>
-<section id="variables-cualitativas" class="level3">
-<h3 class="anchored" data-anchor-id="variables-cualitativas">Variables Cualitativas</h3>
-<p>Las variables cualitativas presentan como posibles resultados una cualidad o atributo del individuo investigado (López &amp; González, 2018). Las posibles cualidades que puede presentar una variable cualitativa se denominan modalidades, categorías o atributos de la variable.</p>
-<p>Según el número de categorías, estas variables se clasifican en:</p>
+<p>La regresión lineal simple es una técnica estadística fundamental para analizar la relación entre dos variables cuantitativas, permitiendo modelar y predecir el comportamiento de una variable dependiente a partir de una variable independiente. En el contexto de la agronomía, esta herramienta resulta esencial para comprender fenómenos como la relación entre el peso en cultivos o animales, entre otros ejemplos relevantes (Montgomery et al., 2021; López &amp; González, 2018).</p>
+<section id="fundamentos-teóricos" class="level2">
+<h2 class="anchored" data-anchor-id="fundamentos-teóricos">Fundamentos Teóricos</h2>
+<p>El modelo de regresión lineal simple se expresa mediante la siguiente ecuación:</p>
+<p><span class="math display">\[\huge Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i\]</span></p>
+<p>En esta expresión:</p>
 <ol type="1">
-<li><p><strong>Dicotómicas</strong>: presentan únicamente dos modalidades, como sexo (masculino, femenino) o resultado de evaluación (aprobado, reprobado)</p></li>
-<li><p><strong>Politómicas</strong>: presentan más de dos categorías, como estado civil, color de ojos, lugar de origen, o susceptibilidad de plantas a enfermedades (López &amp; González, 2018)</p></li>
+<li><p><span class="math inline">\(Y_i\)</span> representa el valor observado de la variable dependiente para el individuo i.</p></li>
+<li><p><span class="math inline">\(X_i\)</span> es el valor observado de la variable independiente para el individuo i.</p></li>
+<li><p><span class="math inline">\(\beta_0\)</span> es el intercepto o constante, que indica el valor esperado de <span class="math inline">\(Y\)</span> cuando <span class="math inline">\(X=0\)</span>.</p></li>
+<li><p><span class="math inline">\(\beta_1\)</span> es la pendiente, que representa el cambio promedio en <span class="math inline">\(Y\)</span> por cada unidad de cambio en <span class="math inline">\(X\)</span>.</p></li>
+<li><p><span class="math inline">\(\varepsilon_i\)</span> es el término de error aleatorio, que recoge la variabilidad no explicada por el modelo.</p></li>
+</ol>
+<p>El objetivo de la regresión es estimar los valores de <span class="math inline">\(\beta_0\)</span>​ y <span class="math inline">\(\beta_1\)</span>​ que mejor se ajustan a los datos observados. Para ello, se utiliza el método de mínimos cuadrados, que minimiza la suma de los cuadrados de las diferencias entre los valores observados y los valores predichos por el modelo (Montgomery et al., 2021).</p>
+<p>Las fórmulas para los estimadores de mínimos cuadrados son:</p>
+<p><span class="math display">\[\LARGE \hat{\beta_1} = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n} (x_i - \bar{x})^2}\]</span></p>
+<p><span class="math display">\[\LARGE \hat{\beta_0} = \bar{y} - \hat{\beta_1}\bar{x}\]</span></p>
+<p>donde <span class="math inline">\(\bar{x}\)</span> y <span class="math inline">\(\bar{y}\)</span> son las medias de las variables <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> respectivamente.</p>
+</section>
+<section id="supuestos-del-modelo" class="level2">
+<h2 class="anchored" data-anchor-id="supuestos-del-modelo">Supuestos del Modelo</h2>
+<p>Para que los resultados de la regresión lineal simple sean válidos, es necesario que se cumplan los siguientes supuestos (López &amp; González, 2018):</p>
+<ol type="1">
+<li><p><strong>Linealidad:</strong> La relación entre la variable independiente y la dependiente debe ser lineal. Esto significa que el efecto de <span class="math inline">\(X\)</span> sobre <span class="math inline">\(Y\)</span> es constante a lo largo de todo el rango de valores.</p></li>
+<li><p><strong>Normalidad de los errores:</strong> Los residuos (diferencias entre los valores observados y los predichos) deben seguir una distribución normal.</p></li>
+<li><p><strong>Homocedasticidad:</strong> La varianza de los errores debe ser constante para todos los valores de <span class="math inline">\(X\)</span>.</p></li>
+<li><p><strong>Independencia:</strong> Las observaciones deben ser independientes entre sí, es decir, el valor de una observación no debe influir en el valor de otra.</p></li>
+</ol>
+<p>El incumplimiento de estos supuestos puede llevar a conclusiones erróneas o a una interpretación incorrecta de los resultados.</p>
+</section>
+<section id="análisis-práctico-en-r" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-práctico-en-r">Análisis Práctico en R</h2>
+<section id="instalación-y-carga-de-paquetes" class="level3">
+<h3 class="anchored" data-anchor-id="instalación-y-carga-de-paquetes">Instalación y carga de paquetes</h3>
+<p>El análisis inicia con la carga de los paquetes especializados y la exploración de los datos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalación y carga de paquetes necesarios</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(tidyverse)) <span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(car)) <span class="fu">install.packages</span>(<span class="st">"car"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(lmtest)) <span class="fu">install.packages</span>(<span class="st">"lmtest"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(nortest)) <span class="fu">install.packages</span>(<span class="st">"nortest"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Se recomienda siempre inspeccionar los datos antes de analizarlos. En este ejemplo, se utiliza un conjunto de datos ficticio sobre el peso de padres e hijos empleado para explicar el análisis de correlación lineal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del ejemplo: peso de padres (X) y peso de hijos (Y) en kilogramos</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>datos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Peso_Padres =</span> <span class="fu">c</span>(<span class="dv">78</span>, <span class="dv">65</span>, <span class="dv">86</span>, <span class="dv">68</span>, <span class="dv">83</span>, <span class="dv">68</span>, <span class="dv">75</span>, <span class="dv">80</span>, <span class="dv">82</span>, <span class="dv">66</span>),</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Peso_Hijos =</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">52</span>, <span class="dv">68</span>, <span class="dv">53</span>, <span class="dv">65</span>, <span class="dv">57</span>, <span class="dv">58</span>, <span class="dv">62</span>, <span class="dv">65</span>, <span class="dv">53</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Es recomendable graficar los datos para observar la posible relación lineal:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico de dispersión</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(datos, <span class="fu">aes</span>(<span class="at">x =</span> Peso_Padres, <span class="at">y =</span> Peso_Hijos)) <span class="sc">+</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Relación entre el peso de padres e hijos"</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Peso de padres (kg)"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Peso de hijos (kg)"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="C11.2_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ajuste-del-modelo" class="level3">
+<h3 class="anchored" data-anchor-id="ajuste-del-modelo">Ajuste del Modelo</h3>
+<p>Para ajustar el modelo, se utiliza la función <code>lm()</code>, cuya sintaxis general es:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>modelo <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> X, <span class="at">data =</span> datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>En este caso:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>modelo <span class="ot">&lt;-</span> <span class="fu">lm</span>(Peso_Hijos <span class="sc">~</span> Peso_Padres, <span class="at">data =</span> datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Para obtener un resumen detallado del modelo, se emplea:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(modelo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = Peso_Hijos ~ Peso_Padres, data = datos)
+
+Residuals:
+     Min       1Q   Median       3Q      Max 
+-1.35052 -1.11314 -0.02222  0.64948  2.72024 
+
+Coefficients:
+            Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)  6.19857    4.37024   1.418    0.194    
+Peso_Padres  0.70708    0.05791  12.209 1.88e-06 ***
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+Residual standard error: 1.354 on 8 degrees of freedom
+Multiple R-squared:  0.9491,    Adjusted R-squared:  0.9427 
+F-statistic: 149.1 on 1 and 8 DF,  p-value: 1.879e-06</code></pre>
+</div>
+</div>
+<p>El resumen incluye los coeficientes estimados, sus errores estándar, valores t y p, así como el coeficiente de determinación (<span class="math inline">\(R^2\)</span>), que indica la proporción de la variabilidad de <span class="math inline">\(Y\)</span> explicada por <span class="math inline">\(X\)</span>.</p>
+</section>
+<section id="evaluación-crítica-de-supuestos" class="level3">
+<h3 class="anchored" data-anchor-id="evaluación-crítica-de-supuestos">Evaluación Crítica de Supuestos</h3>
+<section id="supuesto-de-linealidad" class="level4">
+<h4 class="anchored" data-anchor-id="supuesto-de-linealidad">Supuesto de Linealidad</h4>
+<p>Se evalúa mediante el gráfico de residuos vs valores ajustados. Si los residuos se distribuyen aleatoriamente alrededor de cero, el supuesto se considera cumplido.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(modelo, <span class="at">which =</span> <span class="dv">1</span>)  <span class="co"># Residuals vs Fitted</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="C11.2_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="supuesto-de-normalidad" class="level4">
+<h4 class="anchored" data-anchor-id="supuesto-de-normalidad">Supuesto de Normalidad</h4>
+<p>Se puede evaluar visualmente con un gráfico Q-Q y mediante pruebas estadísticas como Shapiro-Wilk y Anderson-Darling:</p>
+<p><strong>Gráfico Q-Q:</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gráfico Q-Q</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(modelo, <span class="at">which =</span> <span class="dv">2</span>)  <span class="co"># Normal Q-Q</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="C11.2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Prueba de Shapiro-Wilk:</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(H_0​\)</span>: Los residuos siguen distribución normal</p></li>
+<li><p><span class="math inline">\(H_a\)</span>​: Los residuos no siguen distribución normal</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(modelo))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(modelo)
+W = 0.9049, p-value = 0.2478</code></pre>
+</div>
+</div>
+<p><strong>Prueba de Anderson-Darling</strong> (más potente para muestras grandes):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ad.test</span>(<span class="fu">residuals</span>(modelo))</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Anderson-Darling normality test
+
+data:  residuals(modelo)
+A = 0.36544, p-value = 0.3604</code></pre>
+</div>
+</div>
+</section>
+<section id="supuesto-de-homocedasticidad" class="level4">
+<h4 class="anchored" data-anchor-id="supuesto-de-homocedasticidad">Supuesto de Homocedasticidad</h4>
+<p>Se evalúa con la <strong>Prueba de Breusch-Pagan:</strong></p>
+<ol type="1">
+<li><p><span class="math inline">\(H_0\)</span>​: Varianza constante (homocedasticidad)</p></li>
+<li><p><span class="math inline">\(H_a\)</span>​: Varianza no constante (heterocedasticidad)</p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bptest</span>(modelo)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    studentized Breusch-Pagan test
+
+data:  modelo
+BP = 0.71286, df = 1, p-value = 0.3985</code></pre>
+</div>
+</div>
+</section>
+<section id="supuesto-de-independencia" class="level4">
+<h4 class="anchored" data-anchor-id="supuesto-de-independencia">Supuesto de independencia</h4>
+<p>En estudios experimentales, la independencia suele garantizarse mediante un diseño adecuado. En estudios observacionales, se recomienda analizar el contexto y, si es posible, realizar pruebas adicionales.</p>
+</section>
+</section>
+</section>
+<section id="predicción-con-el-modelo-ajustado" class="level2">
+<h2 class="anchored" data-anchor-id="predicción-con-el-modelo-ajustado">Predicción con el modelo ajustado</h2>
+<p>Una vez ajustado el modelo, se pueden realizar predicciones para nuevos valores de la variable independiente:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nuevos valores de Peso_Padres</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>nuevos_pesos <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Peso_Padres =</span> <span class="fu">c</span>(<span class="dv">60</span>, <span class="dv">75</span>, <span class="dv">80</span>))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Predicción con intervalos de predicción</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>predicciones <span class="ot">&lt;-</span> <span class="fu">predict</span>(modelo, nuevos_pesos, <span class="at">interval =</span> <span class="st">"prediction"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>predicciones</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       fit      lwr      upr
+1 48.62315 44.77666 52.46963
+2 59.22929 55.95375 62.50484
+3 62.76467 59.42443 66.10492</code></pre>
+</div>
+</div>
+<p>El resultado incluye el valor predicho y los límites inferior y superior del intervalo de predicción para cada nuevo valor.</p>
+</section>
+<section id="interpretación-de-resultados" class="level2">
+<h2 class="anchored" data-anchor-id="interpretación-de-resultados">Interpretación de Resultados</h2>
+<section id="coeficientes-del-modelo" class="level3">
+<h3 class="anchored" data-anchor-id="coeficientes-del-modelo">Coeficientes del Modelo</h3>
+<ol type="1">
+<li><p><strong>Intercepto (</strong><span class="math inline">\(\hat{\beta_0}\)</span>​): Valor esperado de Y cuando X = 0</p></li>
+<li><p><strong>Pendiente (</strong><span class="math inline">\(\hat{\beta_1}\)</span>​): Cambio promedio en Y por unidad de cambio en X</p></li>
 </ol>
 </section>
+<section id="bondad-de-ajuste" class="level3">
+<h3 class="anchored" data-anchor-id="bondad-de-ajuste">Bondad de Ajuste</h3>
+<p>El <strong>coeficiente de determinación</strong> (<span class="math inline">\(R^2\)</span>) indica la proporción de variabilidad explicada:</p>
+<p><span class="math display">\[\huge R^2 = \frac{SC_{Regresión}}{SC_{Total}}\]</span></p>
+<p>​</p>
+<ol type="1">
+<li><p><span class="math inline">\(R^2 &gt; 0.7\)</span>: Ajuste bueno</p></li>
+<li><p><span class="math inline">\(-0.5 &lt; R^2 &lt; 0.7\)</span>: Ajuste moderado</p></li>
+<li><p><span class="math inline">\(R^2 &lt; 0.5\)</span>: Ajuste pobre</p></li>
+</ol>
 </section>
-<section id="mapa-mental-de-la-clasificación-de-variables-estadísticas" class="level2">
-<h2 class="anchored" data-anchor-id="mapa-mental-de-la-clasificación-de-variables-estadísticas">Mapa mental de la clasificación de variables estadísticas</h2>
-<p>A continuación, se presenta un mapa mental que sintetiza la información esencial sobre la clasificación de variables estadísticas, facilitando la comprensión visual de los conceptos abordados. Para explorar el mapa mental de manera interactiva y detallada, se recomienda acceder al siguiente enlace: <a href="https://ma-variables.vercel.app/" class="uri">https://ma-variables.vercel.app/</a>.</p>
-<div style="display: flex; justify-content: center;">
-<iframe src="https://ma-variables.vercel.app/" width="900" height="350" style="border: none;">
-</iframe>
-</div>
+<section id="significancia-estadística" class="level3">
+<h3 class="anchored" data-anchor-id="significancia-estadística">Significancia Estadística</h3>
+<p>La <strong>prueba F global</strong> evalúa:</p>
+<ol type="1">
+<li><p><span class="math inline">\(H_0\)</span>​: <span class="math inline">\(\beta_1 = 0\)</span> (no hay relación lineal)</p></li>
+<li><p><span class="math inline">\(H_a\)</span>​: <span class="math inline">\(\beta_1 \neq 0\)</span> (existe relación lineal)</p></li>
+</ol>
 </section>
-<section id="escalas-de-medición" class="level2">
-<h2 class="anchored" data-anchor-id="escalas-de-medición">Escalas de Medición</h2>
-<p>Las escalas de medición constituyen un sistema de clasificación que determina el nivel de información que proporcionan las variables y, consecuentemente, los tipos de análisis estadísticos que pueden aplicarse (López &amp; González, 2018).</p>
-<section id="escalas-para-información-cualitativa" class="level3">
-<h3 class="anchored" data-anchor-id="escalas-para-información-cualitativa">Escalas para Información Cualitativa</h3>
-<section id="escala-nominal" class="level4">
-<h4 class="anchored" data-anchor-id="escala-nominal">Escala Nominal</h4>
-<p>La escala nominal representa el nivel más básico de medición y consiste en asignar nombres o etiquetas a las observaciones para distinguir diferentes agrupamientos (López &amp; González, 2018). Cuando se emplean números en esta escala, estos tienen únicamente carácter simbólico, no numérico.</p>
-<p>Ejemplos en el contexto agronómico incluyen: especies arbóreas presentes en una cuenca, tipos de uso del suelo (agrícola, forestal, pecuario), y municipio de procedencia de estudiantes (López &amp; González, 2018).</p>
+<section id="criterios-de-decisión-para-los-supuestos" class="level3">
+<h3 class="anchored" data-anchor-id="criterios-de-decisión-para-los-supuestos">Criterios de Decisión para los supuestos</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Supuesto</th>
+<th>Prueba</th>
+<th>Criterio de Aceptación</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Normalidad</td>
+<td>Shapiro-Wilk</td>
+<td>p-valor &gt; 0.05</td>
+</tr>
+<tr class="even">
+<td>Homocedasticidad</td>
+<td>Breusch-Pagan</td>
+<td>p-valor &gt; 0.05</td>
+</tr>
+<tr class="odd">
+<td>Linealidad</td>
+<td>Gráfico residuos</td>
+<td>Patrón aleatorio</td>
+</tr>
+<tr class="even">
+<td>Independencia</td>
+<td>Contexto experimental</td>
+<td>Diseño adecuado</td>
+</tr>
+</tbody>
+</table>
 </section>
-<section id="escala-ordinal" class="level4">
-<h4 class="anchored" data-anchor-id="escala-ordinal">Escala Ordinal</h4>
-<p>En este nivel de medición, las unidades mantienen una relación jerárquica que permite establecer ordenamientos del tipo “mayor que” o “menor que” (López &amp; González, 2018). Las categorías poseen un orden lógico, pero las distancias entre ellas no son necesariamente iguales.</p>
-<p>Ejemplos representativos incluyen: nivel de estudios (primaria, secundaria, diversificado, universitaria), grado de aceptación de productos (buena, regular, mala), y escalas de severidad de enfermedades en plantas. La escala de Likert constituye un ejemplo paradigmático de medición ordinal, típicamente empleando cinco niveles de respuesta desde “totalmente en desacuerdo” hasta “totalmente de acuerdo” (López &amp; González, 2018).</p>
-</section>
-</section>
-<section id="escalas-para-información-cuantitativa" class="level3">
-<h3 class="anchored" data-anchor-id="escalas-para-información-cuantitativa">Escalas para Información Cuantitativa</h3>
-<section id="escala-de-intervalo" class="level4">
-<h4 class="anchored" data-anchor-id="escala-de-intervalo">Escala de Intervalo</h4>
-<p>Esta escala proporciona información más precisa y permite mediciones sofisticadas al informar tanto sobre el orden de los objetos como sobre las distancias numéricas entre ellos (López &amp; González, 2018). Los intervalos de igual tamaño en la escala representan diferencias equivalentes, independientemente de su ubicación en la escala.</p>
-<p>Sin embargo, la escala de intervalo carece de un punto cero absoluto, siendo este arbitrario y no representando la ausencia total de la característica medida (López &amp; González, 2018). Ejemplos incluyen: temperatura, coordenadas geográficas, y resultados de exámenes académicos.</p>
-</section>
-<section id="escala-de-razón" class="level4">
-<h4 class="anchored" data-anchor-id="escala-de-razón">Escala de Razón</h4>
-<p>Los atributos cuantitativos organizados en escala de razón poseen tanto intervalos significativos como un punto cero real que indica ausencia absoluta del valor medido (López &amp; González, 2018). Esta escala permite realizar todas las operaciones matemáticas, incluyendo la determinación de razones o proporciones entre medidas.</p>
-<p>Variables agronómicas medidas en esta escala incluyen: peso, longitud, diámetro, volumen, estatura, y densidad. Por ejemplo, un individuo de 190 cm es exactamente dos veces más alto que uno de 95 cm, relación que se mantiene independientemente de la unidad de medida empleada (López &amp; González, 2018).</p>
-</section>
-</section>
-</section>
-<section id="mapa-mental-de-las-escalas-de-medición" class="level2">
-<h2 class="anchored" data-anchor-id="mapa-mental-de-las-escalas-de-medición">Mapa mental de las escalas de medición</h2>
-<p>A continuación, se presenta un mapa mental que sintetiza la información esencial sobre las escalas de medición de variables estadísticas, facilitando la comprensión visual de los conceptos abordados. Para explorar el mapa mental de manera interactiva y detallada, se recomienda acceder al siguiente enlace: <a href="https://ma-escalas.vercel.app/" class="uri">https://ma-escalas.vercel.app/</a>.</p>
-<div style="display: flex; justify-content: center;">
-<iframe src="https://ma-escalas.vercel.app/" width="900" height="350" style="border: none;">
-</iframe>
-</div>
+<section id="pasos-para-una-interpretación-integral-y-conclusiones" class="level3">
+<h3 class="anchored" data-anchor-id="pasos-para-una-interpretación-integral-y-conclusiones">Pasos para una Interpretación Integral y Conclusiones</h3>
+<ol type="1">
+<li><p><strong>Evaluar significancia del modelo</strong> (prueba F global)</p></li>
+<li><p><strong>Verificar supuestos</strong> mediante pruebas estadísticas y gráficos</p></li>
+<li><p><strong>Interpretar coeficientes</strong> en el contexto del problema</p></li>
+<li><p><strong>Evaluar bondad de ajuste</strong> (<span class="math inline">\(R^2\)</span> y <span class="math inline">\(R^2\)</span> ajustado)</p></li>
+<li><p><strong>Identificar limitaciones</strong> del modelo</p></li>
+<li><p><strong>Formular recomendaciones</strong> prácticas</p></li>
+</ol>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -988,13 +1256,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./C1.1.html" class="pagination-link" aria-label="Aspectos introductorios">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Aspectos introductorios</span></span>
+      <a href="./C11.1.html" class="pagination-link" aria-label="Análisis de correlación lineal simple">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Análisis de correlación lineal simple</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./C3.1.html" class="pagination-link" aria-label="Introducción a la Notación Sumatoria">
-        <span class="nav-page-text"><span class="chapter-title">Introducción a la Notación Sumatoria</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Referencias">
+        <span class="nav-page-text">Referencias</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

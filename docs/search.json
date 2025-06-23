@@ -1088,5 +1088,125 @@
     "crumbs": [
       "<span class='chapter-number'>18</span>  <span class='chapter-title'>Análisis de correlación lineal simple</span>"
     ]
+  },
+  {
+    "objectID": "C11.1.html#mapa-mental-de-las-escalas-de-medición",
+    "href": "C11.1.html#mapa-mental-de-las-escalas-de-medición",
+    "title": "Análisis de correlación lineal simple",
+    "section": "Mapa mental de las escalas de medición",
+    "text": "Mapa mental de las escalas de medición\nA continuación, se presenta una aplicación interactiva diseñada para visualizar cómo los diferentes valores del coeficiente de correlación de Pearson (r) se reflejan en un gráfico de dispersión junto con su respectiva línea de tendencia. Esta herramienta facilita la comprensión visual y práctica del concepto de correlación lineal simple, permitiendo observar de manera dinámica cómo varía la relación entre dos variables a medida que cambia el valor de r.\nPara explorar la aplicación y experimentar con distintos escenarios de correlación, se recomienda acceder al siguiente enlace: https://ludwing-mj.shinyapps.io/pearson/.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Análisis de correlación lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "C11.1.html#simulación-interactiva-del-coeficiente-de-pearson",
+    "href": "C11.1.html#simulación-interactiva-del-coeficiente-de-pearson",
+    "title": "Análisis de correlación lineal simple",
+    "section": "Simulación interactiva del coeficiente de Pearson",
+    "text": "Simulación interactiva del coeficiente de Pearson\nA continuación, se presenta una aplicación interactiva diseñada para visualizar cómo los diferentes valores del coeficiente de correlación de Pearson (r) se reflejan en un gráfico de dispersión junto con su respectiva línea de tendencia. Esta herramienta facilita la comprensión visual y práctica del concepto de correlación lineal simple, permitiendo observar de manera dinámica cómo varía la relación entre dos variables a medida que cambia el valor de r.\nPara explorar la aplicación y experimentar con distintos escenarios de correlación, se recomienda acceder al siguiente enlace: https://ludwing-mj.shinyapps.io/pearson/.",
+    "crumbs": [
+      "<span class='chapter-number'>18</span>  <span class='chapter-title'>Análisis de correlación lineal simple</span>"
+    ]
+  },
+  {
+    "objectID": "C11.2.html",
+    "href": "C11.2.html",
+    "title": "Regresión Lineal Simple usando R",
+    "section": "",
+    "text": "Fundamentos Teóricos\nLa regresión lineal simple es una técnica estadística fundamental para analizar la relación entre dos variables cuantitativas, permitiendo modelar y predecir el comportamiento de una variable dependiente a partir de una variable independiente. En el contexto de la agronomía, esta herramienta resulta esencial para comprender fenómenos como la relación entre el peso en cultivos o animales, entre otros ejemplos relevantes (Montgomery et al., 2021; López & González, 2018).\nEl modelo de regresión lineal simple se expresa mediante la siguiente ecuación:\n\\[\\huge Y_i = \\beta_0 + \\beta_1 X_i + \\varepsilon_i\\]\nEn esta expresión:\nEl objetivo de la regresión es estimar los valores de \\(\\beta_0\\)​ y \\(\\beta_1\\)​ que mejor se ajustan a los datos observados. Para ello, se utiliza el método de mínimos cuadrados, que minimiza la suma de los cuadrados de las diferencias entre los valores observados y los valores predichos por el modelo (Montgomery et al., 2021).\nLas fórmulas para los estimadores de mínimos cuadrados son:\n\\[\\LARGE \\hat{\\beta_1} = \\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}\\]\n\\[\\LARGE \\hat{\\beta_0} = \\bar{y} - \\hat{\\beta_1}\\bar{x}\\]\ndonde \\(\\bar{x}\\) y \\(\\bar{y}\\) son las medias de las variables \\(X\\) y \\(Y\\) respectivamente.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Regresión Lineal Simple usando R</span>"
+    ]
+  },
+  {
+    "objectID": "C11.2.html#marco-teórico",
+    "href": "C11.2.html#marco-teórico",
+    "title": "Regresión Lineal Simple usando R",
+    "section": "",
+    "text": "Modelo de Regresión Lineal Simple\nEl modelo poblacional se expresa matemáticamente como:\n\\[\\huge Y_i = \\beta_0 + \\beta_1 X_i + \\varepsilon_i\\]\ndonde \\(Y_i\\) representa la variable dependiente, \\(X_i\\) la variable independiente, \\(\\beta_0\\) el intercepto poblacional, \\(\\beta_1\\) la pendiente poblacional, y \\(\\varepsilon_i\\) el término de error aleatorio.\n\n\nEstimadores de Mínimos Cuadrados\nLos estimadores se obtienen mediante las siguientes fórmulas:\n\\[\\LARGE \\hat{\\beta_1} = \\frac{\\sum_{i=1}^{n} (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum_{i=1}^{n} (x_i - \\bar{x})^2}\\]\n\\[\\LARGE \\hat{\\beta_0} = \\bar{y} - \\hat{\\beta_1}\\bar{x}\\]\n\n\nSupuestos del Modelo\nEl modelo de regresión lineal simple requiere el cumplimiento de cuatro supuestos fundamentales:\n\nLinealidad: La relación entre X e Y es lineal\nNormalidad: Los errores siguen una distribución normal\nHomocedasticidad: La varianza de los errores es constante\nIndependencia: Las observaciones son independientes entre sí",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Regresión Lineal Simple usando R</span>"
+    ]
+  },
+  {
+    "objectID": "C11.2.html#análisis-práctico-en-r",
+    "href": "C11.2.html#análisis-práctico-en-r",
+    "title": "Regresión Lineal Simple usando R",
+    "section": "Análisis Práctico en R",
+    "text": "Análisis Práctico en R\n\nInstalación y carga de paquetes\nEl análisis inicia con la carga de los paquetes especializados y la exploración de los datos:\n\n# Instalación y carga de paquetes necesarios\nif (!require(tidyverse)) install.packages(\"tidyverse\")\nif (!require(car)) install.packages(\"car\")\nif (!require(lmtest)) install.packages(\"lmtest\")\nif (!require(nortest)) install.packages(\"nortest\")\n\nSe recomienda siempre inspeccionar los datos antes de analizarlos. En este ejemplo, se utiliza un conjunto de datos ficticio sobre el peso de padres e hijos empleado para explicar el análisis de correlación lineal:\n\n# Datos del ejemplo: peso de padres (X) y peso de hijos (Y) en kilogramos\ndatos &lt;- data.frame(\n  Peso_Padres = c(78, 65, 86, 68, 83, 68, 75, 80, 82, 66),\n  Peso_Hijos = c(60, 52, 68, 53, 65, 57, 58, 62, 65, 53)\n)\n\nEs recomendable graficar los datos para observar la posible relación lineal:\n\n# Gráfico de dispersión\nggplot(datos, aes(x = Peso_Padres, y = Peso_Hijos)) +\n  geom_point() +\n  labs(title = \"Relación entre el peso de padres e hijos\",\n       x = \"Peso de padres (kg)\",\n       y = \"Peso de hijos (kg)\")\n\n\n\n\n\n\n\n\n\n\nAjuste del Modelo\nPara ajustar el modelo, se utiliza la función lm(), cuya sintaxis general es:\n\nmodelo &lt;- lm(Y ~ X, data = datos)\n\nEn este caso:\n\nmodelo &lt;- lm(Peso_Hijos ~ Peso_Padres, data = datos)\n\nPara obtener un resumen detallado del modelo, se emplea:\n\nsummary(modelo)\n\n\nCall:\nlm(formula = Peso_Hijos ~ Peso_Padres, data = datos)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-1.35052 -1.11314 -0.02222  0.64948  2.72024 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  6.19857    4.37024   1.418    0.194    \nPeso_Padres  0.70708    0.05791  12.209 1.88e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 1.354 on 8 degrees of freedom\nMultiple R-squared:  0.9491,    Adjusted R-squared:  0.9427 \nF-statistic: 149.1 on 1 and 8 DF,  p-value: 1.879e-06\n\n\nEl resumen incluye los coeficientes estimados, sus errores estándar, valores t y p, así como el coeficiente de determinación (\\(R^2\\)), que indica la proporción de la variabilidad de \\(Y\\) explicada por \\(X\\).\n\n\nEvaluación Crítica de Supuestos\n\nSupuesto de Linealidad\nSe evalúa mediante el gráfico de residuos vs valores ajustados. Si los residuos se distribuyen aleatoriamente alrededor de cero, el supuesto se considera cumplido.\n\nplot(modelo, which = 1)  # Residuals vs Fitted\n\n\n\n\n\n\n\n\n\n\nSupuesto de Normalidad\nSe puede evaluar visualmente con un gráfico Q-Q y mediante pruebas estadísticas como Shapiro-Wilk y Anderson-Darling:\nGráfico Q-Q:\n\n# Gráfico Q-Q\nplot(modelo, which = 2)  # Normal Q-Q\n\n\n\n\n\n\n\n\nPrueba de Shapiro-Wilk:\n\n\\(H_0​\\): Los residuos siguen distribución normal\n\\(H_a\\)​: Los residuos no siguen distribución normal\n\n\nshapiro.test(residuals(modelo))\n\n\n    Shapiro-Wilk normality test\n\ndata:  residuals(modelo)\nW = 0.9049, p-value = 0.2478\n\n\nPrueba de Anderson-Darling (más potente para muestras grandes):\n\nad.test(residuals(modelo))\n\n\n    Anderson-Darling normality test\n\ndata:  residuals(modelo)\nA = 0.36544, p-value = 0.3604\n\n\n\n\nSupuesto de Homocedasticidad\nSe evalúa con la Prueba de Breusch-Pagan:\n\n\\(H_0\\)​: Varianza constante (homocedasticidad)\n\\(H_a\\)​: Varianza no constante (heterocedasticidad)\n\n\nbptest(modelo)\n\n\n    studentized Breusch-Pagan test\n\ndata:  modelo\nBP = 0.71286, df = 1, p-value = 0.3985\n\n\n\n\nSupuesto de independencia\nEn estudios experimentales, la independencia suele garantizarse mediante un diseño adecuado. En estudios observacionales, se recomienda analizar el contexto y, si es posible, realizar pruebas adicionales.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Regresión Lineal Simple usando R</span>"
+    ]
+  },
+  {
+    "objectID": "C11.2.html#interpretación-de-resultados",
+    "href": "C11.2.html#interpretación-de-resultados",
+    "title": "Regresión Lineal Simple usando R",
+    "section": "Interpretación de Resultados",
+    "text": "Interpretación de Resultados\n\nCoeficientes del Modelo\n\nIntercepto (\\(\\hat{\\beta_0}\\)​): Valor esperado de Y cuando X = 0\nPendiente (\\(\\hat{\\beta_1}\\)​): Cambio promedio en Y por unidad de cambio en X\n\n\n\nBondad de Ajuste\nEl coeficiente de determinación (\\(R^2\\)) indica la proporción de variabilidad explicada:\n\\[\\huge R^2 = \\frac{SC_{Regresión}}{SC_{Total}}\\]\n​\n\n\\(R^2 &gt; 0.7\\): Ajuste bueno\n\\(-0.5 &lt; R^2 &lt; 0.7\\): Ajuste moderado\n\\(R^2 &lt; 0.5\\): Ajuste pobre\n\n\n\nSignificancia Estadística\nLa prueba F global evalúa:\n\n\\(H_0\\)​: \\(\\beta_1 = 0\\) (no hay relación lineal)\n\\(H_a\\)​: \\(\\beta_1 \\neq 0\\) (existe relación lineal)\n\n\n\nCriterios de Decisión para los supuestos\n\n\n\nSupuesto\nPrueba\nCriterio de Aceptación\n\n\n\n\nNormalidad\nShapiro-Wilk\np-valor &gt; 0.05\n\n\nHomocedasticidad\nBreusch-Pagan\np-valor &gt; 0.05\n\n\nLinealidad\nGráfico residuos\nPatrón aleatorio\n\n\nIndependencia\nContexto experimental\nDiseño adecuado\n\n\n\n\n\nPasos para una Interpretación Integral y Conclusiones\n\nEvaluar significancia del modelo (prueba F global)\nVerificar supuestos mediante pruebas estadísticas y gráficos\nInterpretar coeficientes en el contexto del problema\nEvaluar bondad de ajuste (\\(R^2\\) y \\(R^2\\) ajustado)\nIdentificar limitaciones del modelo\nFormular recomendaciones prácticas",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Regresión Lineal Simple usando R</span>"
+    ]
+  },
+  {
+    "objectID": "C11.2.html#aplicaciones-prácticas",
+    "href": "C11.2.html#aplicaciones-prácticas",
+    "title": "Regresión Lineal Simple usando R",
+    "section": "Aplicaciones Prácticas",
+    "text": "Aplicaciones Prácticas\n\nPredicción para Nuevos Datos\n\n# Nuevos pesos de padres\nnuevos_pesos &lt;- data.frame(Peso_Padres = c(60, 75, 80))\npredicciones &lt;- predict(modelo, nuevos_pesos, interval = \"prediction\")\npredicciones\n\n       fit      lwr      upr\n1 48.62315 44.77666 52.46963\n2 59.22929 55.95375 62.50484\n3 62.76467 59.42443 66.10492",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Regresión Lineal Simple usando R</span>"
+    ]
+  },
+  {
+    "objectID": "C11.2.html#criterios-de-decisión",
+    "href": "C11.2.html#criterios-de-decisión",
+    "title": "Regresión Lineal Simple usando R",
+    "section": "Criterios de Decisión",
+    "text": "Criterios de Decisión\n\n\n\nSupuesto\nPrueba\nCriterio de Aceptación\n\n\n\n\nNormalidad\nShapiro-Wilk\np-valor &gt; 0.05\n\n\nHomocedasticidad\nBreusch-Pagan\np-valor &gt; 0.05\n\n\nLinealidad\nGráfico residuos\nPatrón aleatorio\n\n\nIndependencia\nContexto experimental\nDiseño adecuado",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Regresión Lineal Simple usando R</span>"
+    ]
+  },
+  {
+    "objectID": "C11.2.html#interpretación-integral-y-conclusiones",
+    "href": "C11.2.html#interpretación-integral-y-conclusiones",
+    "title": "Regresión Lineal Simple usando R",
+    "section": "Interpretación Integral y Conclusiones",
+    "text": "Interpretación Integral y Conclusiones\n\nEvaluar significancia del modelo (prueba F global)\nVerificar supuestos mediante pruebas estadísticas y gráficos\nInterpretar coeficientes en el contexto del problema\nEvaluar bondad de ajuste (\\(R^2\\) y \\(R^2\\) ajustado)\nIdentificar limitaciones del modelo\nFormular recomendaciones prácticas",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Regresión Lineal Simple usando R</span>"
+    ]
+  },
+  {
+    "objectID": "C11.2.html#fundamentos-teóricos",
+    "href": "C11.2.html#fundamentos-teóricos",
+    "title": "Regresión Lineal Simple usando R",
+    "section": "",
+    "text": "\\(Y_i\\) representa el valor observado de la variable dependiente para el individuo i.\n\\(X_i\\) es el valor observado de la variable independiente para el individuo i.\n\\(\\beta_0\\) es el intercepto o constante, que indica el valor esperado de \\(Y\\) cuando \\(X=0\\).\n\\(\\beta_1\\) es la pendiente, que representa el cambio promedio en \\(Y\\) por cada unidad de cambio en \\(X\\).\n\\(\\varepsilon_i\\) es el término de error aleatorio, que recoge la variabilidad no explicada por el modelo.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Regresión Lineal Simple usando R</span>"
+    ]
+  },
+  {
+    "objectID": "C11.2.html#supuestos-del-modelo",
+    "href": "C11.2.html#supuestos-del-modelo",
+    "title": "Regresión Lineal Simple usando R",
+    "section": "Supuestos del Modelo",
+    "text": "Supuestos del Modelo\nPara que los resultados de la regresión lineal simple sean válidos, es necesario que se cumplan los siguientes supuestos (López & González, 2018):\n\nLinealidad: La relación entre la variable independiente y la dependiente debe ser lineal. Esto significa que el efecto de \\(X\\) sobre \\(Y\\) es constante a lo largo de todo el rango de valores.\nNormalidad de los errores: Los residuos (diferencias entre los valores observados y los predichos) deben seguir una distribución normal.\nHomocedasticidad: La varianza de los errores debe ser constante para todos los valores de \\(X\\).\nIndependencia: Las observaciones deben ser independientes entre sí, es decir, el valor de una observación no debe influir en el valor de otra.\n\nEl incumplimiento de estos supuestos puede llevar a conclusiones erróneas o a una interpretación incorrecta de los resultados.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Regresión Lineal Simple usando R</span>"
+    ]
+  },
+  {
+    "objectID": "C11.2.html#predicción-con-el-modelo-ajustado",
+    "href": "C11.2.html#predicción-con-el-modelo-ajustado",
+    "title": "Regresión Lineal Simple usando R",
+    "section": "Predicción con el modelo ajustado",
+    "text": "Predicción con el modelo ajustado\nUna vez ajustado el modelo, se pueden realizar predicciones para nuevos valores de la variable independiente:\n\n# Nuevos valores de Peso_Padres\nnuevos_pesos &lt;- data.frame(Peso_Padres = c(60, 75, 80))\n\n# Predicción con intervalos de predicción\npredicciones &lt;- predict(modelo, nuevos_pesos, interval = \"prediction\")\npredicciones\n\n       fit      lwr      upr\n1 48.62315 44.77666 52.46963\n2 59.22929 55.95375 62.50484\n3 62.76467 59.42443 66.10492\n\n\nEl resultado incluye el valor predicho y los límites inferior y superior del intervalo de predicción para cada nuevo valor.",
+    "crumbs": [
+      "<span class='chapter-number'>19</span>  <span class='chapter-title'>Regresión Lineal Simple usando R</span>"
+    ]
   }
 ]

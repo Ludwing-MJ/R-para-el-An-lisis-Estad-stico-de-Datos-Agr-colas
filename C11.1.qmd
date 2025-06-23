@@ -269,3 +269,15 @@ lines(x_seq, predicciones[,"fit"], col = "blue", lwd = 2)
 ```
 
 **Interpretación:** La banda sombreada representa el intervalo de confianza del 95% para la línea de regresión, indicando el rango de valores donde se espera que se encuentre la verdadera relación poblacional.
+
+## Simulación interactiva del coeficiente de Pearson
+
+A continuación, se presenta una aplicación interactiva diseñada para visualizar cómo los diferentes valores del coeficiente de correlación de Pearson (r) se reflejan en un gráfico de dispersión junto con su respectiva línea de tendencia. Esta herramienta facilita la comprensión visual y práctica del concepto de correlación lineal simple, permitiendo observar de manera dinámica cómo varía la relación entre dos variables a medida que cambia el valor de r.
+
+Para explorar la aplicación y experimentar con distintos escenarios de correlación, se recomienda acceder al siguiente enlace: <https://ludwing-mj.shinyapps.io/pearson/>.
+
+::: {style="display: flex; justify-content: center;"}
+<iframe src="https://ludwing-mj.shinyapps.io/pearson/" width="900" height="950" style="border: none;">
+
+</iframe>
+:::

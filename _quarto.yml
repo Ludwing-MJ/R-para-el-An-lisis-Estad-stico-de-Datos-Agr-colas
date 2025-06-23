@@ -67,6 +67,7 @@ book:
       attributes:
         class: part
     - C11.1.qmd
+    - C11.2.qmd
     - part: "Referencias"
       attributes:
         class: part
