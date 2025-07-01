@@ -18,7 +18,10 @@ $$\LARGE \hat{\operatorname{Cov}}(X, Y) = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \b
 
 Considérese los siguientes datos de peso de padres ($X$) y peso de hijos ($Y$) en kilogramos:
 
-$$\begin{array}{cccccccccc}   x_i & 78 & 65 & 86 & 68 & 83 & 68 & 75 & 80 & 82 & 66 \\   y_i & 60 & 52 & 68 & 53 & 65 & 57 & 58 & 62 & 65 & 53 \\   \end{array} $$​
+$$\begin{array}{ccccccccccc}   
+x_i & 78 & 65 & 86 & 68 & 83 & 68 & 75 & 80 & 82 & 66 \\   
+y_i & 60 & 52 & 68 & 53 & 65 & 57 & 58 & 62 & 65 & 53 \\   
+\end{array} $$​
 
 1.  Calcular las medias:
 
@@ -95,12 +98,16 @@ Este estadístico sigue una distribución t de Student con $n-2$ grados de liber
 
 Con $r = 0.974$ y $n = 10$:
 
-$$\LARGE\begin{array} \\t = \frac{0.974 \sqrt{10-2}}{\sqrt{1 - 0.974^2}}  \\
- =\frac{0.974 \times 2.828}{\sqrt{1 - 0.949}} \\
- = \frac{2.754}{\sqrt{0.051}} \\
-  =\frac{2.754}{0.226} \\
-= 12.19 \end{array}$$
-
+$$
+\LARGE
+\begin{array}{l}
+t = \frac{0.974 \sqrt{10-2}}{\sqrt{1 - 0.974^2}}  \\
+= \frac{0.974 \times 2.828}{\sqrt{1 - 0.949}} \\
+= \frac{2.754}{\sqrt{0.051}} \\
+= \frac{2.754}{0.226} \\
+= 12.19
+\end{array}
+$$
 Se compara el valor calculado con el valor crítico de t para $n-2 = 8$ grados de libertad y el nivel de significancia deseado (por ejemplo, $\alpha = 0.05$. Si $|t| > t_{crítico}$, se rechaza $H_0$.
 
 ## Uso de funciones en R

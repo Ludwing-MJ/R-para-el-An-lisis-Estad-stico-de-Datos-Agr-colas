@@ -59,7 +59,8 @@ $$\LARGE [1.00, 1.75)$$
 
 Esto significa que la clase incluye todos los valores $x$ tales que $1.00≤x<1.75$.
 
-Los intervalos de clase quedan así: $$\large \begin{align*}
+Los intervalos de clase quedan así:
+$$\large \begin{aligned}
 \text{Clase 1:} & \quad [1.00, 1.75) \\
 \text{Clase 2:} & \quad [1.75, 2.50) \\
 \text{Clase 3:} & \quad [2.50, 3.25) \\
@@ -68,7 +69,7 @@ Los intervalos de clase quedan así: $$\large \begin{align*}
 \text{Clase 6:} & \quad [4.75, 5.50) \\
 \text{Clase 7:} & \quad [5.50, 6.25) \\
 \text{Clase 8:} & \quad [6.25, 7.00] \\
-\end{align*}$$
+\end{aligned}$$
 
 **Nótese** que en la última clase se utiliza el corchete de cierre $]$ para incluir el valor máximo.
 
@@ -99,7 +100,7 @@ Estos productos se utilizan para cálculos posteriores: $$\huge f_i x_i = f_i \t
 ## Tabla de frecuencia
 
 | Clase | Límite Inferior (LI) | Límite Superior (LS) | Marca de clase ($x_i$) | Frecuencia ( $f_i$ ​) | Frecuencia relativa ($fr_i$​) | Frecuencia acumulada ($fa_i$) | $f_i x_i$ | $f_i x_i^2$ |
-|----|----|----|----|----|----|----|----|----|
+|--------|--------|--------|--------|--------|--------|--------|--------|--------|
 | 1 | 1.000 | 1.750 | 1.375 | 48 | 0.320 | 48 | 66.000 | 90.750 |
 | 2 | 1.750 | 2.500 | 2.125 | 2 | 0.013 | 50 | 4.250 | 9.031 |
 | 3 | 2.500 | 3.250 | 2.875 | 1 | 0.007 | 51 | 2.875 | 8.266 |
