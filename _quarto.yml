@@ -1,6 +1,6 @@
 project:
   type: book
-  output-dir: _book
+  output-dir: docs
 
 book:
   title: "R para el Análisis Estadístico de Datos Agrícolas"
@@ -19,7 +19,7 @@ book:
     collapse-level: 4
   repo-subdir: book
   sharing: [twitter, linkedin]
-  downloads: [pdf, epub]
+  downloads: [pdf]
   image: logo_cete_vector.png
 
   page-footer:
