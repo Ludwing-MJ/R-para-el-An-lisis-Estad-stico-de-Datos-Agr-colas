@@ -54,7 +54,10 @@ Para automatizar este proceso en R se puede emplear la siguiente formula persona
 
 ```{r}
 # Función personalizada para intervalo de confianza (sigma conocida)
-ic_media_sigma <- function(x_barra, sigma, n, confianza = 0.95) {
+ic_media_sigma <- function(x_barra, 
+                           sigma, 
+                           n, 
+                           confianza = 0.95) {
   # Cálculos
   error_estandar <- sigma / sqrt(n)
   alpha <- 1 - confianza
@@ -119,7 +122,7 @@ $$
 
 Cuando la desviación estándar de la población ($\sigma$) es desconocida, se utiliza la desviación estándar muestral ($s$) como estimación. La elección de la distribución apropiada para calcular el intervalo de confianza depende del tamaño de la muestra:
 
-#### Criterio de selección de distribución
+**Criterio de selección de distribución:**
 
 **Para muestras pequeñas (n \< 30):** Se utiliza la distribución t de Student:
 
@@ -136,7 +139,11 @@ Para automatizar este proceso en R se puede emplear la siguiente formula persona
 
 ```{r}
 # Función robusta que decide automáticamente entre Z y t
-ic_media_s <- function(datos = NULL, x_barra = NULL, s = NULL, n = NULL, confianza = 0.95) {
+ic_media_s <- function(datos = NULL, 
+                       x_barra = NULL, 
+                       s = NULL, 
+                       n = NULL, 
+                       confianza = 0.95) {
   
   # Si se proporcionan los datos directamente
   if (!is.null(datos)) {
@@ -216,7 +223,8 @@ ic_media_s <- function(datos = NULL, x_barra = NULL, s = NULL, n = NULL, confian
   
   cat("Cálculos del intervalo:\n")
   cat("- Error estándar:", round(error_estandar, 4), "\n")
-  cat("- Valor", if(usar_z) "z" else "t", "crítico:", round(valor_critico, 4), "\n")
+  cat("- Valor", if(usar_z) "z" else "t", "crítico:",
+      round(valor_critico, 4), "\n")
   cat("- Margen de error:", round(margen_error, 4), "\n\n")
   
   cat("RESULTADO:\n")
@@ -269,7 +277,10 @@ Para automatizar este proceso en R se puede emplear la siguiente formula persona
 
 ```{r}
 # Función personalizada para intervalo de confianza de varianza
-ic_varianza <- function(datos = NULL, s = NULL, n = NULL, confianza = 0.90) {
+ic_varianza <- function(datos = NULL, 
+                        s = NULL, 
+                        n = NULL, 
+                        confianza = 0.95) {
   
   # Si se proporcionan los datos directamente
   if (!is.null(datos)) {
@@ -392,7 +403,9 @@ Para automatizar este proceso en R se puede emplear la siguiente formula persona
 
 ```{r}
 # Función personalizada para intervalo de confianza de una proporción
-ic_proporcion <- function(x, n, confianza = 0.95) {
+ic_proporcion <- function(x, 
+                          n, 
+                          confianza = 0.95) {
   p_hat <- x / n
   alpha <- 1 - confianza
   z_critico <- qnorm(1 - alpha/2)
@@ -569,10 +582,14 @@ Usando la función personalizada:
 ```{r}
 
 # Opción 1: Pasando los datos directamente
-resultado1 <- ic_media_s(datos = alturas, confianza = 0.95)
+resultado1 <- ic_media_s(datos = alturas, 
+                         confianza = 0.95)
 
 # Opción 2: Pasando los estadísticos calculados
-resultado2 <- ic_media_s(x_barra = 13.89, s = 0.85, n = 15, confianza = 0.95)
+resultado2 <- ic_media_s(x_barra = 13.89, 
+                         s = 0.85, 
+                         n = 15, 
+                         confianza = 0.95)
 ```
 
 ### Ejemplo 3: Intervalo de confianza para la varianza
@@ -630,7 +647,9 @@ $$
 
 ```{r}
 # Ejemplo con los datos del problema
-resultado <- ic_varianza(s = 45, n = 20, confianza = 0.90)
+resultado <- ic_varianza(s = 45, 
+                         n = 20, 
+                         confianza = 0.90)
 
 
 ```
@@ -676,13 +695,12 @@ $$
 Usando la función base de R:
 
 ```{r}
-# Datos del problema
-n <- 200
-x <- 156
-confianza <- 0.95
 
-# Cálculo directo con función incorporada
-prop.test(x, n, conf.level = confianza, correct = FALSE)
+# Cálculo directo con función incorporada en R base
+prop.test(x = 156, 
+          n = 200, 
+          conf.level = 0.95, 
+          correct = FALSE)
 ```
 
 *Nota: `correct = FALSE` evita la corrección de continuidad para que el resultado sea idéntico al cálculo manual.*

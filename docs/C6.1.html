@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Manual práctico para el análisis estadístico de datos agrícolas utilizando R, orientado a estudiantes y profesionales de agronomía.">
 
-<title>Introducción a probabilidades – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>13&nbsp; Introducción a probabilidades – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -279,7 +280,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C6.1.html"><span class="chapter-title">Introducción a probabilidades</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C6.1.html"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -298,7 +299,41 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R para el Análisis Estadístico de Datos Agrícolas</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -318,136 +353,160 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C0.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Instalación y configuración</span></a>
+  <a href="./C0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación y configuración</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">1. Aspectos Introductorios</span></span>
+ <span class="menu-text">Aspectos Introductorios</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C1.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aspectos introductorios</span></a>
+  <a href="./C1.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos introductorios</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">2. Clasificación de variables</span></span>
+ <span class="menu-text">Clasificación de variables</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C2.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clasificación de Variables</span></a>
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">3. Notación sumatoria</span></span>
+ <span class="menu-text">Notación sumatoria</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a la Notación Sumatoria</span></a>
+  <a href="./C3.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Notación Sumatoria</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></a>
+  <a href="./C3.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a>
+  <a href="./C3.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sumatorias Dobles y Múltiples</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">4. Estadística descriptiva para datos sin agrupar</span></span>
+ <span class="menu-text">Estadística descriptiva para datos sin agrupar</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C4.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></a>
+  <a href="./C4.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Otros tipos de medias</span></a>
+  <a href="./c4.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Otros tipos de medias</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cálculos en R</span></a>
+  <a href="./c4.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cálculos en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">5. Estadística descriptiva para datos agrupados</span></span>
+ <span class="menu-text">Estadística descriptiva para datos agrupados</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción y formulario</span></a>
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción y formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo empleando el formulario</span></a>
+  <a href="./C5.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Ejemplo empleando el formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo en R</span></a>
+  <a href="./C5.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Ejemplo en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">6. Introducción a probabilidades</span></span>
+ <span class="menu-text">Introducción a probabilidades</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C6.1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Introducción a probabilidades</span></a>
+  <a href="./C6.1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">7. Distribuciones de probabilidad discretas</span></span>
+ <span class="menu-text">Distribuciones de probabilidad discretas</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C7.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribuciones Binomial y Poisson en R</span></a>
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">8. Distribución normal</span></span>
+ <span class="menu-text">Distribución normal</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C8.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribución normal</span></a>
+  <a href="./C8.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">9. Intervalos de confianza</span></span>
+ <span class="menu-text">Intervalos de confianza</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Intervalos de confianza</span></a>
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">10. Pruebas de hipótesis</span></span>
+ <span class="menu-text">Pruebas de hipótesis</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C10.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas de hipótesis</span></a>
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">11. Regresión lineal y correlación</span></span>
+ <span class="menu-text">Regresión lineal y correlación</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal y correlación</span></a>
+  <a href="./C11.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C11.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -470,39 +529,39 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#conceptos-fundamentales" id="toc-conceptos-fundamentales" class="nav-link active" data-scroll-target="#conceptos-fundamentales">Conceptos Fundamentales</a>
+  <li><a href="#conceptos-fundamentales" id="toc-conceptos-fundamentales" class="nav-link active" data-scroll-target="#conceptos-fundamentales"><span class="header-section-number">13.1</span> Conceptos Fundamentales</a>
   <ul class="collapse">
-  <li><a href="#experimento-y-experimento-aleatorio" id="toc-experimento-y-experimento-aleatorio" class="nav-link" data-scroll-target="#experimento-y-experimento-aleatorio">Experimento y Experimento Aleatorio</a></li>
-  <li><a href="#espacio-muestral" id="toc-espacio-muestral" class="nav-link" data-scroll-target="#espacio-muestral">Espacio Muestral</a></li>
-  <li><a href="#evento" id="toc-evento" class="nav-link" data-scroll-target="#evento">Evento</a></li>
+  <li><a href="#experimento-y-experimento-aleatorio" id="toc-experimento-y-experimento-aleatorio" class="nav-link" data-scroll-target="#experimento-y-experimento-aleatorio"><span class="header-section-number">13.1.1</span> Experimento y Experimento Aleatorio</a></li>
+  <li><a href="#espacio-muestral" id="toc-espacio-muestral" class="nav-link" data-scroll-target="#espacio-muestral"><span class="header-section-number">13.1.2</span> Espacio Muestral</a></li>
+  <li><a href="#evento" id="toc-evento" class="nav-link" data-scroll-target="#evento"><span class="header-section-number">13.1.3</span> Evento</a></li>
   </ul></li>
-  <li><a href="#métodos-para-asignar-probabilidades" id="toc-métodos-para-asignar-probabilidades" class="nav-link" data-scroll-target="#métodos-para-asignar-probabilidades">Métodos para Asignar Probabilidades</a>
+  <li><a href="#métodos-para-asignar-probabilidades" id="toc-métodos-para-asignar-probabilidades" class="nav-link" data-scroll-target="#métodos-para-asignar-probabilidades"><span class="header-section-number">13.2</span> Métodos para Asignar Probabilidades</a>
   <ul class="collapse">
-  <li><a href="#método-clásico" id="toc-método-clásico" class="nav-link" data-scroll-target="#método-clásico">Método Clásico</a></li>
-  <li><a href="#método-de-la-frecuencia-relativa" id="toc-método-de-la-frecuencia-relativa" class="nav-link" data-scroll-target="#método-de-la-frecuencia-relativa">Método de la Frecuencia Relativa</a></li>
-  <li><a href="#método-subjetivo" id="toc-método-subjetivo" class="nav-link" data-scroll-target="#método-subjetivo">Método Subjetivo</a></li>
+  <li><a href="#método-clásico" id="toc-método-clásico" class="nav-link" data-scroll-target="#método-clásico"><span class="header-section-number">13.2.1</span> Método Clásico</a></li>
+  <li><a href="#método-de-la-frecuencia-relativa" id="toc-método-de-la-frecuencia-relativa" class="nav-link" data-scroll-target="#método-de-la-frecuencia-relativa"><span class="header-section-number">13.2.2</span> Método de la Frecuencia Relativa</a></li>
+  <li><a href="#método-subjetivo" id="toc-método-subjetivo" class="nav-link" data-scroll-target="#método-subjetivo"><span class="header-section-number">13.2.3</span> Método Subjetivo</a></li>
   </ul></li>
-  <li><a href="#relaciones-básicas-de-probabilidad" id="toc-relaciones-básicas-de-probabilidad" class="nav-link" data-scroll-target="#relaciones-básicas-de-probabilidad">Relaciones Básicas de Probabilidad</a>
+  <li><a href="#relaciones-básicas-de-probabilidad" id="toc-relaciones-básicas-de-probabilidad" class="nav-link" data-scroll-target="#relaciones-básicas-de-probabilidad"><span class="header-section-number">13.3</span> Relaciones Básicas de Probabilidad</a>
   <ul class="collapse">
-  <li><a href="#complemento-de-un-evento" id="toc-complemento-de-un-evento" class="nav-link" data-scroll-target="#complemento-de-un-evento">Complemento de un Evento</a></li>
-  <li><a href="#ley-aditiva" id="toc-ley-aditiva" class="nav-link" data-scroll-target="#ley-aditiva">Ley Aditiva</a></li>
-  <li><a href="#eventos-mutuamente-excluyentes" id="toc-eventos-mutuamente-excluyentes" class="nav-link" data-scroll-target="#eventos-mutuamente-excluyentes">Eventos Mutuamente Excluyentes</a></li>
+  <li><a href="#complemento-de-un-evento" id="toc-complemento-de-un-evento" class="nav-link" data-scroll-target="#complemento-de-un-evento"><span class="header-section-number">13.3.1</span> Complemento de un Evento</a></li>
+  <li><a href="#ley-aditiva" id="toc-ley-aditiva" class="nav-link" data-scroll-target="#ley-aditiva"><span class="header-section-number">13.3.2</span> Ley Aditiva</a></li>
+  <li><a href="#eventos-mutuamente-excluyentes" id="toc-eventos-mutuamente-excluyentes" class="nav-link" data-scroll-target="#eventos-mutuamente-excluyentes"><span class="header-section-number">13.3.3</span> Eventos Mutuamente Excluyentes</a></li>
   </ul></li>
-  <li><a href="#probabilidad-condicional" id="toc-probabilidad-condicional" class="nav-link" data-scroll-target="#probabilidad-condicional">Probabilidad Condicional</a></li>
-  <li><a href="#eventos-independientes" id="toc-eventos-independientes" class="nav-link" data-scroll-target="#eventos-independientes">Eventos Independientes</a></li>
-  <li><a href="#ley-multiplicativa" id="toc-ley-multiplicativa" class="nav-link" data-scroll-target="#ley-multiplicativa">Ley Multiplicativa</a>
+  <li><a href="#probabilidad-condicional" id="toc-probabilidad-condicional" class="nav-link" data-scroll-target="#probabilidad-condicional"><span class="header-section-number">13.4</span> Probabilidad Condicional</a></li>
+  <li><a href="#eventos-independientes" id="toc-eventos-independientes" class="nav-link" data-scroll-target="#eventos-independientes"><span class="header-section-number">13.5</span> Eventos Independientes</a></li>
+  <li><a href="#ley-multiplicativa" id="toc-ley-multiplicativa" class="nav-link" data-scroll-target="#ley-multiplicativa"><span class="header-section-number">13.6</span> Ley Multiplicativa</a>
   <ul class="collapse">
-  <li><a href="#ley-multiplicativa-para-eventos-independientes" id="toc-ley-multiplicativa-para-eventos-independientes" class="nav-link" data-scroll-target="#ley-multiplicativa-para-eventos-independientes">Ley Multiplicativa para Eventos Independientes</a></li>
+  <li><a href="#ley-multiplicativa-para-eventos-independientes" id="toc-ley-multiplicativa-para-eventos-independientes" class="nav-link" data-scroll-target="#ley-multiplicativa-para-eventos-independientes"><span class="header-section-number">13.6.1</span> Ley Multiplicativa para Eventos Independientes</a></li>
   </ul></li>
-  <li><a href="#diagramas-de-árbol" id="toc-diagramas-de-árbol" class="nav-link" data-scroll-target="#diagramas-de-árbol">Diagramas de Árbol</a>
+  <li><a href="#diagramas-de-árbol" id="toc-diagramas-de-árbol" class="nav-link" data-scroll-target="#diagramas-de-árbol"><span class="header-section-number">13.7</span> Diagramas de Árbol</a>
   <ul class="collapse">
-  <li><a href="#uso-de-diagramas-de-árbol-en-probabilidad-condicional" id="toc-uso-de-diagramas-de-árbol-en-probabilidad-condicional" class="nav-link" data-scroll-target="#uso-de-diagramas-de-árbol-en-probabilidad-condicional">Uso de Diagramas de Árbol en Probabilidad Condicional</a></li>
+  <li><a href="#uso-de-diagramas-de-árbol-en-probabilidad-condicional" id="toc-uso-de-diagramas-de-árbol-en-probabilidad-condicional" class="nav-link" data-scroll-target="#uso-de-diagramas-de-árbol-en-probabilidad-condicional"><span class="header-section-number">13.7.1</span> Uso de Diagramas de Árbol en Probabilidad Condicional</a></li>
   </ul></li>
-  <li><a href="#teorema-de-bayes" id="toc-teorema-de-bayes" class="nav-link" data-scroll-target="#teorema-de-bayes">Teorema de Bayes</a>
+  <li><a href="#teorema-de-bayes" id="toc-teorema-de-bayes" class="nav-link" data-scroll-target="#teorema-de-bayes"><span class="header-section-number">13.8</span> Teorema de Bayes</a>
   <ul class="collapse">
-  <li><a href="#tabla-de-análisis-para-el-teorema-de-bayes" id="toc-tabla-de-análisis-para-el-teorema-de-bayes" class="nav-link" data-scroll-target="#tabla-de-análisis-para-el-teorema-de-bayes">Tabla de Análisis para el Teorema de Bayes</a></li>
+  <li><a href="#tabla-de-análisis-para-el-teorema-de-bayes" id="toc-tabla-de-análisis-para-el-teorema-de-bayes" class="nav-link" data-scroll-target="#tabla-de-análisis-para-el-teorema-de-bayes"><span class="header-section-number">13.8.1</span> Tabla de Análisis para el Teorema de Bayes</a></li>
   </ul></li>
-  <li><a href="#notación-correcta-para-probabilidades" id="toc-notación-correcta-para-probabilidades" class="nav-link" data-scroll-target="#notación-correcta-para-probabilidades">Notación Correcta para Probabilidades</a></li>
+  <li><a href="#notación-correcta-para-probabilidades" id="toc-notación-correcta-para-probabilidades" class="nav-link" data-scroll-target="#notación-correcta-para-probabilidades"><span class="header-section-number">13.9</span> Notación Correcta para Probabilidades</a></li>
   </ul>
 </nav>
     </div>
@@ -512,7 +571,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Introducción a probabilidades</span></h1>
+<h1 class="title"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></h1>
 </div>
 
 
@@ -531,10 +590,10 @@ window.Quarto = {
 
 <p>La mayor parte de los problemas en estadística involucran elementos de incertidumbre, ya que usualmente no es posible determinar anticipadamente las características de una población desconocida o prever las consecuencias exactas de la toma de una decisión. Por lo tanto, es conveniente disponer de una medida que exprese esa incertidumbre en términos de una escala numérica. Esta medida es la <strong>probabilidad</strong> (López &amp; González, 2018).</p>
 <p>En el contexto agronómico, la probabilidad permite modelar y cuantificar la variabilidad inherente en los procesos biológicos, climáticos y productivos. Por ejemplo, se puede utilizar para evaluar la probabilidad de ocurrencia de plagas, el éxito de tratamientos fitosanitarios, o la variabilidad en rendimientos de cultivos.</p>
-<section id="conceptos-fundamentales" class="level2">
-<h2 class="anchored" data-anchor-id="conceptos-fundamentales">Conceptos Fundamentales</h2>
-<section id="experimento-y-experimento-aleatorio" class="level3">
-<h3 class="anchored" data-anchor-id="experimento-y-experimento-aleatorio">Experimento y Experimento Aleatorio</h3>
+<section id="conceptos-fundamentales" class="level2" data-number="13.1">
+<h2 data-number="13.1" class="anchored" data-anchor-id="conceptos-fundamentales"><span class="header-section-number">13.1</span> Conceptos Fundamentales</h2>
+<section id="experimento-y-experimento-aleatorio" class="level3" data-number="13.1.1">
+<h3 data-number="13.1.1" class="anchored" data-anchor-id="experimento-y-experimento-aleatorio"><span class="header-section-number">13.1.1</span> Experimento y Experimento Aleatorio</h3>
 <p>Un <strong>experimento</strong> es el proceso mediante el cual se obtiene una observación o medida de un fenómeno. Cuando el resultado del experimento no puede preverse con certeza debido a la variabilidad inherente del fenómeno, se denomina <strong>experimento aleatorio</strong> (López &amp; González, 2018).</p>
 <p><strong>Ejemplos de experimentos aleatorios:</strong></p>
 <ol type="1">
@@ -546,8 +605,8 @@ window.Quarto = {
 <li><p>Conteo del número de piezas defectuosas producidas en una línea de producción durante 24 horas</p></li>
 </ol>
 </section>
-<section id="espacio-muestral" class="level3">
-<h3 class="anchored" data-anchor-id="espacio-muestral">Espacio Muestral</h3>
+<section id="espacio-muestral" class="level3" data-number="13.1.2">
+<h3 data-number="13.1.2" class="anchored" data-anchor-id="espacio-muestral"><span class="header-section-number">13.1.2</span> Espacio Muestral</h3>
 <p>El <strong>espacio muestral</strong> es el conjunto de todos los posibles resultados de un experimento aleatorio. Se denota con el símbolo <span class="math inline">\(\Omega\)</span> (López &amp; González, 2018).</p>
 <p><strong>Ejemplos de espacios muestrales:</strong></p>
 <ol type="1">
@@ -558,8 +617,8 @@ window.Quarto = {
 <li><p>Para el conteo de larvas: <span class="math inline">\(\Omega = \{0, 1, 2, ...\}\)</span></p></li>
 </ol>
 </section>
-<section id="evento" class="level3">
-<h3 class="anchored" data-anchor-id="evento">Evento</h3>
+<section id="evento" class="level3" data-number="13.1.3">
+<h3 data-number="13.1.3" class="anchored" data-anchor-id="evento"><span class="header-section-number">13.1.3</span> Evento</h3>
 <p>Un <strong>evento</strong> A es un subconjunto del espacio muestral <span class="math inline">\(\Omega\)</span>. En terminología de conjuntos, un evento es simplemente un conjunto de resultados posibles del experimento aleatorio. Los eventos se denotan con letras mayúsculas como A, B, C, etc. (López &amp; González, 2018).</p>
 <p><strong>Ejemplos de eventos:</strong></p>
 <ol type="1">
@@ -569,15 +628,15 @@ window.Quarto = {
 </ol>
 </section>
 </section>
-<section id="métodos-para-asignar-probabilidades" class="level2">
-<h2 class="anchored" data-anchor-id="métodos-para-asignar-probabilidades">Métodos para Asignar Probabilidades</h2>
+<section id="métodos-para-asignar-probabilidades" class="level2" data-number="13.2">
+<h2 data-number="13.2" class="anchored" data-anchor-id="métodos-para-asignar-probabilidades"><span class="header-section-number">13.2</span> Métodos para Asignar Probabilidades</h2>
 <p>Independientemente del método utilizado, se deben satisfacer dos requisitos básicos:</p>
 <ol type="1">
 <li><p>Los valores de probabilidad asignados a cada resultado experimental deben estar entre 0 y 1: <span class="math display">\[\LARGE 0 \leq P(E_i) \leq 1, \text{ para toda } i\]</span></p></li>
 <li><p>La suma de todas las probabilidades de resultados experimentales debe ser 1: <span class="math display">\[\LARGE \sum_{i=1}^{k} P(E_i) = 1\]</span></p></li>
 </ol>
-<section id="método-clásico" class="level3">
-<h3 class="anchored" data-anchor-id="método-clásico">Método Clásico</h3>
+<section id="método-clásico" class="level3" data-number="13.2.1">
+<h3 data-number="13.2.1" class="anchored" data-anchor-id="método-clásico"><span class="header-section-number">13.2.1</span> Método Clásico</h3>
 <p>Si un evento A puede ocurrir en <span class="math inline">\(h\)</span> maneras diferentes de un número total de <span class="math inline">\(n\)</span> maneras posibles, todas igualmente probables, entonces la probabilidad del evento es:</p>
 <p><span class="math display">\[\LARGE P(A) = \frac{h}{n} = \frac{\text{número de resultados favorables}}{\text{número de resultados posibles}}\]</span></p>
 <p><strong>Ejemplo:</strong> En el lanzamiento de dos dados honestos, calcule las probabilidades de los siguientes eventos:</p>
@@ -591,27 +650,27 @@ window.Quarto = {
 <li><p>Para C: 10 casos favorables, entonces <span class="math inline">\(P(C) = \frac{10}{36} = 0.278P\)</span></p></li>
 </ul>
 </section>
-<section id="método-de-la-frecuencia-relativa" class="level3">
-<h3 class="anchored" data-anchor-id="método-de-la-frecuencia-relativa">Método de la Frecuencia Relativa</h3>
+<section id="método-de-la-frecuencia-relativa" class="level3" data-number="13.2.2">
+<h3 data-number="13.2.2" class="anchored" data-anchor-id="método-de-la-frecuencia-relativa"><span class="header-section-number">13.2.2</span> Método de la Frecuencia Relativa</h3>
 <p>Si después de nnn repeticiones de un experimento donde nnn es “muy grande”, un evento ocurre hhh veces, entonces la probabilidad del evento es:</p>
 <p><span class="math display">\[\huge P(A) = \frac{h}{n}\]</span></p>
 <p><strong>Ejemplo:</strong> Si se lanza una moneda 1000 veces y resultan 532 caras, se puede estimar que: <span class="math display">\[\Large P(\text{cara}) = \frac{532}{1000} = 0.532\]</span></p>
 </section>
-<section id="método-subjetivo" class="level3">
-<h3 class="anchored" data-anchor-id="método-subjetivo">Método Subjetivo</h3>
+<section id="método-subjetivo" class="level3" data-number="13.2.3">
+<h3 data-number="13.2.3" class="anchored" data-anchor-id="método-subjetivo"><span class="header-section-number">13.2.3</span> Método Subjetivo</h3>
 <p>Este método está basado en el juicio personal. Se puede usar cualquier dato disponible junto con la experiencia e intuición del investigador.</p>
 </section>
 </section>
-<section id="relaciones-básicas-de-probabilidad" class="level2">
-<h2 class="anchored" data-anchor-id="relaciones-básicas-de-probabilidad">Relaciones Básicas de Probabilidad</h2>
-<section id="complemento-de-un-evento" class="level3">
-<h3 class="anchored" data-anchor-id="complemento-de-un-evento">Complemento de un Evento</h3>
+<section id="relaciones-básicas-de-probabilidad" class="level2" data-number="13.3">
+<h2 data-number="13.3" class="anchored" data-anchor-id="relaciones-básicas-de-probabilidad"><span class="header-section-number">13.3</span> Relaciones Básicas de Probabilidad</h2>
+<section id="complemento-de-un-evento" class="level3" data-number="13.3.1">
+<h3 data-number="13.3.1" class="anchored" data-anchor-id="complemento-de-un-evento"><span class="header-section-number">13.3.1</span> Complemento de un Evento</h3>
 <p>Dado un evento A, el <strong>complemento</strong> de A se define como el evento formado por todos los puntos muestrales que no están en A, y se representa por <span class="math inline">\(A^c\)</span>.</p>
 <p><span class="math display">\[\LARGE P(A) + P(A^c) = 1\]</span></p>
 <p>Por lo tanto: <span class="math inline">\(P(A) = 1 - P(A^c)\)</span></p>
 </section>
-<section id="ley-aditiva" class="level3">
-<h3 class="anchored" data-anchor-id="ley-aditiva">Ley Aditiva</h3>
+<section id="ley-aditiva" class="level3" data-number="13.3.2">
+<h3 data-number="13.3.2" class="anchored" data-anchor-id="ley-aditiva"><span class="header-section-number">13.3.2</span> Ley Aditiva</h3>
 <p>La ley aditiva es útil cuando se tienen dos eventos y se desea conocer la probabilidad de que ocurra por lo menos uno de ellos. Para eventos A y B:</p>
 <p><span class="math display">\[\Large P(A \cup B) = P(A) + P(B) - P(A \cap B)\]</span></p>
 <p><strong>Ejemplo:</strong> El gerente de personal de una empresa agroforestal encontró que el 30% de los empleados que salieron lo hicieron por insatisfacción salarial, el 20% por insatisfacción laboral, y el 12% por ambas razones.</p>
@@ -622,15 +681,15 @@ window.Quarto = {
 </ol>
 <p><span class="math display">\[\large P(S \cup W) = P(S) + P(W) - P(S \cap W) = 0.30 + 0.20 - 0.12 = 0.38\]</span></p>
 </section>
-<section id="eventos-mutuamente-excluyentes" class="level3">
-<h3 class="anchored" data-anchor-id="eventos-mutuamente-excluyentes">Eventos Mutuamente Excluyentes</h3>
+<section id="eventos-mutuamente-excluyentes" class="level3" data-number="13.3.3">
+<h3 data-number="13.3.3" class="anchored" data-anchor-id="eventos-mutuamente-excluyentes"><span class="header-section-number">13.3.3</span> Eventos Mutuamente Excluyentes</h3>
 <p>Dos eventos son <strong>mutuamente excluyentes</strong> si no tienen puntos muestrales en común, es decir, <span class="math inline">\(P(A \cap B) = 0\)</span>.</p>
 <p>Para eventos mutuamente excluyentes:<br>
 <span class="math display">\[\LARGE P(A \cup B) = P(A) + P(B)\]</span></p>
 </section>
 </section>
-<section id="probabilidad-condicional" class="level2">
-<h2 class="anchored" data-anchor-id="probabilidad-condicional">Probabilidad Condicional</h2>
+<section id="probabilidad-condicional" class="level2" data-number="13.4">
+<h2 data-number="13.4" class="anchored" data-anchor-id="probabilidad-condicional"><span class="header-section-number">13.4</span> Probabilidad Condicional</h2>
 <p>La <strong>probabilidad condicional</strong> de un evento A dado que ha ocurrido B se denota como <span class="math inline">\(P(A|B)\)</span> y se define como:</p>
 <p><span class="math display">\[\LARGE P(A|B) = \frac{P(A \cap B)}{P(B)}, \text{ siempre que } P(B) &gt; 0\]</span></p>
 <p>Esta notación se lee como “la probabilidad de A dado B” y representa la probabilidad de que ocurra A sabiendo que B ya ha ocurrido.</p>
@@ -674,28 +733,28 @@ window.Quarto = {
 <p>Dado que un alumno cursa Agronomía (A), ¿cuál es la probabilidad de que sea masculino (H)?</p>
 <p><span class="math display">\[\Large P(H|A) = \frac{P(H \cap A)}{P(A)} = \frac{160/265}{200/265} = \frac{160}{200} = 0.80\]</span></p>
 </section>
-<section id="eventos-independientes" class="level2">
-<h2 class="anchored" data-anchor-id="eventos-independientes">Eventos Independientes</h2>
+<section id="eventos-independientes" class="level2" data-number="13.5">
+<h2 data-number="13.5" class="anchored" data-anchor-id="eventos-independientes"><span class="header-section-number">13.5</span> Eventos Independientes</h2>
 <p>Dos eventos A y B son <strong>independientes</strong> si:</p>
 <p><span class="math display">\[\Large P(A|B) = P(A) \text{ o } P(B|A) = P(B)\]</span></p>
 <p>De lo contrario, los eventos son dependientes.</p>
 </section>
-<section id="ley-multiplicativa" class="level2">
-<h2 class="anchored" data-anchor-id="ley-multiplicativa">Ley Multiplicativa</h2>
+<section id="ley-multiplicativa" class="level2" data-number="13.6">
+<h2 data-number="13.6" class="anchored" data-anchor-id="ley-multiplicativa"><span class="header-section-number">13.6</span> Ley Multiplicativa</h2>
 <p>Mientras que la ley aditiva se utiliza para determinar la probabilidad de una unión entre dos eventos, la <strong>ley multiplicativa</strong> se usa para determinar la probabilidad de una intersección de dos eventos:</p>
 <p><span class="math display">\[\LARGE P(A \cap B) = P(B) \cdot P(A|B)\]</span></p>
 <p>o también:</p>
 <p><span class="math display">\[\LARGE P(A \cap B) = P(A) \cdot P(B|A)\]</span></p>
-<section id="ley-multiplicativa-para-eventos-independientes" class="level3">
-<h3 class="anchored" data-anchor-id="ley-multiplicativa-para-eventos-independientes">Ley Multiplicativa para Eventos Independientes</h3>
+<section id="ley-multiplicativa-para-eventos-independientes" class="level3" data-number="13.6.1">
+<h3 data-number="13.6.1" class="anchored" data-anchor-id="ley-multiplicativa-para-eventos-independientes"><span class="header-section-number">13.6.1</span> Ley Multiplicativa para Eventos Independientes</h3>
 <p>Para eventos independientes:</p>
 <p><span class="math display">\[\LARGE P(A \cap B) = P(A) \cdot P(B)\]</span></p>
 <p><strong>Ejemplo:</strong> El gerente de una gasolinera sabe que el 80% de los clientes usan tarjeta de crédito. ¿Cuál es la probabilidad de que dos clientes consecutivos usen tarjeta de crédito?</p>
 <p><span class="math display">\[\LARGE P(A \cap B) = P(A) \cdot P(B) = 0.8 \times 0.8 = 0.64\]</span></p>
 </section>
 </section>
-<section id="diagramas-de-árbol" class="level2">
-<h2 class="anchored" data-anchor-id="diagramas-de-árbol">Diagramas de Árbol</h2>
+<section id="diagramas-de-árbol" class="level2" data-number="13.7">
+<h2 data-number="13.7" class="anchored" data-anchor-id="diagramas-de-árbol"><span class="header-section-number">13.7</span> Diagramas de Árbol</h2>
 <p>Un <strong>diagrama de árbol</strong> es una herramienta gráfica que se emplea frecuentemente en conexión con el principio multiplicativo. Debido a su apariencia, permite visualizar todos los posibles resultados de un experimento compuesto y facilita el cálculo de probabilidades.</p>
 <p><strong>Ejemplo:</strong> Si un hombre tiene 2 camisas (<span class="math inline">\(S_1, S_2\)</span>) y 4 corbatas (<span class="math inline">\(T_1, T_2, T_3, T_4\)</span>), entonces tiene <span class="math inline">\(2 \times 4 = 8\)</span> maneras de escoger una camisa y luego una corbata.</p>
 <p>El diagrama de árbol correspondiente sería:</p>
@@ -704,8 +763,8 @@ window.Quarto = {
 <p><img src="diagrama_ct.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="450"></p>
 </figure>
 </div>
-<section id="uso-de-diagramas-de-árbol-en-probabilidad-condicional" class="level3">
-<h3 class="anchored" data-anchor-id="uso-de-diagramas-de-árbol-en-probabilidad-condicional">Uso de Diagramas de Árbol en Probabilidad Condicional</h3>
+<section id="uso-de-diagramas-de-árbol-en-probabilidad-condicional" class="level3" data-number="13.7.1">
+<h3 data-number="13.7.1" class="anchored" data-anchor-id="uso-de-diagramas-de-árbol-en-probabilidad-condicional"><span class="header-section-number">13.7.1</span> Uso de Diagramas de Árbol en Probabilidad Condicional</h3>
 <p>Los diagramas de árbol son especialmente útiles para problemas de probabilidad condicional, donde las probabilidades en las ramas posteriores dependen de los resultados de las ramas anteriores.</p>
 <p><strong>Ejemplo aplicado:</strong> Una empresa agrícola tiene tres proveedores de semillas. El proveedor A suministra el 40% de las semillas, el proveedor B el 35%, y el proveedor C el 25%. Las tasas de germinación son del 95%, 90%, y 85% respectivamente.</p>
 <p>El diagrama de árbol sería:</p>
@@ -716,8 +775,8 @@ window.Quarto = {
 </div>
 </section>
 </section>
-<section id="teorema-de-bayes" class="level2">
-<h2 class="anchored" data-anchor-id="teorema-de-bayes">Teorema de Bayes</h2>
+<section id="teorema-de-bayes" class="level2" data-number="13.8">
+<h2 data-number="13.8" class="anchored" data-anchor-id="teorema-de-bayes"><span class="header-section-number">13.8</span> Teorema de Bayes</h2>
 <p>El <strong>teorema de Bayes</strong> también se conoce como “probabilidad de las causas”, es decir, la probabilidad de un hecho anterior sabiendo la probabilidad de un hecho posterior. Se basa en que los eventos definidos sobre un espacio muestral son particiones del mismo.</p>
 <p>Si <span class="math inline">\(A_1, A_2, A_3, ..., A_n\)</span>​ son eventos mutuamente excluyentes y exhaustivos, y <span class="math inline">\(B\)</span> es un evento observado, entonces:</p>
 <p><span class="math display">\[\LARGE P(A_i|B) = \frac{P(A_i) \cdot P(B|A_i)}{\sum_{j=1}^{n} P(A_j) \cdot P(B|A_j)}\]</span></p>
@@ -736,8 +795,8 @@ window.Quarto = {
 <p>Primero calculamos <span class="math display">\[\Large P(B) = 1 - P(C) = 1 - 0.943 = 0.057\]</span></p>
 <p>Luego aplicamos Bayes:<br>
 <span class="math display">\[\Large P(A_1|B) = \frac{P(A_1) \cdot P(B|A_1)}{P(B)} = \frac{0.40 \times 0.04}{0.057} = 0.2807\]</span></p>
-<section id="tabla-de-análisis-para-el-teorema-de-bayes" class="level3">
-<h3 class="anchored" data-anchor-id="tabla-de-análisis-para-el-teorema-de-bayes">Tabla de Análisis para el Teorema de Bayes</h3>
+<section id="tabla-de-análisis-para-el-teorema-de-bayes" class="level3" data-number="13.8.1">
+<h3 data-number="13.8.1" class="anchored" data-anchor-id="tabla-de-análisis-para-el-teorema-de-bayes"><span class="header-section-number">13.8.1</span> Tabla de Análisis para el Teorema de Bayes</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -795,8 +854,8 @@ window.Quarto = {
 </table>
 </section>
 </section>
-<section id="notación-correcta-para-probabilidades" class="level2">
-<h2 class="anchored" data-anchor-id="notación-correcta-para-probabilidades">Notación Correcta para Probabilidades</h2>
+<section id="notación-correcta-para-probabilidades" class="level2" data-number="13.9">
+<h2 data-number="13.9" class="anchored" data-anchor-id="notación-correcta-para-probabilidades"><span class="header-section-number">13.9</span> Notación Correcta para Probabilidades</h2>
 <p>Es fundamental utilizar la notación correcta para evitar confusiones:</p>
 <ol type="1">
 <li><p><span class="math inline">\(P(A)\)</span>: Probabilidad marginal del evento A</p></li>
@@ -1233,16 +1292,35 @@ window.Quarto = {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./C5.3.html" class="pagination-link" aria-label="Ejemplo en R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Ejemplo en R</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Ejemplo en R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./C7.1.html" class="pagination-link" aria-label="Distribuciones Binomial y Poisson en R">
-        <span class="nav-page-text"><span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./license.html">
+<p>Licencia</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

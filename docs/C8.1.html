@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Manual práctico para el análisis estadístico de datos agrícolas utilizando R, orientado a estudiantes y profesionales de agronomía.">
 
-<title>Distribución normal – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>15&nbsp; Distribución normal – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -314,7 +315,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C8.1.html"><span class="chapter-title">Distribución normal</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C8.1.html"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -333,7 +334,41 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R para el Análisis Estadístico de Datos Agrícolas</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -353,136 +388,160 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C0.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Instalación y configuración</span></a>
+  <a href="./C0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación y configuración</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">1. Aspectos Introductorios</span></span>
+ <span class="menu-text">Aspectos Introductorios</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C1.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aspectos introductorios</span></a>
+  <a href="./C1.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos introductorios</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">2. Clasificación de variables</span></span>
+ <span class="menu-text">Clasificación de variables</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C2.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clasificación de Variables</span></a>
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">3. Notación sumatoria</span></span>
+ <span class="menu-text">Notación sumatoria</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a la Notación Sumatoria</span></a>
+  <a href="./C3.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Notación Sumatoria</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></a>
+  <a href="./C3.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a>
+  <a href="./C3.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sumatorias Dobles y Múltiples</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">4. Estadística descriptiva para datos sin agrupar</span></span>
+ <span class="menu-text">Estadística descriptiva para datos sin agrupar</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C4.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></a>
+  <a href="./C4.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Otros tipos de medias</span></a>
+  <a href="./c4.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Otros tipos de medias</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cálculos en R</span></a>
+  <a href="./c4.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cálculos en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">5. Estadística descriptiva para datos agrupados</span></span>
+ <span class="menu-text">Estadística descriptiva para datos agrupados</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción y formulario</span></a>
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción y formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo empleando el formulario</span></a>
+  <a href="./C5.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Ejemplo empleando el formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo en R</span></a>
+  <a href="./C5.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Ejemplo en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">6. Introducción a probabilidades</span></span>
+ <span class="menu-text">Introducción a probabilidades</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C6.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a probabilidades</span></a>
+  <a href="./C6.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">7. Distribuciones de probabilidad discretas</span></span>
+ <span class="menu-text">Distribuciones de probabilidad discretas</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C7.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribuciones Binomial y Poisson en R</span></a>
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">8. Distribución normal</span></span>
+ <span class="menu-text">Distribución normal</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C8.1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Distribución normal</span></a>
+  <a href="./C8.1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">9. Intervalos de confianza</span></span>
+ <span class="menu-text">Intervalos de confianza</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Intervalos de confianza</span></a>
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">10. Pruebas de hipótesis</span></span>
+ <span class="menu-text">Pruebas de hipótesis</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C10.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas de hipótesis</span></a>
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">11. Regresión lineal y correlación</span></span>
+ <span class="menu-text">Regresión lineal y correlación</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal y correlación</span></a>
+  <a href="./C11.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C11.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -505,22 +564,22 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
-  <li><a href="#características-y-definición" id="toc-características-y-definición" class="nav-link" data-scroll-target="#características-y-definición">Características y definición</a>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">15.1</span> Introducción</a></li>
+  <li><a href="#características-y-definición" id="toc-características-y-definición" class="nav-link" data-scroll-target="#características-y-definición"><span class="header-section-number">15.2</span> Características y definición</a>
   <ul class="collapse">
-  <li><a href="#propiedades-de-la-distribución-normal" id="toc-propiedades-de-la-distribución-normal" class="nav-link" data-scroll-target="#propiedades-de-la-distribución-normal">Propiedades de la distribución normal</a></li>
+  <li><a href="#propiedades-de-la-distribución-normal" id="toc-propiedades-de-la-distribución-normal" class="nav-link" data-scroll-target="#propiedades-de-la-distribución-normal"><span class="header-section-number">15.2.1</span> Propiedades de la distribución normal</a></li>
   </ul></li>
-  <li><a href="#cálculo-de-probabilidades-normales-en-r" id="toc-cálculo-de-probabilidades-normales-en-r" class="nav-link" data-scroll-target="#cálculo-de-probabilidades-normales-en-r">Cálculo de probabilidades normales en R</a>
+  <li><a href="#cálculo-de-probabilidades-normales-en-r" id="toc-cálculo-de-probabilidades-normales-en-r" class="nav-link" data-scroll-target="#cálculo-de-probabilidades-normales-en-r"><span class="header-section-number">15.3</span> Cálculo de probabilidades normales en R</a>
   <ul class="collapse">
-  <li><a href="#función-para-calcular-la-función-de-densidad-de-probabilidad" id="toc-función-para-calcular-la-función-de-densidad-de-probabilidad" class="nav-link" data-scroll-target="#función-para-calcular-la-función-de-densidad-de-probabilidad">Función para calcular la función de densidad de probabilidad</a></li>
-  <li><a href="#función-para-calcular-probabilidades-acumuladas" id="toc-función-para-calcular-probabilidades-acumuladas" class="nav-link" data-scroll-target="#función-para-calcular-probabilidades-acumuladas">Función para calcular probabilidades acumuladas</a></li>
-  <li><a href="#ejemplo-práctico-estatura-de-estudiantes" id="toc-ejemplo-práctico-estatura-de-estudiantes" class="nav-link" data-scroll-target="#ejemplo-práctico-estatura-de-estudiantes">Ejemplo práctico: Estatura de estudiantes</a></li>
+  <li><a href="#función-para-calcular-la-función-de-densidad-de-probabilidad" id="toc-función-para-calcular-la-función-de-densidad-de-probabilidad" class="nav-link" data-scroll-target="#función-para-calcular-la-función-de-densidad-de-probabilidad"><span class="header-section-number">15.3.1</span> Función para calcular la función de densidad de probabilidad</a></li>
+  <li><a href="#función-para-calcular-probabilidades-acumuladas" id="toc-función-para-calcular-probabilidades-acumuladas" class="nav-link" data-scroll-target="#función-para-calcular-probabilidades-acumuladas"><span class="header-section-number">15.3.2</span> Función para calcular probabilidades acumuladas</a></li>
+  <li><a href="#ejemplo-práctico-estatura-de-estudiantes" id="toc-ejemplo-práctico-estatura-de-estudiantes" class="nav-link" data-scroll-target="#ejemplo-práctico-estatura-de-estudiantes"><span class="header-section-number">15.3.3</span> Ejemplo práctico: Estatura de estudiantes</a></li>
   </ul></li>
-  <li><a href="#estandarización-de-la-variable-normal" id="toc-estandarización-de-la-variable-normal" class="nav-link" data-scroll-target="#estandarización-de-la-variable-normal">Estandarización de la variable normal</a>
+  <li><a href="#estandarización-de-la-variable-normal" id="toc-estandarización-de-la-variable-normal" class="nav-link" data-scroll-target="#estandarización-de-la-variable-normal"><span class="header-section-number">15.4</span> Estandarización de la variable normal</a>
   <ul class="collapse">
-  <li><a href="#ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala" id="toc-ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala" class="nav-link" data-scroll-target="#ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala">Ejemplo práctico: Duración de la temporada de heladas en Guatemala</a></li>
+  <li><a href="#ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala" id="toc-ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala" class="nav-link" data-scroll-target="#ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala"><span class="header-section-number">15.4.1</span> Ejemplo práctico: Duración de la temporada de heladas en Guatemala</a></li>
   </ul></li>
-  <li><a href="#interpretación-y-aplicaciones-en-agronomía" id="toc-interpretación-y-aplicaciones-en-agronomía" class="nav-link" data-scroll-target="#interpretación-y-aplicaciones-en-agronomía">Interpretación y aplicaciones en agronomía</a></li>
+  <li><a href="#interpretación-y-aplicaciones-en-agronomía" id="toc-interpretación-y-aplicaciones-en-agronomía" class="nav-link" data-scroll-target="#interpretación-y-aplicaciones-en-agronomía"><span class="header-section-number">15.5</span> Interpretación y aplicaciones en agronomía</a></li>
   </ul>
 </nav>
     </div>
@@ -530,7 +589,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Distribución normal</span></h1>
+<h1 class="title"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal</span></h1>
 </div>
 
 
@@ -547,13 +606,13 @@ window.Quarto = {
 </header>
 
 
-<section id="introducción" class="level2">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<section id="introducción" class="level2" data-number="15.1">
+<h2 data-number="15.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">15.1</span> Introducción</h2>
 <p>La distribución normal, también conocida como distribución gaussiana o campana de Gauss, es una de las distribuciones de probabilidad continua más importantes en estadística. Su relevancia radica en que muchos fenómenos naturales y sociales tienden a seguir esta distribución, y además, sirve como base para numerosas pruebas y modelos estadísticos.</p>
 <p>Según López y González (2018), la distribución normal es fundamental en bioestadística debido a que muchas variables biométricas tienden a distribuirse normalmente, la distribución de las medias muestrales de una variable cualquiera tiende a ser normal (Teorema del Límite Central), y muchas pruebas estadísticas asumen la normalidad de los datos.</p>
 </section>
-<section id="características-y-definición" class="level2">
-<h2 class="anchored" data-anchor-id="características-y-definición">Características y definición</h2>
+<section id="características-y-definición" class="level2" data-number="15.2">
+<h2 data-number="15.2" class="anchored" data-anchor-id="características-y-definición"><span class="header-section-number">15.2</span> Características y definición</h2>
 <p>La distribución normal se caracteriza por ser simétrica y tener forma de campana. Está completamente definida por dos parámetros: la media (<span class="math inline">\(\mu\)</span>) y la desviación estándar (<span class="math inline">\(\sigma\)</span>). La función de densidad de probabilidad de la distribución normal se expresa como:</p>
 <p><span class="math display">\[\Large f(x) = \frac{1}{\sigma \sqrt{2\pi}} e^{-\frac{1}{2} \left(\frac{x - \mu}{\sigma}\right)^2}, \quad -\infty &lt; x &lt; \infty  \]</span></p>
 <p>donde:</p>
@@ -565,8 +624,8 @@ window.Quarto = {
 <li><p><span class="math inline">\(\pi\)</span> es la constante pi (aproximadamente 3.14159)</p></li>
 </ol>
 <p>La notación utilizada es: <span class="math inline">\(X \sim N(\mu, \sigma^2)\)</span>, donde <span class="math inline">\(\mu\)</span> es la media y <span class="math inline">\(\sigma^2\)</span> es la varianza.</p>
-<section id="propiedades-de-la-distribución-normal" class="level3">
-<h3 class="anchored" data-anchor-id="propiedades-de-la-distribución-normal">Propiedades de la distribución normal</h3>
+<section id="propiedades-de-la-distribución-normal" class="level3" data-number="15.2.1">
+<h3 data-number="15.2.1" class="anchored" data-anchor-id="propiedades-de-la-distribución-normal"><span class="header-section-number">15.2.1</span> Propiedades de la distribución normal</h3>
 <p>López y González (2018) destacan las siguientes propiedades de la distribución normal:</p>
 <ol type="1">
 <li><p>Existe una familia de distribuciones normales, cada una definida por su media (<span class="math inline">\(\mu\)</span>) y desviación estándar (<span class="math inline">\(\sigma\)</span>).</p></li>
@@ -580,11 +639,11 @@ window.Quarto = {
 </ol>
 </section>
 </section>
-<section id="cálculo-de-probabilidades-normales-en-r" class="level2">
-<h2 class="anchored" data-anchor-id="cálculo-de-probabilidades-normales-en-r">Cálculo de probabilidades normales en R</h2>
+<section id="cálculo-de-probabilidades-normales-en-r" class="level2" data-number="15.3">
+<h2 data-number="15.3" class="anchored" data-anchor-id="cálculo-de-probabilidades-normales-en-r"><span class="header-section-number">15.3</span> Cálculo de probabilidades normales en R</h2>
 <p>El software R proporciona funciones para calcular probabilidades asociadas a la distribución normal.</p>
-<section id="función-para-calcular-la-función-de-densidad-de-probabilidad" class="level3">
-<h3 class="anchored" data-anchor-id="función-para-calcular-la-función-de-densidad-de-probabilidad">Función para calcular la función de densidad de probabilidad</h3>
+<section id="función-para-calcular-la-función-de-densidad-de-probabilidad" class="level3" data-number="15.3.1">
+<h3 data-number="15.3.1" class="anchored" data-anchor-id="función-para-calcular-la-función-de-densidad-de-probabilidad"><span class="header-section-number">15.3.1</span> Función para calcular la función de densidad de probabilidad</h3>
 <p>Para calcular la función de densidad de probabilidad en un punto <span class="math inline">\(x\)</span>, se utiliza la función:</p>
 <p><span class="math display">\[\LARGE \texttt{dnorm(x, mean, sd)}  \]</span></p>
 <p><strong>Argumentos en orden:</strong></p>
@@ -594,8 +653,8 @@ window.Quarto = {
 <li><p><span class="math inline">\(\texttt{sd}\)</span>: desviación estándar de la distribución (<span class="math inline">\(\sigma\)</span>)</p></li>
 </ol>
 </section>
-<section id="función-para-calcular-probabilidades-acumuladas" class="level3">
-<h3 class="anchored" data-anchor-id="función-para-calcular-probabilidades-acumuladas">Función para calcular probabilidades acumuladas</h3>
+<section id="función-para-calcular-probabilidades-acumuladas" class="level3" data-number="15.3.2">
+<h3 data-number="15.3.2" class="anchored" data-anchor-id="función-para-calcular-probabilidades-acumuladas"><span class="header-section-number">15.3.2</span> Función para calcular probabilidades acumuladas</h3>
 <p>Para calcular la probabilidad acumulada <span class="math inline">\(P(X \leq x)\)</span>, se utiliza la función:</p>
 <p><span class="math display">\[\LARGE \texttt{pnorm(q, mean, sd, lower.tail)}  \]</span></p>
 <p><strong>Argumentos en orden:</strong></p>
@@ -606,11 +665,11 @@ window.Quarto = {
 <li><p><span class="math inline">\(\texttt{lower.tail}\)</span>: argumento lógico que indica si se calcula <span class="math inline">\(P(X \leq x)\)</span> (<span class="math inline">\(\texttt{TRUE}, por defecto\)</span>) o <span class="math inline">\(P(X &gt; x)\)</span> (<span class="math inline">\(\texttt{FALSE}\)</span>)</p></li>
 </ol>
 </section>
-<section id="ejemplo-práctico-estatura-de-estudiantes" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-práctico-estatura-de-estudiantes">Ejemplo práctico: Estatura de estudiantes</h3>
+<section id="ejemplo-práctico-estatura-de-estudiantes" class="level3" data-number="15.3.3">
+<h3 data-number="15.3.3" class="anchored" data-anchor-id="ejemplo-práctico-estatura-de-estudiantes"><span class="header-section-number">15.3.3</span> Ejemplo práctico: Estatura de estudiantes</h3>
 <p>Supóngase que la estatura de los estudiantes de una universidad se distribuye normalmente con una media de 170 cm y una desviación estándar de 10 cm. Se desea calcular las siguientes probabilidades:</p>
-<section id="caso-1-px-180---probabilidad-de-que-un-estudiante-mida-180-cm-o-menos" class="level4">
-<h4 class="anchored" data-anchor-id="caso-1-px-180---probabilidad-de-que-un-estudiante-mida-180-cm-o-menos">Caso 1: P(X ≤ 180) - Probabilidad de que un estudiante mida 180 cm o menos</h4>
+<section id="caso-1-px-180---probabilidad-de-que-un-estudiante-mida-180-cm-o-menos" class="level4" data-number="15.3.3.1">
+<h4 data-number="15.3.3.1" class="anchored" data-anchor-id="caso-1-px-180---probabilidad-de-que-un-estudiante-mida-180-cm-o-menos"><span class="header-section-number">15.3.3.1</span> Caso 1: P(X ≤ 180) - Probabilidad de que un estudiante mida 180 cm o menos</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">180</span>, <span class="dv">170</span>, <span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -618,8 +677,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="caso-2-px-160---probabilidad-de-que-un-estudiante-mida-más-de-160-cm" class="level4">
-<h4 class="anchored" data-anchor-id="caso-2-px-160---probabilidad-de-que-un-estudiante-mida-más-de-160-cm">Caso 2: P(X &gt; 160) - Probabilidad de que un estudiante mida más de 160 cm</h4>
+<section id="caso-2-px-160---probabilidad-de-que-un-estudiante-mida-más-de-160-cm" class="level4" data-number="15.3.3.2">
+<h4 data-number="15.3.3.2" class="anchored" data-anchor-id="caso-2-px-160---probabilidad-de-que-un-estudiante-mida-más-de-160-cm"><span class="header-section-number">15.3.3.2</span> Caso 2: P(X &gt; 160) - Probabilidad de que un estudiante mida más de 160 cm</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">160</span>, <span class="dv">170</span>, <span class="dv">10</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -627,8 +686,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="caso-3-p165-x-175---probabilidad-de-que-un-estudiante-mida-entre-165-cm-y-175-cm" class="level4">
-<h4 class="anchored" data-anchor-id="caso-3-p165-x-175---probabilidad-de-que-un-estudiante-mida-entre-165-cm-y-175-cm">Caso 3: P(165 ≤ X ≤ 175) - Probabilidad de que un estudiante mida entre 165 cm y 175 cm</h4>
+<section id="caso-3-p165-x-175---probabilidad-de-que-un-estudiante-mida-entre-165-cm-y-175-cm" class="level4" data-number="15.3.3.3">
+<h4 data-number="15.3.3.3" class="anchored" data-anchor-id="caso-3-p165-x-175---probabilidad-de-que-un-estudiante-mida-entre-165-cm-y-175-cm"><span class="header-section-number">15.3.3.3</span> Caso 3: P(165 ≤ X ≤ 175) - Probabilidad de que un estudiante mida entre 165 cm y 175 cm</h4>
 <p>Para calcular esta probabilidad, se resta la probabilidad acumulada hasta 165 cm de la probabilidad acumulada hasta 175 cm:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">175</span>, <span class="dv">170</span>, <span class="dv">10</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="dv">165</span>, <span class="dv">170</span>, <span class="dv">10</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -639,18 +698,18 @@ window.Quarto = {
 </section>
 </section>
 </section>
-<section id="estandarización-de-la-variable-normal" class="level2">
-<h2 class="anchored" data-anchor-id="estandarización-de-la-variable-normal">Estandarización de la variable normal</h2>
-<section id="ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala">Ejemplo práctico: Duración de la temporada de heladas en Guatemala</h3>
+<section id="estandarización-de-la-variable-normal" class="level2" data-number="15.4">
+<h2 data-number="15.4" class="anchored" data-anchor-id="estandarización-de-la-variable-normal"><span class="header-section-number">15.4</span> Estandarización de la variable normal</h2>
+<section id="ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala" class="level3" data-number="15.4.1">
+<h3 data-number="15.4.1" class="anchored" data-anchor-id="ejemplo-práctico-duración-de-la-temporada-de-heladas-en-guatemala"><span class="header-section-number">15.4.1</span> Ejemplo práctico: Duración de la temporada de heladas en Guatemala</h3>
 <p>El Instituto Nacional de Sismología, Vulcanología, Meteorología e Hidrología (INSIVUMEH) de Guatemala ha determinado que la duración de la temporada de heladas sigue una distribución normal. Se conoce la siguiente información:</p>
 <ol type="1">
 <li><p>La duración promedio de la temporada de heladas es de 120 días (<span class="math inline">\(\mu = 120\)</span>)</p></li>
 <li><p>La probabilidad de que la temporada dure más de 133 días es del 25.78% (<span class="math inline">\(P(X &gt; 133) = 0.2578\)</span>)</p></li>
 </ol>
 <p><strong>Objetivo:</strong> Determinar la desviación estándar (<span class="math inline">\(\sigma\)</span>) de la distribución normal.</p>
-<section id="paso-1-estandarización-de-la-variable" class="level4">
-<h4 class="anchored" data-anchor-id="paso-1-estandarización-de-la-variable">Paso 1: Estandarización de la variable</h4>
+<section id="paso-1-estandarización-de-la-variable" class="level4" data-number="15.4.1.1">
+<h4 data-number="15.4.1.1" class="anchored" data-anchor-id="paso-1-estandarización-de-la-variable"><span class="header-section-number">15.4.1.1</span> Paso 1: Estandarización de la variable</h4>
 <p>Para resolver este problema, se debe estandarizar la variable <span class="math inline">\(X\)</span> (duración de la temporada de heladas) utilizando la transformación a <span class="math inline">\(Z\)</span>:</p>
 <p><span class="math display">\[\huge Z = \frac{X - \mu}{\sigma} \]</span></p>
 <p>donde:</p>
@@ -662,15 +721,15 @@ window.Quarto = {
 <p>Sustituyendo los valores conocidos:</p>
 <p><span class="math display">\[\LARGE Z = \frac{133 - 120}{\sigma} = \frac{13}{\sigma} \]</span></p>
 </section>
-<section id="paso-2-cálculo-de-la-probabilidad-acumulada" class="level4">
-<h4 class="anchored" data-anchor-id="paso-2-cálculo-de-la-probabilidad-acumulada">Paso 2: Cálculo de la probabilidad acumulada</h4>
+<section id="paso-2-cálculo-de-la-probabilidad-acumulada" class="level4" data-number="15.4.1.2">
+<h4 data-number="15.4.1.2" class="anchored" data-anchor-id="paso-2-cálculo-de-la-probabilidad-acumulada"><span class="header-section-number">15.4.1.2</span> Paso 2: Cálculo de la probabilidad acumulada</h4>
 <p>Dado que P(X &gt; 133) = 0.2578, se puede determinar la probabilidad acumulada hasta 133:</p>
 <p><span class="math display">\[\Large P(X \leq 133) = 1 - P(X &gt; 133) = 1 - 0.2578 = 0.7422 \]</span></p>
 <p>Por lo tanto:</p>
 <p><span class="math display">\[\Large P\left(Z \leq \frac{13}{\sigma}\right) = 0.7422 )=0.7422\]</span></p>
 </section>
-<section id="paso-3-encontrar-el-valor-z-correspondiente" class="level4">
-<h4 class="anchored" data-anchor-id="paso-3-encontrar-el-valor-z-correspondiente">Paso 3: Encontrar el valor Z correspondiente</h4>
+<section id="paso-3-encontrar-el-valor-z-correspondiente" class="level4" data-number="15.4.1.3">
+<h4 data-number="15.4.1.3" class="anchored" data-anchor-id="paso-3-encontrar-el-valor-z-correspondiente"><span class="header-section-number">15.4.1.3</span> Paso 3: Encontrar el valor Z correspondiente</h4>
 <p>Se debe encontrar el valor <span class="math inline">\(z\)</span> tal que P(<span class="math inline">\(Z \leq z\)</span>) = 0.7422 en la distribución normal estándar.</p>
 <p><strong>En R, se utiliza la función:</strong></p>
 <p><span class="math display">\[\huge \texttt{qnorm(p, mean, sd)} \]</span></p>
@@ -687,15 +746,15 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="paso-4-despejar-la-desviación-estándar" class="level4">
-<h4 class="anchored" data-anchor-id="paso-4-despejar-la-desviación-estándar">Paso 4: Despejar la desviación estándar</h4>
+<section id="paso-4-despejar-la-desviación-estándar" class="level4" data-number="15.4.1.4">
+<h4 data-number="15.4.1.4" class="anchored" data-anchor-id="paso-4-despejar-la-desviación-estándar"><span class="header-section-number">15.4.1.4</span> Paso 4: Despejar la desviación estándar</h4>
 <p>Igualando la expresión estandarizada con el valor <span class="math inline">\(z\)</span> encontrado:</p>
 <p><span class="math display">\[\huge \frac{13}{\sigma} = 0.65  \]</span></p>
 <p><strong>Despejando:</strong></p>
 <p><span class="math display">\[\huge \sigma = \frac{13}{0.65} = 20 \]</span></p>
 </section>
-<section id="verificación-en-r" class="level4">
-<h4 class="anchored" data-anchor-id="verificación-en-r">Verificación en R</h4>
+<section id="verificación-en-r" class="level4" data-number="15.4.1.5">
+<h4 data-number="15.4.1.5" class="anchored" data-anchor-id="verificación-en-r"><span class="header-section-number">15.4.1.5</span> Verificación en R</h4>
 <p>Para verificar el resultado, se puede calcular la probabilidad <span class="math inline">\(P(X &gt; 133)\)</span> con los parámetros encontrados:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pnorm</span>(<span class="dv">133</span>, <span class="at">mean =</span> <span class="dv">120</span>, <span class="at">sd =</span> <span class="dv">20</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -705,15 +764,15 @@ window.Quarto = {
 </div>
 <p>Este resultado confirma que la desviación estándar calculada es correcta.</p>
 </section>
-<section id="interpretación" class="level4">
-<h4 class="anchored" data-anchor-id="interpretación">Interpretación</h4>
+<section id="interpretación" class="level4" data-number="15.4.1.6">
+<h4 data-number="15.4.1.6" class="anchored" data-anchor-id="interpretación"><span class="header-section-number">15.4.1.6</span> Interpretación</h4>
 <p>La desviación estándar de la duración de la temporada de heladas en Guatemala es de 20 días (<span class="math inline">\(\sigma = 20\)</span>). Esto significa que la duración de la temporada de heladas varía alrededor de la media (120 días) con una dispersión de 20 días.</p>
 <p>Con esta información, se puede establecer que la duración de la temporada de heladas en Guatemala sigue una distribución <span class="math inline">\(N(120, 20^2)\)</span>, lo que permite realizar predicciones y análisis probabilísticos para la planificación agrícola y la gestión de riesgos climáticos.</p>
 </section>
 </section>
 </section>
-<section id="interpretación-y-aplicaciones-en-agronomía" class="level2">
-<h2 class="anchored" data-anchor-id="interpretación-y-aplicaciones-en-agronomía">Interpretación y aplicaciones en agronomía</h2>
+<section id="interpretación-y-aplicaciones-en-agronomía" class="level2" data-number="15.5">
+<h2 data-number="15.5" class="anchored" data-anchor-id="interpretación-y-aplicaciones-en-agronomía"><span class="header-section-number">15.5</span> Interpretación y aplicaciones en agronomía</h2>
 <p>La distribución normal es ampliamente utilizada en agronomía para modelar variables continuas como la altura de las plantas, el rendimiento de los cultivos, el peso de los frutos, y las temperaturas. Permite realizar inferencias estadísticas, como la estimación de intervalos de confianza y la realización de pruebas de hipótesis, que son fundamentales para la investigación y la toma de decisiones en el sector agropecuario.</p>
 
 
@@ -1142,16 +1201,35 @@ window.Quarto = {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./C7.1.html" class="pagination-link" aria-label="Distribuciones Binomial y Poisson en R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./C9.1.html" class="pagination-link" aria-label="Intervalos de confianza">
-        <span class="nav-page-text"><span class="chapter-title">Intervalos de confianza</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./C9.1.html" class="pagination-link" aria-label="Estimación puntual e intervalos de confianza en R">
+        <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./license.html">
+<p>Licencia</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

@@ -1,89 +1,74 @@
 project:
   type: book
-  output-dir: pdf
+  output-dir: docs
 
 book:
   title: "R para el Análisis Estadístico de Datos Agrícolas"
   author: "P. Agr. Ludwing Isaí Marroquín Jiménez"
-  output-file: "R para el Análisis Estadístico de Datos Agrícolas"
-  date: "2025-06-27"
+  output-file: "R_para_Analisis_Estadistico_Datos_Agricolas"
+  date: today
   date-format: medium
   favicon: logo_cete_vector.png
+  description: Manual práctico para el análisis estadístico de datos agrícolas utilizando R, orientado a estudiantes y profesionales de agronomía.
+  keyword: R, Estadística, Agronomía, Análisis de datos, Reproducibilidad
+  url: https://github.com/Ludwing-MJ/estadistica_agricola
   page-navigation: true
-  downloads: [pdf, epub] # Habilita descarga de PDF y EPUB
   sidebar:
     logo: logo_cete_vector.png
     search: true
     collapse-level: 4
+  repo-subdir: book
+  sharing: [twitter, linkedin]
+  downloads: [pdf, epub]
+  image: logo_cete_vector.png
+
+  page-footer:
+    center:
+      - text: "Licencia"
+        href: license.qmd
+
   chapters:
     - index.qmd
     - C0.qmd
-    - part: "1. Aspectos Introductorios"
-      attributes:
-        class: part
+    - part: "Aspectos Introductorios"
     - C1.1.qmd
-    - part: "2. Clasificación de variables"
-      attributes:
-        class: part
+    - part: "Clasificación de variables"
     - C2.1.qmd
-    - part: "3. Notación sumatoria"
-      attributes:
-        class: part
+    - part: "Notación sumatoria"
     - C3.1.qmd
     - C3.2.qmd
     - C3.3.qmd
-    - part: "4. Estadística descriptiva para datos sin agrupar"
-      attributes:
-        class: part
+    - part: "Estadística descriptiva para datos sin agrupar"
     - C4.1.qmd
     - c4.2.qmd
     - c4.3.qmd
-    - part: "5. Estadística descriptiva para datos agrupados"
-      attributes:
-        class: part
+    - part: "Estadística descriptiva para datos agrupados"
     - C5.1.qmd
     - C5.2.qmd
     - C5.3.qmd
-    - part: "6. Introducción a probabilidades"
-      attributes:
-        class: part
+    - part: "Introducción a probabilidades"
     - C6.1.qmd
-    - part: "7. Distribuciones de probabilidad discretas"
-      attributes:
-        class: part
+    - part: "Distribuciones de probabilidad discretas"
     - C7.1.qmd
-    - part: "8. Distribución normal"
-      attributes:
-        class: part
+    - part: "Distribución normal"
     - C8.1.qmd
-    - part: "9. Intervalos de confianza"
-      attributes:
-        class: part
+    - part: "Intervalos de confianza"
     - C9.1.qmd
-    - part: "10. Pruebas de hipótesis"
-      attributes:
-        class: part
+    - part: "Pruebas de hipótesis"
     - C10.1.qmd
-    - part: "11. Regresión lineal y correlación"
-      attributes:
-        class: part
+    - part: "Regresión lineal y correlación"
     - C11.1.qmd
     - C11.2.qmd
     - part: "Referencias"
-      attributes:
-        class: part
     - references.qmd
 
 bibliography: references.bib
-
-repo-subdir: book
-sharing: [twitter, linkedin]
-image: logo_cete_vector.png
+biblio-style: "apalike"
 
 format:
   html:
     lang: es
-    number-sections: false
+    number-sections: true
     theme:
       light: flatly
       dark: cyborg
@@ -91,26 +76,26 @@ format:
     number-depth: 4
     link-external-icon: true
     link-external-newwindow: true
-  
-  pdf:
-    documentclass: book
-    lang: es
-    geometry:
-      - top=30mm
-      - left=30mm
-      - heightrounded
-    fontfamily: libertinus
-    colorlinks: true
-    lot: true
-    lof: true
-    cite-method: biblatex
-    keep-tex: true
 
-steps:
-  - name: Set up R
-    uses: r-lib/actions/setup-r@v2
-  - name: Install dependencies
-    run: |
-      R -e 'install.packages(c("ggplot2", "dplyr"))'
+  pdf:
+    code-overflow: wrap
+    lang: es
+    documentclass: scrreprt
+    classoption: ["onepage", "openany"]
+    papersize: a4
+    toc: true
+    margin-top: 30mm
+    margin-left: 30mm
+    margin-bottom: 30mm
+    margin-right: 30mm
+    titlepage-geometry:
+      - top=30mm
+      - bottom=30mm
+      - right=30mm
+      - left=30mm
+    include-in-header:
+      text: |
+        \usepackage{hanging}
+        \renewcommand{\partname}{Capítulo} % Cambia "Part" por "Capítulo"
 
 editor: visual

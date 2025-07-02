@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Manual práctico para el análisis estadístico de datos agrícolas utilizando R, orientado a estudiantes y profesionales de agronomía.">
 
-<title>Distribuciones Binomial y Poisson en R – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>14&nbsp; Distribuciones Binomial y Poisson en R – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -314,7 +315,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C7.1.html"><span class="chapter-title">Distribuciones Binomial y Poisson en R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C7.1.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -333,7 +334,41 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R para el Análisis Estadístico de Datos Agrícolas</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -353,136 +388,160 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C0.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Instalación y configuración</span></a>
+  <a href="./C0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación y configuración</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">1. Aspectos Introductorios</span></span>
+ <span class="menu-text">Aspectos Introductorios</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C1.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aspectos introductorios</span></a>
+  <a href="./C1.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos introductorios</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">2. Clasificación de variables</span></span>
+ <span class="menu-text">Clasificación de variables</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C2.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clasificación de Variables</span></a>
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">3. Notación sumatoria</span></span>
+ <span class="menu-text">Notación sumatoria</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a la Notación Sumatoria</span></a>
+  <a href="./C3.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Notación Sumatoria</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></a>
+  <a href="./C3.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a>
+  <a href="./C3.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sumatorias Dobles y Múltiples</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">4. Estadística descriptiva para datos sin agrupar</span></span>
+ <span class="menu-text">Estadística descriptiva para datos sin agrupar</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C4.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></a>
+  <a href="./C4.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Otros tipos de medias</span></a>
+  <a href="./c4.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Otros tipos de medias</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cálculos en R</span></a>
+  <a href="./c4.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cálculos en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">5. Estadística descriptiva para datos agrupados</span></span>
+ <span class="menu-text">Estadística descriptiva para datos agrupados</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción y formulario</span></a>
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción y formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo empleando el formulario</span></a>
+  <a href="./C5.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Ejemplo empleando el formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo en R</span></a>
+  <a href="./C5.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Ejemplo en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">6. Introducción a probabilidades</span></span>
+ <span class="menu-text">Introducción a probabilidades</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C6.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a probabilidades</span></a>
+  <a href="./C6.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">7. Distribuciones de probabilidad discretas</span></span>
+ <span class="menu-text">Distribuciones de probabilidad discretas</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C7.1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Distribuciones Binomial y Poisson en R</span></a>
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">8. Distribución normal</span></span>
+ <span class="menu-text">Distribución normal</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C8.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribución normal</span></a>
+  <a href="./C8.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">9. Intervalos de confianza</span></span>
+ <span class="menu-text">Intervalos de confianza</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Intervalos de confianza</span></a>
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">10. Pruebas de hipótesis</span></span>
+ <span class="menu-text">Pruebas de hipótesis</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C10.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas de hipótesis</span></a>
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">11. Regresión lineal y correlación</span></span>
+ <span class="menu-text">Regresión lineal y correlación</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal y correlación</span></a>
+  <a href="./C11.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C11.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -505,32 +564,32 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
-  <li><a href="#distribución-binomial" id="toc-distribución-binomial" class="nav-link" data-scroll-target="#distribución-binomial">Distribución Binomial</a>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción"><span class="header-section-number">14.1</span> Introducción</a></li>
+  <li><a href="#distribución-binomial" id="toc-distribución-binomial" class="nav-link" data-scroll-target="#distribución-binomial"><span class="header-section-number">14.2</span> Distribución Binomial</a>
   <ul class="collapse">
-  <li><a href="#características-y-definición" id="toc-características-y-definición" class="nav-link" data-scroll-target="#características-y-definición">Características y definición</a></li>
-  <li><a href="#función-de-probabilidad" id="toc-función-de-probabilidad" class="nav-link" data-scroll-target="#función-de-probabilidad">Función de probabilidad</a></li>
-  <li><a href="#parámetros-de-la-distribución-binomial" id="toc-parámetros-de-la-distribución-binomial" class="nav-link" data-scroll-target="#parámetros-de-la-distribución-binomial">Parámetros de la distribución binomial</a></li>
+  <li><a href="#características-y-definición" id="toc-características-y-definición" class="nav-link" data-scroll-target="#características-y-definición"><span class="header-section-number">14.2.1</span> Características y definición</a></li>
+  <li><a href="#función-de-probabilidad" id="toc-función-de-probabilidad" class="nav-link" data-scroll-target="#función-de-probabilidad"><span class="header-section-number">14.2.2</span> Función de probabilidad</a></li>
+  <li><a href="#parámetros-de-la-distribución-binomial" id="toc-parámetros-de-la-distribución-binomial" class="nav-link" data-scroll-target="#parámetros-de-la-distribución-binomial"><span class="header-section-number">14.2.3</span> Parámetros de la distribución binomial</a></li>
   </ul></li>
-  <li><a href="#cálculo-de-probabilidades-binomiales-en-r" id="toc-cálculo-de-probabilidades-binomiales-en-r" class="nav-link" data-scroll-target="#cálculo-de-probabilidades-binomiales-en-r">Cálculo de probabilidades binomiales en R</a>
+  <li><a href="#cálculo-de-probabilidades-binomiales-en-r" id="toc-cálculo-de-probabilidades-binomiales-en-r" class="nav-link" data-scroll-target="#cálculo-de-probabilidades-binomiales-en-r"><span class="header-section-number">14.3</span> Cálculo de probabilidades binomiales en R</a>
   <ul class="collapse">
-  <li><a href="#función-para-calcular-px-x" id="toc-función-para-calcular-px-x" class="nav-link" data-scroll-target="#función-para-calcular-px-x">Función para calcular P(X = x)</a></li>
-  <li><a href="#función-para-calcular-px-x-y-px-x" id="toc-función-para-calcular-px-x-y-px-x" class="nav-link" data-scroll-target="#función-para-calcular-px-x-y-px-x">Función para calcular P(X ≤ x) y P(X &gt; x)</a></li>
-  <li><a href="#ejemplo-práctico-germinación-de-semillas" id="toc-ejemplo-práctico-germinación-de-semillas" class="nav-link" data-scroll-target="#ejemplo-práctico-germinación-de-semillas">Ejemplo práctico: Germinación de semillas</a></li>
+  <li><a href="#función-para-calcular-px-x" id="toc-función-para-calcular-px-x" class="nav-link" data-scroll-target="#función-para-calcular-px-x"><span class="header-section-number">14.3.1</span> Función para calcular P(X = x)</a></li>
+  <li><a href="#función-para-calcular-px-x-y-px-x" id="toc-función-para-calcular-px-x-y-px-x" class="nav-link" data-scroll-target="#función-para-calcular-px-x-y-px-x"><span class="header-section-number">14.3.2</span> Función para calcular P(X ≤ x) y P(X &gt; x)</a></li>
+  <li><a href="#ejemplo-práctico-germinación-de-semillas" id="toc-ejemplo-práctico-germinación-de-semillas" class="nav-link" data-scroll-target="#ejemplo-práctico-germinación-de-semillas"><span class="header-section-number">14.3.3</span> Ejemplo práctico: Germinación de semillas</a></li>
   </ul></li>
-  <li><a href="#distribución-de-poisson" id="toc-distribución-de-poisson" class="nav-link" data-scroll-target="#distribución-de-poisson">Distribución de Poisson</a>
+  <li><a href="#distribución-de-poisson" id="toc-distribución-de-poisson" class="nav-link" data-scroll-target="#distribución-de-poisson"><span class="header-section-number">14.4</span> Distribución de Poisson</a>
   <ul class="collapse">
-  <li><a href="#características-y-definición-1" id="toc-características-y-definición-1" class="nav-link" data-scroll-target="#características-y-definición-1">Características y definición</a></li>
-  <li><a href="#función-de-probabilidad-1" id="toc-función-de-probabilidad-1" class="nav-link" data-scroll-target="#función-de-probabilidad-1">Función de probabilidad</a></li>
-  <li><a href="#parámetros-de-la-distribución-de-poisson" id="toc-parámetros-de-la-distribución-de-poisson" class="nav-link" data-scroll-target="#parámetros-de-la-distribución-de-poisson">Parámetros de la distribución de Poisson</a></li>
+  <li><a href="#características-y-definición-1" id="toc-características-y-definición-1" class="nav-link" data-scroll-target="#características-y-definición-1"><span class="header-section-number">14.4.1</span> Características y definición</a></li>
+  <li><a href="#función-de-probabilidad-1" id="toc-función-de-probabilidad-1" class="nav-link" data-scroll-target="#función-de-probabilidad-1"><span class="header-section-number">14.4.2</span> Función de probabilidad</a></li>
+  <li><a href="#parámetros-de-la-distribución-de-poisson" id="toc-parámetros-de-la-distribución-de-poisson" class="nav-link" data-scroll-target="#parámetros-de-la-distribución-de-poisson"><span class="header-section-number">14.4.3</span> Parámetros de la distribución de Poisson</a></li>
   </ul></li>
-  <li><a href="#cálculo-de-probabilidades-de-poisson-en-r" id="toc-cálculo-de-probabilidades-de-poisson-en-r" class="nav-link" data-scroll-target="#cálculo-de-probabilidades-de-poisson-en-r">Cálculo de probabilidades de Poisson en R</a>
+  <li><a href="#cálculo-de-probabilidades-de-poisson-en-r" id="toc-cálculo-de-probabilidades-de-poisson-en-r" class="nav-link" data-scroll-target="#cálculo-de-probabilidades-de-poisson-en-r"><span class="header-section-number">14.5</span> Cálculo de probabilidades de Poisson en R</a>
   <ul class="collapse">
-  <li><a href="#función-para-calcular-px-x-1" id="toc-función-para-calcular-px-x-1" class="nav-link" data-scroll-target="#función-para-calcular-px-x-1">Función para calcular P(X = x)</a></li>
-  <li><a href="#función-para-calcular-px-x-y-px-x-1" id="toc-función-para-calcular-px-x-y-px-x-1" class="nav-link" data-scroll-target="#función-para-calcular-px-x-y-px-x-1">Función para calcular P(X ≤ x) y P(X &gt; x)</a></li>
-  <li><a href="#ejemplo-práctico-incidencia-de-plagas" id="toc-ejemplo-práctico-incidencia-de-plagas" class="nav-link" data-scroll-target="#ejemplo-práctico-incidencia-de-plagas">Ejemplo práctico: Incidencia de plagas</a></li>
+  <li><a href="#función-para-calcular-px-x-1" id="toc-función-para-calcular-px-x-1" class="nav-link" data-scroll-target="#función-para-calcular-px-x-1"><span class="header-section-number">14.5.1</span> Función para calcular P(X = x)</a></li>
+  <li><a href="#función-para-calcular-px-x-y-px-x-1" id="toc-función-para-calcular-px-x-y-px-x-1" class="nav-link" data-scroll-target="#función-para-calcular-px-x-y-px-x-1"><span class="header-section-number">14.5.2</span> Función para calcular P(X ≤ x) y P(X &gt; x)</a></li>
+  <li><a href="#ejemplo-práctico-incidencia-de-plagas" id="toc-ejemplo-práctico-incidencia-de-plagas" class="nav-link" data-scroll-target="#ejemplo-práctico-incidencia-de-plagas"><span class="header-section-number">14.5.3</span> Ejemplo práctico: Incidencia de plagas</a></li>
   </ul></li>
-  <li><a href="#interpretación-y-aplicaciones-en-agronomía" id="toc-interpretación-y-aplicaciones-en-agronomía" class="nav-link" data-scroll-target="#interpretación-y-aplicaciones-en-agronomía">Interpretación y aplicaciones en agronomía</a></li>
+  <li><a href="#interpretación-y-aplicaciones-en-agronomía" id="toc-interpretación-y-aplicaciones-en-agronomía" class="nav-link" data-scroll-target="#interpretación-y-aplicaciones-en-agronomía"><span class="header-section-number">14.6</span> Interpretación y aplicaciones en agronomía</a></li>
   </ul>
 </nav>
     </div>
@@ -540,7 +599,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Distribuciones Binomial y Poisson en R</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></h1>
 </div>
 
 
@@ -557,15 +616,15 @@ window.Quarto = {
 </header>
 
 
-<section id="introducción" class="level2">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<section id="introducción" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="introducción"><span class="header-section-number">14.1</span> Introducción</h2>
 <p>El estudio de las distribuciones de probabilidad constituye uno de los pilares fundamentales de la estadística aplicada. En el contexto de las ciencias agronómicas, estas herramientas matemáticas permiten modelar y analizar fenómenos aleatorios que ocurren frecuentemente en la investigación y práctica agrícola. Las distribuciones binomial y de Poisson, como distribuciones discretas, son especialmente útiles para describir eventos de conteo, tales como el número de semillas germinadas, la cantidad de plagas observadas en una parcela, o la ocurrencia de eventos climáticos adversos.</p>
 <p>Según López y González (2018), las variables aleatorias discretas son aquellas que pueden tomar un conjunto finito o numerable de valores, generalmente asociados a conteos de eventos. El software estadístico R proporciona funciones específicas para el cálculo de probabilidades en estas distribuciones, facilitando el análisis estadístico y la toma de decisiones basada en evidencia.</p>
 </section>
-<section id="distribución-binomial" class="level2">
-<h2 class="anchored" data-anchor-id="distribución-binomial">Distribución Binomial</h2>
-<section id="características-y-definición" class="level3">
-<h3 class="anchored" data-anchor-id="características-y-definición">Características y definición</h3>
+<section id="distribución-binomial" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="distribución-binomial"><span class="header-section-number">14.2</span> Distribución Binomial</h2>
+<section id="características-y-definición" class="level3" data-number="14.2.1">
+<h3 data-number="14.2.1" class="anchored" data-anchor-id="características-y-definición"><span class="header-section-number">14.2.1</span> Características y definición</h3>
 <p>La distribución binomial describe el número de éxitos obtenidos en una secuencia de ensayos independientes, donde cada ensayo presenta únicamente dos posibles resultados: éxito o fracaso. López y González (2018) establecen que un experimento binomial posee las siguientes características fundamentales:</p>
 <ol type="1">
 <li><p>Consta de <span class="math inline">\(n\)</span> ensayos o pruebas idénticas (ensayos de Bernoulli)</p></li>
@@ -575,8 +634,8 @@ window.Quarto = {
 </ol>
 <p>La distribución binomial se representa como <span class="math inline">\(B(n,p)\)</span>, siendo <span class="math inline">\(n\)</span> y <span class="math inline">\(p\)</span> los parámetros de dicha distribución.</p>
 </section>
-<section id="función-de-probabilidad" class="level3">
-<h3 class="anchored" data-anchor-id="función-de-probabilidad">Función de probabilidad</h3>
+<section id="función-de-probabilidad" class="level3" data-number="14.2.2">
+<h3 data-number="14.2.2" class="anchored" data-anchor-id="función-de-probabilidad"><span class="header-section-number">14.2.2</span> Función de probabilidad</h3>
 <p>La función de probabilidad de la distribución binomial se expresa matemáticamente como:</p>
 <p><span class="math display">\[\LARGE P(X = x) = \binom{n}{x} p^x q^{n-x}, \quad x = 0,1,2,\ldots,n\]</span></p>
 <p>donde:</p>
@@ -589,8 +648,8 @@ window.Quarto = {
 <li><p><span class="math inline">\(\binom{n}{x} = \frac{n!}{x!(n-x)!}\)</span> es el coeficiente binomial</p></li>
 </ol>
 </section>
-<section id="parámetros-de-la-distribución-binomial" class="level3">
-<h3 class="anchored" data-anchor-id="parámetros-de-la-distribución-binomial">Parámetros de la distribución binomial</h3>
+<section id="parámetros-de-la-distribución-binomial" class="level3" data-number="14.2.3">
+<h3 data-number="14.2.3" class="anchored" data-anchor-id="parámetros-de-la-distribución-binomial"><span class="header-section-number">14.2.3</span> Parámetros de la distribución binomial</h3>
 <p>Los parámetros de tendencia central y dispersión de la distribución binomial son:</p>
 <ol type="1">
 <li><p>Media: <span class="math inline">\(E(X) = np\)</span></p></li>
@@ -598,11 +657,11 @@ window.Quarto = {
 </ol>
 </section>
 </section>
-<section id="cálculo-de-probabilidades-binomiales-en-r" class="level2">
-<h2 class="anchored" data-anchor-id="cálculo-de-probabilidades-binomiales-en-r">Cálculo de probabilidades binomiales en R</h2>
+<section id="cálculo-de-probabilidades-binomiales-en-r" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="cálculo-de-probabilidades-binomiales-en-r"><span class="header-section-number">14.3</span> Cálculo de probabilidades binomiales en R</h2>
 <p>El software R proporciona funciones específicas para el cálculo de probabilidades binomiales. A continuación se describen las funciones principales y sus argumentos.</p>
-<section id="función-para-calcular-px-x" class="level3">
-<h3 class="anchored" data-anchor-id="función-para-calcular-px-x">Función para calcular P(X = x)</h3>
+<section id="función-para-calcular-px-x" class="level3" data-number="14.3.1">
+<h3 data-number="14.3.1" class="anchored" data-anchor-id="función-para-calcular-px-x"><span class="header-section-number">14.3.1</span> Función para calcular P(X = x)</h3>
 <p>Para calcular la probabilidad de obtener exactamente xxx éxitos, se utiliza la función:</p>
 <p><span class="math display">\[\LARGE \texttt{dbinom(x, size, prob)} \]</span></p>
 <p><strong>Argumentos en orden:</strong></p>
@@ -612,8 +671,8 @@ window.Quarto = {
 <li><p><span class="math inline">\(\texttt{prob}\)</span>: probabilidad de éxito en cada ensayo (<span class="math inline">\(p\)</span>)</p></li>
 </ol>
 </section>
-<section id="función-para-calcular-px-x-y-px-x" class="level3">
-<h3 class="anchored" data-anchor-id="función-para-calcular-px-x-y-px-x">Función para calcular P(X ≤ x) y P(X &gt; x)</h3>
+<section id="función-para-calcular-px-x-y-px-x" class="level3" data-number="14.3.2">
+<h3 data-number="14.3.2" class="anchored" data-anchor-id="función-para-calcular-px-x-y-px-x"><span class="header-section-number">14.3.2</span> Función para calcular P(X ≤ x) y P(X &gt; x)</h3>
 <p>Para calcular probabilidades acumuladas, se utiliza la función:</p>
 <p><span class="math display">\[\LARGE \texttt{pbinom(q, size, prob, lower.tail)}\]</span></p>
 <p><strong>Argumentos en orden:</strong></p>
@@ -624,11 +683,11 @@ window.Quarto = {
 <li><p><span class="math inline">\(\texttt{lower.tail}\)</span>: argumento lógico que indica si se calcula <span class="math inline">\(P(X \leq x) (\texttt{TRUE}, por defecto)\)</span> o <span class="math inline">\(P(X &gt; x) (\texttt{FALSE})\)</span></p></li>
 </ol>
 </section>
-<section id="ejemplo-práctico-germinación-de-semillas" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-práctico-germinación-de-semillas">Ejemplo práctico: Germinación de semillas</h3>
+<section id="ejemplo-práctico-germinación-de-semillas" class="level3" data-number="14.3.3">
+<h3 data-number="14.3.3" class="anchored" data-anchor-id="ejemplo-práctico-germinación-de-semillas"><span class="header-section-number">14.3.3</span> Ejemplo práctico: Germinación de semillas</h3>
 <p>Supóngase que se siembran 20 semillas de maíz y se sabe que la probabilidad de germinación de cada semilla es de 0.8. Se desea calcular las siguientes probabilidades:</p>
-<section id="caso-1-px-16---probabilidad-de-que-germinen-exactamente-16-semillas" class="level4">
-<h4 class="anchored" data-anchor-id="caso-1-px-16---probabilidad-de-que-germinen-exactamente-16-semillas">Caso 1: P(X = 16) - Probabilidad de que germinen exactamente 16 semillas</h4>
+<section id="caso-1-px-16---probabilidad-de-que-germinen-exactamente-16-semillas" class="level4" data-number="14.3.3.1">
+<h4 data-number="14.3.3.1" class="anchored" data-anchor-id="caso-1-px-16---probabilidad-de-que-germinen-exactamente-16-semillas"><span class="header-section-number">14.3.3.1</span> Caso 1: P(X = 16) - Probabilidad de que germinen exactamente 16 semillas</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dbinom</span>(<span class="dv">16</span>, <span class="dv">20</span>, <span class="fl">0.8</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -636,8 +695,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="caso-2-px-15---probabilidad-de-que-germinen-15-o-menos-semillas" class="level4">
-<h4 class="anchored" data-anchor-id="caso-2-px-15---probabilidad-de-que-germinen-15-o-menos-semillas">Caso 2: P(X ≤ 15) - Probabilidad de que germinen 15 o menos semillas</h4>
+<section id="caso-2-px-15---probabilidad-de-que-germinen-15-o-menos-semillas" class="level4" data-number="14.3.3.2">
+<h4 data-number="14.3.3.2" class="anchored" data-anchor-id="caso-2-px-15---probabilidad-de-que-germinen-15-o-menos-semillas"><span class="header-section-number">14.3.3.2</span> Caso 2: P(X ≤ 15) - Probabilidad de que germinen 15 o menos semillas</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">15</span>, <span class="dv">20</span>, <span class="fl">0.8</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -645,8 +704,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="caso-3-px-18---probabilidad-de-que-germinen-más-de-18-semillas" class="level4">
-<h4 class="anchored" data-anchor-id="caso-3-px-18---probabilidad-de-que-germinen-más-de-18-semillas">Caso 3: P(X &gt; 18) - Probabilidad de que germinen más de 18 semillas</h4>
+<section id="caso-3-px-18---probabilidad-de-que-germinen-más-de-18-semillas" class="level4" data-number="14.3.3.3">
+<h4 data-number="14.3.3.3" class="anchored" data-anchor-id="caso-3-px-18---probabilidad-de-que-germinen-más-de-18-semillas"><span class="header-section-number">14.3.3.3</span> Caso 3: P(X &gt; 18) - Probabilidad de que germinen más de 18 semillas</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pbinom</span>(<span class="dv">18</span>, <span class="dv">20</span>, <span class="fl">0.8</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -656,10 +715,10 @@ window.Quarto = {
 </section>
 </section>
 </section>
-<section id="distribución-de-poisson" class="level2">
-<h2 class="anchored" data-anchor-id="distribución-de-poisson">Distribución de Poisson</h2>
-<section id="características-y-definición-1" class="level3">
-<h3 class="anchored" data-anchor-id="características-y-definición-1">Características y definición</h3>
+<section id="distribución-de-poisson" class="level2" data-number="14.4">
+<h2 data-number="14.4" class="anchored" data-anchor-id="distribución-de-poisson"><span class="header-section-number">14.4</span> Distribución de Poisson</h2>
+<section id="características-y-definición-1" class="level3" data-number="14.4.1">
+<h3 data-number="14.4.1" class="anchored" data-anchor-id="características-y-definición-1"><span class="header-section-number">14.4.1</span> Características y definición</h3>
 <p>La distribución de Poisson, desarrollada por Simeón Dennis Poisson (1781-1840), es un modelo apropiado para describir el número de eventos raros que ocurren en un intervalo de tiempo o espacio específico. López y González (2018) indican que esta distribución es útil para modelar eventos con las siguientes características:</p>
 <ol type="1">
 <li><p>Los eventos ocurren de manera independiente</p></li>
@@ -667,8 +726,8 @@ window.Quarto = {
 <li><p>Los eventos son raros o poco frecuentes</p></li>
 </ol>
 </section>
-<section id="función-de-probabilidad-1" class="level3">
-<h3 class="anchored" data-anchor-id="función-de-probabilidad-1">Función de probabilidad</h3>
+<section id="función-de-probabilidad-1" class="level3" data-number="14.4.2">
+<h3 data-number="14.4.2" class="anchored" data-anchor-id="función-de-probabilidad-1"><span class="header-section-number">14.4.2</span> Función de probabilidad</h3>
 <p>Una variable aleatoria <span class="math inline">\(X\)</span> tiene distribución de Poisson con parámetro <span class="math inline">\(\lambda &gt; 0\)</span>, si su función de probabilidad está dada por:</p>
 <p><span class="math display">\[\Large P(X = x) = \frac{e^{-\lambda} \lambda^x}{x!}, \quad x = 0,1,2,\ldots  \]</span></p>
 <p>donde:</p>
@@ -678,8 +737,8 @@ window.Quarto = {
 </ol>
 <p>La notación utilizada es: <span class="math inline">\(X \sim Po(\lambda)\)</span></p>
 </section>
-<section id="parámetros-de-la-distribución-de-poisson" class="level3">
-<h3 class="anchored" data-anchor-id="parámetros-de-la-distribución-de-poisson">Parámetros de la distribución de Poisson</h3>
+<section id="parámetros-de-la-distribución-de-poisson" class="level3" data-number="14.4.3">
+<h3 data-number="14.4.3" class="anchored" data-anchor-id="parámetros-de-la-distribución-de-poisson"><span class="header-section-number">14.4.3</span> Parámetros de la distribución de Poisson</h3>
 <p>Los parámetros de la distribución de Poisson son:</p>
 <ol type="1">
 <li><p>Media:<span class="math inline">\(E(X) = \lambda\)</span></p></li>
@@ -687,10 +746,10 @@ window.Quarto = {
 </ol>
 </section>
 </section>
-<section id="cálculo-de-probabilidades-de-poisson-en-r" class="level2">
-<h2 class="anchored" data-anchor-id="cálculo-de-probabilidades-de-poisson-en-r">Cálculo de probabilidades de Poisson en R</h2>
-<section id="función-para-calcular-px-x-1" class="level3">
-<h3 class="anchored" data-anchor-id="función-para-calcular-px-x-1">Función para calcular P(X = x)</h3>
+<section id="cálculo-de-probabilidades-de-poisson-en-r" class="level2" data-number="14.5">
+<h2 data-number="14.5" class="anchored" data-anchor-id="cálculo-de-probabilidades-de-poisson-en-r"><span class="header-section-number">14.5</span> Cálculo de probabilidades de Poisson en R</h2>
+<section id="función-para-calcular-px-x-1" class="level3" data-number="14.5.1">
+<h3 data-number="14.5.1" class="anchored" data-anchor-id="función-para-calcular-px-x-1"><span class="header-section-number">14.5.1</span> Función para calcular P(X = x)</h3>
 <p>Para calcular la probabilidad de observar exactamente <span class="math inline">\(x\)</span> eventos, se utiliza:</p>
 <p><span class="math display">\[\LARGE \texttt{dpois(x, lambda)}\]</span></p>
 <p><strong>Argumentos en orden:</strong></p>
@@ -699,8 +758,8 @@ window.Quarto = {
 <li><p><span class="math inline">\(\texttt{lambda}\)</span>: tasa promedio de ocurrencia (<span class="math inline">\(\lambda\)</span>)</p></li>
 </ol>
 </section>
-<section id="función-para-calcular-px-x-y-px-x-1" class="level3">
-<h3 class="anchored" data-anchor-id="función-para-calcular-px-x-y-px-x-1">Función para calcular P(X ≤ x) y P(X &gt; x)</h3>
+<section id="función-para-calcular-px-x-y-px-x-1" class="level3" data-number="14.5.2">
+<h3 data-number="14.5.2" class="anchored" data-anchor-id="función-para-calcular-px-x-y-px-x-1"><span class="header-section-number">14.5.2</span> Función para calcular P(X ≤ x) y P(X &gt; x)</h3>
 <p>Para probabilidades acumuladas, se utiliza:</p>
 <p><span class="math display">\[\LARGE \texttt{ppois(q, lambda, lower.tail)}  \]</span></p>
 <p><strong>Argumentos en orden:</strong></p>
@@ -710,11 +769,11 @@ window.Quarto = {
 <li><p><span class="math inline">\(\texttt{lower.tail}\)</span>: argumento lógico para <span class="math inline">\(P(X \leq x)\)</span> (<span class="math inline">\(\texttt{TRUE}\)</span>) o <span class="math inline">\(P(X &gt; x)\)</span> (<span class="math inline">\(\texttt{FALSE}\)</span>)</p></li>
 </ol>
 </section>
-<section id="ejemplo-práctico-incidencia-de-plagas" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-práctico-incidencia-de-plagas">Ejemplo práctico: Incidencia de plagas</h3>
+<section id="ejemplo-práctico-incidencia-de-plagas" class="level3" data-number="14.5.3">
+<h3 data-number="14.5.3" class="anchored" data-anchor-id="ejemplo-práctico-incidencia-de-plagas"><span class="header-section-number">14.5.3</span> Ejemplo práctico: Incidencia de plagas</h3>
 <p>Supóngase que en un cultivo de tomate se observa un promedio de 3 plagas por metro cuadrado. Se desea calcular las siguientes probabilidades:</p>
-<section id="caso-1-px-5---probabilidad-de-observar-exactamente-5-plagas" class="level4">
-<h4 class="anchored" data-anchor-id="caso-1-px-5---probabilidad-de-observar-exactamente-5-plagas">Caso 1: P(X = 5) - Probabilidad de observar exactamente 5 plagas</h4>
+<section id="caso-1-px-5---probabilidad-de-observar-exactamente-5-plagas" class="level4" data-number="14.5.3.1">
+<h4 data-number="14.5.3.1" class="anchored" data-anchor-id="caso-1-px-5---probabilidad-de-observar-exactamente-5-plagas"><span class="header-section-number">14.5.3.1</span> Caso 1: P(X = 5) - Probabilidad de observar exactamente 5 plagas</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dpois</span>(<span class="dv">5</span>, <span class="dv">3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -722,8 +781,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="caso-2-px-2---probabilidad-de-observar-2-o-menos-plagas" class="level4">
-<h4 class="anchored" data-anchor-id="caso-2-px-2---probabilidad-de-observar-2-o-menos-plagas">Caso 2: P(X ≤ 2) - Probabilidad de observar 2 o menos plagas</h4>
+<section id="caso-2-px-2---probabilidad-de-observar-2-o-menos-plagas" class="level4" data-number="14.5.3.2">
+<h4 data-number="14.5.3.2" class="anchored" data-anchor-id="caso-2-px-2---probabilidad-de-observar-2-o-menos-plagas"><span class="header-section-number">14.5.3.2</span> Caso 2: P(X ≤ 2) - Probabilidad de observar 2 o menos plagas</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppois</span>(<span class="dv">2</span>, <span class="dv">3</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -731,8 +790,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="caso-3-px-4---probabilidad-de-observar-más-de-4-plagas" class="level4">
-<h4 class="anchored" data-anchor-id="caso-3-px-4---probabilidad-de-observar-más-de-4-plagas">Caso 3: P(X &gt; 4) - Probabilidad de observar más de 4 plagas</h4>
+<section id="caso-3-px-4---probabilidad-de-observar-más-de-4-plagas" class="level4" data-number="14.5.3.3">
+<h4 data-number="14.5.3.3" class="anchored" data-anchor-id="caso-3-px-4---probabilidad-de-observar-más-de-4-plagas"><span class="header-section-number">14.5.3.3</span> Caso 3: P(X &gt; 4) - Probabilidad de observar más de 4 plagas</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ppois</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -742,8 +801,8 @@ window.Quarto = {
 </section>
 </section>
 </section>
-<section id="interpretación-y-aplicaciones-en-agronomía" class="level2">
-<h2 class="anchored" data-anchor-id="interpretación-y-aplicaciones-en-agronomía">Interpretación y aplicaciones en agronomía</h2>
+<section id="interpretación-y-aplicaciones-en-agronomía" class="level2" data-number="14.6">
+<h2 data-number="14.6" class="anchored" data-anchor-id="interpretación-y-aplicaciones-en-agronomía"><span class="header-section-number">14.6</span> Interpretación y aplicaciones en agronomía</h2>
 <p>Las distribuciones binomial y de Poisson encuentran numerosas aplicaciones en el campo agronómico. La distribución binomial es particularmente útil para modelar situaciones donde se evalúa el éxito o fracaso de un proceso, como la germinación de semillas, la supervivencia de plantas trasplantadas, o la efectividad de tratamientos fitosanitarios.</p>
 <p>Por su parte, la distribución de Poisson es apropiada para modelar la ocurrencia de eventos raros, tales como la aparición de plagas específicas, la incidencia de enfermedades en cultivos, o la ocurrencia de eventos climáticos extremos.</p>
 
@@ -1173,16 +1232,35 @@ window.Quarto = {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./C6.1.html" class="pagination-link" aria-label="Introducción a probabilidades">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Introducción a probabilidades</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./C8.1.html" class="pagination-link" aria-label="Distribución normal">
-        <span class="nav-page-text"><span class="chapter-title">Distribución normal</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./license.html">
+<p>Licencia</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

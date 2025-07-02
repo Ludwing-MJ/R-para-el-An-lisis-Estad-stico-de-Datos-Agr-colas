@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Manual práctico para el análisis estadístico de datos agrícolas utilizando R, orientado a estudiantes y profesionales de agronomía.">
 
-<title>Sumatorias Dobles y Múltiples – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>6&nbsp; Sumatorias Dobles y Múltiples – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -279,7 +280,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C3.3.html"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C3.3.html"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sumatorias Dobles y Múltiples</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -298,7 +299,41 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R para el Análisis Estadístico de Datos Agrícolas</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -318,136 +353,160 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C0.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Instalación y configuración</span></a>
+  <a href="./C0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación y configuración</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">1. Aspectos Introductorios</span></span>
+ <span class="menu-text">Aspectos Introductorios</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C1.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aspectos introductorios</span></a>
+  <a href="./C1.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos introductorios</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">2. Clasificación de variables</span></span>
+ <span class="menu-text">Clasificación de variables</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C2.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clasificación de Variables</span></a>
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">3. Notación sumatoria</span></span>
+ <span class="menu-text">Notación sumatoria</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a la Notación Sumatoria</span></a>
+  <a href="./C3.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Notación Sumatoria</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></a>
+  <a href="./C3.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.3.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a>
+  <a href="./C3.3.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sumatorias Dobles y Múltiples</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">4. Estadística descriptiva para datos sin agrupar</span></span>
+ <span class="menu-text">Estadística descriptiva para datos sin agrupar</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C4.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></a>
+  <a href="./C4.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Otros tipos de medias</span></a>
+  <a href="./c4.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Otros tipos de medias</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cálculos en R</span></a>
+  <a href="./c4.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cálculos en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">5. Estadística descriptiva para datos agrupados</span></span>
+ <span class="menu-text">Estadística descriptiva para datos agrupados</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción y formulario</span></a>
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción y formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo empleando el formulario</span></a>
+  <a href="./C5.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Ejemplo empleando el formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo en R</span></a>
+  <a href="./C5.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Ejemplo en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">6. Introducción a probabilidades</span></span>
+ <span class="menu-text">Introducción a probabilidades</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C6.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a probabilidades</span></a>
+  <a href="./C6.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">7. Distribuciones de probabilidad discretas</span></span>
+ <span class="menu-text">Distribuciones de probabilidad discretas</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C7.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribuciones de probabilidad discretas</span></a>
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">8. Distribución normal</span></span>
+ <span class="menu-text">Distribución normal</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C8.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribución normal</span></a>
+  <a href="./C8.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">9. Intervalos de confianza</span></span>
+ <span class="menu-text">Intervalos de confianza</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Intervalos de confianza</span></a>
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">10. Pruebas de hipótesis</span></span>
+ <span class="menu-text">Pruebas de hipótesis</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C10.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas de hipótesis</span></a>
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">11. Regresión lineal y correlación</span></span>
+ <span class="menu-text">Regresión lineal y correlación</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal y correlación</span></a>
+  <a href="./C11.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C11.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -470,17 +529,17 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#propiedades-básicas-de-las-sumatorias-dobles" id="toc-propiedades-básicas-de-las-sumatorias-dobles" class="nav-link active" data-scroll-target="#propiedades-básicas-de-las-sumatorias-dobles">Propiedades básicas de las sumatorias dobles</a>
+  <li><a href="#propiedades-básicas-de-las-sumatorias-dobles" id="toc-propiedades-básicas-de-las-sumatorias-dobles" class="nav-link active" data-scroll-target="#propiedades-básicas-de-las-sumatorias-dobles"><span class="header-section-number">6.1</span> Propiedades básicas de las sumatorias dobles</a>
   <ul class="collapse">
-  <li><a href="#propiedad-del-factor-constante" id="toc-propiedad-del-factor-constante" class="nav-link" data-scroll-target="#propiedad-del-factor-constante">Propiedad del factor constante</a></li>
-  <li><a href="#propiedad-de-linealidad-aditividad" id="toc-propiedad-de-linealidad-aditividad" class="nav-link" data-scroll-target="#propiedad-de-linealidad-aditividad">Propiedad de linealidad (aditividad)</a></li>
-  <li><a href="#propiedad-de-descomposición-en-sumas-parciales" id="toc-propiedad-de-descomposición-en-sumas-parciales" class="nav-link" data-scroll-target="#propiedad-de-descomposición-en-sumas-parciales">Propiedad de descomposición en sumas parciales</a></li>
+  <li><a href="#propiedad-del-factor-constante" id="toc-propiedad-del-factor-constante" class="nav-link" data-scroll-target="#propiedad-del-factor-constante"><span class="header-section-number">6.1.1</span> Propiedad del factor constante</a></li>
+  <li><a href="#propiedad-de-linealidad-aditividad" id="toc-propiedad-de-linealidad-aditividad" class="nav-link" data-scroll-target="#propiedad-de-linealidad-aditividad"><span class="header-section-number">6.1.2</span> Propiedad de linealidad (aditividad)</a></li>
+  <li><a href="#propiedad-de-descomposición-en-sumas-parciales" id="toc-propiedad-de-descomposición-en-sumas-parciales" class="nav-link" data-scroll-target="#propiedad-de-descomposición-en-sumas-parciales"><span class="header-section-number">6.1.3</span> Propiedad de descomposición en sumas parciales</a></li>
   </ul></li>
-  <li><a href="#aplicaciones-en-estadística-agrícola" id="toc-aplicaciones-en-estadística-agrícola" class="nav-link" data-scroll-target="#aplicaciones-en-estadística-agrícola">Aplicaciones en Estadística Agrícola</a>
+  <li><a href="#aplicaciones-en-estadística-agrícola" id="toc-aplicaciones-en-estadística-agrícola" class="nav-link" data-scroll-target="#aplicaciones-en-estadística-agrícola"><span class="header-section-number">6.2</span> Aplicaciones en Estadística Agrícola</a>
   <ul class="collapse">
-  <li><a href="#planteamiento-del-problema" id="toc-planteamiento-del-problema" class="nav-link" data-scroll-target="#planteamiento-del-problema">Planteamiento del problema</a></li>
-  <li><a href="#análisis-paso-a-paso-de-la-producción-de-grano" id="toc-análisis-paso-a-paso-de-la-producción-de-grano" class="nav-link" data-scroll-target="#análisis-paso-a-paso-de-la-producción-de-grano">Análisis paso a paso de la producción de grano</a></li>
-  <li><a href="#aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3" id="toc-aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3" class="nav-link" data-scroll-target="#aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3">Aplicación de la propiedad de linealidad: Cálculo de biomasa total para la variedad 3</a></li>
+  <li><a href="#planteamiento-del-problema" id="toc-planteamiento-del-problema" class="nav-link" data-scroll-target="#planteamiento-del-problema"><span class="header-section-number">6.2.1</span> Planteamiento del problema</a></li>
+  <li><a href="#análisis-paso-a-paso-de-la-producción-de-grano" id="toc-análisis-paso-a-paso-de-la-producción-de-grano" class="nav-link" data-scroll-target="#análisis-paso-a-paso-de-la-producción-de-grano"><span class="header-section-number">6.2.2</span> Análisis paso a paso de la producción de grano</a></li>
+  <li><a href="#aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3" id="toc-aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3" class="nav-link" data-scroll-target="#aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3"><span class="header-section-number">6.2.3</span> Aplicación de la propiedad de linealidad: Cálculo de biomasa total para la variedad 3</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -491,7 +550,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></h1>
+<h1 class="title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sumatorias Dobles y Múltiples</span></h1>
 </div>
 
 
@@ -514,11 +573,11 @@ window.Quarto = {
 <p><strong>Sumatoria triple</strong> (o múltiple) sobre un arreglo de orden 3:</p>
 <p><span class="math inline">\(\Huge\sum_{i=1}^{n}\sum_{j=1}^{m}\sum_{k=1}^{p} x_{ijk}\)</span></p>
 <p>Para sumas finitas, el orden de los signos sigma es intercambiable, debido a la conmutatividad y asociatividad de la adición (Montgomery, 2017). Para los fines del curso solamente se profundizará en las sumatorias dobles.</p>
-<section id="propiedades-básicas-de-las-sumatorias-dobles" class="level2">
-<h2 class="anchored" data-anchor-id="propiedades-básicas-de-las-sumatorias-dobles">Propiedades básicas de las sumatorias dobles</h2>
+<section id="propiedades-básicas-de-las-sumatorias-dobles" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="propiedades-básicas-de-las-sumatorias-dobles"><span class="header-section-number">6.1</span> Propiedades básicas de las sumatorias dobles</h2>
 <p>Las sumatorias dobles conservan las propiedades fundamentales de las sumatorias simples, pero su aplicación requiere consideraciones adicionales debido a la presencia de múltiples índices. Estas propiedades son esenciales para la manipulación algebraica de expresiones estadísticas en el análisis de datos multidimensionales (Wackerly et al., 2014).</p>
-<section id="propiedad-del-factor-constante" class="level3">
-<h3 class="anchored" data-anchor-id="propiedad-del-factor-constante">Propiedad del factor constante</h3>
+<section id="propiedad-del-factor-constante" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="propiedad-del-factor-constante"><span class="header-section-number">6.1.1</span> Propiedad del factor constante</h3>
 <p>Cuando una constante <span class="math inline">\(c\)</span> multiplica a cada término de una sumatoria doble, esta constante puede factorizarse fuera de ambos signos de sumatoria. Esta propiedad se deriva directamente de la distributividad de la multiplicación sobre la adición (Ross, 2014).</p>
 <p><strong>Enunciado formal:</strong></p>
 <p><span class="math inline">\(\huge \sum_{i=1}^{n}\sum_{j=1}^{m} c\,x_{ij}=c\sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij}\)</span></p>
@@ -529,14 +588,14 @@ window.Quarto = {
 <p>Esta propiedad resulta fundamental cuando se requiere convertir unidades de medida. Por ejemplo, si los rendimientos están expresados en kg/ha y se desea convertirlos a t/ha, se multiplica por la constante <span class="math inline">\(c=0.001\)</span>:</p>
 <p><span class="math inline">\(\Large \sum_{i=1}^{n}\sum_{j=1}^{m} 0.001 \cdot x_{ij} = 0.001 \sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij}\)</span></p>
 </section>
-<section id="propiedad-de-linealidad-aditividad" class="level3">
-<h3 class="anchored" data-anchor-id="propiedad-de-linealidad-aditividad">Propiedad de linealidad (aditividad)</h3>
+<section id="propiedad-de-linealidad-aditividad" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="propiedad-de-linealidad-aditividad"><span class="header-section-number">6.1.2</span> Propiedad de linealidad (aditividad)</h3>
 <p>La sumatoria doble de una suma de términos es igual a la suma de las sumatorias dobles de cada término por separado. Esta propiedad refleja la linealidad inherente del operador suma y es fundamental en el desarrollo de fórmulas estadísticas complejas (Montgomery, 2017).</p>
 <p><strong>Enunciado formal:</strong></p>
 <p><span class="math inline">\(\Large \sum_{i=1}^{n}\sum_{j=1}^{m}\bigl(x_{ij}+y_{ij}\bigr) = \sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij} + \sum_{i=1}^{n}\sum_{j=1}^{m} y_{ij}\)</span></p>
 </section>
-<section id="propiedad-de-descomposición-en-sumas-parciales" class="level3">
-<h3 class="anchored" data-anchor-id="propiedad-de-descomposición-en-sumas-parciales">Propiedad de descomposición en sumas parciales</h3>
+<section id="propiedad-de-descomposición-en-sumas-parciales" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="propiedad-de-descomposición-en-sumas-parciales"><span class="header-section-number">6.1.3</span> Propiedad de descomposición en sumas parciales</h3>
 <p>Esta propiedad establece que una sumatoria doble puede descomponerse en una sumatoria simple de sumatorias simples, lo que facilita el cálculo de totales por filas, columnas o grupos específicos. La conmutatividad de la adición garantiza que el orden de evaluación no afecte el resultado final (Hogg et al., 2019).</p>
 <p><strong>Enunciado formal:</strong></p>
 <p><span class="math inline">\(\Large \sum_{i=1}^{n}\sum_{j=1}^{m} x_{ij} = \sum_{i=1}^{n}\left(\sum_{j=1}^{m} x_{ij}\right) = \sum_{j=1}^{m}\left(\sum_{i=1}^{n} x_{ij}\right)\)</span></p>
@@ -548,11 +607,11 @@ window.Quarto = {
 </ol>
 </section>
 </section>
-<section id="aplicaciones-en-estadística-agrícola" class="level2">
-<h2 class="anchored" data-anchor-id="aplicaciones-en-estadística-agrícola">Aplicaciones en Estadística Agrícola</h2>
+<section id="aplicaciones-en-estadística-agrícola" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="aplicaciones-en-estadística-agrícola"><span class="header-section-number">6.2</span> Aplicaciones en Estadística Agrícola</h2>
 <p>Para ilustrar la aplicación práctica de las sumatorias dobles, se presenta un ejemplo donde se analiza el rendimiento de tres variedades de maíz en tres localidades diferentes, diferenciando entre producción de grano y producción de rastrojo.</p>
-<section id="planteamiento-del-problema" class="level3">
-<h3 class="anchored" data-anchor-id="planteamiento-del-problema">Planteamiento del problema</h3>
+<section id="planteamiento-del-problema" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="planteamiento-del-problema"><span class="header-section-number">6.2.1</span> Planteamiento del problema</h3>
 <p>Un investigador evalúa tres variedades de maíz (V1, V2, V3) en tres localidades (L1, L2, L3), registrando tanto la producción de grano como la de rastrojo en kilogramos por parcela. Los datos se organizan en dos matrices de 3×3:</p>
 <p><strong>Matriz de producción de grano</strong> <strong>(</strong><span class="math inline">\(G_{ij}\)</span><strong>):</strong></p>
 <table class="caption-top table">
@@ -618,8 +677,8 @@ window.Quarto = {
 </table>
 <p>Donde <em>i</em> representa la variedad (<em>i</em> = 1, 2, 3) y <em>j</em> la localidad (<em>j</em> = 1, 2, 3).</p>
 </section>
-<section id="análisis-paso-a-paso-de-la-producción-de-grano" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-paso-a-paso-de-la-producción-de-grano">Análisis paso a paso de la producción de grano</h3>
+<section id="análisis-paso-a-paso-de-la-producción-de-grano" class="level3" data-number="6.2.2">
+<h3 data-number="6.2.2" class="anchored" data-anchor-id="análisis-paso-a-paso-de-la-producción-de-grano"><span class="header-section-number">6.2.2</span> Análisis paso a paso de la producción de grano</h3>
 <p><strong>Cálculo de totales por variedad (sumas por filas)</strong></p>
 <p>Para cada variedad <span class="math inline">\(i\)</span> , se calcula el total de producción de grano mediante:</p>
 <table class="caption-top table">
@@ -706,8 +765,8 @@ window.Quarto = {
 <p><span class="math inline">\(\Large \sum_{i=1}^{3} \sum_{j=1}^{3} G_{ij} = G_{..} = 13,500 + 13,900 + 13,200 = 40,600 \text{ kg}\)</span></p>
 <p>Esta equivalencia demuestra la propiedad de descomposición en sumas parciales y confirma la consistencia de los cálculos.</p>
 </section>
-<section id="aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3" class="level3">
-<h3 class="anchored" data-anchor-id="aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3">Aplicación de la propiedad de linealidad: Cálculo de biomasa total para la variedad 3</h3>
+<section id="aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3" class="level3" data-number="6.2.3">
+<h3 data-number="6.2.3" class="anchored" data-anchor-id="aplicación-de-la-propiedad-de-linealidad-cálculo-de-biomasa-total-para-la-variedad-3"><span class="header-section-number">6.2.3</span> Aplicación de la propiedad de linealidad: Cálculo de biomasa total para la variedad 3</h3>
 <p>Para ilustrar la propiedad de linealidad, se calcula la biomasa total de la variedad 3 (V3), definida como la suma de producción de grano y rastrojo.</p>
 <p><strong>Datos para la variedad 3:</strong></p>
 <table class="caption-top table">
@@ -1192,16 +1251,35 @@ window.Quarto = {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./C3.2.html" class="pagination-link" aria-label="Ejemplo Aplicado Sumatoria Simple">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./C4.1.html" class="pagination-link" aria-label="Estadística descriptiva para datos sin agrupar">
-        <span class="nav-page-text"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./license.html">
+<p>Licencia</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

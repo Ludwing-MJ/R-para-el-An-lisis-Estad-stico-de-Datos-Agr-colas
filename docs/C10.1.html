@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Manual práctico para el análisis estadístico de datos agrícolas utilizando R, orientado a estudiantes y profesionales de agronomía.">
 
-<title>Pruebas de Hipótesis Paramétricas en R – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>17&nbsp; Pruebas de Hipótesis Paramétricas en R – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -314,7 +315,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C10.1.html"><span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C10.1.html"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -333,7 +334,41 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R para el Análisis Estadístico de Datos Agrícolas</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -353,136 +388,160 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C0.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Instalación y configuración</span></a>
+  <a href="./C0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación y configuración</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">1. Aspectos Introductorios</span></span>
+ <span class="menu-text">Aspectos Introductorios</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C1.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aspectos introductorios</span></a>
+  <a href="./C1.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos introductorios</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">2. Clasificación de variables</span></span>
+ <span class="menu-text">Clasificación de variables</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C2.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clasificación de Variables</span></a>
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">3. Notación sumatoria</span></span>
+ <span class="menu-text">Notación sumatoria</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a la Notación Sumatoria</span></a>
+  <a href="./C3.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Notación Sumatoria</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></a>
+  <a href="./C3.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a>
+  <a href="./C3.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sumatorias Dobles y Múltiples</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">4. Estadística descriptiva para datos sin agrupar</span></span>
+ <span class="menu-text">Estadística descriptiva para datos sin agrupar</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C4.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></a>
+  <a href="./C4.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Otros tipos de medias</span></a>
+  <a href="./c4.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Otros tipos de medias</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cálculos en R</span></a>
+  <a href="./c4.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cálculos en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">5. Estadística descriptiva para datos agrupados</span></span>
+ <span class="menu-text">Estadística descriptiva para datos agrupados</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción y formulario</span></a>
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción y formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo empleando el formulario</span></a>
+  <a href="./C5.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Ejemplo empleando el formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo en R</span></a>
+  <a href="./C5.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Ejemplo en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">6. Introducción a probabilidades</span></span>
+ <span class="menu-text">Introducción a probabilidades</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C6.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a probabilidades</span></a>
+  <a href="./C6.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">7. Distribuciones de probabilidad discretas</span></span>
+ <span class="menu-text">Distribuciones de probabilidad discretas</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C7.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribuciones Binomial y Poisson en R</span></a>
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">8. Distribución normal</span></span>
+ <span class="menu-text">Distribución normal</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C8.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribución normal</span></a>
+  <a href="./C8.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">9. Intervalos de confianza</span></span>
+ <span class="menu-text">Intervalos de confianza</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></a>
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">10. Pruebas de hipótesis</span></span>
+ <span class="menu-text">Pruebas de hipótesis</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C10.1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></a>
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">11. Regresión lineal y correlación</span></span>
+ <span class="menu-text">Regresión lineal y correlación</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal y correlación</span></a>
+  <a href="./C11.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C11.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -505,42 +564,42 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#fundamentos-de-las-pruebas-de-hipótesis" id="toc-fundamentos-de-las-pruebas-de-hipótesis" class="nav-link active" data-scroll-target="#fundamentos-de-las-pruebas-de-hipótesis">Fundamentos de las pruebas de hipótesis</a></li>
-  <li><a href="#prueba-de-hipótesis-sobre-una-media" id="toc-prueba-de-hipótesis-sobre-una-media" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-una-media">Prueba de hipótesis sobre una media</a>
+  <li><a href="#fundamentos-de-las-pruebas-de-hipótesis" id="toc-fundamentos-de-las-pruebas-de-hipótesis" class="nav-link active" data-scroll-target="#fundamentos-de-las-pruebas-de-hipótesis"><span class="header-section-number">17.1</span> Fundamentos de las pruebas de hipótesis</a></li>
+  <li><a href="#prueba-de-hipótesis-sobre-una-media" id="toc-prueba-de-hipótesis-sobre-una-media" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-una-media"><span class="header-section-number">17.2</span> Prueba de hipótesis sobre una media</a>
   <ul class="collapse">
-  <li><a href="#criterios-de-selección" id="toc-criterios-de-selección" class="nav-link" data-scroll-target="#criterios-de-selección">Criterios de selección</a></li>
-  <li><a href="#fórmulas" id="toc-fórmulas" class="nav-link" data-scroll-target="#fórmulas">Fórmulas</a></li>
-  <li><a href="#ejemplo-hipotético" id="toc-ejemplo-hipotético" class="nav-link" data-scroll-target="#ejemplo-hipotético">Ejemplo hipotético</a></li>
-  <li><a href="#código-en-r-explicado" id="toc-código-en-r-explicado" class="nav-link" data-scroll-target="#código-en-r-explicado">Código en R explicado</a></li>
+  <li><a href="#criterios-de-selección" id="toc-criterios-de-selección" class="nav-link" data-scroll-target="#criterios-de-selección"><span class="header-section-number">17.2.1</span> Criterios de selección</a></li>
+  <li><a href="#fórmulas" id="toc-fórmulas" class="nav-link" data-scroll-target="#fórmulas"><span class="header-section-number">17.2.2</span> Fórmulas</a></li>
+  <li><a href="#ejemplo-hipotético" id="toc-ejemplo-hipotético" class="nav-link" data-scroll-target="#ejemplo-hipotético"><span class="header-section-number">17.2.3</span> Ejemplo hipotético</a></li>
+  <li><a href="#código-en-r-explicado" id="toc-código-en-r-explicado" class="nav-link" data-scroll-target="#código-en-r-explicado"><span class="header-section-number">17.2.4</span> Código en R explicado</a></li>
   </ul></li>
-  <li><a href="#prueba-de-hipótesis-sobre-dos-medias" id="toc-prueba-de-hipótesis-sobre-dos-medias" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-dos-medias">Prueba de hipótesis sobre dos medias</a>
+  <li><a href="#prueba-de-hipótesis-sobre-dos-medias" id="toc-prueba-de-hipótesis-sobre-dos-medias" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-dos-medias"><span class="header-section-number">17.3</span> Prueba de hipótesis sobre dos medias</a>
   <ul class="collapse">
-  <li><a href="#criterios-de-selección-1" id="toc-criterios-de-selección-1" class="nav-link" data-scroll-target="#criterios-de-selección-1">Criterios de selección</a></li>
-  <li><a href="#fórmulas-1" id="toc-fórmulas-1" class="nav-link" data-scroll-target="#fórmulas-1">Fórmulas</a></li>
-  <li><a href="#ejemplo-hipotético-independientes-varianzas-iguales" id="toc-ejemplo-hipotético-independientes-varianzas-iguales" class="nav-link" data-scroll-target="#ejemplo-hipotético-independientes-varianzas-iguales">Ejemplo hipotético (independientes, varianzas iguales)</a></li>
-  <li><a href="#código-en-r-explicado-1" id="toc-código-en-r-explicado-1" class="nav-link" data-scroll-target="#código-en-r-explicado-1">Código en R explicado</a></li>
-  <li><a href="#ejemplo-hipotético-pareadas" id="toc-ejemplo-hipotético-pareadas" class="nav-link" data-scroll-target="#ejemplo-hipotético-pareadas">Ejemplo hipotético (pareadas)</a></li>
-  <li><a href="#código-en-r-explicado-2" id="toc-código-en-r-explicado-2" class="nav-link" data-scroll-target="#código-en-r-explicado-2">Código en R explicado</a></li>
+  <li><a href="#criterios-de-selección-1" id="toc-criterios-de-selección-1" class="nav-link" data-scroll-target="#criterios-de-selección-1"><span class="header-section-number">17.3.1</span> Criterios de selección</a></li>
+  <li><a href="#fórmulas-1" id="toc-fórmulas-1" class="nav-link" data-scroll-target="#fórmulas-1"><span class="header-section-number">17.3.2</span> Fórmulas</a></li>
+  <li><a href="#ejemplo-hipotético-independientes-varianzas-iguales" id="toc-ejemplo-hipotético-independientes-varianzas-iguales" class="nav-link" data-scroll-target="#ejemplo-hipotético-independientes-varianzas-iguales"><span class="header-section-number">17.3.3</span> Ejemplo hipotético (independientes, varianzas iguales)</a></li>
+  <li><a href="#código-en-r-explicado-1" id="toc-código-en-r-explicado-1" class="nav-link" data-scroll-target="#código-en-r-explicado-1"><span class="header-section-number">17.3.4</span> Código en R explicado</a></li>
+  <li><a href="#ejemplo-hipotético-pareadas" id="toc-ejemplo-hipotético-pareadas" class="nav-link" data-scroll-target="#ejemplo-hipotético-pareadas"><span class="header-section-number">17.3.5</span> Ejemplo hipotético (pareadas)</a></li>
+  <li><a href="#código-en-r-explicado-2" id="toc-código-en-r-explicado-2" class="nav-link" data-scroll-target="#código-en-r-explicado-2"><span class="header-section-number">17.3.6</span> Código en R explicado</a></li>
   </ul></li>
-  <li><a href="#prueba-de-hipótesis-sobre-una-proporción" id="toc-prueba-de-hipótesis-sobre-una-proporción" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-una-proporción">Prueba de hipótesis sobre una proporción</a>
+  <li><a href="#prueba-de-hipótesis-sobre-una-proporción" id="toc-prueba-de-hipótesis-sobre-una-proporción" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-una-proporción"><span class="header-section-number">17.4</span> Prueba de hipótesis sobre una proporción</a>
   <ul class="collapse">
-  <li><a href="#criterios-de-selección-2" id="toc-criterios-de-selección-2" class="nav-link" data-scroll-target="#criterios-de-selección-2">Criterios de selección</a></li>
-  <li><a href="#ejemplo-hipotético-1" id="toc-ejemplo-hipotético-1" class="nav-link" data-scroll-target="#ejemplo-hipotético-1">Ejemplo hipotético</a></li>
-  <li><a href="#código-en-r-explicado-3" id="toc-código-en-r-explicado-3" class="nav-link" data-scroll-target="#código-en-r-explicado-3">Código en R explicado</a></li>
+  <li><a href="#criterios-de-selección-2" id="toc-criterios-de-selección-2" class="nav-link" data-scroll-target="#criterios-de-selección-2"><span class="header-section-number">17.4.1</span> Criterios de selección</a></li>
+  <li><a href="#ejemplo-hipotético-1" id="toc-ejemplo-hipotético-1" class="nav-link" data-scroll-target="#ejemplo-hipotético-1"><span class="header-section-number">17.4.2</span> Ejemplo hipotético</a></li>
+  <li><a href="#código-en-r-explicado-3" id="toc-código-en-r-explicado-3" class="nav-link" data-scroll-target="#código-en-r-explicado-3"><span class="header-section-number">17.4.3</span> Código en R explicado</a></li>
   </ul></li>
-  <li><a href="#prueba-de-hipótesis-sobre-dos-proporciones" id="toc-prueba-de-hipótesis-sobre-dos-proporciones" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-dos-proporciones">Prueba de hipótesis sobre dos proporciones</a>
+  <li><a href="#prueba-de-hipótesis-sobre-dos-proporciones" id="toc-prueba-de-hipótesis-sobre-dos-proporciones" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-dos-proporciones"><span class="header-section-number">17.5</span> Prueba de hipótesis sobre dos proporciones</a>
   <ul class="collapse">
-  <li><a href="#criterios-de-selección-3" id="toc-criterios-de-selección-3" class="nav-link" data-scroll-target="#criterios-de-selección-3">Criterios de selección</a></li>
-  <li><a href="#fórmulas-2" id="toc-fórmulas-2" class="nav-link" data-scroll-target="#fórmulas-2">Fórmulas</a></li>
-  <li><a href="#ejemplo-hipotético-2" id="toc-ejemplo-hipotético-2" class="nav-link" data-scroll-target="#ejemplo-hipotético-2">Ejemplo hipotético</a></li>
-  <li><a href="#código-en-r-explicado-4" id="toc-código-en-r-explicado-4" class="nav-link" data-scroll-target="#código-en-r-explicado-4">Código en R explicado</a></li>
+  <li><a href="#criterios-de-selección-3" id="toc-criterios-de-selección-3" class="nav-link" data-scroll-target="#criterios-de-selección-3"><span class="header-section-number">17.5.1</span> Criterios de selección</a></li>
+  <li><a href="#fórmulas-2" id="toc-fórmulas-2" class="nav-link" data-scroll-target="#fórmulas-2"><span class="header-section-number">17.5.2</span> Fórmulas</a></li>
+  <li><a href="#ejemplo-hipotético-2" id="toc-ejemplo-hipotético-2" class="nav-link" data-scroll-target="#ejemplo-hipotético-2"><span class="header-section-number">17.5.3</span> Ejemplo hipotético</a></li>
+  <li><a href="#código-en-r-explicado-4" id="toc-código-en-r-explicado-4" class="nav-link" data-scroll-target="#código-en-r-explicado-4"><span class="header-section-number">17.5.4</span> Código en R explicado</a></li>
   </ul></li>
-  <li><a href="#prueba-de-hipótesis-sobre-varianzas" id="toc-prueba-de-hipótesis-sobre-varianzas" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-varianzas">Prueba de hipótesis sobre varianzas</a>
+  <li><a href="#prueba-de-hipótesis-sobre-varianzas" id="toc-prueba-de-hipótesis-sobre-varianzas" class="nav-link" data-scroll-target="#prueba-de-hipótesis-sobre-varianzas"><span class="header-section-number">17.6</span> Prueba de hipótesis sobre varianzas</a>
   <ul class="collapse">
-  <li><a href="#criterios-de-selección-4" id="toc-criterios-de-selección-4" class="nav-link" data-scroll-target="#criterios-de-selección-4">Criterios de selección</a></li>
-  <li><a href="#fórmulas-3" id="toc-fórmulas-3" class="nav-link" data-scroll-target="#fórmulas-3">Fórmulas</a></li>
-  <li><a href="#ejemplo-hipotético-una-varianza" id="toc-ejemplo-hipotético-una-varianza" class="nav-link" data-scroll-target="#ejemplo-hipotético-una-varianza">Ejemplo hipotético (una varianza)</a></li>
-  <li><a href="#ejemplo-hipotético-dos-varianzas" id="toc-ejemplo-hipotético-dos-varianzas" class="nav-link" data-scroll-target="#ejemplo-hipotético-dos-varianzas">Ejemplo hipotético (dos varianzas)</a></li>
+  <li><a href="#criterios-de-selección-4" id="toc-criterios-de-selección-4" class="nav-link" data-scroll-target="#criterios-de-selección-4"><span class="header-section-number">17.6.1</span> Criterios de selección</a></li>
+  <li><a href="#fórmulas-3" id="toc-fórmulas-3" class="nav-link" data-scroll-target="#fórmulas-3"><span class="header-section-number">17.6.2</span> Fórmulas</a></li>
+  <li><a href="#ejemplo-hipotético-una-varianza" id="toc-ejemplo-hipotético-una-varianza" class="nav-link" data-scroll-target="#ejemplo-hipotético-una-varianza"><span class="header-section-number">17.6.3</span> Ejemplo hipotético (una varianza)</a></li>
+  <li><a href="#ejemplo-hipotético-dos-varianzas" id="toc-ejemplo-hipotético-dos-varianzas" class="nav-link" data-scroll-target="#ejemplo-hipotético-dos-varianzas"><span class="header-section-number">17.6.4</span> Ejemplo hipotético (dos varianzas)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -551,7 +610,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></h1>
+<h1 class="title"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></h1>
 </div>
 
 
@@ -569,8 +628,8 @@ window.Quarto = {
 
 
 <p>En la investigación agronómica, es fundamental tomar decisiones basadas en datos. Las pruebas de hipótesis permiten evaluar si los resultados observados en una muestra pueden generalizarse a la población de interés o si son producto del azar. Este capítulo guía al estudiante en la aplicación de pruebas de hipótesis paramétricas utilizando R, desde la formulación de hipótesis hasta la interpretación de resultados, empleando ejemplos prácticos y reales del ámbito agronómico (López &amp; González, 2018).</p>
-<section id="fundamentos-de-las-pruebas-de-hipótesis" class="level2">
-<h2 class="anchored" data-anchor-id="fundamentos-de-las-pruebas-de-hipótesis">Fundamentos de las pruebas de hipótesis</h2>
+<section id="fundamentos-de-las-pruebas-de-hipótesis" class="level2" data-number="17.1">
+<h2 data-number="17.1" class="anchored" data-anchor-id="fundamentos-de-las-pruebas-de-hipótesis"><span class="header-section-number">17.1</span> Fundamentos de las pruebas de hipótesis</h2>
 <p>Una prueba de hipótesis es un procedimiento estadístico que permite decidir, con un nivel de confianza predefinido, si una afirmación sobre un parámetro poblacional es compatible con los datos muestrales. El proceso general incluye:</p>
 <ol type="1">
 <li><p>Plantear la hipótesis nula (<span class="math inline">\(H_0\)</span>) y la alternativa (<span class="math inline">\(H_a\)</span>).</p></li>
@@ -588,11 +647,11 @@ window.Quarto = {
 <li><p>Homogeneidad de varianzas.</p></li>
 </ol>
 </section>
-<section id="prueba-de-hipótesis-sobre-una-media" class="level2">
-<h2 class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-una-media">Prueba de hipótesis sobre una media</h2>
+<section id="prueba-de-hipótesis-sobre-una-media" class="level2" data-number="17.2">
+<h2 data-number="17.2" class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-una-media"><span class="header-section-number">17.2</span> Prueba de hipótesis sobre una media</h2>
 <p>Esta prueba se utiliza para determinar si la media de una población difiere de un valor específico. Es útil, por ejemplo, para verificar si el peso promedio de semillas, el rendimiento de un cultivo o el contenido de un nutriente cumple con un estándar.</p>
-<section id="criterios-de-selección" class="level3">
-<h3 class="anchored" data-anchor-id="criterios-de-selección">Criterios de selección</h3>
+<section id="criterios-de-selección" class="level3" data-number="17.2.1">
+<h3 data-number="17.2.1" class="anchored" data-anchor-id="criterios-de-selección"><span class="header-section-number">17.2.1</span> Criterios de selección</h3>
 <ol type="1">
 <li><p>Variable cuantitativa continua.</p></li>
 <li><p>La muestra debe ser aleatoria.</p></li>
@@ -600,16 +659,16 @@ window.Quarto = {
 <li><p>Si la varianza es desconocida y la muestra es pequeña (<span class="math inline">\(n&lt;30\)</span>), se usa la prueba t de Student.</p></li>
 </ol>
 </section>
-<section id="fórmulas" class="level3">
-<h3 class="anchored" data-anchor-id="fórmulas">Fórmulas</h3>
+<section id="fórmulas" class="level3" data-number="17.2.2">
+<h3 data-number="17.2.2" class="anchored" data-anchor-id="fórmulas"><span class="header-section-number">17.2.2</span> Fórmulas</h3>
 <p><strong>a) Prueba z (varianza conocida):</strong></p>
 <p><span class="math display">\[\huge z = \frac{\bar{x} - \mu_0}{\sigma / \sqrt{n}}  \]</span>​​</p>
 <p><strong>b) Prueba t (varianza desconocida):</strong></p>
 <p><span class="math display">\[\huge t = \frac{\bar{x} - \mu_0}{s / \sqrt{n}} \]</span></p>
 <p>donde <span class="math inline">\(gl = n-1\)</span>.</p>
 </section>
-<section id="ejemplo-hipotético" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-hipotético">Ejemplo hipotético</h3>
+<section id="ejemplo-hipotético" class="level3" data-number="17.2.3">
+<h3 data-number="17.2.3" class="anchored" data-anchor-id="ejemplo-hipotético"><span class="header-section-number">17.2.3</span> Ejemplo hipotético</h3>
 <p>Supóngase que se afirma que el peso promedio de semillas de maíz es de 250 mg. Se toma una muestra de 20 semillas, obteniéndose una media de 242 mg y una desviación estándar de 15 mg. Se desea saber, con un nivel de significancia del 5%, si el peso medio difiere del valor afirmado.</p>
 <p><strong>1. Planteamiento de hipótesis:</strong></p>
 <ol type="1">
@@ -625,8 +684,8 @@ window.Quarto = {
 <p><strong>5. Conclusión:</strong></p>
 <p>Con un 5% de significancia, existe evidencia de que el peso medio difiere de 250 mg.</p>
 </section>
-<section id="código-en-r-explicado" class="level3">
-<h3 class="anchored" data-anchor-id="código-en-r-explicado">Código en R explicado</h3>
+<section id="código-en-r-explicado" class="level3" data-number="17.2.4">
+<h3 data-number="17.2.4" class="anchored" data-anchor-id="código-en-r-explicado"><span class="header-section-number">17.2.4</span> Código en R explicado</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalar paquete si no está instalado</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Para realizar pruebas de hipotesis</span></span>
@@ -666,19 +725,19 @@ mean of x
 </ol>
 </section>
 </section>
-<section id="prueba-de-hipótesis-sobre-dos-medias" class="level2">
-<h2 class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-dos-medias">Prueba de hipótesis sobre dos medias</h2>
+<section id="prueba-de-hipótesis-sobre-dos-medias" class="level2" data-number="17.3">
+<h2 data-number="17.3" class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-dos-medias"><span class="header-section-number">17.3</span> Prueba de hipótesis sobre dos medias</h2>
 <p>Permite comparar si las medias de dos poblaciones son iguales o diferentes. Es útil, por ejemplo, para comparar el rendimiento de dos variedades de cultivo, el efecto de dos tratamientos o la altura de plantas de dos especies.</p>
-<section id="criterios-de-selección-1" class="level3">
-<h3 class="anchored" data-anchor-id="criterios-de-selección-1">Criterios de selección</h3>
+<section id="criterios-de-selección-1" class="level3" data-number="17.3.1">
+<h3 data-number="17.3.1" class="anchored" data-anchor-id="criterios-de-selección-1"><span class="header-section-number">17.3.1</span> Criterios de selección</h3>
 <ol type="1">
 <li><p>Las muestras pueden ser independientes (grupos distintos) o dependientes (mediciones pareadas).</p></li>
 <li><p>Se debe verificar si las varianzas son iguales o diferentes.</p></li>
 <li><p>Si las muestras son grandes (<span class="math inline">\(n_1, n_2 \geq 30\)</span>), se puede usar la prueba z; si son pequeñas y la varianza es desconocida, se usa la prueba t.</p></li>
 </ol>
 </section>
-<section id="fórmulas-1" class="level3">
-<h3 class="anchored" data-anchor-id="fórmulas-1">Fórmulas</h3>
+<section id="fórmulas-1" class="level3" data-number="17.3.2">
+<h3 data-number="17.3.2" class="anchored" data-anchor-id="fórmulas-1"><span class="header-section-number">17.3.2</span> Fórmulas</h3>
 <p><strong>a) Muestras independientes, varianzas iguales (t “pooled”):</strong></p>
 <p><span class="math display">\[\huge t = \frac{\bar{x}_1 - \bar{x}_2}{s_p \sqrt{\frac{1}{n_1} + \frac{1}{n_2}}}  \]</span></p>
 <p>donde</p>
@@ -689,8 +748,8 @@ mean of x
 <p><span class="math display">\[\huge t = \frac{\bar{d}}{s_d / \sqrt{n}}\]</span> ​</p>
 <p>donde <span class="math inline">\(\bar{d}\)</span> es la media de las diferencias y <span class="math inline">\(s_d\)</span>​ su desviación estándar.</p>
 </section>
-<section id="ejemplo-hipotético-independientes-varianzas-iguales" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-hipotético-independientes-varianzas-iguales">Ejemplo hipotético (independientes, varianzas iguales)</h3>
+<section id="ejemplo-hipotético-independientes-varianzas-iguales" class="level3" data-number="17.3.3">
+<h3 data-number="17.3.3" class="anchored" data-anchor-id="ejemplo-hipotético-independientes-varianzas-iguales"><span class="header-section-number">17.3.3</span> Ejemplo hipotético (independientes, varianzas iguales)</h3>
 <p>Se comparan las alturas de dos especies forestales.</p>
 <ol type="1">
 <li><p>Especie 1: <span class="math inline">\(\bar{x}_1 = 25.97\)</span> m, <span class="math inline">\(s_1 = 1.36\)</span>, <span class="math inline">\(n_1 = 13\)</span></p></li>
@@ -707,8 +766,8 @@ mean of x
 <p><span class="math display">\[\huge t = \frac{25.97 - 25.39}{1.52 \sqrt{\frac{1}{13} + \frac{1}{14}}} = 0.94\]</span></p>
 <p><strong>3. Decisión:</strong> Para <span class="math inline">\(gl=25\)</span>, <span class="math inline">\(t_{0.025} = 2.060\)</span>. Como <span class="math inline">\(0.94 &lt; 2.060\)</span>, no se rechaza <span class="math inline">\(H_0\)</span>.</p>
 </section>
-<section id="código-en-r-explicado-1" class="level3">
-<h3 class="anchored" data-anchor-id="código-en-r-explicado-1">Código en R explicado</h3>
+<section id="código-en-r-explicado-1" class="level3" data-number="17.3.4">
+<h3 data-number="17.3.4" class="anchored" data-anchor-id="código-en-r-explicado-1"><span class="header-section-number">17.3.4</span> Código en R explicado</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del ejercicio</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mean1 <span class="ot">&lt;-</span> <span class="fl">25.97</span>; s1 <span class="ot">&lt;-</span> <span class="fl">1.36</span>; n1 <span class="ot">&lt;-</span> <span class="dv">13</span>  <span class="co"># Especie 1</span></span>
@@ -718,7 +777,7 @@ mean of x
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tsum.test</span>(<span class="at">mean.x =</span> mean1, <span class="at">s.x =</span> s1, <span class="at">n.x =</span> n1,</span>
 <span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">mean.y =</span> mean2, <span class="at">s.y =</span> s2, <span class="at">n.y =</span> n2,</span>
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>          <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">mu =</span> <span class="dv">0</span>,                    <span class="co"># diferencia hipotética (H₀: μ₁ - μ₂ = 0)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>          <span class="at">mu =</span> <span class="dv">0</span>,        <span class="co"># diferencia hipotética (H₀: μ₁ - μ₂ = 0)</span></span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>          <span class="at">var.equal =</span> <span class="cn">TRUE</span>,          <span class="co"># asume varianzas iguales (pooled)</span></span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>          <span class="at">conf.level =</span> <span class="fl">0.95</span>)         <span class="co"># nivel de confianza</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -744,8 +803,8 @@ mean of x mean of y
 <li><p><strong>alternative</strong>: “two.sided” para prueba bilateral</p></li>
 </ol>
 </section>
-<section id="ejemplo-hipotético-pareadas" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-hipotético-pareadas">Ejemplo hipotético (pareadas)</h3>
+<section id="ejemplo-hipotético-pareadas" class="level3" data-number="17.3.5">
+<h3 data-number="17.3.5" class="anchored" data-anchor-id="ejemplo-hipotético-pareadas"><span class="header-section-number">17.3.5</span> Ejemplo hipotético (pareadas)</h3>
 <p>Se evalúa el efecto de una capacitación en 10 empleados, midiendo el puntaje antes y después.</p>
 <p><strong>1. Hipótesis:</strong></p>
 <ol type="1">
@@ -758,8 +817,8 @@ Supóngase que la media de las diferencias es <span class="math inline">\(-0.4\)
 <p><strong>3. Decisión:</strong><br>
 Para <span class="math inline">\(gl = 9\)</span>, <span class="math inline">\(t_{0.05} = 2.262\)</span> . Como <span class="math inline">\(|-1.58| &lt; 2.262\)</span>, no se rechaza <span class="math inline">\(H_0\)</span>.</p>
 </section>
-<section id="código-en-r-explicado-2" class="level3">
-<h3 class="anchored" data-anchor-id="código-en-r-explicado-2">Código en R explicado</h3>
+<section id="código-en-r-explicado-2" class="level3" data-number="17.3.6">
+<h3 data-number="17.3.6" class="anchored" data-anchor-id="código-en-r-explicado-2"><span class="header-section-number">17.3.6</span> Código en R explicado</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del ejercicio (estadísticos de las diferencias)</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">10</span></span>
@@ -835,11 +894,11 @@ mean difference
 </ol>
 </section>
 </section>
-<section id="prueba-de-hipótesis-sobre-una-proporción" class="level2">
-<h2 class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-una-proporción">Prueba de hipótesis sobre una proporción</h2>
+<section id="prueba-de-hipótesis-sobre-una-proporción" class="level2" data-number="17.4">
+<h2 data-number="17.4" class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-una-proporción"><span class="header-section-number">17.4</span> Prueba de hipótesis sobre una proporción</h2>
 <p>Permite determinar si la proporción de una característica en la población es igual a un valor específico. Por ejemplo, si la proporción de agricultores que adopta una tecnología supera el 60%.</p>
-<section id="criterios-de-selección-2" class="level3">
-<h3 class="anchored" data-anchor-id="criterios-de-selección-2">Criterios de selección</h3>
+<section id="criterios-de-selección-2" class="level3" data-number="17.4.1">
+<h3 data-number="17.4.1" class="anchored" data-anchor-id="criterios-de-selección-2"><span class="header-section-number">17.4.1</span> Criterios de selección</h3>
 <ol type="1">
 <li><p>Variable cualitativa dicotómica.</p></li>
 <li><p>Tamaño muestral suficiente para aproximación normal (<span class="math inline">\(np_0 &gt; 5np\)</span> y <span class="math inline">\(n(1-p_0) &gt; 5\)</span>).</p></li>
@@ -847,15 +906,15 @@ mean difference
 <p><strong>Fórmula</strong></p>
 <p><span class="math display">\[\huge z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}\]</span></p>
 </section>
-<section id="ejemplo-hipotético-1" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-hipotético-1">Ejemplo hipotético</h3>
+<section id="ejemplo-hipotético-1" class="level3" data-number="17.4.2">
+<h3 data-number="17.4.2" class="anchored" data-anchor-id="ejemplo-hipotético-1"><span class="header-section-number">17.4.2</span> Ejemplo hipotético</h3>
 <p>De 180 agricultores, 120 adoptaron un fertilizante. Se desea saber si la proporción es diferente de 0.60.</p>
 <p><span class="math display">\[\LARGE \hat{p} = \frac{120}{180} = 0.667\]</span></p>
 <p><span class="math display">\[\LARGE z = \frac{0.667 - 0.60}{\sqrt{0.60 \times 0.40 / 180}} = 1.56\]</span></p>
 <p>Para <span class="math inline">\(\alpha = 0.05\)</span>, <span class="math inline">\(z_{0.025} = 1.96\)</span>. Como <span class="math inline">\(1.56 &lt; 1.96\)</span>, no se rechaza <span class="math inline">\(H_0\)</span>.</p>
 </section>
-<section id="código-en-r-explicado-3" class="level3">
-<h3 class="anchored" data-anchor-id="código-en-r-explicado-3">Código en R explicado</h3>
+<section id="código-en-r-explicado-3" class="level3" data-number="17.4.3">
+<h3 data-number="17.4.3" class="anchored" data-anchor-id="código-en-r-explicado-3"><span class="header-section-number">17.4.3</span> Código en R explicado</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.test</span>(<span class="at">x =</span> <span class="dv">120</span>, <span class="at">n =</span> <span class="dv">180</span>,</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">p =</span> <span class="fl">0.60</span>,                <span class="co"># valor bajo H0</span></span>
@@ -882,32 +941,32 @@ sample estimates:
 </ol>
 </section>
 </section>
-<section id="prueba-de-hipótesis-sobre-dos-proporciones" class="level2">
-<h2 class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-dos-proporciones">Prueba de hipótesis sobre dos proporciones</h2>
+<section id="prueba-de-hipótesis-sobre-dos-proporciones" class="level2" data-number="17.5">
+<h2 data-number="17.5" class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-dos-proporciones"><span class="header-section-number">17.5</span> Prueba de hipótesis sobre dos proporciones</h2>
 <p>Permite comparar si la proporción de una característica es igual en dos poblaciones. Por ejemplo, comparar la proporción de adopción de una tecnología entre hombres y mujeres.</p>
-<section id="criterios-de-selección-3" class="level3">
-<h3 class="anchored" data-anchor-id="criterios-de-selección-3">Criterios de selección</h3>
+<section id="criterios-de-selección-3" class="level3" data-number="17.5.1">
+<h3 data-number="17.5.1" class="anchored" data-anchor-id="criterios-de-selección-3"><span class="header-section-number">17.5.1</span> Criterios de selección</h3>
 <ol type="1">
 <li><p>Variable cualitativa dicotómica.</p></li>
 <li><p>Muestras independientes.</p></li>
 <li><p>Tamaño muestral suficiente.</p></li>
 </ol>
 </section>
-<section id="fórmulas-2" class="level3">
-<h3 class="anchored" data-anchor-id="fórmulas-2">Fórmulas</h3>
+<section id="fórmulas-2" class="level3" data-number="17.5.2">
+<h3 data-number="17.5.2" class="anchored" data-anchor-id="fórmulas-2"><span class="header-section-number">17.5.2</span> Fórmulas</h3>
 <p><span class="math display">\[\huge \hat{p}_c = \frac{x_1 + x_2}{n_1 + n_2}\]</span></p>
 <p><span class="math display">\[\LARGE z = \frac{\hat{p}_1 - \hat{p}_2}{\sqrt{\hat{p}_c(1-\hat{p}_c)\left(\frac{1}{n_1} + \frac{1}{n_2}\right)}}\]</span></p>
 </section>
-<section id="ejemplo-hipotético-2" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-hipotético-2">Ejemplo hipotético</h3>
+<section id="ejemplo-hipotético-2" class="level3" data-number="17.5.3">
+<h3 data-number="17.5.3" class="anchored" data-anchor-id="ejemplo-hipotético-2"><span class="header-section-number">17.5.3</span> Ejemplo hipotético</h3>
 <p>En una encuesta, 110 de 200 hombres y 210 de 300 mujeres respondieron. ¿Existe diferencia en las proporciones?</p>
 <p><span class="math display">\[\LARGE \hat{p}_1 = 0.55,; \hat{p}_2 = 0.70\]</span></p>
 <p><span class="math display">\[\LARGE \hat{p}_c = \frac{110+210}{200+300} = 0.64\]</span></p>
 <p><span class="math display">\[\LARGE z = \frac{0.55 - 0.70}{\sqrt{0.64 \times 0.36 \left(\frac{1}{200} + \frac{1}{300}\right)}} = -3.42\]</span></p>
 <p>Como <span class="math inline">\(|-3.42| &gt; 1.96\)</span>, se rechaza <span class="math inline">\(H_0\)</span>.</p>
 </section>
-<section id="código-en-r-explicado-4" class="level3">
-<h3 class="anchored" data-anchor-id="código-en-r-explicado-4">Código en R explicado</h3>
+<section id="código-en-r-explicado-4" class="level3" data-number="17.5.4">
+<h3 data-number="17.5.4" class="anchored" data-anchor-id="código-en-r-explicado-4"><span class="header-section-number">17.5.4</span> Código en R explicado</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>xp <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">110</span>, <span class="dv">210</span>)   <span class="co"># éxitos en cada grupo</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>np <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">200</span>, <span class="dv">300</span>)   <span class="co"># tamaño de cada grupo</span></span>
@@ -935,19 +994,19 @@ prop 1 prop 2
 </ol>
 </section>
 </section>
-<section id="prueba-de-hipótesis-sobre-varianzas" class="level2">
-<h2 class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-varianzas">Prueba de hipótesis sobre varianzas</h2>
+<section id="prueba-de-hipótesis-sobre-varianzas" class="level2" data-number="17.6">
+<h2 data-number="17.6" class="anchored" data-anchor-id="prueba-de-hipótesis-sobre-varianzas"><span class="header-section-number">17.6</span> Prueba de hipótesis sobre varianzas</h2>
 <p>La prueba de hipótesis sobre varianzas permite evaluar si la variabilidad observada en una muestra es compatible con un valor de referencia o si existen diferencias en la variabilidad entre dos poblaciones. Este tipo de prueba es fundamental en agronomía para analizar la uniformidad de procesos, como la comparación de la variabilidad en el rendimiento de cultivos bajo diferentes métodos de riego o el control de calidad de productos agrícolas.</p>
-<section id="criterios-de-selección-4" class="level3">
-<h3 class="anchored" data-anchor-id="criterios-de-selección-4">Criterios de selección</h3>
+<section id="criterios-de-selección-4" class="level3" data-number="17.6.1">
+<h3 data-number="17.6.1" class="anchored" data-anchor-id="criterios-de-selección-4"><span class="header-section-number">17.6.1</span> Criterios de selección</h3>
 <ol type="1">
 <li><p>La variable de interés debe ser cuantitativa y continua.</p></li>
 <li><p>Los datos deben provenir de poblaciones con distribución normal.</p></li>
 <li><p>Para comparar dos varianzas, las muestras deben ser independientes.</p></li>
 </ol>
 </section>
-<section id="fórmulas-3" class="level3">
-<h3 class="anchored" data-anchor-id="fórmulas-3">Fórmulas</h3>
+<section id="fórmulas-3" class="level3" data-number="17.6.2">
+<h3 data-number="17.6.2" class="anchored" data-anchor-id="fórmulas-3"><span class="header-section-number">17.6.2</span> Fórmulas</h3>
 <p><strong>a) Una varianza (</strong><span class="math inline">\(\chi^2\)</span>): Esta prueba se utiliza para determinar si la varianza de una población es igual a un valor específico, generalmente un estándar de calidad o una especificación técnica.</p>
 <p><span class="math display">\[\huge \chi^2 = \frac{(n-1)s^2}{\sigma_0^2} \]</span>​</p>
 <p>donde:</p>
@@ -959,115 +1018,124 @@ prop 1 prop 2
 <p>Para este calculo no existe una función predefinida en R que lo realice con fines prácticos se desarrollo la siguiente función personalizada para esta tarea:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función personalizada para prueba de hipótesis de una varianza</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>var_test_chi <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x =</span> <span class="cn">NULL</span>, <span class="at">n =</span> <span class="cn">NULL</span>, <span class="at">s2 =</span> <span class="cn">NULL</span>, sigma0_2, </span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                           <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">alpha =</span> <span class="fl">0.05</span>) {</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Validación de argumentos</span></span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(x) <span class="sc">&amp;&amp;</span> (<span class="fu">is.null</span>(n) <span class="sc">||</span> <span class="fu">is.null</span>(s2))) {</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Debe proporcionar 'x' (vector de datos) o 'n' y 's2' (estadísticos muestrales)"</span>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(x) <span class="sc">&amp;&amp;</span> (<span class="sc">!</span><span class="fu">is.null</span>(n) <span class="sc">||</span> <span class="sc">!</span><span class="fu">is.null</span>(s2))) {</span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">warning</span>(<span class="st">"Se proporcionaron datos y estadísticos. Se usarán los datos 'x'"</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular estadísticos si se proporcionan los datos</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(x)) {</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
-<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a>    s2 <span class="ot">&lt;-</span> <span class="fu">var</span>(x)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>var_test_chi <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">x =</span> <span class="cn">NULL</span>, </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                         <span class="at">n =</span> <span class="cn">NULL</span>, </span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                         <span class="at">s2 =</span> <span class="cn">NULL</span>, </span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                         sigma0_2,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>                         <span class="at">alpha =</span> <span class="fl">0.05</span>) {</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Validación de argumentos</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(x) <span class="sc">&amp;&amp;</span> (<span class="fu">is.null</span>(n) <span class="sc">||</span> <span class="fu">is.null</span>(s2))) {</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">stop</span>(<span class="st">"Debe proporcionar 'x' (vector de datos) o </span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a><span class="st">         'n' y 's2' (estadísticos muestrales)"</span>)</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(x) <span class="sc">&amp;&amp;</span> (<span class="sc">!</span><span class="fu">is.null</span>(n) <span class="sc">||</span> <span class="sc">!</span><span class="fu">is.null</span>(s2))) {</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">warning</span>(<span class="st">"Se proporcionaron datos y estadísticos. </span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a><span class="st">            Se usarán los datos 'x'"</span>)</span>
 <span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Validar alternative</span></span>
-<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  alternative <span class="ot">&lt;-</span> <span class="fu">match.arg</span>(alternative, <span class="fu">c</span>(<span class="st">"two.sided"</span>, <span class="st">"less"</span>, <span class="st">"greater"</span>))</span>
-<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular estadístico chi-cuadrado</span></span>
-<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  chi_sq <span class="ot">&lt;-</span> (n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> s2 <span class="sc">/</span> sigma0_2</span>
-<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> n <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular valor-p según el tipo de prueba</span></span>
-<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (alternative <span class="sc">==</span> <span class="st">"two.sided"</span>) {</span>
-<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Para prueba bilateral, usar el mínimo de las dos colas multiplicado por 2</span></span>
-<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>    p_value <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">min</span>(<span class="fu">pchisq</span>(chi_sq, df), <span class="fu">pchisq</span>(chi_sq, df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>))</span>
-<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (alternative <span class="sc">==</span> <span class="st">"greater"</span>) {</span>
-<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>    p_value <span class="ot">&lt;-</span> <span class="fu">pchisq</span>(chi_sq, df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { <span class="co"># alternative == "less"</span></span>
-<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>    p_value <span class="ot">&lt;-</span> <span class="fu">pchisq</span>(chi_sq, df, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Decisión</span></span>
-<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>  decision <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p_value <span class="sc">&lt;</span> alpha, <span class="st">"Rechazar H0"</span>, <span class="st">"No rechazar H0"</span>)</span>
-<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Valor crítico</span></span>
-<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (alternative <span class="sc">==</span> <span class="st">"two.sided"</span>) {</span>
-<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>    crit_lower <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(alpha<span class="sc">/</span><span class="dv">2</span>, df)</span>
-<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>    crit_upper <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, df)</span>
-<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>    critical_value <span class="ot">&lt;-</span> <span class="fu">c</span>(crit_lower, crit_upper)</span>
-<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (alternative <span class="sc">==</span> <span class="st">"greater"</span>) {</span>
-<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>    critical_value <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="dv">1</span> <span class="sc">-</span> alpha, df)</span>
-<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { <span class="co"># alternative == "less"</span></span>
-<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>    critical_value <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(alpha, df)</span>
-<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Crear objeto de resultado</span></span>
-<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> chi_sq,</span>
-<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">parameter =</span> df,</span>
-<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.value =</span> p_value,</span>
-<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">critical.value =</span> critical_value,</span>
-<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">alternative =</span> alternative,</span>
-<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"Prueba de hipótesis para una varianza (Chi-cuadrado)"</span>,</span>
-<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">data.name =</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(x)),</span>
-<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">sample.size =</span> n,</span>
-<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">sample.variance =</span> s2,</span>
-<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">null.variance =</span> sigma0_2,</span>
-<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> alpha,</span>
-<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">decision =</span> decision</span>
-<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a>  <span class="fu">class</span>(result) <span class="ot">&lt;-</span> <span class="st">"var_test_custom"</span></span>
-<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a><span class="co"># Método print personalizado para mostrar resultados de forma clara</span></span>
-<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a>print.var_test_custom <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
-<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(x<span class="sc">$</span>method, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Datos:"</span>, x<span class="sc">$</span>data.name, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Hipótesis:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x<span class="sc">$</span>alternative <span class="sc">==</span> <span class="st">"two.sided"</span>) {</span>
-<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"H0: sigma^2 ="</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Ha: sigma^2 ≠"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (x<span class="sc">$</span>alternative <span class="sc">==</span> <span class="st">"greater"</span>) {</span>
-<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"H0: sigma^2 ≤"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Ha: sigma^2 &gt;"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"H0: sigma^2 ≥"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Ha: sigma^2 &lt;"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Estadísticos de la muestra:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"n ="</span>, x<span class="sc">$</span>sample.size, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"s^2 ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>sample.variance, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Estadístico de prueba:</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Chi-cuadrado ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>statistic, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Grados de libertad ="</span>, x<span class="sc">$</span>parameter, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Valor crítico(s):</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(x<span class="sc">$</span>critical.value) <span class="sc">==</span> <span class="dv">2</span>) {</span>
-<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Chi^2("</span>, x<span class="sc">$</span>alpha<span class="sc">/</span><span class="dv">2</span>, <span class="st">","</span>, x<span class="sc">$</span>parameter, <span class="st">") ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>critical.value[<span class="dv">1</span>], <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Chi^2("</span>, <span class="dv">1</span><span class="sc">-</span>x<span class="sc">$</span>alpha<span class="sc">/</span><span class="dv">2</span>, <span class="st">","</span>, x<span class="sc">$</span>parameter, <span class="st">") ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>critical.value[<span class="dv">2</span>], <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Chi^2 crítico ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>critical.value, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Valor-p ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>p.value, <span class="dv">6</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Nivel de significancia ="</span>, x<span class="sc">$</span>alpha, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Decisión:"</span>, x<span class="sc">$</span>decision, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-20"><a href="#cb14-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular estadísticos si se proporcionan los datos</span></span>
+<span id="cb14-21"><a href="#cb14-21" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="sc">!</span><span class="fu">is.null</span>(x)) {</span>
+<span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>    n <span class="ot">&lt;-</span> <span class="fu">length</span>(x)</span>
+<span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>    s2 <span class="ot">&lt;-</span> <span class="fu">var</span>(x)</span>
+<span id="cb14-24"><a href="#cb14-24" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-25"><a href="#cb14-25" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-26"><a href="#cb14-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Validar alternative</span></span>
+<span id="cb14-27"><a href="#cb14-27" aria-hidden="true" tabindex="-1"></a>  alternative <span class="ot">&lt;-</span> <span class="fu">match.arg</span>(alternative, <span class="fu">c</span>(<span class="st">"two.sided"</span>, <span class="st">"less"</span>, <span class="st">"greater"</span>))</span>
+<span id="cb14-28"><a href="#cb14-28" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-29"><a href="#cb14-29" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular estadístico chi-cuadrado</span></span>
+<span id="cb14-30"><a href="#cb14-30" aria-hidden="true" tabindex="-1"></a>  chi_sq <span class="ot">&lt;-</span> (n <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> s2 <span class="sc">/</span> sigma0_2</span>
+<span id="cb14-31"><a href="#cb14-31" aria-hidden="true" tabindex="-1"></a>  df <span class="ot">&lt;-</span> n <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb14-32"><a href="#cb14-32" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-33"><a href="#cb14-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calcular valor-p según el tipo de prueba</span></span>
+<span id="cb14-34"><a href="#cb14-34" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (alternative <span class="sc">==</span> <span class="st">"two.sided"</span>) {</span>
+<span id="cb14-35"><a href="#cb14-35" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Para prueba bilateral</span></span>
+<span id="cb14-36"><a href="#cb14-36" aria-hidden="true" tabindex="-1"></a>    p_value <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">min</span>(<span class="fu">pchisq</span>(chi_sq, df), </span>
+<span id="cb14-37"><a href="#cb14-37" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">pchisq</span>(chi_sq, df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb14-38"><a href="#cb14-38" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (alternative <span class="sc">==</span> <span class="st">"greater"</span>) {</span>
+<span id="cb14-39"><a href="#cb14-39" aria-hidden="true" tabindex="-1"></a>    p_value <span class="ot">&lt;-</span> <span class="fu">pchisq</span>(chi_sq, df, <span class="at">lower.tail =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb14-40"><a href="#cb14-40" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { <span class="co"># alternative == "less"</span></span>
+<span id="cb14-41"><a href="#cb14-41" aria-hidden="true" tabindex="-1"></a>    p_value <span class="ot">&lt;-</span> <span class="fu">pchisq</span>(chi_sq, df, <span class="at">lower.tail =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb14-42"><a href="#cb14-42" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-43"><a href="#cb14-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-44"><a href="#cb14-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Decisión</span></span>
+<span id="cb14-45"><a href="#cb14-45" aria-hidden="true" tabindex="-1"></a>  decision <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(p_value <span class="sc">&lt;</span> alpha, <span class="st">"Rechazar H0"</span>, <span class="st">"No rechazar H0"</span>)</span>
+<span id="cb14-46"><a href="#cb14-46" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-47"><a href="#cb14-47" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Valor crítico</span></span>
+<span id="cb14-48"><a href="#cb14-48" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (alternative <span class="sc">==</span> <span class="st">"two.sided"</span>) {</span>
+<span id="cb14-49"><a href="#cb14-49" aria-hidden="true" tabindex="-1"></a>    crit_lower <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(alpha<span class="sc">/</span><span class="dv">2</span>, df)</span>
+<span id="cb14-50"><a href="#cb14-50" aria-hidden="true" tabindex="-1"></a>    crit_upper <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="dv">1</span> <span class="sc">-</span> alpha<span class="sc">/</span><span class="dv">2</span>, df)</span>
+<span id="cb14-51"><a href="#cb14-51" aria-hidden="true" tabindex="-1"></a>    critical_value <span class="ot">&lt;-</span> <span class="fu">c</span>(crit_lower, crit_upper)</span>
+<span id="cb14-52"><a href="#cb14-52" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (alternative <span class="sc">==</span> <span class="st">"greater"</span>) {</span>
+<span id="cb14-53"><a href="#cb14-53" aria-hidden="true" tabindex="-1"></a>    critical_value <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(<span class="dv">1</span> <span class="sc">-</span> alpha, df)</span>
+<span id="cb14-54"><a href="#cb14-54" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> { <span class="co"># alternative == "less"</span></span>
+<span id="cb14-55"><a href="#cb14-55" aria-hidden="true" tabindex="-1"></a>    critical_value <span class="ot">&lt;-</span> <span class="fu">qchisq</span>(alpha, df)</span>
+<span id="cb14-56"><a href="#cb14-56" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-57"><a href="#cb14-57" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-58"><a href="#cb14-58" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Crear objeto de resultado</span></span>
+<span id="cb14-59"><a href="#cb14-59" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb14-60"><a href="#cb14-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">statistic =</span> chi_sq,</span>
+<span id="cb14-61"><a href="#cb14-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">parameter =</span> df,</span>
+<span id="cb14-62"><a href="#cb14-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">p.value =</span> p_value,</span>
+<span id="cb14-63"><a href="#cb14-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">critical.value =</span> critical_value,</span>
+<span id="cb14-64"><a href="#cb14-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">alternative =</span> alternative,</span>
+<span id="cb14-65"><a href="#cb14-65" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"Prueba de hipótesis para una varianza (Chi-cuadrado)"</span>,</span>
+<span id="cb14-66"><a href="#cb14-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">data.name =</span> <span class="fu">deparse</span>(<span class="fu">substitute</span>(x)),</span>
+<span id="cb14-67"><a href="#cb14-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">sample.size =</span> n,</span>
+<span id="cb14-68"><a href="#cb14-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">sample.variance =</span> s2,</span>
+<span id="cb14-69"><a href="#cb14-69" aria-hidden="true" tabindex="-1"></a>    <span class="at">null.variance =</span> sigma0_2,</span>
+<span id="cb14-70"><a href="#cb14-70" aria-hidden="true" tabindex="-1"></a>    <span class="at">alpha =</span> alpha,</span>
+<span id="cb14-71"><a href="#cb14-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">decision =</span> decision</span>
+<span id="cb14-72"><a href="#cb14-72" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb14-73"><a href="#cb14-73" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb14-74"><a href="#cb14-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">class</span>(result) <span class="ot">&lt;-</span> <span class="st">"var_test_custom"</span></span>
+<span id="cb14-75"><a href="#cb14-75" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
+<span id="cb14-76"><a href="#cb14-76" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb14-77"><a href="#cb14-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-78"><a href="#cb14-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Método print personalizado para mostrar resultados de forma clara</span></span>
+<span id="cb14-79"><a href="#cb14-79" aria-hidden="true" tabindex="-1"></a>print.var_test_custom <span class="ot">&lt;-</span> <span class="cf">function</span>(x, ...) {</span>
+<span id="cb14-80"><a href="#cb14-80" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-81"><a href="#cb14-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(x<span class="sc">$</span>method, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-82"><a href="#cb14-82" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Datos:"</span>, x<span class="sc">$</span>data.name, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-83"><a href="#cb14-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-84"><a href="#cb14-84" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Hipótesis:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-85"><a href="#cb14-85" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x<span class="sc">$</span>alternative <span class="sc">==</span> <span class="st">"two.sided"</span>) {</span>
+<span id="cb14-86"><a href="#cb14-86" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"H0: sigma^2 ="</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-87"><a href="#cb14-87" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Ha: sigma^2 ≠"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-88"><a href="#cb14-88" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (x<span class="sc">$</span>alternative <span class="sc">==</span> <span class="st">"greater"</span>) {</span>
+<span id="cb14-89"><a href="#cb14-89" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"H0: sigma^2 ≤"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-90"><a href="#cb14-90" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Ha: sigma^2 &gt;"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-91"><a href="#cb14-91" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb14-92"><a href="#cb14-92" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"H0: sigma^2 ≥"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-93"><a href="#cb14-93" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Ha: sigma^2 &lt;"</span>, x<span class="sc">$</span>null.variance, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-94"><a href="#cb14-94" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-95"><a href="#cb14-95" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-96"><a href="#cb14-96" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Estadísticos de la muestra:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-97"><a href="#cb14-97" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"n ="</span>, x<span class="sc">$</span>sample.size, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-98"><a href="#cb14-98" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"s^2 ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>sample.variance, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-99"><a href="#cb14-99" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-100"><a href="#cb14-100" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Estadístico de prueba:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-101"><a href="#cb14-101" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Chi-cuadrado ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>statistic, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-102"><a href="#cb14-102" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Grados de libertad ="</span>, x<span class="sc">$</span>parameter, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-103"><a href="#cb14-103" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-104"><a href="#cb14-104" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Valor crítico(s):</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-105"><a href="#cb14-105" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">length</span>(x<span class="sc">$</span>critical.value) <span class="sc">==</span> <span class="dv">2</span>) {</span>
+<span id="cb14-106"><a href="#cb14-106" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Chi^2("</span>, x<span class="sc">$</span>alpha<span class="sc">/</span><span class="dv">2</span>, <span class="st">","</span>, x<span class="sc">$</span>parameter, <span class="st">") ="</span>,</span>
+<span id="cb14-107"><a href="#cb14-107" aria-hidden="true" tabindex="-1"></a>        <span class="fu">round</span>(x<span class="sc">$</span>critical.value[<span class="dv">1</span>], <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-108"><a href="#cb14-108" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Chi^2("</span>, <span class="dv">1</span><span class="sc">-</span>x<span class="sc">$</span>alpha<span class="sc">/</span><span class="dv">2</span>, <span class="st">","</span>, x<span class="sc">$</span>parameter, <span class="st">") ="</span>,</span>
+<span id="cb14-109"><a href="#cb14-109" aria-hidden="true" tabindex="-1"></a>        <span class="fu">round</span>(x<span class="sc">$</span>critical.value[<span class="dv">2</span>], <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-110"><a href="#cb14-110" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb14-111"><a href="#cb14-111" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"Chi^2 crítico ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>critical.value, <span class="dv">4</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-112"><a href="#cb14-112" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb14-113"><a href="#cb14-113" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-114"><a href="#cb14-114" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Valor-p ="</span>, <span class="fu">round</span>(x<span class="sc">$</span>p.value, <span class="dv">6</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-115"><a href="#cb14-115" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Nivel de significancia ="</span>, x<span class="sc">$</span>alpha, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-116"><a href="#cb14-116" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-117"><a href="#cb14-117" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Decisión:"</span>, x<span class="sc">$</span>decision, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-118"><a href="#cb14-118" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb14-119"><a href="#cb14-119" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Esta función cuenta con la siguiente sintaxis para su uso:</p>
 <p><span class="math display">\[ \Large \text{var\_test\_chi}(x, sigma0_2, alternative, alpha) \]</span> <strong>Argumentos en orden:</strong></p>
@@ -1075,7 +1143,7 @@ prop 1 prop 2
 <li><p><strong>x</strong>: Vector con los datos de la muestra</p></li>
 <li><p><strong>sigma0_2</strong>: Varianza poblacional con la que se está comparando</p></li>
 <li><p><strong>alternative</strong>: Opción en carácter que indica el tipo de prueba utilizando los mismos argumentos que las otras funciones “greater”, “less” y “two.sided”.</p></li>
-<li><p><strong>alpha</strong>: nivel de significacia</p></li>
+<li><p><strong>alpha</strong>: nivel de significancia</p></li>
 </ol>
 <p>También tiene la siguiente sintaxis cuando no se cuenta con los datos de la muestra directamente:</p>
 <p><span class="math display">\[ \Large \text{var\_test\_chi}(n, s2, sigma0_2, alternative, alpha) \]</span> <strong>Argumentos en orden:</strong></p>
@@ -1084,7 +1152,7 @@ prop 1 prop 2
 <li><p><strong>s2</strong>: Varianza muestral</p></li>
 <li><p><strong>sigma0_2</strong>: Varianza poblacional con la que se está comparando</p></li>
 <li><p><strong>alternative</strong>: Opción en carácter que indica el tipo de prueba utilizando los mismos argumentos que las otras funciones “greater”, “less” y “two.sided”.</p></li>
-<li><p><strong>alpha</strong>: nivel de significacia</p></li>
+<li><p><strong>alpha</strong>: nivel de significancia</p></li>
 </ol>
 <p><strong>b) Dos varianzas (F de Fisher):</strong></p>
 <p><span class="math display">\[\huge F = \frac{s_1^2}{s_2^2}\]</span></p>
@@ -1094,8 +1162,8 @@ prop 1 prop 2
 <li><p><span class="math inline">\(n_1\)</span> y <span class="math inline">\(n_2\)</span> son los tamaños de muestra de cada grupo.</p></li>
 </ol>
 </section>
-<section id="ejemplo-hipotético-una-varianza" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-hipotético-una-varianza">Ejemplo hipotético (una varianza)</h3>
+<section id="ejemplo-hipotético-una-varianza" class="level3" data-number="17.6.3">
+<h3 data-number="17.6.3" class="anchored" data-anchor-id="ejemplo-hipotético-una-varianza"><span class="header-section-number">17.6.3</span> Ejemplo hipotético (una varianza)</h3>
 <p>Supóngase que una empresa agrícola establece que la varianza máxima aceptable en el peso de frutos de tomate es de <span class="math inline">\(\sigma_0^2 = 4\)</span> g². Se toma una muestra de 10 frutos y se obtiene una varianza muestral de <span class="math inline">\(s^2 = 5.8\)</span> g². Se desea saber, con un nivel de significancia del 5%, si la variabilidad excede el estándar.</p>
 <p><strong>1. Planteamiento de hipótesis:</strong></p>
 <ol type="1">
@@ -1141,8 +1209,8 @@ Decisión: No rechazar H0 </code></pre>
 </div>
 <p>Para la solución de este problema se emplea la funcion personalizada <code>var_test_chi</code>que permite realizar una prueba de hipotesis de la varianza para una muestra empleando los argumentos mencionados en la sección donde se presentó la función.</p>
 </section>
-<section id="ejemplo-hipotético-dos-varianzas" class="level3">
-<h3 class="anchored" data-anchor-id="ejemplo-hipotético-dos-varianzas">Ejemplo hipotético (dos varianzas)</h3>
+<section id="ejemplo-hipotético-dos-varianzas" class="level3" data-number="17.6.4">
+<h3 data-number="17.6.4" class="anchored" data-anchor-id="ejemplo-hipotético-dos-varianzas"><span class="header-section-number">17.6.4</span> Ejemplo hipotético (dos varianzas)</h3>
 <p>Se desea comparar la varianza del rendimiento de dos tratamientos de riego.</p>
 <p><strong>Datos:</strong></p>
 <ol type="1">
@@ -1609,16 +1677,35 @@ ratio of variances
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./C9.1.html" class="pagination-link" aria-label="Estimación puntual e intervalos de confianza en R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./C11.1.html" class="pagination-link" aria-label="Regresión lineal y correlación">
-        <span class="nav-page-text"><span class="chapter-title">Regresión lineal y correlación</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./C11.1.html" class="pagination-link" aria-label="Análisis de correlación lineal simple">
+        <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./license.html">
+<p>Licencia</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

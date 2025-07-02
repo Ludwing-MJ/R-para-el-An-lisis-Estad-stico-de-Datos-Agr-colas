@@ -6,7 +6,7 @@
 
 **Acceso a recursos:** El script completo con el ejemplo desarrollado y la base de datos IRIS pueden descargarse en el siguiente repositorio: <https://github.com/Ludwing-MJ/MTCDPR_datos_agrupados>
 
-A continuación, se presenta un conjunto de datos correspondientes a la longitud del pétalo (en cm) de 150 flores de la especie *Iris*, organizados en formato matricial para facilitar su visualización y análisis. Estos datos serán utilizados para ilustrar el cálculo de estadísticos descriptivos para datos agrupados, siguiendo las metodologías propuestas en la sección aterior.
+A continuación, se presenta un conjunto de datos correspondientes a la longitud del pétalo (en cm) de 150 flores de la especie *Iris*, organizados en formato matricial para facilitar su visualización y análisis. Estos datos serán utilizados para ilustrar el cálculo de estadísticos descriptivos para datos agrupados, siguiendo las metodologías propuestas en la sección anterior.
 
 |     |     |     |     |     |     |     |     |     |     |
 |-----|-----|-----|-----|-----|-----|-----|-----|-----|-----|
@@ -84,7 +84,7 @@ calcular_parametros_agrupamiento <- function(datos) {
 
 ```
 
-Una vez ya definida la función para calcular los parametros necesarios para la agrupación de los datos (tarea que se realiza la cada vez que se abre el software y se desea cargar la función en el entorno de trabajo). Se procede a calcularlos:
+Una vez ya definida la función para calcular los parámetros necesarios para la agrupación de los datos (tarea que se realiza la cada vez que se abre el software y se desea cargar la función en el entorno de trabajo). Se procede a calcularlos:
 
 ```{r}
 # Aplicar función
@@ -103,7 +103,9 @@ construir_tabla_frecuencias <- function(datos, parametros) {
   
   # Crear breaks (puntos de corte) para las clases
   # Esto garantiza exactamente k clases
-  breaks <- seq(parametros$x_min, parametros$x_max, length.out = parametros$k + 1)
+  breaks <- seq(parametros$x_min, 
+                parametros$x_max, 
+                length.out = parametros$k + 1)
   
   # Crear límites de clase a partir de los breaks
   limite_inferior <- breaks[-length(breaks)]  # Todos excepto el último
@@ -120,7 +122,8 @@ construir_tabla_frecuencias <- function(datos, parametros) {
                     labels = FALSE)  # Usar números en lugar de etiquetas
   
   # Contar frecuencias por clase
-  frecuencia_absoluta <- as.numeric(table(factor(intervalos, levels = 1:parametros$k)))
+  frecuencia_absoluta <- as.numeric(table(factor(intervalos, 
+                                                 levels = 1:parametros$k)))
   
   # Reemplazar NA por 0 si alguna clase queda vacía
   frecuencia_absoluta[is.na(frecuencia_absoluta)] <- 0
@@ -184,15 +187,22 @@ calcular_tendencia_central <- function(tabla, parametros) {
   posicion_mediana <- n / 2
   clase_mediana <- which(tabla$Frecuencia_Acumulada >= posicion_mediana)[1]
   L <- tabla$Limite_Inferior[clase_mediana]
-  F_anterior <- ifelse(clase_mediana == 1, 0, tabla$Frecuencia_Acumulada[clase_mediana - 1])
+  F_anterior <- ifelse(clase_mediana == 1,
+                       0, tabla$Frecuencia_Acumulada[
+                         clase_mediana - 1])
   f_m <- tabla$Frecuencia_Absoluta[clase_mediana]
-  A <- tabla$Limite_Superior[clase_mediana] - tabla$Limite_Inferior[clase_mediana]
+  A <- tabla$Limite_Superior[clase_mediana] -
+    tabla$Limite_Inferior[clase_mediana]
   mediana <- L + ((posicion_mediana - F_anterior) / f_m) * A
   
   # Moda
   clase_modal <- which.max(tabla$Frecuencia_Absoluta)
-  fa_ant <- ifelse(clase_modal == 1, 0, tabla$Frecuencia_Absoluta[clase_modal - 1])
-  fa_sig <- ifelse(clase_modal == parametros$k, 0, tabla$Frecuencia_Absoluta[clase_modal + 1])
+  fa_ant <- ifelse(clase_modal == 1, 
+                   0, tabla$Frecuencia_Absoluta[
+                     clase_modal - 1])
+  fa_sig <- ifelse(clase_modal == parametros$k, 
+                   0, tabla$Frecuencia_Absoluta[
+                     clase_modal + 1])
   d1 <- tabla$Frecuencia_Absoluta[clase_modal] - fa_ant
   d2 <- tabla$Frecuencia_Absoluta[clase_modal] - fa_sig
   if ((d1 + d2) == 0) {
@@ -246,7 +256,7 @@ calcular_dispersion <- function(tabla, parametros, media) {
 
 ```
 
-El rango es la diferencia entre el límite superior del último intervalo y el límite inferior del primero. La varianza y la desviación estándar se calculan usando las sumas ponderadas de las marcas de clase al cuadrado. El coeficiente de variación expresa la dispersión relativa respecto a la media. Para estos cálculos la función emplea las formulas presentadas en la seccion anterior y una vez definida se procede al cálculo de las medidas de dispersión:
+El rango es la diferencia entre el límite superior del último intervalo y el límite inferior del primero. La varianza y la desviación estándar se calculan usando las sumas ponderadas de las marcas de clase al cuadrado. El coeficiente de variación expresa la dispersión relativa respecto a la media. Para estos cálculos la función emplea las formulas presentadas en la sección anterior y una vez definida se procede al cálculo de las medidas de dispersión:
 
 ```{r}
 # Calcular medidas de dispersión
@@ -286,12 +296,15 @@ calcular_posicion_relativa <- function(tabla,
 
 ```
 
-Esta función permite calcular cualquier medida de posición relativa, como cuartiles o percentiles, utilizando la tabla de frecuencias y la fórmula correspondiente para datos agrupados. Una vez definida en el entorno de trabajo se procede a utlizar para calcular Q1 y P80 como en el ejemplo anterior:
+Esta función permite calcular cualquier medida de posición relativa, como cuartiles o percentiles, utilizando la tabla de frecuencias y la fórmula correspondiente para datos agrupados. Una vez definida en el entorno de trabajo se procede a utilizar para calcular Q1 y P80 como en el ejemplo anterior:
 
 ```{r}
-# Calcular Q1 y P80
-Q1 <- calcular_posicion_relativa(tabla_freq, parametros, 1, "cuartil");Q1
-P80 <- calcular_posicion_relativa(tabla_freq, parametros, 80, "percentil");P80
+# Calcular Q1 
+Q1 <- calcular_posicion_relativa(tabla_freq, parametros, 1, "cuartil")
+Q1
+# Calcular P80
+P80 <- calcular_posicion_relativa(tabla_freq, parametros, 80, "percentil")
+P80
 
 
 ```
@@ -375,7 +388,8 @@ plot(tabla_freq$Limite_Superior, tabla_freq$Frecuencia_Acumulada,
      col = "blue")
 
 # Ojiva "Mayor Que"
-frecuencia_acumulada_mayor_que <- rev(cumsum(rev(tabla_freq$Frecuencia_Absoluta)))
+frecuencia_acumulada_mayor_que <- rev(cumsum(
+  rev(tabla_freq$Frecuencia_Absoluta)))
 plot(tabla_freq$Limite_Inferior, frecuencia_acumulada_mayor_que,
      type = "l",
      main = "Ojiva 'Mayor Que' de la Longitud del Pétalo",
@@ -411,13 +425,13 @@ barplot(tabla_freq$Frecuencia_Absoluta,
 
 ## Cálculos a partir de una tabla de frecuencias
 
-No siempre es posible encontrar la base de datos completa para poder contruir la tabla de frecuencias y realizar las estimaciones, muchas veces se parte de una tabla de frecuencias debido a la sensibilidad de los datos, privacidad o porque los datos son muy antiguos y se han perdido los registos, para este ejemplo se va a explicar como usar las funciones partiendo de la tabla de frecuencias exportada a un archivo excel previamente en esta sección:
+No siempre es posible encontrar la base de datos completa para poder construir la tabla de frecuencias y realizar las estimaciones, muchas veces se parte de una tabla de frecuencias debido a la sensibilidad de los datos, privacidad o porque los datos son muy antiguos y se han perdido los registos, para este ejemplo se va a explicar como usar las funciones partiendo de la tabla de frecuencias exportada a un archivo excel previamente en esta sección:
 
 ### Importar la tabla de frecuencias
 
 Cabe resaltar que para que esto funcione la tabla de frecuencias que se vaya a importar debe tener el mismo formato (numero y nombre de columnas ) que la tabla que se muestra a continuación:
 
-![](tabla_frecuencias.jpg){fig-align="center" width="800"}
+![](tabla_frecuencias.jpg){fig-align="center" width="550"}
 
 ```{r}
 #Importar tabla de frecuencias
@@ -450,7 +464,7 @@ calcular_parametros_desde_tabla <- function(tabla) {
 }
 ```
 
-Una vez cargada la funcion al entorno de trabajo esta se utiliza con la tabla de frecuencias previamente importada para estimar los parametros de agrupacion
+Una vez cargada la función al entorno de trabajo esta se utiliza con la tabla de frecuencias previamente importada para estimar los parámetros de agrupación
 
 ```{r}
 # Estimar los parametros de agrupacion a partir de la tabla de frecuencias
@@ -460,7 +474,7 @@ parametros_tabla <- calcular_parametros_desde_tabla(tabla)
 
 ### Estimación de los parámetros con las mismas funciones
 
-Una vez ya se ha importado la tabla de frecuencias y estimado los parametros de agrupacion a partir de la tabla de frecuencias es posible usar las funciones previamente establecidas para calculas los parametros como se muestra a continuación:
+Una vez ya se ha importado la tabla de frecuencias y estimado los parámetros de agrupación a partir de la tabla de frecuencias es posible usar las funciones previamente establecidas para calculas los parámetros como se muestra a continuación:
 
 1.  **Medidas de tendencia central**
 

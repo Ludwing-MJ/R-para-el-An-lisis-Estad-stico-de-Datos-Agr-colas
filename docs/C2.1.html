@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Manual práctico para el análisis estadístico de datos agrícolas utilizando R, orientado a estudiantes y profesionales de agronomía.">
 
-<title>Clasificación de Variables – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>3&nbsp; Clasificación de Variables – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -250,7 +251,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C2.1.html"><span class="chapter-title">Clasificación de Variables</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C2.1.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -269,7 +270,41 @@ ul.task-list li input[type="checkbox"] {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R para el Análisis Estadístico de Datos Agrícolas</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -289,141 +324,160 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C0.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Instalación y configuración</span></a>
+  <a href="./C0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación y configuración</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">1. Aspectos Introductorios</span></span>
+ <span class="menu-text">Aspectos Introductorios</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C1.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aspectos introductorios</span></a>
+  <a href="./C1.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos introductorios</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">2. Clasificación de variables</span></span>
+ <span class="menu-text">Clasificación de variables</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C2.1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Clasificación de Variables</span></a>
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">3. Notación sumatoria</span></span>
+ <span class="menu-text">Notación sumatoria</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a la Notación Sumatoria</span></a>
+  <a href="./C3.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Notación Sumatoria</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></a>
+  <a href="./C3.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a>
+  <a href="./C3.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sumatorias Dobles y Múltiples</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">4. Estadística descriptiva para datos sin agrupar</span></span>
+ <span class="menu-text">Estadística descriptiva para datos sin agrupar</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C4.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></a>
+  <a href="./C4.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Otros tipos de medias</span></a>
+  <a href="./c4.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Otros tipos de medias</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cálculos en R</span></a>
+  <a href="./c4.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cálculos en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">5. Estadística descriptiva para datos agrupados</span></span>
+ <span class="menu-text">Estadística descriptiva para datos agrupados</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción y formulario</span></a>
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción y formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo empleando el formulario</span></a>
+  <a href="./C5.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Ejemplo empleando el formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo en R</span></a>
+  <a href="./C5.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Ejemplo en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">6. Introducción a probabilidades</span></span>
+ <span class="menu-text">Introducción a probabilidades</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C6.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a probabilidades</span></a>
+  <a href="./C6.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">7. Distribuciones de probabilidad discretas</span></span>
+ <span class="menu-text">Distribuciones de probabilidad discretas</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C7.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribuciones Binomial y Poisson en R</span></a>
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">8. Distribución normal</span></span>
+ <span class="menu-text">Distribución normal</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C8.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribución normal</span></a>
+  <a href="./C8.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">9. Intervalos de confianza</span></span>
+ <span class="menu-text">Intervalos de confianza</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></a>
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">10. Pruebas de hipótesis</span></span>
+ <span class="menu-text">Pruebas de hipótesis</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C10.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></a>
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">11. Regresión lineal y correlación</span></span>
+ <span class="menu-text">Regresión lineal y correlación</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Análisis de correlación lineal simple</span></a>
+  <a href="./C11.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión Lineal Simple</span></a>
+  <a href="./C11.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -446,19 +500,19 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#definición-de-variable" id="toc-definición-de-variable" class="nav-link active" data-scroll-target="#definición-de-variable">Definición de Variable</a></li>
-  <li><a href="#tipos-de-variables" id="toc-tipos-de-variables" class="nav-link" data-scroll-target="#tipos-de-variables">Tipos de Variables</a>
+  <li><a href="#definición-de-variable" id="toc-definición-de-variable" class="nav-link active" data-scroll-target="#definición-de-variable"><span class="header-section-number">3.1</span> Definición de Variable</a></li>
+  <li><a href="#tipos-de-variables" id="toc-tipos-de-variables" class="nav-link" data-scroll-target="#tipos-de-variables"><span class="header-section-number">3.2</span> Tipos de Variables</a>
   <ul class="collapse">
-  <li><a href="#variables-cuantitativas" id="toc-variables-cuantitativas" class="nav-link" data-scroll-target="#variables-cuantitativas">Variables Cuantitativas</a></li>
-  <li><a href="#variables-cualitativas" id="toc-variables-cualitativas" class="nav-link" data-scroll-target="#variables-cualitativas">Variables Cualitativas</a></li>
+  <li><a href="#variables-cuantitativas" id="toc-variables-cuantitativas" class="nav-link" data-scroll-target="#variables-cuantitativas"><span class="header-section-number">3.2.1</span> Variables Cuantitativas</a></li>
+  <li><a href="#variables-cualitativas" id="toc-variables-cualitativas" class="nav-link" data-scroll-target="#variables-cualitativas"><span class="header-section-number">3.2.2</span> Variables Cualitativas</a></li>
   </ul></li>
-  <li><a href="#mapa-mental-de-la-clasificación-de-variables-estadísticas" id="toc-mapa-mental-de-la-clasificación-de-variables-estadísticas" class="nav-link" data-scroll-target="#mapa-mental-de-la-clasificación-de-variables-estadísticas">Mapa mental de la clasificación de variables estadísticas</a></li>
-  <li><a href="#escalas-de-medición" id="toc-escalas-de-medición" class="nav-link" data-scroll-target="#escalas-de-medición">Escalas de Medición</a>
+  <li><a href="#mapa-mental-de-la-clasificación-de-variables-estadísticas" id="toc-mapa-mental-de-la-clasificación-de-variables-estadísticas" class="nav-link" data-scroll-target="#mapa-mental-de-la-clasificación-de-variables-estadísticas"><span class="header-section-number">3.3</span> Mapa mental de la clasificación de variables estadísticas</a></li>
+  <li><a href="#escalas-de-medición" id="toc-escalas-de-medición" class="nav-link" data-scroll-target="#escalas-de-medición"><span class="header-section-number">3.4</span> Escalas de Medición</a>
   <ul class="collapse">
-  <li><a href="#escalas-para-información-cualitativa" id="toc-escalas-para-información-cualitativa" class="nav-link" data-scroll-target="#escalas-para-información-cualitativa">Escalas para Información Cualitativa</a></li>
-  <li><a href="#escalas-para-información-cuantitativa" id="toc-escalas-para-información-cuantitativa" class="nav-link" data-scroll-target="#escalas-para-información-cuantitativa">Escalas para Información Cuantitativa</a></li>
+  <li><a href="#escalas-para-información-cualitativa" id="toc-escalas-para-información-cualitativa" class="nav-link" data-scroll-target="#escalas-para-información-cualitativa"><span class="header-section-number">3.4.1</span> Escalas para Información Cualitativa</a></li>
+  <li><a href="#escalas-para-información-cuantitativa" id="toc-escalas-para-información-cuantitativa" class="nav-link" data-scroll-target="#escalas-para-información-cuantitativa"><span class="header-section-number">3.4.2</span> Escalas para Información Cuantitativa</a></li>
   </ul></li>
-  <li><a href="#mapa-mental-de-las-escalas-de-medición" id="toc-mapa-mental-de-las-escalas-de-medición" class="nav-link" data-scroll-target="#mapa-mental-de-las-escalas-de-medición">Mapa mental de las escalas de medición</a></li>
+  <li><a href="#mapa-mental-de-las-escalas-de-medición" id="toc-mapa-mental-de-las-escalas-de-medición" class="nav-link" data-scroll-target="#mapa-mental-de-las-escalas-de-medición"><span class="header-section-number">3.5</span> Mapa mental de las escalas de medición</a></li>
   </ul>
 </nav>
     </div>
@@ -468,7 +522,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Clasificación de Variables</span></h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></h1>
 </div>
 
 
@@ -485,30 +539,30 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="definición-de-variable" class="level2">
-<h2 class="anchored" data-anchor-id="definición-de-variable">Definición de Variable</h2>
+<section id="definición-de-variable" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="definición-de-variable"><span class="header-section-number">3.1</span> Definición de Variable</h2>
 <p>Una variable en estadística se define como aquello que se observa o mide sobre las unidades estadísticas (López &amp; González, 2018). Constituye una característica que varía de un individuo a otro dentro de la población o muestra bajo estudio. Las variables representan los atributos o propiedades que pueden ser medidos, observados o categorizados en las unidades de análisis.</p>
 <p>Desde el punto de vista de la notación estadística, las variables se representan mediante letras mayúsculas del alfabeto (X, Y, Z), mientras que los valores específicos que estas asumen se denotan con letras minúsculas correspondientes (x, y, z) (López &amp; González, 2018). Esta distinción notacional permite diferenciar claramente entre el concepto abstracto de la variable y sus manifestaciones concretas en los datos.</p>
 </section>
-<section id="tipos-de-variables" class="level2">
-<h2 class="anchored" data-anchor-id="tipos-de-variables">Tipos de Variables</h2>
+<section id="tipos-de-variables" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="tipos-de-variables"><span class="header-section-number">3.2</span> Tipos de Variables</h2>
 <p>Dependiendo de su naturaleza, las variables estadísticas se clasifican en dos categorías principales que determinan tanto los métodos de análisis apropiados como las técnicas de presentación de datos más adecuadas (López &amp; González, 2018).</p>
-<section id="variables-cuantitativas" class="level3">
-<h3 class="anchored" data-anchor-id="variables-cuantitativas">Variables Cuantitativas</h3>
+<section id="variables-cuantitativas" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="variables-cuantitativas"><span class="header-section-number">3.2.1</span> Variables Cuantitativas</h3>
 <p>Las variables cuantitativas son aquellas que expresan cantidades y cuyos resultados son de naturaleza numérica (López &amp; González, 2018). Estas variables permiten realizar operaciones matemáticas y estadísticas avanzadas debido a su carácter numérico. Se subdividen en dos tipos fundamentales:</p>
-<section id="variables-cuantitativas-discretas" class="level4">
-<h4 class="anchored" data-anchor-id="variables-cuantitativas-discretas">Variables Cuantitativas Discretas</h4>
+<section id="variables-cuantitativas-discretas" class="level4" data-number="3.2.1.1">
+<h4 data-number="3.2.1.1" class="anchored" data-anchor-id="variables-cuantitativas-discretas"><span class="header-section-number">3.2.1.1</span> Variables Cuantitativas Discretas</h4>
 <p>También denominadas variables de conteo, son aquellas que no aceptan valores decimales y típicamente resultan de procesos de enumeración (López &amp; González, 2018). Ejemplos relevantes en el contexto agronómico incluyen: número de plantas de café por metro cuadrado, cantidad de áfidos por planta, número de brotes por planta, número de racimos de banano por hectárea, y número de ausencias de un trabajador por mes.</p>
 <p>Matemáticamente, estas variables pueden representarse mediante conjuntos discretos. Por ejemplo, si X representa el número de árboles con cáncer en una muestra de 10 árboles, entonces X ∈ {0, 1, 2, 3, …, 9, 10} (López &amp; González, 2018).</p>
 </section>
-<section id="variables-cuantitativas-continuas" class="level4">
-<h4 class="anchored" data-anchor-id="variables-cuantitativas-continuas">Variables Cuantitativas Continuas</h4>
+<section id="variables-cuantitativas-continuas" class="level4" data-number="3.2.1.2">
+<h4 data-number="3.2.1.2" class="anchored" data-anchor-id="variables-cuantitativas-continuas"><span class="header-section-number">3.2.1.2</span> Variables Cuantitativas Continuas</h4>
 <p>Este tipo de variables pueden asumir cualquier valor dentro de un rango determinado, incluyendo valores decimales, y resultan típicamente de procesos de medición (López &amp; González, 2018). En el ámbito agronómico, ejemplos representativos incluyen: altura de plantas, peso de semillas, temperatura de almacenamiento, diámetro de árboles, caudal de ríos, y precipitación pluvial.</p>
 <p>La representación matemática de estas variables utiliza intervalos continuos. Por ejemplo, si D representa el diámetro de árboles de <em>Pinus maximinoii</em> en una plantación, entonces D ∈ [10, 50] centímetros (López &amp; González, 2018).</p>
 </section>
 </section>
-<section id="variables-cualitativas" class="level3">
-<h3 class="anchored" data-anchor-id="variables-cualitativas">Variables Cualitativas</h3>
+<section id="variables-cualitativas" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="variables-cualitativas"><span class="header-section-number">3.2.2</span> Variables Cualitativas</h3>
 <p>Las variables cualitativas presentan como posibles resultados una cualidad o atributo del individuo investigado (López &amp; González, 2018). Las posibles cualidades que puede presentar una variable cualitativa se denominan modalidades, categorías o atributos de la variable.</p>
 <p>Según el número de categorías, estas variables se clasifican en:</p>
 <ol type="1">
@@ -517,46 +571,46 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 </section>
 </section>
-<section id="mapa-mental-de-la-clasificación-de-variables-estadísticas" class="level2">
-<h2 class="anchored" data-anchor-id="mapa-mental-de-la-clasificación-de-variables-estadísticas">Mapa mental de la clasificación de variables estadísticas</h2>
+<section id="mapa-mental-de-la-clasificación-de-variables-estadísticas" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="mapa-mental-de-la-clasificación-de-variables-estadísticas"><span class="header-section-number">3.3</span> Mapa mental de la clasificación de variables estadísticas</h2>
 <p>A continuación, se presenta un mapa mental que sintetiza la información esencial sobre la clasificación de variables estadísticas, facilitando la comprensión visual de los conceptos abordados. Para explorar el mapa mental de manera interactiva y detallada, se recomienda acceder al siguiente enlace: <a href="https://ma-variables.vercel.app/" class="uri">https://ma-variables.vercel.app/</a>.</p>
 <div style="display: flex; justify-content: center;">
 <iframe src="https://ma-variables.vercel.app/" width="900" height="350" style="border: none;">
 </iframe>
 </div>
 </section>
-<section id="escalas-de-medición" class="level2">
-<h2 class="anchored" data-anchor-id="escalas-de-medición">Escalas de Medición</h2>
+<section id="escalas-de-medición" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="escalas-de-medición"><span class="header-section-number">3.4</span> Escalas de Medición</h2>
 <p>Las escalas de medición constituyen un sistema de clasificación que determina el nivel de información que proporcionan las variables y, consecuentemente, los tipos de análisis estadísticos que pueden aplicarse (López &amp; González, 2018).</p>
-<section id="escalas-para-información-cualitativa" class="level3">
-<h3 class="anchored" data-anchor-id="escalas-para-información-cualitativa">Escalas para Información Cualitativa</h3>
-<section id="escala-nominal" class="level4">
-<h4 class="anchored" data-anchor-id="escala-nominal">Escala Nominal</h4>
+<section id="escalas-para-información-cualitativa" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="escalas-para-información-cualitativa"><span class="header-section-number">3.4.1</span> Escalas para Información Cualitativa</h3>
+<section id="escala-nominal" class="level4" data-number="3.4.1.1">
+<h4 data-number="3.4.1.1" class="anchored" data-anchor-id="escala-nominal"><span class="header-section-number">3.4.1.1</span> Escala Nominal</h4>
 <p>La escala nominal representa el nivel más básico de medición y consiste en asignar nombres o etiquetas a las observaciones para distinguir diferentes agrupamientos (López &amp; González, 2018). Cuando se emplean números en esta escala, estos tienen únicamente carácter simbólico, no numérico.</p>
 <p>Ejemplos en el contexto agronómico incluyen: especies arbóreas presentes en una cuenca, tipos de uso del suelo (agrícola, forestal, pecuario), y municipio de procedencia de estudiantes (López &amp; González, 2018).</p>
 </section>
-<section id="escala-ordinal" class="level4">
-<h4 class="anchored" data-anchor-id="escala-ordinal">Escala Ordinal</h4>
+<section id="escala-ordinal" class="level4" data-number="3.4.1.2">
+<h4 data-number="3.4.1.2" class="anchored" data-anchor-id="escala-ordinal"><span class="header-section-number">3.4.1.2</span> Escala Ordinal</h4>
 <p>En este nivel de medición, las unidades mantienen una relación jerárquica que permite establecer ordenamientos del tipo “mayor que” o “menor que” (López &amp; González, 2018). Las categorías poseen un orden lógico, pero las distancias entre ellas no son necesariamente iguales.</p>
 <p>Ejemplos representativos incluyen: nivel de estudios (primaria, secundaria, diversificado, universitaria), grado de aceptación de productos (buena, regular, mala), y escalas de severidad de enfermedades en plantas. La escala de Likert constituye un ejemplo paradigmático de medición ordinal, típicamente empleando cinco niveles de respuesta desde “totalmente en desacuerdo” hasta “totalmente de acuerdo” (López &amp; González, 2018).</p>
 </section>
 </section>
-<section id="escalas-para-información-cuantitativa" class="level3">
-<h3 class="anchored" data-anchor-id="escalas-para-información-cuantitativa">Escalas para Información Cuantitativa</h3>
-<section id="escala-de-intervalo" class="level4">
-<h4 class="anchored" data-anchor-id="escala-de-intervalo">Escala de Intervalo</h4>
+<section id="escalas-para-información-cuantitativa" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="escalas-para-información-cuantitativa"><span class="header-section-number">3.4.2</span> Escalas para Información Cuantitativa</h3>
+<section id="escala-de-intervalo" class="level4" data-number="3.4.2.1">
+<h4 data-number="3.4.2.1" class="anchored" data-anchor-id="escala-de-intervalo"><span class="header-section-number">3.4.2.1</span> Escala de Intervalo</h4>
 <p>Esta escala proporciona información más precisa y permite mediciones sofisticadas al informar tanto sobre el orden de los objetos como sobre las distancias numéricas entre ellos (López &amp; González, 2018). Los intervalos de igual tamaño en la escala representan diferencias equivalentes, independientemente de su ubicación en la escala.</p>
 <p>Sin embargo, la escala de intervalo carece de un punto cero absoluto, siendo este arbitrario y no representando la ausencia total de la característica medida (López &amp; González, 2018). Ejemplos incluyen: temperatura, coordenadas geográficas, y resultados de exámenes académicos.</p>
 </section>
-<section id="escala-de-razón" class="level4">
-<h4 class="anchored" data-anchor-id="escala-de-razón">Escala de Razón</h4>
+<section id="escala-de-razón" class="level4" data-number="3.4.2.2">
+<h4 data-number="3.4.2.2" class="anchored" data-anchor-id="escala-de-razón"><span class="header-section-number">3.4.2.2</span> Escala de Razón</h4>
 <p>Los atributos cuantitativos organizados en escala de razón poseen tanto intervalos significativos como un punto cero real que indica ausencia absoluta del valor medido (López &amp; González, 2018). Esta escala permite realizar todas las operaciones matemáticas, incluyendo la determinación de razones o proporciones entre medidas.</p>
 <p>Variables agronómicas medidas en esta escala incluyen: peso, longitud, diámetro, volumen, estatura, y densidad. Por ejemplo, un individuo de 190 cm es exactamente dos veces más alto que uno de 95 cm, relación que se mantiene independientemente de la unidad de medida empleada (López &amp; González, 2018).</p>
 </section>
 </section>
 </section>
-<section id="mapa-mental-de-las-escalas-de-medición" class="level2">
-<h2 class="anchored" data-anchor-id="mapa-mental-de-las-escalas-de-medición">Mapa mental de las escalas de medición</h2>
+<section id="mapa-mental-de-las-escalas-de-medición" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="mapa-mental-de-las-escalas-de-medición"><span class="header-section-number">3.5</span> Mapa mental de las escalas de medición</h2>
 <p>A continuación, se presenta un mapa mental que sintetiza la información esencial sobre las escalas de medición de variables estadísticas, facilitando la comprensión visual de los conceptos abordados. Para explorar el mapa mental de manera interactiva y detallada, se recomienda acceder al siguiente enlace: <a href="https://ma-escalas.vercel.app/" class="uri">https://ma-escalas.vercel.app/</a>.</p>
 <div style="display: flex; justify-content: center;">
 <iframe src="https://ma-escalas.vercel.app/" width="900" height="350" style="border: none;">
@@ -989,16 +1043,35 @@ ul.task-list li input[type="checkbox"] {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./C1.1.html" class="pagination-link" aria-label="Aspectos introductorios">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Aspectos introductorios</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos introductorios</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./C3.1.html" class="pagination-link" aria-label="Introducción a la Notación Sumatoria">
-        <span class="nav-page-text"><span class="chapter-title">Introducción a la Notación Sumatoria</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Notación Sumatoria</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./license.html">
+<p>Licencia</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Manual práctico para el análisis estadístico de datos agrícolas utilizando R, orientado a estudiantes y profesionales de agronomía.">
 
-<title>Análisis de correlación lineal simple – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>18&nbsp; Análisis de correlación lineal simple – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -314,7 +315,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C11.1.html"><span class="chapter-title">Análisis de correlación lineal simple</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C11.1.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -333,7 +334,41 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R para el Análisis Estadístico de Datos Agrícolas</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -353,141 +388,160 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C0.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Instalación y configuración</span></a>
+  <a href="./C0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación y configuración</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">1. Aspectos Introductorios</span></span>
+ <span class="menu-text">Aspectos Introductorios</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C1.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aspectos introductorios</span></a>
+  <a href="./C1.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos introductorios</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">2. Clasificación de variables</span></span>
+ <span class="menu-text">Clasificación de variables</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C2.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clasificación de Variables</span></a>
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">3. Notación sumatoria</span></span>
+ <span class="menu-text">Notación sumatoria</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a la Notación Sumatoria</span></a>
+  <a href="./C3.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Notación Sumatoria</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></a>
+  <a href="./C3.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a>
+  <a href="./C3.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sumatorias Dobles y Múltiples</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">4. Estadística descriptiva para datos sin agrupar</span></span>
+ <span class="menu-text">Estadística descriptiva para datos sin agrupar</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C4.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></a>
+  <a href="./C4.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Otros tipos de medias</span></a>
+  <a href="./c4.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Otros tipos de medias</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cálculos en R</span></a>
+  <a href="./c4.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cálculos en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">5. Estadística descriptiva para datos agrupados</span></span>
+ <span class="menu-text">Estadística descriptiva para datos agrupados</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción y formulario</span></a>
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción y formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo empleando el formulario</span></a>
+  <a href="./C5.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Ejemplo empleando el formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo en R</span></a>
+  <a href="./C5.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Ejemplo en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">6. Introducción a probabilidades</span></span>
+ <span class="menu-text">Introducción a probabilidades</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C6.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a probabilidades</span></a>
+  <a href="./C6.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">7. Distribuciones de probabilidad discretas</span></span>
+ <span class="menu-text">Distribuciones de probabilidad discretas</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C7.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribuciones Binomial y Poisson en R</span></a>
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">8. Distribución normal</span></span>
+ <span class="menu-text">Distribución normal</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C8.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribución normal</span></a>
+  <a href="./C8.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">9. Intervalos de confianza</span></span>
+ <span class="menu-text">Intervalos de confianza</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></a>
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">10. Pruebas de hipótesis</span></span>
+ <span class="menu-text">Pruebas de hipótesis</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C10.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></a>
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">11. Regresión lineal y correlación</span></span>
+ <span class="menu-text">Regresión lineal y correlación</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.1.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Análisis de correlación lineal simple</span></a>
+  <a href="./C11.1.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión Lineal Simple</span></a>
+  <a href="./C11.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -510,23 +564,23 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#covarianza" id="toc-covarianza" class="nav-link active" data-scroll-target="#covarianza">Covarianza</a></li>
-  <li><a href="#coeficiente-de-correlación-de-pearson" id="toc-coeficiente-de-correlación-de-pearson" class="nav-link" data-scroll-target="#coeficiente-de-correlación-de-pearson">Coeficiente de correlación de Pearson</a></li>
-  <li><a href="#prueba-de-significancia-para-el-coeficiente-de-correlación" id="toc-prueba-de-significancia-para-el-coeficiente-de-correlación" class="nav-link" data-scroll-target="#prueba-de-significancia-para-el-coeficiente-de-correlación">Prueba de significancia para el coeficiente de correlación</a></li>
-  <li><a href="#uso-de-funciones-en-r" id="toc-uso-de-funciones-en-r" class="nav-link" data-scroll-target="#uso-de-funciones-en-r">Uso de funciones en R</a>
+  <li><a href="#covarianza" id="toc-covarianza" class="nav-link active" data-scroll-target="#covarianza"><span class="header-section-number">18.1</span> Covarianza</a></li>
+  <li><a href="#coeficiente-de-correlación-de-pearson" id="toc-coeficiente-de-correlación-de-pearson" class="nav-link" data-scroll-target="#coeficiente-de-correlación-de-pearson"><span class="header-section-number">18.2</span> Coeficiente de correlación de Pearson</a></li>
+  <li><a href="#prueba-de-significancia-para-el-coeficiente-de-correlación" id="toc-prueba-de-significancia-para-el-coeficiente-de-correlación" class="nav-link" data-scroll-target="#prueba-de-significancia-para-el-coeficiente-de-correlación"><span class="header-section-number">18.3</span> Prueba de significancia para el coeficiente de correlación</a></li>
+  <li><a href="#uso-de-funciones-en-r" id="toc-uso-de-funciones-en-r" class="nav-link" data-scroll-target="#uso-de-funciones-en-r"><span class="header-section-number">18.4</span> Uso de funciones en R</a>
   <ul class="collapse">
-  <li><a href="#función-cov" id="toc-función-cov" class="nav-link" data-scroll-target="#función-cov">Función cov()</a></li>
-  <li><a href="#función-cor" id="toc-función-cor" class="nav-link" data-scroll-target="#función-cor">Función cor()</a></li>
-  <li><a href="#función-cor.test" id="toc-función-cor.test" class="nav-link" data-scroll-target="#función-cor.test">Función cor.test()</a></li>
-  <li><a href="#resolución-del-ejemplo-en-r" id="toc-resolución-del-ejemplo-en-r" class="nav-link" data-scroll-target="#resolución-del-ejemplo-en-r">Resolución del ejemplo en R</a></li>
+  <li><a href="#función-cov" id="toc-función-cov" class="nav-link" data-scroll-target="#función-cov"><span class="header-section-number">18.4.1</span> Función cov()</a></li>
+  <li><a href="#función-cor" id="toc-función-cor" class="nav-link" data-scroll-target="#función-cor"><span class="header-section-number">18.4.2</span> Función cor()</a></li>
+  <li><a href="#función-cor.test" id="toc-función-cor.test" class="nav-link" data-scroll-target="#función-cor.test"><span class="header-section-number">18.4.3</span> Función cor.test()</a></li>
+  <li><a href="#resolución-del-ejemplo-en-r" id="toc-resolución-del-ejemplo-en-r" class="nav-link" data-scroll-target="#resolución-del-ejemplo-en-r"><span class="header-section-number">18.4.4</span> Resolución del ejemplo en R</a></li>
   </ul></li>
-  <li><a href="#visualización-gráfica-en-el-análisis-de-correlación-lineal-simple" id="toc-visualización-gráfica-en-el-análisis-de-correlación-lineal-simple" class="nav-link" data-scroll-target="#visualización-gráfica-en-el-análisis-de-correlación-lineal-simple">Visualización Gráfica en el Análisis de Correlación Lineal Simple</a>
+  <li><a href="#visualización-gráfica-en-el-análisis-de-correlación-lineal-simple" id="toc-visualización-gráfica-en-el-análisis-de-correlación-lineal-simple" class="nav-link" data-scroll-target="#visualización-gráfica-en-el-análisis-de-correlación-lineal-simple"><span class="header-section-number">18.5</span> Visualización Gráfica en el Análisis de Correlación Lineal Simple</a>
   <ul class="collapse">
-  <li><a href="#preparación-de-los-datos" id="toc-preparación-de-los-datos" class="nav-link" data-scroll-target="#preparación-de-los-datos">Preparación de los Datos</a></li>
-  <li><a href="#gráfico-de-dispersión-con-línea-de-regresión" id="toc-gráfico-de-dispersión-con-línea-de-regresión" class="nav-link" data-scroll-target="#gráfico-de-dispersión-con-línea-de-regresión">Gráfico de Dispersión con Línea de Regresión</a></li>
-  <li><a href="#gráfico-con-intervalos-de-confianza" id="toc-gráfico-con-intervalos-de-confianza" class="nav-link" data-scroll-target="#gráfico-con-intervalos-de-confianza">Gráfico con Intervalos de Confianza</a></li>
+  <li><a href="#preparación-de-los-datos" id="toc-preparación-de-los-datos" class="nav-link" data-scroll-target="#preparación-de-los-datos"><span class="header-section-number">18.5.1</span> Preparación de los Datos</a></li>
+  <li><a href="#gráfico-de-dispersión-con-línea-de-regresión" id="toc-gráfico-de-dispersión-con-línea-de-regresión" class="nav-link" data-scroll-target="#gráfico-de-dispersión-con-línea-de-regresión"><span class="header-section-number">18.5.2</span> Gráfico de Dispersión con Línea de Regresión</a></li>
+  <li><a href="#gráfico-con-intervalos-de-confianza" id="toc-gráfico-con-intervalos-de-confianza" class="nav-link" data-scroll-target="#gráfico-con-intervalos-de-confianza"><span class="header-section-number">18.5.3</span> Gráfico con Intervalos de Confianza</a></li>
   </ul></li>
-  <li><a href="#simulación-interactiva-del-coeficiente-de-pearson" id="toc-simulación-interactiva-del-coeficiente-de-pearson" class="nav-link" data-scroll-target="#simulación-interactiva-del-coeficiente-de-pearson">Simulación interactiva del coeficiente de Pearson</a></li>
+  <li><a href="#simulación-interactiva-del-coeficiente-de-pearson" id="toc-simulación-interactiva-del-coeficiente-de-pearson" class="nav-link" data-scroll-target="#simulación-interactiva-del-coeficiente-de-pearson"><span class="header-section-number">18.6</span> Simulación interactiva del coeficiente de Pearson</a></li>
   </ul>
 </nav>
     </div>
@@ -536,7 +590,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Análisis de correlación lineal simple</span></h1>
+<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></h1>
 </div>
 
 
@@ -554,8 +608,8 @@ window.Quarto = {
 
 
 <p>El análisis de correlación lineal simple permite cuantificar el grado de asociación lineal entre dos variables cuantitativas. En agronomía, este análisis es fundamental para evaluar relaciones como el diámetro y el peso de frutos, o el contenido de materia orgánica y calcio en suelos (López &amp; González, 2018). La correlación no implica causalidad, pero sí proporciona una medida objetiva de la fuerza y dirección de la relación lineal entre dos variables (Moore et al., 2017).</p>
-<section id="covarianza" class="level2">
-<h2 class="anchored" data-anchor-id="covarianza">Covarianza</h2>
+<section id="covarianza" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="covarianza"><span class="header-section-number">18.1</span> Covarianza</h2>
 <p>La covarianza mide la tendencia conjunta de dos variables a aumentar o disminuir simultáneamente. Su valor puede ser positivo, negativo o cero, pero su magnitud depende de las unidades de las variables, lo que dificulta la comparación entre estudios.</p>
 <p>La covarianza poblacional se define como:</p>
 <p><span class="math display">\[\LARGE \operatorname{Cov}(X, Y) = \mathrm{E}[(X - \mu_X)(Y - \mu_Y)] \]</span></p>
@@ -563,7 +617,10 @@ window.Quarto = {
 <p><span class="math display">\[\LARGE \hat{\operatorname{Cov}}(X, Y) = \frac{1}{n-1} \sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y}) \]</span></p>
 <p><strong>Ejemplo paso a paso:</strong></p>
 <p>Considérese los siguientes datos de peso de padres (<span class="math inline">\(X\)</span>) y peso de hijos (<span class="math inline">\(Y\)</span>) en kilogramos:</p>
-<p><span class="math display">\[\begin{array}{cccccccccc}   x_i &amp; 78 &amp; 65 &amp; 86 &amp; 68 &amp; 83 &amp; 68 &amp; 75 &amp; 80 &amp; 82 &amp; 66 \\   y_i &amp; 60 &amp; 52 &amp; 68 &amp; 53 &amp; 65 &amp; 57 &amp; 58 &amp; 62 &amp; 65 &amp; 53 \\   \end{array} \]</span>​</p>
+<p><span class="math display">\[\begin{array}{ccccccccccc}   
+x_i &amp; 78 &amp; 65 &amp; 86 &amp; 68 &amp; 83 &amp; 68 &amp; 75 &amp; 80 &amp; 82 &amp; 66 \\   
+y_i &amp; 60 &amp; 52 &amp; 68 &amp; 53 &amp; 65 &amp; 57 &amp; 58 &amp; 62 &amp; 65 &amp; 53 \\   
+\end{array} \]</span>​</p>
 <ol type="1">
 <li>Calcular las medias:</li>
 </ol>
@@ -582,8 +639,8 @@ window.Quarto = {
 </ol>
 <p><span class="math display">\[\LARGE \hat{\operatorname{Cov}}(X, Y) = \frac{386.7}{10-1} = 42.97 \]</span></p>
 </section>
-<section id="coeficiente-de-correlación-de-pearson" class="level2">
-<h2 class="anchored" data-anchor-id="coeficiente-de-correlación-de-pearson">Coeficiente de correlación de Pearson</h2>
+<section id="coeficiente-de-correlación-de-pearson" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="coeficiente-de-correlación-de-pearson"><span class="header-section-number">18.2</span> Coeficiente de correlación de Pearson</h2>
 <p>El coeficiente de correlación de Pearson (<span class="math inline">\(r\)</span>) es una medida adimensional que cuantifica la fuerza y dirección de la relación lineal entre dos variables. Su valor oscila entre -1 y 1.</p>
 <p><strong>Definición poblacional:</strong></p>
 <p><span class="math display">\[\huge \rho = \frac{\operatorname{Cov}(X, Y)}{\sigma_X \sigma_Y}  \]</span></p>
@@ -608,8 +665,8 @@ window.Quarto = {
 <p><span class="math display">\[\huge r = \frac{386.7}{396.9} = 0.974\]</span></p>
 <p><strong>Interpretación:</strong> Un valor de <span class="math inline">\(r = 0.974\)</span> indica una asociación lineal positiva muy fuerte entre las variables.</p>
 </section>
-<section id="prueba-de-significancia-para-el-coeficiente-de-correlación" class="level2">
-<h2 class="anchored" data-anchor-id="prueba-de-significancia-para-el-coeficiente-de-correlación">Prueba de significancia para el coeficiente de correlación</h2>
+<section id="prueba-de-significancia-para-el-coeficiente-de-correlación" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="prueba-de-significancia-para-el-coeficiente-de-correlación"><span class="header-section-number">18.3</span> Prueba de significancia para el coeficiente de correlación</h2>
 <p>Para determinar si la correlación observada es estadísticamente significativa, se utiliza la siguiente hipótesis:</p>
 <ol type="1">
 <li><p><span class="math inline">\(H_0: \rho = 0\)</span> (no hay correlación lineal)</p></li>
@@ -620,20 +677,27 @@ window.Quarto = {
 <p>Este estadístico sigue una distribución t de Student con <span class="math inline">\(n-2\)</span> grados de libertad.</p>
 <p><strong>Ejemplo:</strong></p>
 <p>Con <span class="math inline">\(r = 0.974\)</span> y <span class="math inline">\(n = 10\)</span>:</p>
-<p><span class="math display">\[\LARGE\begin{array} \\t = \frac{0.974 \sqrt{10-2}}{\sqrt{1 - 0.974^2}}  \\
-=\frac{0.974 \times 2.828}{\sqrt{1 - 0.949}} \\
+<p><span class="math display">\[
+\LARGE
+\begin{array}{l}
+t = \frac{0.974 \sqrt{10-2}}{\sqrt{1 - 0.974^2}}  \\
+= \frac{0.974 \times 2.828}{\sqrt{1 - 0.949}} \\
 = \frac{2.754}{\sqrt{0.051}} \\
-  =\frac{2.754}{0.226} \\
-= 12.19 \end{array}\]</span></p>
-<p>Se compara el valor calculado con el valor crítico de t para <span class="math inline">\(n-2 = 8\)</span> grados de libertad y el nivel de significancia deseado (por ejemplo, <span class="math inline">\(\alpha = 0.05\)</span>. Si <span class="math inline">\(|t| &gt; t_{crítico}\)</span>, se rechaza <span class="math inline">\(H_0\)</span>.</p>
+= \frac{2.754}{0.226} \\
+= 12.19
+\end{array}
+\]</span> Se compara el valor calculado con el valor crítico de t para <span class="math inline">\(n-2 = 8\)</span> grados de libertad y el nivel de significancia deseado (por ejemplo, <span class="math inline">\(\alpha = 0.05\)</span>. Si <span class="math inline">\(|t| &gt; t_{crítico}\)</span>, se rechaza <span class="math inline">\(H_0\)</span>.</p>
 </section>
-<section id="uso-de-funciones-en-r" class="level2">
-<h2 class="anchored" data-anchor-id="uso-de-funciones-en-r">Uso de funciones en R</h2>
-<section id="función-cov" class="level3">
-<h3 class="anchored" data-anchor-id="función-cov">Función cov()</h3>
+<section id="uso-de-funciones-en-r" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="uso-de-funciones-en-r"><span class="header-section-number">18.4</span> Uso de funciones en R</h2>
+<section id="función-cov" class="level3" data-number="18.4.1">
+<h3 data-number="18.4.1" class="anchored" data-anchor-id="función-cov"><span class="header-section-number">18.4.1</span> Función cov()</h3>
 <p>La función <code>cov()</code> permite calcular la covarianza muestral entre dos vectores numéricos. Su sintaxis general es:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x, y, <span class="at">use =</span> <span class="st">"everything"</span>, <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov</span>(x, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    y, </span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">use =</span> <span class="st">"everything"</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Argumentos principales:</strong></p>
 <p>Los argumentos principales son los siguientes:</p>
@@ -643,11 +707,13 @@ window.Quarto = {
 <li><p><strong>method:</strong> indica el tipo de covarianza a calcular. El valor por defecto es <code>"pearson"</code>, que corresponde a la covarianza clásica.</p></li>
 </ol>
 </section>
-<section id="función-cor" class="level3">
-<h3 class="anchored" data-anchor-id="función-cor">Función cor()</h3>
+<section id="función-cor" class="level3" data-number="18.4.2">
+<h3 data-number="18.4.2" class="anchored" data-anchor-id="función-cor"><span class="header-section-number">18.4.2</span> Función cor()</h3>
 <p>La función <code>cor()</code> se utiliza para calcular el coeficiente de correlación entre dos vectores numéricos. La sintaxis básica es:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, y, <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(x, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    y, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">method =</span> <span class="st">"pearson"</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Argumentos principales:</strong></p>
 <ol type="1">
@@ -655,11 +721,15 @@ window.Quarto = {
 <li><p><strong>method:</strong> define el tipo de correlación a calcular. Puede tomar los valores <code>"pearson"</code> (por defecto, para correlación lineal), <code>"spearman"</code> (para correlación de rangos) o <code>"kendall"</code> (para correlación de concordancia).</p></li>
 </ol>
 </section>
-<section id="función-cor.test" class="level3">
-<h3 class="anchored" data-anchor-id="función-cor.test">Función cor.test()</h3>
+<section id="función-cor.test" class="level3" data-number="18.4.3">
+<h3 data-number="18.4.3" class="anchored" data-anchor-id="función-cor.test"><span class="header-section-number">18.4.3</span> Función cor.test()</h3>
 <p>La función <code>cor.test()</code> realiza una prueba de hipótesis para el coeficiente de correlación entre dos variables. Su sintaxis general es:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, y, <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor.test</span>(x, </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>         y, </span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">alternative =</span> <span class="st">"two.sided"</span>, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">method =</span> <span class="st">"pearson"</span>, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p><strong>Argumentos principales:</strong></p>
 <ol type="1">
@@ -669,8 +739,8 @@ window.Quarto = {
 <li><p><strong>conf.level:</strong> establece el nivel de confianza para el intervalo del coeficiente de correlación, siendo el valor por defecto 0.95 (95%).</p></li>
 </ol>
 </section>
-<section id="resolución-del-ejemplo-en-r" class="level3">
-<h3 class="anchored" data-anchor-id="resolución-del-ejemplo-en-r">Resolución del ejemplo en R</h3>
+<section id="resolución-del-ejemplo-en-r" class="level3" data-number="18.4.4">
+<h3 data-number="18.4.4" class="anchored" data-anchor-id="resolución-del-ejemplo-en-r"><span class="header-section-number">18.4.4</span> Resolución del ejemplo en R</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Importación de los valores</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Datos del ejemplo: peso de padres (X) y peso de hijos (Y) en kilogramos</span></span>
@@ -721,11 +791,11 @@ sample estimates:
 <p>El intervalo de confianza al 95% para el coeficiente de correlación se encuentra entre <span class="math inline">\(0.891\)</span> y <span class="math inline">\(0.994\)</span>, lo que refuerza la conclusión de que la verdadera correlación poblacional es positiva y muy alta.</p>
 </section>
 </section>
-<section id="visualización-gráfica-en-el-análisis-de-correlación-lineal-simple" class="level2">
-<h2 class="anchored" data-anchor-id="visualización-gráfica-en-el-análisis-de-correlación-lineal-simple">Visualización Gráfica en el Análisis de Correlación Lineal Simple</h2>
+<section id="visualización-gráfica-en-el-análisis-de-correlación-lineal-simple" class="level2" data-number="18.5">
+<h2 data-number="18.5" class="anchored" data-anchor-id="visualización-gráfica-en-el-análisis-de-correlación-lineal-simple"><span class="header-section-number">18.5</span> Visualización Gráfica en el Análisis de Correlación Lineal Simple</h2>
 <p>La representación gráfica constituye una herramienta fundamental en el análisis de correlación lineal simple, ya que permite visualizar la naturaleza y fuerza de la relación entre dos variables cuantitativas (López &amp; González, 2018). Los gráficos facilitan la interpretación de los resultados estadísticos y proporcionan una comprensión intuitiva de los datos antes de proceder con los cálculos formales del coeficiente de correlación de Pearson.</p>
-<section id="preparación-de-los-datos" class="level3">
-<h3 class="anchored" data-anchor-id="preparación-de-los-datos">Preparación de los Datos</h3>
+<section id="preparación-de-los-datos" class="level3" data-number="18.5.1">
+<h3 data-number="18.5.1" class="anchored" data-anchor-id="preparación-de-los-datos"><span class="header-section-number">18.5.1</span> Preparación de los Datos</h3>
 <p>Antes de generar los gráficos, es necesario extraer los datos del conjunto de datos y organizarlos en vectores individuales para facilitar su manipulación:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extraer los datos del dataframe a vectores</span></span>
@@ -734,8 +804,8 @@ sample estimates:
 </div>
 <p>Esta separación permite un manejo más eficiente de las variables y facilita la aplicación de las funciones gráficas de R.</p>
 </section>
-<section id="gráfico-de-dispersión-con-línea-de-regresión" class="level3">
-<h3 class="anchored" data-anchor-id="gráfico-de-dispersión-con-línea-de-regresión">Gráfico de Dispersión con Línea de Regresión</h3>
+<section id="gráfico-de-dispersión-con-línea-de-regresión" class="level3" data-number="18.5.2">
+<h3 data-number="18.5.2" class="anchored" data-anchor-id="gráfico-de-dispersión-con-línea-de-regresión"><span class="header-section-number">18.5.2</span> Gráfico de Dispersión con Línea de Regresión</h3>
 <p>El diagrama de dispersión representa la herramienta visual más importante para evaluar la correlación lineal, ya que permite observar directamente el patrón de asociación entre las variables (López &amp; González, 2018).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Gráfico de dispersión básico con línea de regresión</span></span>
@@ -773,8 +843,8 @@ sample estimates:
 <li><p><strong>Coeficiente de correlación</strong>: Cuantifica la fuerza de la asociación lineal</p></li>
 </ol>
 </section>
-<section id="gráfico-con-intervalos-de-confianza" class="level3">
-<h3 class="anchored" data-anchor-id="gráfico-con-intervalos-de-confianza">Gráfico con Intervalos de Confianza</h3>
+<section id="gráfico-con-intervalos-de-confianza" class="level3" data-number="18.5.3">
+<h3 data-number="18.5.3" class="anchored" data-anchor-id="gráfico-con-intervalos-de-confianza"><span class="header-section-number">18.5.3</span> Gráfico con Intervalos de Confianza</h3>
 <p>Este gráfico avanzado incorpora bandas de confianza que indican la incertidumbre asociada con la línea de regresión estimada.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Gráfico con intervalos de confianza</span></span>
@@ -810,8 +880,8 @@ sample estimates:
 <p><strong>Interpretación:</strong> La banda sombreada representa el intervalo de confianza del 95% para la línea de regresión, indicando el rango de valores donde se espera que se encuentre la verdadera relación poblacional.</p>
 </section>
 </section>
-<section id="simulación-interactiva-del-coeficiente-de-pearson" class="level2">
-<h2 class="anchored" data-anchor-id="simulación-interactiva-del-coeficiente-de-pearson">Simulación interactiva del coeficiente de Pearson</h2>
+<section id="simulación-interactiva-del-coeficiente-de-pearson" class="level2" data-number="18.6">
+<h2 data-number="18.6" class="anchored" data-anchor-id="simulación-interactiva-del-coeficiente-de-pearson"><span class="header-section-number">18.6</span> Simulación interactiva del coeficiente de Pearson</h2>
 <p>A continuación, se presenta una aplicación interactiva diseñada para visualizar cómo los diferentes valores del coeficiente de correlación de Pearson (r) se reflejan en un gráfico de dispersión junto con su respectiva línea de tendencia. Esta herramienta facilita la comprensión visual y práctica del concepto de correlación lineal simple, permitiendo observar de manera dinámica cómo varía la relación entre dos variables a medida que cambia el valor de r.</p>
 <p>Para explorar la aplicación y experimentar con distintos escenarios de correlación, se recomienda acceder al siguiente enlace: <a href="https://ludwing-mj.shinyapps.io/pearson/" class="uri">https://ludwing-mj.shinyapps.io/pearson/</a>.</p>
 <div style="display: flex; justify-content: center;">
@@ -1245,16 +1315,35 @@ sample estimates:
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./C10.1.html" class="pagination-link" aria-label="Pruebas de Hipótesis Paramétricas en R">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./C11.2.html" class="pagination-link" aria-label="Regresión Lineal Simple">
-        <span class="nav-page-text"><span class="chapter-title">Regresión Lineal Simple</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./C11.2.html" class="pagination-link" aria-label="Regresión Lineal Simple usando R">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./license.html">
+<p>Licencia</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

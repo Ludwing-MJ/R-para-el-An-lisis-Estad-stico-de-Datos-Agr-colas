@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Manual práctico para el análisis estadístico de datos agrícolas utilizando R, orientado a estudiantes y profesionales de agronomía.">
 
-<title>Regresión Lineal Simple usando R – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>19&nbsp; Regresión Lineal Simple usando R – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -314,7 +315,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C11.2.html"><span class="chapter-title">Regresión Lineal Simple usando R</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C11.2.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -333,7 +334,41 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R para el Análisis Estadístico de Datos Agrícolas</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -353,141 +388,160 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C0.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Instalación y configuración</span></a>
+  <a href="./C0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación y configuración</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">1. Aspectos Introductorios</span></span>
+ <span class="menu-text">Aspectos Introductorios</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C1.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aspectos introductorios</span></a>
+  <a href="./C1.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos introductorios</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">2. Clasificación de variables</span></span>
+ <span class="menu-text">Clasificación de variables</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C2.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clasificación de Variables</span></a>
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">3. Notación sumatoria</span></span>
+ <span class="menu-text">Notación sumatoria</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a la Notación Sumatoria</span></a>
+  <a href="./C3.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Notación Sumatoria</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></a>
+  <a href="./C3.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a>
+  <a href="./C3.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sumatorias Dobles y Múltiples</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">4. Estadística descriptiva para datos sin agrupar</span></span>
+ <span class="menu-text">Estadística descriptiva para datos sin agrupar</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C4.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></a>
+  <a href="./C4.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Otros tipos de medias</span></a>
+  <a href="./c4.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Otros tipos de medias</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cálculos en R</span></a>
+  <a href="./c4.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cálculos en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">5. Estadística descriptiva para datos agrupados</span></span>
+ <span class="menu-text">Estadística descriptiva para datos agrupados</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción y formulario</span></a>
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción y formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo empleando el formulario</span></a>
+  <a href="./C5.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Ejemplo empleando el formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo en R</span></a>
+  <a href="./C5.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Ejemplo en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">6. Introducción a probabilidades</span></span>
+ <span class="menu-text">Introducción a probabilidades</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C6.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a probabilidades</span></a>
+  <a href="./C6.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">7. Distribuciones de probabilidad discretas</span></span>
+ <span class="menu-text">Distribuciones de probabilidad discretas</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C7.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribuciones Binomial y Poisson en R</span></a>
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">8. Distribución normal</span></span>
+ <span class="menu-text">Distribución normal</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C8.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribución normal</span></a>
+  <a href="./C8.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">9. Intervalos de confianza</span></span>
+ <span class="menu-text">Intervalos de confianza</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></a>
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">10. Pruebas de hipótesis</span></span>
+ <span class="menu-text">Pruebas de hipótesis</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C10.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></a>
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">11. Regresión lineal y correlación</span></span>
+ <span class="menu-text">Regresión lineal y correlación</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Análisis de correlación lineal simple</span></a>
+  <a href="./C11.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Regresión Lineal Simple usando R</span></a>
+  <a href="./C11.2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -510,22 +564,22 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#fundamentos-teóricos" id="toc-fundamentos-teóricos" class="nav-link active" data-scroll-target="#fundamentos-teóricos">Fundamentos Teóricos</a></li>
-  <li><a href="#supuestos-del-modelo" id="toc-supuestos-del-modelo" class="nav-link" data-scroll-target="#supuestos-del-modelo">Supuestos del Modelo</a></li>
-  <li><a href="#análisis-práctico-en-r" id="toc-análisis-práctico-en-r" class="nav-link" data-scroll-target="#análisis-práctico-en-r">Análisis Práctico en R</a>
+  <li><a href="#fundamentos-teóricos" id="toc-fundamentos-teóricos" class="nav-link active" data-scroll-target="#fundamentos-teóricos"><span class="header-section-number">19.1</span> Fundamentos Teóricos</a></li>
+  <li><a href="#supuestos-del-modelo" id="toc-supuestos-del-modelo" class="nav-link" data-scroll-target="#supuestos-del-modelo"><span class="header-section-number">19.2</span> Supuestos del Modelo</a></li>
+  <li><a href="#análisis-práctico-en-r" id="toc-análisis-práctico-en-r" class="nav-link" data-scroll-target="#análisis-práctico-en-r"><span class="header-section-number">19.3</span> Análisis Práctico en R</a>
   <ul class="collapse">
-  <li><a href="#instalación-y-carga-de-paquetes" id="toc-instalación-y-carga-de-paquetes" class="nav-link" data-scroll-target="#instalación-y-carga-de-paquetes">Instalación y carga de paquetes</a></li>
-  <li><a href="#ajuste-del-modelo" id="toc-ajuste-del-modelo" class="nav-link" data-scroll-target="#ajuste-del-modelo">Ajuste del Modelo</a></li>
-  <li><a href="#evaluación-crítica-de-supuestos" id="toc-evaluación-crítica-de-supuestos" class="nav-link" data-scroll-target="#evaluación-crítica-de-supuestos">Evaluación Crítica de Supuestos</a></li>
+  <li><a href="#instalación-y-carga-de-paquetes" id="toc-instalación-y-carga-de-paquetes" class="nav-link" data-scroll-target="#instalación-y-carga-de-paquetes"><span class="header-section-number">19.3.1</span> Instalación y carga de paquetes</a></li>
+  <li><a href="#ajuste-del-modelo" id="toc-ajuste-del-modelo" class="nav-link" data-scroll-target="#ajuste-del-modelo"><span class="header-section-number">19.3.2</span> Ajuste del Modelo</a></li>
+  <li><a href="#evaluación-crítica-de-supuestos" id="toc-evaluación-crítica-de-supuestos" class="nav-link" data-scroll-target="#evaluación-crítica-de-supuestos"><span class="header-section-number">19.3.3</span> Evaluación Crítica de Supuestos</a></li>
   </ul></li>
-  <li><a href="#predicción-con-el-modelo-ajustado" id="toc-predicción-con-el-modelo-ajustado" class="nav-link" data-scroll-target="#predicción-con-el-modelo-ajustado">Predicción con el modelo ajustado</a></li>
-  <li><a href="#interpretación-de-resultados" id="toc-interpretación-de-resultados" class="nav-link" data-scroll-target="#interpretación-de-resultados">Interpretación de Resultados</a>
+  <li><a href="#predicción-con-el-modelo-ajustado" id="toc-predicción-con-el-modelo-ajustado" class="nav-link" data-scroll-target="#predicción-con-el-modelo-ajustado"><span class="header-section-number">19.4</span> Predicción con el modelo ajustado</a></li>
+  <li><a href="#interpretación-de-resultados" id="toc-interpretación-de-resultados" class="nav-link" data-scroll-target="#interpretación-de-resultados"><span class="header-section-number">19.5</span> Interpretación de Resultados</a>
   <ul class="collapse">
-  <li><a href="#coeficientes-del-modelo" id="toc-coeficientes-del-modelo" class="nav-link" data-scroll-target="#coeficientes-del-modelo">Coeficientes del Modelo</a></li>
-  <li><a href="#bondad-de-ajuste" id="toc-bondad-de-ajuste" class="nav-link" data-scroll-target="#bondad-de-ajuste">Bondad de Ajuste</a></li>
-  <li><a href="#significancia-estadística" id="toc-significancia-estadística" class="nav-link" data-scroll-target="#significancia-estadística">Significancia Estadística</a></li>
-  <li><a href="#criterios-de-decisión-para-los-supuestos" id="toc-criterios-de-decisión-para-los-supuestos" class="nav-link" data-scroll-target="#criterios-de-decisión-para-los-supuestos">Criterios de Decisión para los supuestos</a></li>
-  <li><a href="#pasos-para-una-interpretación-integral-y-conclusiones" id="toc-pasos-para-una-interpretación-integral-y-conclusiones" class="nav-link" data-scroll-target="#pasos-para-una-interpretación-integral-y-conclusiones">Pasos para una Interpretación Integral y Conclusiones</a></li>
+  <li><a href="#coeficientes-del-modelo" id="toc-coeficientes-del-modelo" class="nav-link" data-scroll-target="#coeficientes-del-modelo"><span class="header-section-number">19.5.1</span> Coeficientes del Modelo</a></li>
+  <li><a href="#bondad-de-ajuste" id="toc-bondad-de-ajuste" class="nav-link" data-scroll-target="#bondad-de-ajuste"><span class="header-section-number">19.5.2</span> Bondad de Ajuste</a></li>
+  <li><a href="#significancia-estadística" id="toc-significancia-estadística" class="nav-link" data-scroll-target="#significancia-estadística"><span class="header-section-number">19.5.3</span> Significancia Estadística</a></li>
+  <li><a href="#criterios-de-decisión-para-los-supuestos" id="toc-criterios-de-decisión-para-los-supuestos" class="nav-link" data-scroll-target="#criterios-de-decisión-para-los-supuestos"><span class="header-section-number">19.5.4</span> Criterios de Decisión para los supuestos</a></li>
+  <li><a href="#pasos-para-una-interpretación-integral-y-conclusiones" id="toc-pasos-para-una-interpretación-integral-y-conclusiones" class="nav-link" data-scroll-target="#pasos-para-una-interpretación-integral-y-conclusiones"><span class="header-section-number">19.5.5</span> Pasos para una Interpretación Integral y Conclusiones</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -536,7 +590,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Regresión Lineal Simple usando R</span></h1>
+<h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></h1>
 </div>
 
 
@@ -554,8 +608,8 @@ window.Quarto = {
 
 
 <p>La regresión lineal simple es una técnica estadística fundamental para analizar la relación entre dos variables cuantitativas, permitiendo modelar y predecir el comportamiento de una variable dependiente a partir de una variable independiente. En el contexto de la agronomía, esta herramienta resulta esencial para comprender fenómenos como la relación entre el peso en cultivos o animales, entre otros ejemplos relevantes (Montgomery et al., 2021; López &amp; González, 2018).</p>
-<section id="fundamentos-teóricos" class="level2">
-<h2 class="anchored" data-anchor-id="fundamentos-teóricos">Fundamentos Teóricos</h2>
+<section id="fundamentos-teóricos" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="fundamentos-teóricos"><span class="header-section-number">19.1</span> Fundamentos Teóricos</h2>
 <p>El modelo de regresión lineal simple se expresa mediante la siguiente ecuación:</p>
 <p><span class="math display">\[\huge Y_i = \beta_0 + \beta_1 X_i + \varepsilon_i\]</span></p>
 <p>En esta expresión:</p>
@@ -572,8 +626,8 @@ window.Quarto = {
 <p><span class="math display">\[\LARGE \hat{\beta_0} = \bar{y} - \hat{\beta_1}\bar{x}\]</span></p>
 <p>donde <span class="math inline">\(\bar{x}\)</span> y <span class="math inline">\(\bar{y}\)</span> son las medias de las variables <span class="math inline">\(X\)</span> y <span class="math inline">\(Y\)</span> respectivamente.</p>
 </section>
-<section id="supuestos-del-modelo" class="level2">
-<h2 class="anchored" data-anchor-id="supuestos-del-modelo">Supuestos del Modelo</h2>
+<section id="supuestos-del-modelo" class="level2" data-number="19.2">
+<h2 data-number="19.2" class="anchored" data-anchor-id="supuestos-del-modelo"><span class="header-section-number">19.2</span> Supuestos del Modelo</h2>
 <p>Para que los resultados de la regresión lineal simple sean válidos, es necesario que se cumplan los siguientes supuestos (López &amp; González, 2018):</p>
 <ol type="1">
 <li><p><strong>Linealidad:</strong> La relación entre la variable independiente y la dependiente debe ser lineal. Esto significa que el efecto de <span class="math inline">\(X\)</span> sobre <span class="math inline">\(Y\)</span> es constante a lo largo de todo el rango de valores.</p></li>
@@ -583,10 +637,10 @@ window.Quarto = {
 </ol>
 <p>El incumplimiento de estos supuestos puede llevar a conclusiones erróneas o a una interpretación incorrecta de los resultados.</p>
 </section>
-<section id="análisis-práctico-en-r" class="level2">
-<h2 class="anchored" data-anchor-id="análisis-práctico-en-r">Análisis Práctico en R</h2>
-<section id="instalación-y-carga-de-paquetes" class="level3">
-<h3 class="anchored" data-anchor-id="instalación-y-carga-de-paquetes">Instalación y carga de paquetes</h3>
+<section id="análisis-práctico-en-r" class="level2" data-number="19.3">
+<h2 data-number="19.3" class="anchored" data-anchor-id="análisis-práctico-en-r"><span class="header-section-number">19.3</span> Análisis Práctico en R</h2>
+<section id="instalación-y-carga-de-paquetes" class="level3" data-number="19.3.1">
+<h3 data-number="19.3.1" class="anchored" data-anchor-id="instalación-y-carga-de-paquetes"><span class="header-section-number">19.3.1</span> Instalación y carga de paquetes</h3>
 <p>El análisis inicia con la carga de los paquetes especializados y la exploración de los datos:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Instalación y carga de paquetes necesarios</span></span>
@@ -620,8 +674,8 @@ window.Quarto = {
 </div>
 </div>
 </section>
-<section id="ajuste-del-modelo" class="level3">
-<h3 class="anchored" data-anchor-id="ajuste-del-modelo">Ajuste del Modelo</h3>
+<section id="ajuste-del-modelo" class="level3" data-number="19.3.2">
+<h3 data-number="19.3.2" class="anchored" data-anchor-id="ajuste-del-modelo"><span class="header-section-number">19.3.2</span> Ajuste del Modelo</h3>
 <p>Para ajustar el modelo, se utiliza la función <code>lm()</code>, cuya sintaxis general es:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>modelo <span class="ot">&lt;-</span> <span class="fu">lm</span>(Y <span class="sc">~</span> X, <span class="at">data =</span> datos)</span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -656,10 +710,10 @@ F-statistic: 149.1 on 1 and 8 DF,  p-value: 1.879e-06</code></pre>
 </div>
 <p>El resumen incluye los coeficientes estimados, sus errores estándar, valores t y p, así como el coeficiente de determinación (<span class="math inline">\(R^2\)</span>), que indica la proporción de la variabilidad de <span class="math inline">\(Y\)</span> explicada por <span class="math inline">\(X\)</span>.</p>
 </section>
-<section id="evaluación-crítica-de-supuestos" class="level3">
-<h3 class="anchored" data-anchor-id="evaluación-crítica-de-supuestos">Evaluación Crítica de Supuestos</h3>
-<section id="supuesto-de-linealidad" class="level4">
-<h4 class="anchored" data-anchor-id="supuesto-de-linealidad">Supuesto de Linealidad</h4>
+<section id="evaluación-crítica-de-supuestos" class="level3" data-number="19.3.3">
+<h3 data-number="19.3.3" class="anchored" data-anchor-id="evaluación-crítica-de-supuestos"><span class="header-section-number">19.3.3</span> Evaluación Crítica de Supuestos</h3>
+<section id="supuesto-de-linealidad" class="level4" data-number="19.3.3.1">
+<h4 data-number="19.3.3.1" class="anchored" data-anchor-id="supuesto-de-linealidad"><span class="header-section-number">19.3.3.1</span> Supuesto de Linealidad</h4>
 <p>Se evalúa mediante el gráfico de residuos vs valores ajustados. Si los residuos se distribuyen aleatoriamente alrededor de cero, el supuesto se considera cumplido.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(modelo, <span class="at">which =</span> <span class="dv">1</span>)  <span class="co"># Residuals vs Fitted</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -672,8 +726,8 @@ F-statistic: 149.1 on 1 and 8 DF,  p-value: 1.879e-06</code></pre>
 </div>
 </div>
 </section>
-<section id="supuesto-de-normalidad" class="level4">
-<h4 class="anchored" data-anchor-id="supuesto-de-normalidad">Supuesto de Normalidad</h4>
+<section id="supuesto-de-normalidad" class="level4" data-number="19.3.3.2">
+<h4 data-number="19.3.3.2" class="anchored" data-anchor-id="supuesto-de-normalidad"><span class="header-section-number">19.3.3.2</span> Supuesto de Normalidad</h4>
 <p>Se puede evaluar visualmente con un gráfico Q-Q y mediante pruebas estadísticas como Shapiro-Wilk y Anderson-Darling:</p>
 <p><strong>Gráfico Q-Q:</strong></p>
 <div class="cell">
@@ -714,8 +768,8 @@ A = 0.36544, p-value = 0.3604</code></pre>
 </div>
 </div>
 </section>
-<section id="supuesto-de-homocedasticidad" class="level4">
-<h4 class="anchored" data-anchor-id="supuesto-de-homocedasticidad">Supuesto de Homocedasticidad</h4>
+<section id="supuesto-de-homocedasticidad" class="level4" data-number="19.3.3.3">
+<h4 data-number="19.3.3.3" class="anchored" data-anchor-id="supuesto-de-homocedasticidad"><span class="header-section-number">19.3.3.3</span> Supuesto de Homocedasticidad</h4>
 <p>Se evalúa con la <strong>Prueba de Breusch-Pagan:</strong></p>
 <ol type="1">
 <li><p><span class="math inline">\(H_0\)</span>​: Varianza constante (homocedasticidad)</p></li>
@@ -732,14 +786,14 @@ BP = 0.71286, df = 1, p-value = 0.3985</code></pre>
 </div>
 </div>
 </section>
-<section id="supuesto-de-independencia" class="level4">
-<h4 class="anchored" data-anchor-id="supuesto-de-independencia">Supuesto de independencia</h4>
+<section id="supuesto-de-independencia" class="level4" data-number="19.3.3.4">
+<h4 data-number="19.3.3.4" class="anchored" data-anchor-id="supuesto-de-independencia"><span class="header-section-number">19.3.3.4</span> Supuesto de independencia</h4>
 <p>En estudios experimentales, la independencia suele garantizarse mediante un diseño adecuado. En estudios observacionales, se recomienda analizar el contexto y, si es posible, realizar pruebas adicionales.</p>
 </section>
 </section>
 </section>
-<section id="predicción-con-el-modelo-ajustado" class="level2">
-<h2 class="anchored" data-anchor-id="predicción-con-el-modelo-ajustado">Predicción con el modelo ajustado</h2>
+<section id="predicción-con-el-modelo-ajustado" class="level2" data-number="19.4">
+<h2 data-number="19.4" class="anchored" data-anchor-id="predicción-con-el-modelo-ajustado"><span class="header-section-number">19.4</span> Predicción con el modelo ajustado</h2>
 <p>Una vez ajustado el modelo, se pueden realizar predicciones para nuevos valores de la variable independiente:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Nuevos valores de Peso_Padres</span></span>
@@ -757,17 +811,17 @@ BP = 0.71286, df = 1, p-value = 0.3985</code></pre>
 </div>
 <p>El resultado incluye el valor predicho y los límites inferior y superior del intervalo de predicción para cada nuevo valor.</p>
 </section>
-<section id="interpretación-de-resultados" class="level2">
-<h2 class="anchored" data-anchor-id="interpretación-de-resultados">Interpretación de Resultados</h2>
-<section id="coeficientes-del-modelo" class="level3">
-<h3 class="anchored" data-anchor-id="coeficientes-del-modelo">Coeficientes del Modelo</h3>
+<section id="interpretación-de-resultados" class="level2" data-number="19.5">
+<h2 data-number="19.5" class="anchored" data-anchor-id="interpretación-de-resultados"><span class="header-section-number">19.5</span> Interpretación de Resultados</h2>
+<section id="coeficientes-del-modelo" class="level3" data-number="19.5.1">
+<h3 data-number="19.5.1" class="anchored" data-anchor-id="coeficientes-del-modelo"><span class="header-section-number">19.5.1</span> Coeficientes del Modelo</h3>
 <ol type="1">
 <li><p><strong>Intercepto (</strong><span class="math inline">\(\hat{\beta_0}\)</span>​): Valor esperado de Y cuando X = 0</p></li>
 <li><p><strong>Pendiente (</strong><span class="math inline">\(\hat{\beta_1}\)</span>​): Cambio promedio en Y por unidad de cambio en X</p></li>
 </ol>
 </section>
-<section id="bondad-de-ajuste" class="level3">
-<h3 class="anchored" data-anchor-id="bondad-de-ajuste">Bondad de Ajuste</h3>
+<section id="bondad-de-ajuste" class="level3" data-number="19.5.2">
+<h3 data-number="19.5.2" class="anchored" data-anchor-id="bondad-de-ajuste"><span class="header-section-number">19.5.2</span> Bondad de Ajuste</h3>
 <p>El <strong>coeficiente de determinación</strong> (<span class="math inline">\(R^2\)</span>) indica la proporción de variabilidad explicada:</p>
 <p><span class="math display">\[\huge R^2 = \frac{SC_{Regresión}}{SC_{Total}}\]</span></p>
 <p>​</p>
@@ -777,16 +831,16 @@ BP = 0.71286, df = 1, p-value = 0.3985</code></pre>
 <li><p><span class="math inline">\(R^2 &lt; 0.5\)</span>: Ajuste pobre</p></li>
 </ol>
 </section>
-<section id="significancia-estadística" class="level3">
-<h3 class="anchored" data-anchor-id="significancia-estadística">Significancia Estadística</h3>
+<section id="significancia-estadística" class="level3" data-number="19.5.3">
+<h3 data-number="19.5.3" class="anchored" data-anchor-id="significancia-estadística"><span class="header-section-number">19.5.3</span> Significancia Estadística</h3>
 <p>La <strong>prueba F global</strong> evalúa:</p>
 <ol type="1">
 <li><p><span class="math inline">\(H_0\)</span>​: <span class="math inline">\(\beta_1 = 0\)</span> (no hay relación lineal)</p></li>
 <li><p><span class="math inline">\(H_a\)</span>​: <span class="math inline">\(\beta_1 \neq 0\)</span> (existe relación lineal)</p></li>
 </ol>
 </section>
-<section id="criterios-de-decisión-para-los-supuestos" class="level3">
-<h3 class="anchored" data-anchor-id="criterios-de-decisión-para-los-supuestos">Criterios de Decisión para los supuestos</h3>
+<section id="criterios-de-decisión-para-los-supuestos" class="level3" data-number="19.5.4">
+<h3 data-number="19.5.4" class="anchored" data-anchor-id="criterios-de-decisión-para-los-supuestos"><span class="header-section-number">19.5.4</span> Criterios de Decisión para los supuestos</h3>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -819,8 +873,8 @@ BP = 0.71286, df = 1, p-value = 0.3985</code></pre>
 </tbody>
 </table>
 </section>
-<section id="pasos-para-una-interpretación-integral-y-conclusiones" class="level3">
-<h3 class="anchored" data-anchor-id="pasos-para-una-interpretación-integral-y-conclusiones">Pasos para una Interpretación Integral y Conclusiones</h3>
+<section id="pasos-para-una-interpretación-integral-y-conclusiones" class="level3" data-number="19.5.5">
+<h3 data-number="19.5.5" class="anchored" data-anchor-id="pasos-para-una-interpretación-integral-y-conclusiones"><span class="header-section-number">19.5.5</span> Pasos para una Interpretación Integral y Conclusiones</h3>
 <ol type="1">
 <li><p><strong>Evaluar significancia del modelo</strong> (prueba F global)</p></li>
 <li><p><strong>Verificar supuestos</strong> mediante pruebas estadísticas y gráficos</p></li>
@@ -1257,7 +1311,7 @@ BP = 0.71286, df = 1, p-value = 0.3985</code></pre>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./C11.1.html" class="pagination-link" aria-label="Análisis de correlación lineal simple">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Análisis de correlación lineal simple</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
@@ -1267,6 +1321,25 @@ BP = 0.71286, df = 1, p-value = 0.3985</code></pre>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./license.html">
+<p>Licencia</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 

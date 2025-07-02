@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Manual práctico para el análisis estadístico de datos agrícolas utilizando R, orientado a estudiantes y profesionales de agronomía.">
 
-<title>Ejemplo empleando el formulario – R para el Análisis Estadístico de Datos Agrícolas</title>
+<title>11&nbsp; Ejemplo empleando el formulario – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -279,7 +280,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C5.2.html"><span class="chapter-title">Ejemplo empleando el formulario</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./C5.2.html"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Ejemplo empleando el formulario</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
@@ -298,7 +299,41 @@ window.Quarto = {
       </a>
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R para el Análisis Estadístico de Datos Agrícolas</a> 
-        <div class="sidebar-tools-main">
+        <div class="sidebar-tools-main tools-wide">
+    <div class="dropdown">
+      <a href="" title="Download" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Download"><i class="bi bi-download"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.pdf">
+              <i class="bi bi-file-pdf pe-1"></i>
+            Download PDF
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="./R_para_Analisis_Estadistico_Datos_Agricolas.epub">
+              <i class="bi bi-journal pe-1"></i>
+            Download ePub
+            </a>
+          </li>
+      </ul>
+    </div>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-1" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-1">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
 </div>
     </div>
@@ -318,136 +353,160 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C0.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Instalación y configuración</span></a>
+  <a href="./C0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación y configuración</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">1. Aspectos Introductorios</span></span>
+ <span class="menu-text">Aspectos Introductorios</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C1.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Aspectos introductorios</span></a>
+  <a href="./C1.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Aspectos introductorios</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">2. Clasificación de variables</span></span>
+ <span class="menu-text">Clasificación de variables</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C2.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Clasificación de Variables</span></a>
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Clasificación de Variables</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">3. Notación sumatoria</span></span>
+ <span class="menu-text">Notación sumatoria</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a la Notación Sumatoria</span></a>
+  <a href="./C3.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Notación Sumatoria</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></a>
+  <a href="./C3.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ejemplo Aplicado Sumatoria Simple</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C3.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Sumatorias Dobles y Múltiples</span></a>
+  <a href="./C3.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sumatorias Dobles y Múltiples</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">4. Estadística descriptiva para datos sin agrupar</span></span>
+ <span class="menu-text">Estadística descriptiva para datos sin agrupar</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C4.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></a>
+  <a href="./C4.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Estadística descriptiva para datos sin agrupar</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.2.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Otros tipos de medias</span></a>
+  <a href="./c4.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Otros tipos de medias</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./c4.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Cálculos en R</span></a>
+  <a href="./c4.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cálculos en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">5. Estadística descriptiva para datos agrupados</span></span>
+ <span class="menu-text">Estadística descriptiva para datos agrupados</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción y formulario</span></a>
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción y formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.2.html" class="sidebar-item-text sidebar-link active"><span class="chapter-title">Ejemplo empleando el formulario</span></a>
+  <a href="./C5.2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Ejemplo empleando el formulario</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C5.3.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Ejemplo en R</span></a>
+  <a href="./C5.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Ejemplo en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">6. Introducción a probabilidades</span></span>
+ <span class="menu-text">Introducción a probabilidades</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C6.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Introducción a probabilidades</span></a>
+  <a href="./C6.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Introducción a probabilidades</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">7. Distribuciones de probabilidad discretas</span></span>
+ <span class="menu-text">Distribuciones de probabilidad discretas</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C7.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribuciones de probabilidad discretas</span></a>
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">8. Distribución normal</span></span>
+ <span class="menu-text">Distribución normal</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C8.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Distribución normal</span></a>
+  <a href="./C8.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">9. Intervalos de confianza</span></span>
+ <span class="menu-text">Intervalos de confianza</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C9.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Intervalos de confianza</span></a>
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">10. Pruebas de hipótesis</span></span>
+ <span class="menu-text">Pruebas de hipótesis</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C10.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Pruebas de hipótesis</span></a>
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <span class="sidebar-item-text sidebar-link text-start">
- <span class="menu-text">11. Regresión lineal y correlación</span></span>
+ <span class="menu-text">Regresión lineal y correlación</span></span>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./C11.1.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Regresión lineal y correlación</span></a>
+  <a href="./C11.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C11.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -470,48 +529,48 @@ window.Quarto = {
     <h2 id="toc-title">Tabla de contenidos</h2>
    
   <ul>
-  <li><a href="#base-de-datos" id="toc-base-de-datos" class="nav-link active" data-scroll-target="#base-de-datos">Base de datos</a></li>
-  <li><a href="#construcción-de-la-tabla-de-frecuencias" id="toc-construcción-de-la-tabla-de-frecuencias" class="nav-link" data-scroll-target="#construcción-de-la-tabla-de-frecuencias">Construcción de la Tabla de Frecuencias</a>
+  <li><a href="#base-de-datos" id="toc-base-de-datos" class="nav-link active" data-scroll-target="#base-de-datos"><span class="header-section-number">11.1</span> Base de datos</a></li>
+  <li><a href="#construcción-de-la-tabla-de-frecuencias" id="toc-construcción-de-la-tabla-de-frecuencias" class="nav-link" data-scroll-target="#construcción-de-la-tabla-de-frecuencias"><span class="header-section-number">11.2</span> Construcción de la Tabla de Frecuencias</a>
   <ul class="collapse">
-  <li><a href="#determinación-del-rango-r" id="toc-determinación-del-rango-r" class="nav-link" data-scroll-target="#determinación-del-rango-r">Determinación del rango (R)</a></li>
-  <li><a href="#cálculo-del-número-de-clases-k" id="toc-cálculo-del-número-de-clases-k" class="nav-link" data-scroll-target="#cálculo-del-número-de-clases-k">Cálculo del número de clases (K)</a></li>
-  <li><a href="#cálculo-de-la-amplitud-de-clase-c" id="toc-cálculo-de-la-amplitud-de-clase-c" class="nav-link" data-scroll-target="#cálculo-de-la-amplitud-de-clase-c">Cálculo de la amplitud de clase (C)</a></li>
-  <li><a href="#determinación-de-los-límites-de-clase" id="toc-determinación-de-los-límites-de-clase" class="nav-link" data-scroll-target="#determinación-de-los-límites-de-clase">Determinación de los límites de clase</a></li>
-  <li><a href="#cálculo-de-la-marca-de-clase" id="toc-cálculo-de-la-marca-de-clase" class="nav-link" data-scroll-target="#cálculo-de-la-marca-de-clase">Cálculo de la marca de clase</a></li>
-  <li><a href="#cálculo-de-la-frecuencia-absoluta" id="toc-cálculo-de-la-frecuencia-absoluta" class="nav-link" data-scroll-target="#cálculo-de-la-frecuencia-absoluta">Cálculo de la frecuencia absoluta</a></li>
-  <li><a href="#cálculo-de-la-frecuencia-relativa" id="toc-cálculo-de-la-frecuencia-relativa" class="nav-link" data-scroll-target="#cálculo-de-la-frecuencia-relativa">Cálculo de la frecuencia relativa</a></li>
-  <li><a href="#cálculo-de-la-frecuencia-acumulada" id="toc-cálculo-de-la-frecuencia-acumulada" class="nav-link" data-scroll-target="#cálculo-de-la-frecuencia-acumulada">Cálculo de la frecuencia acumulada</a></li>
-  <li><a href="#cálculo-de-f_i-x_i-y-f_i-x_i2" id="toc-cálculo-de-f_i-x_i-y-f_i-x_i2" class="nav-link" data-scroll-target="#cálculo-de-f_i-x_i-y-f_i-x_i2">Cálculo de <span class="math inline">\(f_i x_i\)</span>​ y <span class="math inline">\(f_i x_i^2\)</span></a></li>
+  <li><a href="#determinación-del-rango-r" id="toc-determinación-del-rango-r" class="nav-link" data-scroll-target="#determinación-del-rango-r"><span class="header-section-number">11.2.1</span> Determinación del rango (R)</a></li>
+  <li><a href="#cálculo-del-número-de-clases-k" id="toc-cálculo-del-número-de-clases-k" class="nav-link" data-scroll-target="#cálculo-del-número-de-clases-k"><span class="header-section-number">11.2.2</span> Cálculo del número de clases (K)</a></li>
+  <li><a href="#cálculo-de-la-amplitud-de-clase-c" id="toc-cálculo-de-la-amplitud-de-clase-c" class="nav-link" data-scroll-target="#cálculo-de-la-amplitud-de-clase-c"><span class="header-section-number">11.2.3</span> Cálculo de la amplitud de clase (C)</a></li>
+  <li><a href="#determinación-de-los-límites-de-clase" id="toc-determinación-de-los-límites-de-clase" class="nav-link" data-scroll-target="#determinación-de-los-límites-de-clase"><span class="header-section-number">11.2.4</span> Determinación de los límites de clase</a></li>
+  <li><a href="#cálculo-de-la-marca-de-clase" id="toc-cálculo-de-la-marca-de-clase" class="nav-link" data-scroll-target="#cálculo-de-la-marca-de-clase"><span class="header-section-number">11.2.5</span> Cálculo de la marca de clase</a></li>
+  <li><a href="#cálculo-de-la-frecuencia-absoluta" id="toc-cálculo-de-la-frecuencia-absoluta" class="nav-link" data-scroll-target="#cálculo-de-la-frecuencia-absoluta"><span class="header-section-number">11.2.6</span> Cálculo de la frecuencia absoluta</a></li>
+  <li><a href="#cálculo-de-la-frecuencia-relativa" id="toc-cálculo-de-la-frecuencia-relativa" class="nav-link" data-scroll-target="#cálculo-de-la-frecuencia-relativa"><span class="header-section-number">11.2.7</span> Cálculo de la frecuencia relativa</a></li>
+  <li><a href="#cálculo-de-la-frecuencia-acumulada" id="toc-cálculo-de-la-frecuencia-acumulada" class="nav-link" data-scroll-target="#cálculo-de-la-frecuencia-acumulada"><span class="header-section-number">11.2.8</span> Cálculo de la frecuencia acumulada</a></li>
+  <li><a href="#cálculo-de-f_i-x_i-y-f_i-x_i2" id="toc-cálculo-de-f_i-x_i-y-f_i-x_i2" class="nav-link" data-scroll-target="#cálculo-de-f_i-x_i-y-f_i-x_i2"><span class="header-section-number">11.2.9</span> Cálculo de <span class="math inline">\(f_i x_i\)</span>​ y <span class="math inline">\(f_i x_i^2\)</span></a></li>
   </ul></li>
-  <li><a href="#tabla-de-frecuencia" id="toc-tabla-de-frecuencia" class="nav-link" data-scroll-target="#tabla-de-frecuencia">Tabla de frecuencia</a></li>
-  <li><a href="#medidas-de-tendencia-central" id="toc-medidas-de-tendencia-central" class="nav-link" data-scroll-target="#medidas-de-tendencia-central">Medidas de tendencia central</a>
+  <li><a href="#tabla-de-frecuencia" id="toc-tabla-de-frecuencia" class="nav-link" data-scroll-target="#tabla-de-frecuencia"><span class="header-section-number">11.3</span> Tabla de frecuencia</a></li>
+  <li><a href="#medidas-de-tendencia-central" id="toc-medidas-de-tendencia-central" class="nav-link" data-scroll-target="#medidas-de-tendencia-central"><span class="header-section-number">11.4</span> Medidas de tendencia central</a>
   <ul class="collapse">
-  <li><a href="#media-aritmética" id="toc-media-aritmética" class="nav-link" data-scroll-target="#media-aritmética">Media Aritmética</a></li>
-  <li><a href="#mediana" id="toc-mediana" class="nav-link" data-scroll-target="#mediana">Mediana</a></li>
-  <li><a href="#moda" id="toc-moda" class="nav-link" data-scroll-target="#moda">Moda</a></li>
+  <li><a href="#media-aritmética" id="toc-media-aritmética" class="nav-link" data-scroll-target="#media-aritmética"><span class="header-section-number">11.4.1</span> Media Aritmética</a></li>
+  <li><a href="#mediana" id="toc-mediana" class="nav-link" data-scroll-target="#mediana"><span class="header-section-number">11.4.2</span> Mediana</a></li>
+  <li><a href="#moda" id="toc-moda" class="nav-link" data-scroll-target="#moda"><span class="header-section-number">11.4.3</span> Moda</a></li>
   </ul></li>
-  <li><a href="#medidas-de-dispersión" id="toc-medidas-de-dispersión" class="nav-link" data-scroll-target="#medidas-de-dispersión">Medidas de dispersión</a>
+  <li><a href="#medidas-de-dispersión" id="toc-medidas-de-dispersión" class="nav-link" data-scroll-target="#medidas-de-dispersión"><span class="header-section-number">11.5</span> Medidas de dispersión</a>
   <ul class="collapse">
-  <li><a href="#rango" id="toc-rango" class="nav-link" data-scroll-target="#rango">Rango</a></li>
-  <li><a href="#varianza" id="toc-varianza" class="nav-link" data-scroll-target="#varianza">Varianza</a></li>
-  <li><a href="#desviación-estándar" id="toc-desviación-estándar" class="nav-link" data-scroll-target="#desviación-estándar">Desviación Estándar</a></li>
-  <li><a href="#coeficiente-de-variación" id="toc-coeficiente-de-variación" class="nav-link" data-scroll-target="#coeficiente-de-variación">Coeficiente de Variación</a></li>
+  <li><a href="#rango" id="toc-rango" class="nav-link" data-scroll-target="#rango"><span class="header-section-number">11.5.1</span> Rango</a></li>
+  <li><a href="#varianza" id="toc-varianza" class="nav-link" data-scroll-target="#varianza"><span class="header-section-number">11.5.2</span> Varianza</a></li>
+  <li><a href="#desviación-estándar" id="toc-desviación-estándar" class="nav-link" data-scroll-target="#desviación-estándar"><span class="header-section-number">11.5.3</span> Desviación Estándar</a></li>
+  <li><a href="#coeficiente-de-variación" id="toc-coeficiente-de-variación" class="nav-link" data-scroll-target="#coeficiente-de-variación"><span class="header-section-number">11.5.4</span> Coeficiente de Variación</a></li>
   </ul></li>
-  <li><a href="#medidas-de-posición-relativa" id="toc-medidas-de-posición-relativa" class="nav-link" data-scroll-target="#medidas-de-posición-relativa">Medidas de posición relativa</a>
+  <li><a href="#medidas-de-posición-relativa" id="toc-medidas-de-posición-relativa" class="nav-link" data-scroll-target="#medidas-de-posición-relativa"><span class="header-section-number">11.6</span> Medidas de posición relativa</a>
   <ul class="collapse">
-  <li><a href="#cuartiles" id="toc-cuartiles" class="nav-link" data-scroll-target="#cuartiles">Cuartiles</a></li>
-  <li><a href="#percentiles" id="toc-percentiles" class="nav-link" data-scroll-target="#percentiles">Percentiles</a></li>
+  <li><a href="#cuartiles" id="toc-cuartiles" class="nav-link" data-scroll-target="#cuartiles"><span class="header-section-number">11.6.1</span> Cuartiles</a></li>
+  <li><a href="#percentiles" id="toc-percentiles" class="nav-link" data-scroll-target="#percentiles"><span class="header-section-number">11.6.2</span> Percentiles</a></li>
   </ul></li>
-  <li><a href="#interpretación-de-resultados" id="toc-interpretación-de-resultados" class="nav-link" data-scroll-target="#interpretación-de-resultados">Interpretación de Resultados</a>
+  <li><a href="#interpretación-de-resultados" id="toc-interpretación-de-resultados" class="nav-link" data-scroll-target="#interpretación-de-resultados"><span class="header-section-number">11.7</span> Interpretación de Resultados</a>
   <ul class="collapse">
-  <li><a href="#media-aritmética-1" id="toc-media-aritmética-1" class="nav-link" data-scroll-target="#media-aritmética-1">Media aritmética</a></li>
-  <li><a href="#mediana-1" id="toc-mediana-1" class="nav-link" data-scroll-target="#mediana-1">Mediana</a></li>
-  <li><a href="#moda-1" id="toc-moda-1" class="nav-link" data-scroll-target="#moda-1">Moda</a></li>
-  <li><a href="#rango-1" id="toc-rango-1" class="nav-link" data-scroll-target="#rango-1">Rango</a></li>
-  <li><a href="#varianza-y-desviación-estándar" id="toc-varianza-y-desviación-estándar" class="nav-link" data-scroll-target="#varianza-y-desviación-estándar">Varianza y desviación estándar</a></li>
-  <li><a href="#coeficiente-de-variación-1" id="toc-coeficiente-de-variación-1" class="nav-link" data-scroll-target="#coeficiente-de-variación-1">Coeficiente de variación</a></li>
-  <li><a href="#cuartil-1-q1" id="toc-cuartil-1-q1" class="nav-link" data-scroll-target="#cuartil-1-q1">Cuartil 1 (Q1)</a></li>
-  <li><a href="#percentil-80-p80" id="toc-percentil-80-p80" class="nav-link" data-scroll-target="#percentil-80-p80">Percentil 80 (P80)</a></li>
+  <li><a href="#media-aritmética-1" id="toc-media-aritmética-1" class="nav-link" data-scroll-target="#media-aritmética-1"><span class="header-section-number">11.7.1</span> Media aritmética</a></li>
+  <li><a href="#mediana-1" id="toc-mediana-1" class="nav-link" data-scroll-target="#mediana-1"><span class="header-section-number">11.7.2</span> Mediana</a></li>
+  <li><a href="#moda-1" id="toc-moda-1" class="nav-link" data-scroll-target="#moda-1"><span class="header-section-number">11.7.3</span> Moda</a></li>
+  <li><a href="#rango-1" id="toc-rango-1" class="nav-link" data-scroll-target="#rango-1"><span class="header-section-number">11.7.4</span> Rango</a></li>
+  <li><a href="#varianza-y-desviación-estándar" id="toc-varianza-y-desviación-estándar" class="nav-link" data-scroll-target="#varianza-y-desviación-estándar"><span class="header-section-number">11.7.5</span> Varianza y desviación estándar</a></li>
+  <li><a href="#coeficiente-de-variación-1" id="toc-coeficiente-de-variación-1" class="nav-link" data-scroll-target="#coeficiente-de-variación-1"><span class="header-section-number">11.7.6</span> Coeficiente de variación</a></li>
+  <li><a href="#cuartil-1-q1" id="toc-cuartil-1-q1" class="nav-link" data-scroll-target="#cuartil-1-q1"><span class="header-section-number">11.7.7</span> Cuartil 1 (Q1)</a></li>
+  <li><a href="#percentil-80-p80" id="toc-percentil-80-p80" class="nav-link" data-scroll-target="#percentil-80-p80"><span class="header-section-number">11.7.8</span> Percentil 80 (P80)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -522,7 +581,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-title">Ejemplo empleando el formulario</span></h1>
+<h1 class="title"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Ejemplo empleando el formulario</span></h1>
 </div>
 
 
@@ -539,8 +598,8 @@ window.Quarto = {
 </header>
 
 
-<section id="base-de-datos" class="level2">
-<h2 class="anchored" data-anchor-id="base-de-datos">Base de datos</h2>
+<section id="base-de-datos" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="base-de-datos"><span class="header-section-number">11.1</span> Base de datos</h2>
 <p><strong>Referencia del dataset:</strong> Fisher, R. (1936). Iris [Dataset]. UCI Machine Learning Repository. <a href="https://doi.org/10.24432/C56C76" class="uri">https://doi.org/10.24432/C56C76</a></p>
 <p><strong>Acceso a recursos:</strong> El script completo con el ejemplo desarrollado y la base de datos IRIS pueden descargarse en el siguiente repositorio:</p>
 <p>A continuación, se presenta un conjunto de datos correspondientes a la longitud del pétalo (en cm) de 150 flores de la especie <em>Iris</em>, organizados en formato matricial para facilitar su visualización y análisis. Estos datos serán utilizados para ilustrar el cálculo de estadísticos descriptivos para datos agrupados, siguiendo las metodologías propuestas en la sección aterior.</p>
@@ -729,24 +788,24 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="construcción-de-la-tabla-de-frecuencias" class="level2">
-<h2 class="anchored" data-anchor-id="construcción-de-la-tabla-de-frecuencias">Construcción de la Tabla de Frecuencias</h2>
-<section id="determinación-del-rango-r" class="level3">
-<h3 class="anchored" data-anchor-id="determinación-del-rango-r">Determinación del rango (R)</h3>
+<section id="construcción-de-la-tabla-de-frecuencias" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="construcción-de-la-tabla-de-frecuencias"><span class="header-section-number">11.2</span> Construcción de la Tabla de Frecuencias</h2>
+<section id="determinación-del-rango-r" class="level3" data-number="11.2.1">
+<h3 data-number="11.2.1" class="anchored" data-anchor-id="determinación-del-rango-r"><span class="header-section-number">11.2.1</span> Determinación del rango (R)</h3>
 <p>El rango es la diferencia entre el valor máximo y el valor mínimo de la variable:</p>
 <p><span class="math display">\[\huge R = X_{\text{max}} - X_{\text{min}}\]</span> Para la longitud de pétalo: <span class="math display">\[\huge R = 6.9 - 1.0 = 5.9\]</span></p>
 </section>
-<section id="cálculo-del-número-de-clases-k" class="level3">
-<h3 class="anchored" data-anchor-id="cálculo-del-número-de-clases-k">Cálculo del número de clases (K)</h3>
+<section id="cálculo-del-número-de-clases-k" class="level3" data-number="11.2.2">
+<h3 data-number="11.2.2" class="anchored" data-anchor-id="cálculo-del-número-de-clases-k"><span class="header-section-number">11.2.2</span> Cálculo del número de clases (K)</h3>
 <p>El número de clases se determina con la Regla de Sturges: <span class="math display">\[\huge k = 1 + 3.322 \log_{10} N\]</span> Donde <span class="math inline">\(n\)</span> es el número total de datos: <span class="math display">\[\LARGE k = 1 + 3.322 \log_{10} 150 \approx 1 + 3.322 \times 2.1761 \approx 8.22\]</span> Se redondea al entero más cercano:</p>
 <p><span class="math display">\[\Huge k = 8\]</span></p>
 </section>
-<section id="cálculo-de-la-amplitud-de-clase-c" class="level3">
-<h3 class="anchored" data-anchor-id="cálculo-de-la-amplitud-de-clase-c">Cálculo de la amplitud de clase (C)</h3>
+<section id="cálculo-de-la-amplitud-de-clase-c" class="level3" data-number="11.2.3">
+<h3 data-number="11.2.3" class="anchored" data-anchor-id="cálculo-de-la-amplitud-de-clase-c"><span class="header-section-number">11.2.3</span> Cálculo de la amplitud de clase (C)</h3>
 <p>La amplitud de clase se calcula así: <span class="math display">\[\Huge C = \frac{R}{k}\]</span> Sustituyendo valores: <span class="math display">\[\Huge C = \frac{5.9}{8} = 0.7375 \approx 0.75\]</span></p>
 </section>
-<section id="determinación-de-los-límites-de-clase" class="level3">
-<h3 class="anchored" data-anchor-id="determinación-de-los-límites-de-clase">Determinación de los límites de clase</h3>
+<section id="determinación-de-los-límites-de-clase" class="level3" data-number="11.2.4">
+<h3 data-number="11.2.4" class="anchored" data-anchor-id="determinación-de-los-límites-de-clase"><span class="header-section-number">11.2.4</span> Determinación de los límites de clase</h3>
 <p>El primer límite inferior es el valor mínimo (<span class="math inline">\(1.0\)</span>). Los siguientes se obtienen sumando la amplitud de clase (<span class="math inline">\(C\)</span>).<br>
 Para evitar que un valor pertenezca a dos clases al mismo tiempo, se utiliza la notación de intervalos semiabiertos:</p>
 <ol type="1">
@@ -756,7 +815,7 @@ Para evitar que un valor pertenezca a dos clases al mismo tiempo, se utiliza la 
 <p>Por ejemplo, el primer intervalo se escribe:</p>
 <p><span class="math display">\[\LARGE [1.00, 1.75)\]</span></p>
 <p>Esto significa que la clase incluye todos los valores <span class="math inline">\(x\)</span> tales que <span class="math inline">\(1.00≤x&lt;1.75\)</span>.</p>
-<p>Los intervalos de clase quedan así: <span class="math display">\[\large \begin{align*}
+<p>Los intervalos de clase quedan así: <span class="math display">\[\large \begin{aligned}
 \text{Clase 1:} &amp; \quad [1.00, 1.75) \\
 \text{Clase 2:} &amp; \quad [1.75, 2.50) \\
 \text{Clase 3:} &amp; \quad [2.50, 3.25) \\
@@ -765,34 +824,34 @@ Para evitar que un valor pertenezca a dos clases al mismo tiempo, se utiliza la 
 \text{Clase 6:} &amp; \quad [4.75, 5.50) \\
 \text{Clase 7:} &amp; \quad [5.50, 6.25) \\
 \text{Clase 8:} &amp; \quad [6.25, 7.00] \\
-\end{align*}\]</span></p>
+\end{aligned}\]</span></p>
 <p><strong>Nótese</strong> que en la última clase se utiliza el corchete de cierre <span class="math inline">\(]\)</span> para incluir el valor máximo.</p>
 </section>
-<section id="cálculo-de-la-marca-de-clase" class="level3">
-<h3 class="anchored" data-anchor-id="cálculo-de-la-marca-de-clase">Cálculo de la marca de clase</h3>
+<section id="cálculo-de-la-marca-de-clase" class="level3" data-number="11.2.5">
+<h3 data-number="11.2.5" class="anchored" data-anchor-id="cálculo-de-la-marca-de-clase"><span class="header-section-number">11.2.5</span> Cálculo de la marca de clase</h3>
 <p>La marca de clase es el punto medio de cada intervalo: <span class="math display">\[\huge x_i = \frac{L_i + L_s}{2}\]</span> Por ejemplo, para la primera clase: <span class="math display">\[ \huge x_1 = \frac{1.00 + 1.75}{2} = 1.375\]</span></p>
 </section>
-<section id="cálculo-de-la-frecuencia-absoluta" class="level3">
-<h3 class="anchored" data-anchor-id="cálculo-de-la-frecuencia-absoluta">Cálculo de la frecuencia absoluta</h3>
+<section id="cálculo-de-la-frecuencia-absoluta" class="level3" data-number="11.2.6">
+<h3 data-number="11.2.6" class="anchored" data-anchor-id="cálculo-de-la-frecuencia-absoluta"><span class="header-section-number">11.2.6</span> Cálculo de la frecuencia absoluta</h3>
 <p>La frecuencia absoluta es el número de datos en cada clase, obtenida por conteo directo.</p>
 </section>
-<section id="cálculo-de-la-frecuencia-relativa" class="level3">
-<h3 class="anchored" data-anchor-id="cálculo-de-la-frecuencia-relativa">Cálculo de la frecuencia relativa</h3>
+<section id="cálculo-de-la-frecuencia-relativa" class="level3" data-number="11.2.7">
+<h3 data-number="11.2.7" class="anchored" data-anchor-id="cálculo-de-la-frecuencia-relativa"><span class="header-section-number">11.2.7</span> Cálculo de la frecuencia relativa</h3>
 <p>La frecuencia relativa se calcula así: <span class="math display">\[\huge fr_i = \frac{f_i}{N}\]</span></p>
 <p>Por ejemplo, para la primera clase: <span class="math display">\[\huge fr_i = \frac{48}{150} = 0.32\]</span></p>
 </section>
-<section id="cálculo-de-la-frecuencia-acumulada" class="level3">
-<h3 class="anchored" data-anchor-id="cálculo-de-la-frecuencia-acumulada">Cálculo de la frecuencia acumulada</h3>
+<section id="cálculo-de-la-frecuencia-acumulada" class="level3" data-number="11.2.8">
+<h3 data-number="11.2.8" class="anchored" data-anchor-id="cálculo-de-la-frecuencia-acumulada"><span class="header-section-number">11.2.8</span> Cálculo de la frecuencia acumulada</h3>
 <p>La frecuencia acumulada es la suma de las frecuencias absolutas hasta la clase <span class="math inline">\(i\)</span>: <span class="math display">\[\huge fa_i = \sum_{j=1}^{i} f_j\]</span></p>
 <p>Por ejemplo, para la cuarta clase: <span class="math display">\[ \Large fa_4 = f_1 + f_2 + f_3 + f_4 = 48 + 0 + 0 + 15 = 63\]</span></p>
 </section>
-<section id="cálculo-de-f_i-x_i-y-f_i-x_i2" class="level3">
-<h3 class="anchored" data-anchor-id="cálculo-de-f_i-x_i-y-f_i-x_i2">Cálculo de <span class="math inline">\(f_i x_i\)</span>​ y <span class="math inline">\(f_i x_i^2\)</span></h3>
+<section id="cálculo-de-f_i-x_i-y-f_i-x_i2" class="level3" data-number="11.2.9">
+<h3 data-number="11.2.9" class="anchored" data-anchor-id="cálculo-de-f_i-x_i-y-f_i-x_i2"><span class="header-section-number">11.2.9</span> Cálculo de <span class="math inline">\(f_i x_i\)</span>​ y <span class="math inline">\(f_i x_i^2\)</span></h3>
 <p>Estos productos se utilizan para cálculos posteriores: <span class="math display">\[\huge f_i x_i = f_i \times x_i\]</span> <span class="math display">\[\huge f_i x_i^2 = f_i \times (x_i)^2\]</span> Por ejemplo, para la primera clase: <span class="math display">\[\LARGE f_1 x_1 = 48 \times 1.375 = 66.00\]</span> <span class="math display">\[\LARGE f_1 x_1^2 = 48 \times (1.375)^2 = 48 \times 1.890625 = 90.75\]</span></p>
 </section>
 </section>
-<section id="tabla-de-frecuencia" class="level2">
-<h2 class="anchored" data-anchor-id="tabla-de-frecuencia">Tabla de frecuencia</h2>
+<section id="tabla-de-frecuencia" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="tabla-de-frecuencia"><span class="header-section-number">11.3</span> Tabla de frecuencia</h2>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 11%">
@@ -921,108 +980,108 @@ Para evitar que un valor pertenezca a dos clases al mismo tiempo, se utiliza la 
 </tbody>
 </table>
 </section>
-<section id="medidas-de-tendencia-central" class="level2">
-<h2 class="anchored" data-anchor-id="medidas-de-tendencia-central">Medidas de tendencia central</h2>
+<section id="medidas-de-tendencia-central" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="medidas-de-tendencia-central"><span class="header-section-number">11.4</span> Medidas de tendencia central</h2>
 <p>Una vez construida la tabla de frecuencia, se procede a calcular las medidas de tendencia central, que resumen la posición central de la distribución de los datos.</p>
-<section id="media-aritmética" class="level3">
-<h3 class="anchored" data-anchor-id="media-aritmética">Media Aritmética</h3>
+<section id="media-aritmética" class="level3" data-number="11.4.1">
+<h3 data-number="11.4.1" class="anchored" data-anchor-id="media-aritmética"><span class="header-section-number">11.4.1</span> Media Aritmética</h3>
 <p>La formula para calcular la media aritmpetica es la siguiente:</p>
 <p><span class="math display">\[\huge \bar{x} = \frac{\sum_{i=1}^{k} f_i \cdot x_i}{N}\]</span></p>
 <p>Sustituyendo valores</p>
 <p><span class="math display">\[\huge \bar{x} = \frac{565.50}{150}=3.77\]</span></p>
 </section>
-<section id="mediana" class="level3">
-<h3 class="anchored" data-anchor-id="mediana">Mediana</h3>
+<section id="mediana" class="level3" data-number="11.4.2">
+<h3 data-number="11.4.2" class="anchored" data-anchor-id="mediana"><span class="header-section-number">11.4.2</span> Mediana</h3>
 <p>Para el calculo de la mediana hay que identificar la primera clase donde la frecuencia acumulada <span class="math inline">\(fa_i\)</span> supera <span class="math inline">\(N/2\)</span>. Para este ejemplo <span class="math inline">\(N/2\)</span> al sustituir valores equivale a <span class="math inline">\(150/2=75\)</span> siendo la clase numero 5 aquella donde la frecuencia acumulada supera <span class="math inline">\(N/2\)</span> siendo la formula para el cálculo de la mediana la siguiente:<br>
 <span class="math display">\[\huge Me = L_{inf} + \frac{\frac{N}{2} - Fa_{ant}}{f_m} \cdot c\]</span> Sustituyendo valores <span class="math display">\[\huge Me = 4.00 + \frac{\frac{150}{2} - 61}{34} \cdot 0.75=4.31\]</span></p>
 </section>
-<section id="moda" class="level3">
-<h3 class="anchored" data-anchor-id="moda">Moda</h3>
+<section id="moda" class="level3" data-number="11.4.3">
+<h3 data-number="11.4.3" class="anchored" data-anchor-id="moda"><span class="header-section-number">11.4.3</span> Moda</h3>
 <p>Para el calculo de la moda hay que identificar clase con mayor frecuencia absoluta siendo la clase numero 1 para este ejemplo. Siendo la formula para el cálculo de la moda la siguiente:</p>
 <p><span class="math display">\[ \huge Mo = L_{inf} + \frac{d_1}{d_1 + d_2} \cdot c\]</span></p>
 <p>Sustituyendo valores:</p>
 <p><span class="math display">\[ \LARGE Mo = 1.00 + \frac{(48-0)}{(48-0) + (48-2)} \cdot 0.75=1.383\]</span></p>
 </section>
 </section>
-<section id="medidas-de-dispersión" class="level2">
-<h2 class="anchored" data-anchor-id="medidas-de-dispersión">Medidas de dispersión</h2>
-<section id="rango" class="level3">
-<h3 class="anchored" data-anchor-id="rango">Rango</h3>
+<section id="medidas-de-dispersión" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="medidas-de-dispersión"><span class="header-section-number">11.5</span> Medidas de dispersión</h2>
+<section id="rango" class="level3" data-number="11.5.1">
+<h3 data-number="11.5.1" class="anchored" data-anchor-id="rango"><span class="header-section-number">11.5.1</span> Rango</h3>
 <p>El rango se aproxima restando el límite inferior de la primera clase al límite superior de la última clase siendo su formula la siguiente:</p>
 <p><span class="math display">\[\huge Rango = L_{sup,k} - L_{inf,1}\]</span></p>
 <p>Sustituyendo valores:</p>
 <p><span class="math display">\[\huge Rango = 7.00 - 1.00=6.00\]</span></p>
 </section>
-<section id="varianza" class="level3">
-<h3 class="anchored" data-anchor-id="varianza">Varianza</h3>
+<section id="varianza" class="level3" data-number="11.5.2">
+<h3 data-number="11.5.2" class="anchored" data-anchor-id="varianza"><span class="header-section-number">11.5.2</span> Varianza</h3>
 <p>Para el calculo de la varianza se utilizará la siguiente formula operativa, que resulta especialmente útil porque se dispone de la suma de los productos de las frecuencias por los puntos medios y sus cuadrados.</p>
 <p><span class="math display">\[ \LARGE s^2 = \frac{\sum_{i=1}^{k} f_i x_i^2 - \frac{\left(\sum_{i=1}^{k} f_i x_i\right)^2}{N}}{N - 1}\]</span></p>
 <p>Sustituyendo valores:</p>
 <p><span class="math display">\[ \LARGE s^2 = \frac{2622.094 - \frac{\left(565.500\right)^2}{150}}{150 - 1}=3.29\]</span></p>
 </section>
-<section id="desviación-estándar" class="level3">
-<h3 class="anchored" data-anchor-id="desviación-estándar">Desviación Estándar</h3>
+<section id="desviación-estándar" class="level3" data-number="11.5.3">
+<h3 data-number="11.5.3" class="anchored" data-anchor-id="desviación-estándar"><span class="header-section-number">11.5.3</span> Desviación Estándar</h3>
 <p>La desviación estándar es la raíz cuadrada de la varianza y se expresa en las mismas unidades que los datos originales. Para datos agrupados, la desviación estándar se calcula como:</p>
 <p><span class="math display">\[\huge s = \sqrt{s^2}\]</span></p>
 <p>Sustituyendo valores</p>
 <p><span class="math display">\[\huge s = \sqrt{3.29}=1.645\]</span></p>
 </section>
-<section id="coeficiente-de-variación" class="level3">
-<h3 class="anchored" data-anchor-id="coeficiente-de-variación">Coeficiente de Variación</h3>
+<section id="coeficiente-de-variación" class="level3" data-number="11.5.4">
+<h3 data-number="11.5.4" class="anchored" data-anchor-id="coeficiente-de-variación"><span class="header-section-number">11.5.4</span> Coeficiente de Variación</h3>
 <p>El coeficiente de variación es una medida relativa de dispersión que se calcula dividiendo la desviación estándar entre la media aritmética: <span class="math display">\[ \huge CV = \frac{s}{\bar{x}} \cdot 100\%\]</span></p>
 <p>Sustituyendo valores:</p>
 <p><span class="math display">\[ \huge CV = \frac{1.645}{3.77} \cdot 100\%=43.63\%\]</span></p>
 </section>
 </section>
-<section id="medidas-de-posición-relativa" class="level2">
-<h2 class="anchored" data-anchor-id="medidas-de-posición-relativa">Medidas de posición relativa</h2>
-<section id="cuartiles" class="level3">
-<h3 class="anchored" data-anchor-id="cuartiles">Cuartiles</h3>
+<section id="medidas-de-posición-relativa" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="medidas-de-posición-relativa"><span class="header-section-number">11.6</span> Medidas de posición relativa</h2>
+<section id="cuartiles" class="level3" data-number="11.6.1">
+<h3 data-number="11.6.1" class="anchored" data-anchor-id="cuartiles"><span class="header-section-number">11.6.1</span> Cuartiles</h3>
 <p>Para calcular los cuartiles en datos agrupados, primero se identifica la clase cuartil, que es la primera clase cuya frecuencia acumulada es mayor o igual a&nbsp;<span class="math inline">\(i⋅N/4\)</span>, donde <span class="math inline">\(i\)</span> es el número del cuartil (1, 2 o 3). Luego, se aplica la siguiente fórmula:</p>
 <p><span class="math display">\[\huge Q_i = L_{inf} + \frac{\frac{i \cdot N}{4} - Fa_{ant}}{f_q} \cdot c\]</span></p>
 <p>Para el ejemplo se calculará el cuartil 1 (Q1) por lo que primero se identifica la clase dentro de la que se encuentra, para ello se usa la formula <span class="math inline">\(i⋅N/4\)</span>, sustituyendo valores esto sería <span class="math inline">\(1\cdot 150/4=38.5\)</span> siendo la clase donde la frecuencia acumulada supera este valor por primera vez la clase 1, ya con esta información se procede a sustituir valores en la fórmula.</p>
 <p><span class="math display">\[\huge Q_1 = 1.0 + \frac{\frac{1 \cdot 150}{4} - 0}{48} \cdot 0.75=1.59\]</span></p>
 </section>
-<section id="percentiles" class="level3">
-<h3 class="anchored" data-anchor-id="percentiles">Percentiles</h3>
+<section id="percentiles" class="level3" data-number="11.6.2">
+<h3 data-number="11.6.2" class="anchored" data-anchor-id="percentiles"><span class="header-section-number">11.6.2</span> Percentiles</h3>
 <p>Para calcular los percentiles en datos agrupados, primero se identifica la clase percentil, que es la primera clase cuya frecuencia acumulada es mayor o igual a <span class="math inline">\(p \cdot N/100\)</span>. Luego, se aplica la siguiente fórmula:</p>
 <p><span class="math display">\[\huge P_p = L_{inf} + \frac{\frac{p \cdot N}{100} - Fa_{ant}}{f_p} \cdot c\]</span></p>
 <p>Para el ejemplo se calculará el percentil 80 (<span class="math inline">\(p=80\)</span>) para ello primero se identifica la clase a la que pertenece este percentil usando la formula <span class="math inline">\(p \cdot N/100\)</span> la cual al sustituir los valores equivale a: <span class="math inline">\(80 \cdot 150/100= 120\)</span> con este dato se ubica la clase 6 como la clase donde se encuentra el percentil 80 al ser la primera donde la frecuencia acumulada supera 120. Una vez obtenida esta información se procede a sustituir valores en la formula:</p>
 <p><span class="math display">\[\huge P_{80} = 4.75 + \frac {120 - 95}{27} \cdot 0.75=5.44\]</span></p>
 </section>
 </section>
-<section id="interpretación-de-resultados" class="level2">
-<h2 class="anchored" data-anchor-id="interpretación-de-resultados">Interpretación de Resultados</h2>
-<section id="media-aritmética-1" class="level3">
-<h3 class="anchored" data-anchor-id="media-aritmética-1">Media aritmética</h3>
+<section id="interpretación-de-resultados" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="interpretación-de-resultados"><span class="header-section-number">11.7</span> Interpretación de Resultados</h2>
+<section id="media-aritmética-1" class="level3" data-number="11.7.1">
+<h3 data-number="11.7.1" class="anchored" data-anchor-id="media-aritmética-1"><span class="header-section-number">11.7.1</span> Media aritmética</h3>
 <p>La media aritmética obtenida fue de 3.77 cm. Esto indica que, en promedio, la longitud del pétalo de las flores analizadas es de 3.77 centímetros. Esta medida representa el valor central alrededor del cual tienden a agruparse los datos y es útil para describir el comportamiento general de la variable en estudio (López &amp; González, 2018).</p>
 </section>
-<section id="mediana-1" class="level3">
-<h3 class="anchored" data-anchor-id="mediana-1">Mediana</h3>
+<section id="mediana-1" class="level3" data-number="11.7.2">
+<h3 data-number="11.7.2" class="anchored" data-anchor-id="mediana-1"><span class="header-section-number">11.7.2</span> Mediana</h3>
 <p>La mediana calculada fue de 4.31 cm. Esto significa que el 50% de las flores tiene una longitud de pétalo menor o igual a 4.31 cm, mientras que el otro 50% tiene una longitud mayor o igual a este valor. La mediana es especialmente útil cuando la distribución de los datos es asimétrica o presenta valores extremos, ya que no se ve afectada por estos (López &amp; González, 2018).</p>
 </section>
-<section id="moda-1" class="level3">
-<h3 class="anchored" data-anchor-id="moda-1">Moda</h3>
+<section id="moda-1" class="level3" data-number="11.7.3">
+<h3 data-number="11.7.3" class="anchored" data-anchor-id="moda-1"><span class="header-section-number">11.7.3</span> Moda</h3>
 <p>La moda resultó ser 1.375 cm, correspondiente a la clase con mayor frecuencia absoluta. Esto indica que la longitud de pétalo más común entre las flores analizadas se encuentra en el intervalo de 1.00 a 1.75 cm. La moda es relevante para identificar el valor o rango de valores que se presentan con mayor frecuencia en el conjunto de datos (López &amp; González, 2018).</p>
 </section>
-<section id="rango-1" class="level3">
-<h3 class="anchored" data-anchor-id="rango-1">Rango</h3>
+<section id="rango-1" class="level3" data-number="11.7.4">
+<h3 data-number="11.7.4" class="anchored" data-anchor-id="rango-1"><span class="header-section-number">11.7.4</span> Rango</h3>
 <p>El rango calculado fue de 6.00 cm, lo que representa la diferencia entre la longitud máxima y mínima de los pétalos observados. Este valor proporciona una idea general de la dispersión de los datos, mostrando el intervalo total en el que se distribuyen las observaciones (López &amp; González, 2018).</p>
 </section>
-<section id="varianza-y-desviación-estándar" class="level3">
-<h3 class="anchored" data-anchor-id="varianza-y-desviación-estándar">Varianza y desviación estándar</h3>
+<section id="varianza-y-desviación-estándar" class="level3" data-number="11.7.5">
+<h3 data-number="11.7.5" class="anchored" data-anchor-id="varianza-y-desviación-estándar"><span class="header-section-number">11.7.5</span> Varianza y desviación estándar</h3>
 <p>La varianza obtenida fue de 3.67 cm² y la desviación estándar fue de 1.83 cm. Estos valores indican que, en promedio, las longitudes de los pétalos se desvían 1.83 cm respecto a la media. Una desviación estándar relativamente alta, como en este caso, sugiere que existe una considerable variabilidad en la longitud de los pétalos dentro del grupo analizado (López &amp; González, 2018).</p>
 </section>
-<section id="coeficiente-de-variación-1" class="level3">
-<h3 class="anchored" data-anchor-id="coeficiente-de-variación-1">Coeficiente de variación</h3>
+<section id="coeficiente-de-variación-1" class="level3" data-number="11.7.6">
+<h3 data-number="11.7.6" class="anchored" data-anchor-id="coeficiente-de-variación-1"><span class="header-section-number">11.7.6</span> Coeficiente de variación</h3>
 <p>El coeficiente de variación fue de 46.88%. Este valor, al ser mayor al 30%, indica que la dispersión relativa de los datos respecto a la media es alta. En términos prácticos, esto significa que la longitud de los pétalos presenta una considerable heterogeneidad dentro del conjunto de flores estudiadas (López &amp; González, 2018).</p>
 </section>
-<section id="cuartil-1-q1" class="level3">
-<h3 class="anchored" data-anchor-id="cuartil-1-q1">Cuartil 1 (Q1)</h3>
+<section id="cuartil-1-q1" class="level3" data-number="11.7.7">
+<h3 data-number="11.7.7" class="anchored" data-anchor-id="cuartil-1-q1"><span class="header-section-number">11.7.7</span> Cuartil 1 (Q1)</h3>
 <p>El primer cuartil (Q1) se ubicó en 1.59 cm. Esto implica que el 25% de las flores tiene una longitud de pétalo menor o igual a 1.59 cm. El análisis de los cuartiles permite identificar la distribución de los datos en segmentos y facilita la detección de posibles asimetrías o concentraciones de valores (López &amp; González, 2018).</p>
 </section>
-<section id="percentil-80-p80" class="level3">
-<h3 class="anchored" data-anchor-id="percentil-80-p80">Percentil 80 (P80)</h3>
+<section id="percentil-80-p80" class="level3" data-number="11.7.8">
+<h3 data-number="11.7.8" class="anchored" data-anchor-id="percentil-80-p80"><span class="header-section-number">11.7.8</span> Percentil 80 (P80)</h3>
 <p>El percentil 80 se calculó en 5.78 cm, lo que significa que el 80% de las flores tiene una longitud de pétalo menor o igual a 5.78 cm. El percentil 80 es útil para identificar valores altos dentro de la distribución y para realizar comparaciones entre diferentes grupos o tratamientos (López &amp; González, 2018).</p>
 
 
@@ -1452,16 +1511,35 @@ Para evitar que un valor pertenezca a dos clases al mismo tiempo, se utiliza la 
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./C5.1.html" class="pagination-link" aria-label="Introducción y formulario">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-title">Introducción y formulario</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción y formulario</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./C5.3.html" class="pagination-link" aria-label="Ejemplo en R">
-        <span class="nav-page-text"><span class="chapter-title">Ejemplo en R</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Ejemplo en R</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./license.html">
+<p>Licencia</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
