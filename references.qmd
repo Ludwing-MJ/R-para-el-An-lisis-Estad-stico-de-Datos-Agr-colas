@@ -11,31 +11,45 @@
 </style>
 ```
 
-Hogg, R. V., McKean, J. W., & Craig, A. T. (2019). *Introduction to mathematical statistics* (8th ed.). Pearson.
+Anderson, D. R., Sweeney, D. J., Williams, T. A., Camm, J. D., & Cochran, J. J. (2018). *Estadística para administración y economía* (13ª ed.). Cengage Learning. <https://www.cengage.com/c/student/9781337901062/?filterBy=Student>
 
-Ihaka, R., & Gentleman, R. (1996). R: A language for data analysis and graphics. *Journal of Computational and Graphical Statistics*, *5*(3), 299-314.
+Conover, W. J. (1999). *Practical Nonparametric Statistics* (3rd ed.). Wiley. <https://archive.org/details/practicalnonpara0000cono>)
 
-López, E., & González, B. (2018). *Notas de Estadística General* (Edición marzo 2018). Guatemala: Universidad de San Carlos de Guatemala.
+Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., & Rubin, D. B. (2013). *Bayesian Data Analysis* (3rd ed.). CRC Press. <https://www.routledge.com/Bayesian-Data-Analysis-Third-Edition/Gelman-Carlin-Stern-Dunson-Vehtari-Rubin/p/book/9781439840955>
 
-R Core Team (2023). *R: A language and environment for statistical computing*. R Foundation for Statistical Computing, Vienna, Austria. URL [https://www.R-project.org/](https://www.r-project.org/).
+Gómez, K. A., & Gómez, A. A. (1984). *Statistical procedures for agricultural research* (2nd ed.). John Wiley & Sons. <https://archive.org/details/statisticalproce0000gome>)
 
-Xie, Y., Allaire, J. J., & Grolemund, G. (2018). *R Markdown: The definitive guide* (1st ed.). Chapman and Hall/CRC. <https://doi.org/10.1201/9781138359444>
+Hogg, R. V., McKean, J. W., & Craig, A. T. (2019). *Introduction to mathematical statistics* (8th ed.). Pearson. <https://www.pearson.com/en-us/subject-catalog/p/introduction-to-mathematical-statistics/P200000003978/9780134686998>
 
-Conover, W. J. (1999). *Practical Nonparametric Statistics* (3rd ed.). Wiley.
+Ihaka, R., & Gentleman, R. (1996). R: A language for data analysis and graphics. *Journal of Computational and Graphical Statistics, 5*(3), 299–314. <https://www.tandfonline.com/doi/abs/10.1080/10618600.1996.10474713>
 
-Gelman, A., Carlin, J. B., Stern, H. S., Dunson, D. B., Vehtari, A., & Rubin, D. B. (2013). *Bayesian Data Analysis* (3rd ed.). CRC Press.
+Johnson, R. A., & Wichern, D. W. (2014). *Applied Multivariate Statistical Analysis* (6th ed.). Pearson. <https://www.pearson.com/en-us/subject-catalog/p/applied-multivariate-statistical-analysis/P200000003978/9780134995397>
 
-Johnson, R. A., & Wichern, D. W. (2014). *Applied Multivariate Statistical Analysis* (6th ed.). Pearson.
+Lind, D. A., Marchal, W. G., & Wathen, S. A. (2017). *Estadística aplicada a los negocios y la economía* (16ª ed.). McGraw-Hill Education. <https://cape.fcfm.buap.mx/jdzf/cursos/est1/libros/book1e1.pdf>
 
-Montgomery, D. C. (2017). *Design and analysis of experiments* (9th ed.). Wiley.
+López, E., & González, B. (2018). *Notas de Estadística General* (Edición marzo 2018). Universidad de San Carlos de Guatemala. <https://archive.org/details/NotasDeEstadsticaEstadsticaGeneralEdicinMarzo2018/page/n1/mode/2up>
 
-Montgomery, D. C., & Runger, G. C. (2018). *Applied Statistics and Probability for Engineers* (7th ed.). Wiley.
+Montgomery, D. C. (2017). *Design and analysis of experiments* (9th ed.). Wiley. <https://books.google.com.gt/books?hl=es&lr=&id=Py7bDgAAQBAJ&oi=fnd&pg=PA1&dq=Montgomery,+D.+C.+(2013).+Design+and+analysis+of+experiments+(8th+ed.).+John+Wiley+%26+Sons.&ots=X8u-p3JPZa&sig=1NhmcOxyt9wlRnHgyHn6pdtzOuY#v=onepage&q&f=false>
 
-Ross, S. M. (2014). *Introduction to probability and statistics for engineers and scientists* (5th ed.). Academic Press.
+Montgomery, D. C., & Runger, G. C. (2018). *Applied Statistics and Probability for Engineers* (7th ed.). Wiley. <https://kolegite.com/EE_library/books_and_lectures/%D0%9C%D0%B0%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D0%BA%D0%B0/Douglas%20C.%20Montgomery%2C%20George%20C.%20Runger%20-%20Applied%20Statistics%20and%20Probability%20for%20Engineers-Wiley%20%282018%29.pdf>
 
-Wackerly, D. D., Mendenhall, W., & Scheaffer, R. L. (2014). *Mathematical statistics with applications* (7th ed.). Cengage.
+R Core Team. (2023). *R: A language and environment for statistical computing*. R Foundation for Statistical Computing. <https://www.R-project.org/>
 
-Webster, R., & Oliver, M. A. (2007). *Geostatistics for Environmental Scientists* (2nd ed.). Wiley.
+Ross, S. M. (2014). *Introduction to probability and statistics for engineers and scientists* (5th ed.). Academic Press. <https://www.elsevier.com/books/introduction-to-probability-and-statistics-for-engineers-and-scientists/ross/978-0-12-394811-3>
 
-Walpole, R. E., Myers, R. H., Myers, S. L., & Ye, K. (2012). *Probability and Statistics for Engineers and Scientists* (9th ed.). Pearson.
+Sokal, R. R., & Rohlf, F. J. (1995). *Biometry: The principles and practice of statistics in biological research* (3rd ed.). W. H. Freeman. <https://www.researchgate.net/publication/44554870_Biometry_the_principles_and_practice_of_statistics_in_biological_research_Robert_R_Sokal_and_F_James_Rohlf>
+
+Steel, R. G. D., & Torrie, J. H. (1980). *Principles and procedures of statistics: A biometrical approach* (2nd ed.). McGraw-Hill. <https://doi.org/10.2307/2287561>
+
+Triola, M. F. (2018). *Estadística* (13ª ed.). Pearson. <https://gc.scalahed.com/recursos/files/r161r/w23962w/Estadistica_Triola.pdf>
+
+Wackerly, D. D., Mendenhall, W., & Scheaffer, R. L. (2014). *Mathematical statistics with applications* (7th ed.). Cengage. <https://nibmehub.com/opac-service/pdf/read/Mathematical%20Statistics%20with%20Applications-%207th%20Edition.pdf>
+
+Walpole, R. E., Myers, R. H., Myers, S. L., & Ye, K. (2012). *Probability and Statistics for Engineers and Scientists* (9th ed.). Pearson. <https://spada.uns.ac.id/pluginfile.php/221008/mod_resource/content/1/ProbabilityStatistics_for_EngineersScientists(9th_Edition)_Walpole.pdf>
+
+Webster, R., & Oliver, M. A. (2007). *Geostatistics for Environmental Scientists* (2nd ed.). Wiley. <https://www.wiley.com/en-us/Geostatistics+for+Environmental+Scientists%2C+2nd+Edition-p-9780470028582>
+
+Xie, Y., Allaire, J. J., & Grolemund, G. (2018). *R Markdown: The definitive guide* (1st ed.). Chapman and Hall/CRC. <https://bookdown.org/yihui/rmarkdown/>
+
+Zar, J. H. (2010). *Biostatistical analysis* (5th ed.). Pearson. <https://lib.zu.edu.pk/ebookdata/Biostatistics/Biostatistical%20Analysis-by%20Jerrold%20H%20Zar.pdf>
 :::
