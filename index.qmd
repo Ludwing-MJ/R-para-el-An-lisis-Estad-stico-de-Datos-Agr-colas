@@ -1,6 +1,6 @@
 # Introducción {.unnumbered}
 
-En el ámbito de la investigación agronómica, la estadística se presenta como una herramienta esencial para la transformación de datos en conocimiento aplicable. Este manual, titulado 'R para el Análisis Estadístico de Datos Agrícolas', ha sido concebido como una introducción accesible y práctica al análisis estadístico moderno, con un enfoque particular en el lenguaje R.
+En el ámbito de la investigación agronómica, la estadística se presenta como una herramienta esencial para la transformación de datos en conocimiento aplicable. Este manual, titulado "R para el Análisis Estadístico de Datos Agrícolas", ha sido concebido como una introducción accesible y práctica al análisis estadístico moderno, con un enfoque particular en el lenguaje R.
 
 Tradicionalmente, la estadística ha proporcionado los cimientos para la toma de decisiones informadas en la agricultura. Sin embargo, la creciente disponibilidad de datos y la necesidad de análisis más sofisticados exigen un enfoque actualizado y eficiente. R, un lenguaje de programación y entorno de software ampliamente adoptado en la ciencia de datos y la estadística aplicada, ofrece la flexibilidad y el poder necesarios para abordar estos desafíos (Ihaka & Gentleman, 1996; R Core Team, 2023).
 
@@ -15,7 +15,7 @@ El presente manual se estructura de manera progresiva, comenzando con los fundam
 A continuación, se presenta una tabla que resume la organización del manual, detallando los temas cubiertos en cada capítulo:
 
 | Capítulo | Título | Descripción |
-|----|----|----|
+|------------------------|------------------------|------------------------|
 | 1 | Aspectos introductorios | Introducción a la estadística, su importancia en agronomía y primeros pasos en R y RStudio. |
 | 2 | Clasificación de variables | Tipos de variables, escalas de medición y ejemplos aplicados al ámbito agrícola. |
 | 3 | Notación sumatoria | Fundamentos y aplicaciones de la notación sumatoria en el cálculo de estadísticos descriptivos. |
@@ -48,7 +48,7 @@ Con este enfoque, cualquier persona interesada podrá utilizar el manual como gu
 
 La versión en línea de este manual está disponible en <https://ludwing-mj.github.io/R-para-el-analisis-estadistico-de-datos-/>, y la fuente en español se encuentra alojada en el siguiente repositorio de GitHub <https://github.com/Ludwing-MJ/R-para-el-analisis-estadistico-de-datos->. El desarrollo del manual se realizó utilizando [Quarto](https://quarto.org/), una herramienta que permite transformar archivos con extensión .qmd en formatos publicables como HTML, PDF y EPUB, facilitando la integración de código, resultados y texto en un solo documento reproducible.
 
-Durante la elaboración del manual se emplearon diversos paquetes del ecosistema de R, entre los que destacan knitr y bookdown, los cuales permiten combinar las ventajas de LaTeX y R para la generación de documentos dinámicos y reproducibles (Xie et al., 2018). Esta integración posibilita que los ejemplos de código y los resultados presentados sean fácilmente replicables por el
+Durante la elaboración del manual se emplearon diversos paquetes del ecosistema de R, entre los que destacan knitr y bookdown, los cuales permiten combinar las ventajas de LaTeX y R para la generación de documentos dinámicos y reproducibles (Xie et al., 2018). Esta integración posibilita que los ejemplos de código y los resultados presentados sean fácilmente replicables por el lector.
 
 A lo largo del manual, se presentan fragmentos de código que pueden ser copiados y ejecutados directamente en la consola de R para obtener los mismos resultados que se muestran en el texto. Los bloques de código se destacan en recuadros similares al siguiente:
 
@@ -59,7 +59,7 @@ a <- c(1, 5, 6)
 1:10
 ```
 
-Los resultados generados por la ejecución de estos códigos se identifican con el numero uno encerrado entre cochetes (`[1]`) al inicio de cada línea, indicando que corresponden a la salida producida por R. Todo lo que comience con `[1]` representa resultados y no debe ser copiado como parte del código. Por ejemplo, al ejecutar el bloque anterior, se obtendrían los siguientes resultados:
+Los resultados generados por la ejecución de estos códigos se identifican con el numero uno encerrado entre corchetes (`[1]`) al inicio de cada línea, indicando que corresponden a la salida producida por R. Todo lo que comience con `[1]` representa resultados y no debe ser copiado como parte del código. Por ejemplo, al ejecutar el bloque anterior, se obtendrían los siguientes resultados:
 
 ```{r echo=FALSE}
 4 + 6

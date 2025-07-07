@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="P. Agr. Ludwing Isaí Marroquín Jiménez">
+<meta name="dcterms.date" content="2025-06-27">
 <meta name="description" content="Manual práctico para el análisis estadístico de datos agrícolas utilizando R, orientado a estudiantes y profesionales de agronomía.">
 
 <title>R para el Análisis Estadístico de Datos Agrícolas</title>
@@ -556,7 +557,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2 jul 2025</p>
+      <p class="date">27 jun 2025</p>
     </div>
   </div>
   
@@ -570,7 +571,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="introducción" class="level1 unnumbered">
 <h1 class="unnumbered">Introducción</h1>
-<p>En el ámbito de la investigación agronómica, la estadística se presenta como una herramienta esencial para la transformación de datos en conocimiento aplicable. Este manual, titulado ‘R para el Análisis Estadístico de Datos Agrícolas’, ha sido concebido como una introducción accesible y práctica al análisis estadístico moderno, con un enfoque particular en el lenguaje R.</p>
+<p>En el ámbito de la investigación agronómica, la estadística se presenta como una herramienta esencial para la transformación de datos en conocimiento aplicable. Este manual, titulado “R para el Análisis Estadístico de Datos Agrícolas”, ha sido concebido como una introducción accesible y práctica al análisis estadístico moderno, con un enfoque particular en el lenguaje R.</p>
 <p>Tradicionalmente, la estadística ha proporcionado los cimientos para la toma de decisiones informadas en la agricultura. Sin embargo, la creciente disponibilidad de datos y la necesidad de análisis más sofisticados exigen un enfoque actualizado y eficiente. R, un lenguaje de programación y entorno de software ampliamente adoptado en la ciencia de datos y la estadística aplicada, ofrece la flexibilidad y el poder necesarios para abordar estos desafíos (Ihaka &amp; Gentleman, 1996; R Core Team, 2023).</p>
 <p>Este manual está diseñado para guiar al lector a través de un proceso gradual y comprensible, desde los conceptos estadísticos fundamentales hasta las técnicas esenciales para el análisis estadístico de datos agrícolas. Se abordan temas clave como aspectos introductorios, clasificación de variables, notación sumatoria, medidas de tendencia central y dispersión (tanto para datos agrupados como no agrupados), introducción a probabilidades, distribuciones de probabilidad discretas, la distribución normal, intervalos de confianza, pruebas de hipótesis, y regresión lineal y correlación.</p>
 <p>Cada capítulo combina la teoría con ejemplos prácticos y estudios de caso relevantes, facilitando la comprensión y la aplicación de los métodos en situaciones reales. El propósito central es proporcionar una base sólida que permita a los profesionales y estudiantes de agronomía utilizar R de manera efectiva en su trabajo diario. No se requiere experiencia previa en programación o estadística; el manual está estructurado para ser accesible a todos, independientemente de su nivel de conocimientos iniciales.</p>
@@ -665,7 +666,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="software-y-convenciones" class="level2">
 <h2 class="anchored" data-anchor-id="software-y-convenciones">Software y convenciones</h2>
 <p>La versión en línea de este manual está disponible en <a href="https://ludwing-mj.github.io/R-para-el-analisis-estadistico-de-datos-/" class="uri">https://ludwing-mj.github.io/R-para-el-analisis-estadistico-de-datos-/</a>, y la fuente en español se encuentra alojada en el siguiente repositorio de GitHub <a href="https://github.com/Ludwing-MJ/R-para-el-analisis-estadistico-de-datos-" class="uri">https://github.com/Ludwing-MJ/R-para-el-analisis-estadistico-de-datos-</a>. El desarrollo del manual se realizó utilizando <a href="https://quarto.org/">Quarto</a>, una herramienta que permite transformar archivos con extensión .qmd en formatos publicables como HTML, PDF y EPUB, facilitando la integración de código, resultados y texto en un solo documento reproducible.</p>
-<p>Durante la elaboración del manual se emplearon diversos paquetes del ecosistema de R, entre los que destacan knitr y bookdown, los cuales permiten combinar las ventajas de LaTeX y R para la generación de documentos dinámicos y reproducibles (Xie et al., 2018). Esta integración posibilita que los ejemplos de código y los resultados presentados sean fácilmente replicables por el</p>
+<p>Durante la elaboración del manual se emplearon diversos paquetes del ecosistema de R, entre los que destacan knitr y bookdown, los cuales permiten combinar las ventajas de LaTeX y R para la generación de documentos dinámicos y reproducibles (Xie et al., 2018). Esta integración posibilita que los ejemplos de código y los resultados presentados sean fácilmente replicables por el lector.</p>
 <p>A lo largo del manual, se presentan fragmentos de código que pueden ser copiados y ejecutados directamente en la consola de R para obtener los mismos resultados que se muestran en el texto. Los bloques de código se destacan en recuadros similares al siguiente:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">6</span></span>
@@ -673,7 +674,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dv">5</span> <span class="sc">*</span> a</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span></code><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Los resultados generados por la ejecución de estos códigos se identifican con el numero uno encerrado entre cochetes (<code>[1]</code>) al inicio de cada línea, indicando que corresponden a la salida producida por R. Todo lo que comience con <code>[1]</code> representa resultados y no debe ser copiado como parte del código. Por ejemplo, al ejecutar el bloque anterior, se obtendrían los siguientes resultados:</p>
+<p>Los resultados generados por la ejecución de estos códigos se identifican con el numero uno encerrado entre corchetes (<code>[1]</code>) al inicio de cada línea, indicando que corresponden a la salida producida por R. Todo lo que comience con <code>[1]</code> representa resultados y no debe ser copiado como parte del código. Por ejemplo, al ejecutar el bloque anterior, se obtendrían los siguientes resultados:</p>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 10</code></pre>
@@ -691,7 +692,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in system2("quarto", "-V", stdout = TRUE, env = paste0("TMPDIR=", : el
 comando ejecutado '"quarto"
-TMPDIR=C:/Users/FAUSAC/AppData/Local/Temp/Rtmpwn2Q5y/file21d433096a50 -V' tiene
+TMPDIR=C:/Users/FAUSAC/AppData/Local/Temp/RtmpApkVXt/file195c5a062ac1 -V' tiene
 el estatus 1</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
@@ -705,7 +706,7 @@ el estatus 1</code></pre>
  collate  Spanish_Guatemala.utf8
  ctype    Spanish_Guatemala.utf8
  tz       America/Guatemala
- date     2025-07-02
+ date     2025-07-07
  pandoc   3.4 @ C:/Program Files/RStudio/resources/app/bin/quarto/bin/tools/ (via rmarkdown)
  quarto   NA @ C:\\PROGRA~1\\Quarto\\bin\\quarto.exe
 
