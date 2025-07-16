@@ -1,4 +1,4 @@
-# Introducción a probabilidades
+# Conceptos, métodos y propiedades básicas
 
 La mayor parte de los problemas en estadística involucran elementos de incertidumbre, ya que usualmente no es posible determinar anticipadamente las características de una población desconocida o prever las consecuencias exactas de la toma de una decisión. Por lo tanto, es conveniente disponer de una medida que exprese esa incertidumbre en términos de una escala numérica. Esta medida es la **probabilidad** (López & González, 2018).
 
@@ -231,7 +231,7 @@ $$\Large P(A_1|B) = \frac{P(A_1) \cdot P(B|A_1)}{P(B)} = \frac{0.40 \times 0.04}
 ### Tabla de Análisis para el Teorema de Bayes
 
 | Eventos | Probabilidades previas | Probabilidades condicionales | Probabilidades conjuntas | Probabilidades posteriores |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 | $A_i$​ | $P(A_i)$ | $P(C)$ | $P(A_i) \cdot P(C|A_i)$ | $P(A_i|  B)$ |
 | $A_1$​ | 0.40 | 0.04 | 0.016 | 0.2807 |
 | $A_2$​ | 0.35 | 0.06 | 0.021 | 0.3684 |

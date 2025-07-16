@@ -1,4 +1,4 @@
-# Estadística descriptiva para datos sin agrupar
+# Formulario y Definiciones
 
 En el análisis estadístico, la descripción y el resumen de conjuntos de datos constituyen pasos fundamentales para la comprensión de fenómenos en ciencias aplicadas, como la agronomía. Las medidas de tendencia central, dispersión y posición relativa permiten sintetizar la información, identificar patrones y tomar decisiones informadas en la gestión de recursos agrícolas (López & González, 2018; Montgomery, 2017). Estas herramientas facilitan la interpretación de datos experimentales y la comparación entre diferentes tratamientos o condiciones de cultivo.
 

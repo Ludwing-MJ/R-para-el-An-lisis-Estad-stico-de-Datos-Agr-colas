@@ -1,4 +1,4 @@
-# Otros tipos de medias
+# Diferentes Tipos de Medias
 
 En el análisis estadístico, la media aritmética es comúnmente utilizada para representar el valor central de un conjunto de datos. Sin embargo, existen otros tipos de medias que resultan más apropiadas en ciertos contextos, especialmente cuando se trabaja con datos agronómicos que presentan características específicas (Steel & Torrie, 1980). Este apartado explora la media ponderada, la media geométrica y la media armónica, destacando sus aplicaciones y relevancia en el campo de la agronomía.
 
@@ -145,7 +145,7 @@ Los resultados obtenidos muestran diferencias sutiles pero importantes entre los
 ### Cuadro Comparativo
 
 |  |  |  |  |  |
-|----|----|----|----|----|
+|---------------|---------------|---------------|---------------|---------------|
 | **Aspecto** | **Media Aritmética** | **Media Ponderada** | **Media Geométrica** | **Media Armónica** |
 | **Fórmula** | $\bar{x} = \frac{\sum_{i=1}^{n} x_i}{n}$ | $\bar{x}_p = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}$ | $\bar{x}_g = \sqrt[n]{x_1 x_2 \cdots x_n}$ | $\bar{x}_a = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}}$ |
 | **Resultado (t ha⁻¹)** | 6.125 | 6.067 | 6.120 | 6.114 |

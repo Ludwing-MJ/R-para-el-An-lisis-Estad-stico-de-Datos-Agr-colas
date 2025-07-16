@@ -1,6 +1,6 @@
 # Introducción a la Notación Sumatoria
 
-La notación sumatoria, representada por la letra griega sigma mayúscula (Σ), es una herramienta matemática que permite expresar de manera concisa la suma de una serie de términos. En lugar de escribir largas sumas de forma explícita, la notación sumatoria ofrece una manera compacta y generalizable de representar estas operaciones, facilitando el análisis y la manipulación de datos en diversos campos, incluyendo la agronomía (López & González, 2018).
+La notación sumatoria, representada por la letra griega sigma mayúscula ($\sum$), es una herramienta matemática que permite expresar de manera concisa la suma de una serie de términos. En lugar de escribir largas sumas de forma explícita, la notación sumatoria ofrece una manera compacta y generalizable de representar estas operaciones, facilitando el análisis y la manipulación de datos en diversos campos, incluyendo la agronomía (López & González, 2018).
 
 ## Elementos de la Notación Sumatoria
 
@@ -84,7 +84,7 @@ $${\huge \sum_{i=1}^{n} x_i y_i \neq \left(\sum_{i=1}^{n} x_i\right) \left(\sum_
 
 Esta distinción es crucial en el cálculo de covarianzas y otros estadísticos.
 
-### Suma de cuadrados vs. cuadrado de la suma
+### Suma de cuadrados vs cuadrado de la suma
 
 Se debe diferenciar entre la suma de los cuadrados y el cuadrado de la suma:
 

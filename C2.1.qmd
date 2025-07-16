@@ -1,10 +1,10 @@
-# Clasificación de Variables
+# Definiciones y Tipos de Variables
 
 ## Definición de Variable
 
 Una variable en estadística se define como aquello que se observa o mide sobre las unidades estadísticas (López & González, 2018). Constituye una característica que varía de un individuo a otro dentro de la población o muestra bajo estudio. Las variables representan los atributos o propiedades que pueden ser medidos, observados o categorizados en las unidades de análisis.
 
-Desde el punto de vista de la notación estadística, las variables se representan mediante letras mayúsculas del alfabeto (X, Y, Z), mientras que los valores específicos que estas asumen se denotan con letras minúsculas correspondientes (x, y, z) (López & González, 2018). Esta distinción notacional permite diferenciar claramente entre el concepto abstracto de la variable y sus manifestaciones concretas en los datos.
+Desde el punto de vista de la notación estadística, las variables se representan mediante letras mayúsculas del alfabeto (X, Y, Z), mientras que los valores específicos que estas asumen se denotan con letras minúsculas correspondientes (x, y, z) (López & González, 2018). Esta distinción en la notación permite diferenciar claramente entre el concepto abstracto de la variable y sus manifestaciones concretas en los datos.
 
 ## Tipos de Variables
 

@@ -50,7 +50,7 @@ book:
     - C6.1.qmd
     - part: "Distribuciones de probabilidad discretas"
     - C7.1.qmd
-    - part: "Distribución normal"
+    - part: "Distribuciones de probabilidad continuas"
     - C8.1.qmd
     - part: "Intervalos de confianza"
     - C9.1.qmd

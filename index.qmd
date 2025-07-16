@@ -15,15 +15,15 @@ El presente manual se estructura de manera progresiva, comenzando con los fundam
 A continuación, se presenta una tabla que resume la organización del manual, detallando los temas cubiertos en cada capítulo:
 
 | Capítulo | Título | Descripción |
-|------------------------|------------------------|------------------------|
+|----|----|----|
 | 1 | Aspectos introductorios | Introducción a la estadística, su importancia en agronomía y primeros pasos en R y RStudio. |
 | 2 | Clasificación de variables | Tipos de variables, escalas de medición y ejemplos aplicados al ámbito agrícola. |
 | 3 | Notación sumatoria | Fundamentos y aplicaciones de la notación sumatoria en el cálculo de estadísticos descriptivos. |
-| 4 | Medidas de tendencia central y dispersión (datos no agrupados) | Cálculo e interpretación de media, mediana, moda, rango, varianza y desviación estándar para datos no agrupados. |
-| 5 | Medidas de tendencia central y dispersión (datos agrupados) | Aplicación de medidas de tendencia central y dispersión en tablas de frecuencia utilizando R. |
+| 4 | Estadística descriptiva para datos sin agrupar | Cálculo e interpretación de medidas de tendencia central, dispersión y posición relativa para datos no agrupados. |
+| 5 | Estadística descriptiva para datos agrupados | Cálculo e interpretación de medidas de tendencia central, dispersión y posición relativa para datos agrupados. |
 | 6 | Introducción a probabilidades | Conceptos básicos de probabilidad, espacio muestral, eventos y reglas de probabilidad. |
 | 7 | Distribuciones de probabilidad discretas | Estudio de las distribuciones binomial y Poisson, cálculo de probabilidades y representación gráfica en R. |
-| 8 | Distribución normal | Propiedades y aplicaciones de la distribución normal, cálculo de probabilidades y gráficos en R. |
+| 8 | Distribuciones de probabilidad continuas | Propiedades y aplicaciones de la distribución normal, cálculo de probabilidades y gráficos en R. |
 | 9 | Intervalos de confianza | Construcción e interpretación de intervalos de confianza para medias y proporciones con apoyo de R. |
 | 10 | Pruebas de hipótesis | Formulación y evaluación de hipótesis estadísticas, cálculo de estadísticos de prueba y toma de decisiones. |
 | 11 | Regresión lineal y correlación | Ajuste de modelos de regresión lineal, interpretación de coeficientes y análisis de correlación en R. |

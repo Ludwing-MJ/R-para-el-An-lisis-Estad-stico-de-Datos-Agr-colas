@@ -1,4 +1,4 @@
-# Ejemplo Aplicado Sumatoria Simple
+# Ejemplo Aplicado: Sumatoria Simple
 
 Para ilustrar el uso de la notación sumatoria, se simulan los rendimientos de diez parcelas experimentales de maíz, expresados en kilogramos por planta. Los valores observados son los siguientes:
 

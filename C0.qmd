@@ -1,4 +1,4 @@
-# Instalación y configuración
+# Instalación y configuración de R y RStudio
 
 Antes de iniciar el trabajo con análisis estadístico en R, es fundamental realizar la instalación y configuración tanto del lenguaje R como del entorno de desarrollo RStudio. R es un lenguaje de programación y entorno computacional ampliamente utilizado en el análisis estadístico, la visualización de datos y la investigación reproducible (Ihaka & Gentleman, 1996). Por su parte, RStudio constituye un Entorno de Desarrollo Integrado (IDE) diseñado específicamente para facilitar el uso de R, proporcionando una interfaz intuitiva y herramientas avanzadas que optimizan el flujo de trabajo (Xie et al., 2018). Esta sección describe los pasos necesarios para descargar, instalar y configurar ambos programas, asegurando un entorno de trabajo funcional y eficiente.
 

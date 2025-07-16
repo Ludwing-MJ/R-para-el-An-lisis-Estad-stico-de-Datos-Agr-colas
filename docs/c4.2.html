@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.7.30">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Manual práctico para el análisis estadístico de datos agrícolas utilizando R, orientado a estudiantes y profesionales de agronomía.">
 
-<title>c4.2</title>
+<title>8&nbsp; Diferentes Tipos de Medias – R para el Análisis Estadístico de Datos Agrícolas</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,17 +24,57 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="C4.2_files/libs/clipboard/clipboard.min.js"></script>
-<script src="C4.2_files/libs/quarto-html/quarto.js" type="module"></script>
-<script src="C4.2_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="C4.2_files/libs/quarto-html/popper.min.js"></script>
-<script src="C4.2_files/libs/quarto-html/tippy.umd.min.js"></script>
-<script src="C4.2_files/libs/quarto-html/anchor.min.js"></script>
-<link href="C4.2_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="C4.2_files/libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="C4.2_files/libs/bootstrap/bootstrap.min.js"></script>
-<link href="C4.2_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="C4.2_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./c4.3.html" rel="next">
+<link href="./C4.1.html" rel="prev">
+<link href="./logo_cete_vector.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-2b3e328b71be8d25427581baeb23079b.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-de070a7b0ab54f8780927367ac907214.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-7e2894aa5b254abfcce6e63262fa4edf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-c27fdc8e5b00b532d2d5a75ada188648.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Sin resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -65,22 +106,453 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="custom.css">
 </head>
 
-<body class="fullcontent quarto-light">
+<body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
-<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
-
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./c4.2.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Diferentes Tipos de Medias</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Buscar" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header sidebar-header-stacked">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./logo_cete_vector.png" alt="" class="sidebar-logo py-0 d-lg-inline d-none">
+      </a>
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">R para el Análisis Estadístico de Datos Agrícolas</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="./R_para_Analisis_Estadistico_Datos_Agricolas.pdf" title="Download PDF" class="quarto-navigation-tool px-1" aria-label="Download PDF"><i class="bi bi-file-pdf"></i></a>
+    <div class="dropdown">
+      <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" role="link" aria-label="Share"><i class="bi bi-share"></i></a>
+      <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+              <i class="bi bi-twitter pe-1"></i>
+            Twitter
+            </a>
+          </li>
+          <li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+              <i class="bi bi-linkedin pe-1"></i>
+            LinkedIn
+            </a>
+          </li>
+      </ul>
+    </div>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Alternar modo oscuro"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Buscar"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introducción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C0.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Instalación y configuración de R y RStudio</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Aspectos Introductorios</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C1.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Definiciones y Conceptos importantes</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Clasificación de variables</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C2.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Definiciones y Tipos de Variables</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Notación sumatoria</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C3.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introducción a la Notación Sumatoria</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C3.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Ejemplo Aplicado: Sumatoria Simple</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C3.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Sumatorias Dobles y Múltiples</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Estadística descriptiva para datos sin agrupar</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C4.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Formulario y Definiciones</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./c4.2.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Diferentes Tipos de Medias</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./c4.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cálculos en R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Estadística descriptiva para datos agrupados</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C5.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Introducción y formulario</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C5.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Ejemplo empleando el formulario</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C5.3.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Ejemplo en R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Introducción a probabilidades</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C6.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Conceptos, métodos y propiedades básicas</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Distribuciones de probabilidad discretas</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C7.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Distribuciones Binomial y Poisson en R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Distribuciones de probabilidad continuas</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C8.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Distribución normal en R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Intervalos de confianza</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C9.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Estimación puntual e intervalos de confianza en R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Pruebas de hipótesis</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C10.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Pruebas de Hipótesis Paramétricas en R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Regresión lineal y correlación</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C11.1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Análisis de correlación lineal simple</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./C11.2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Regresión Lineal Simple usando R</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Referencias</span></span>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Referencias</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Tabla de contenidos</h2>
+   
+  <ul>
+  <li><a href="#media-ponderada" id="toc-media-ponderada" class="nav-link active" data-scroll-target="#media-ponderada"><span class="header-section-number">8.1</span> Media Ponderada</a></li>
+  <li><a href="#media-geométrica" id="toc-media-geométrica" class="nav-link" data-scroll-target="#media-geométrica"><span class="header-section-number">8.2</span> Media Geométrica</a></li>
+  <li><a href="#media-armónica" id="toc-media-armónica" class="nav-link" data-scroll-target="#media-armónica"><span class="header-section-number">8.3</span> Media Armónica</a></li>
+  <li><a href="#análisis-comparativo-de-los-diferentes-tipos-de-medias" id="toc-análisis-comparativo-de-los-diferentes-tipos-de-medias" class="nav-link" data-scroll-target="#análisis-comparativo-de-los-diferentes-tipos-de-medias"><span class="header-section-number">8.4</span> Análisis Comparativo de los Diferentes Tipos de Medias</a>
+  <ul class="collapse">
+  <li><a href="#datos-de-referencia-para-los-cálculos" id="toc-datos-de-referencia-para-los-cálculos" class="nav-link" data-scroll-target="#datos-de-referencia-para-los-cálculos"><span class="header-section-number">8.4.1</span> Datos de Referencia para los Cálculos</a></li>
+  <li><a href="#fórmulas-y-cálculos-detallados" id="toc-fórmulas-y-cálculos-detallados" class="nav-link" data-scroll-target="#fórmulas-y-cálculos-detallados"><span class="header-section-number">8.4.2</span> Fórmulas y Cálculos Detallados</a></li>
+  <li><a href="#análisis-comparativo-de-los-resultados" id="toc-análisis-comparativo-de-los-resultados" class="nav-link" data-scroll-target="#análisis-comparativo-de-los-resultados"><span class="header-section-number">8.4.3</span> Análisis Comparativo de los Resultados</a></li>
+  <li><a href="#cuadro-comparativo" id="toc-cuadro-comparativo" class="nav-link" data-scroll-target="#cuadro-comparativo"><span class="header-section-number">8.4.4</span> Cuadro Comparativo</a></li>
+  <li><a href="#recomendaciones-para-la-selección-del-tipo-de-media" id="toc-recomendaciones-para-la-selección-del-tipo-de-media" class="nav-link" data-scroll-target="#recomendaciones-para-la-selección-del-tipo-de-media"><span class="header-section-number">8.4.5</span> Recomendaciones para la Selección del Tipo de Media</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
 <main class="content" id="quarto-document-content">
 
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Diferentes Tipos de Medias</span></h1>
+</div>
 
 
-<section id="otros-tipos-de-medias" class="level1">
-<h1>Otros tipos de medias</h1>
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
 <p>En el análisis estadístico, la media aritmética es comúnmente utilizada para representar el valor central de un conjunto de datos. Sin embargo, existen otros tipos de medias que resultan más apropiadas en ciertos contextos, especialmente cuando se trabaja con datos agronómicos que presentan características específicas (Steel &amp; Torrie, 1980). Este apartado explora la media ponderada, la media geométrica y la media armónica, destacando sus aplicaciones y relevancia en el campo de la agronomía.</p>
-<section id="media-ponderada" class="level2">
-<h2 class="anchored" data-anchor-id="media-ponderada">Media Ponderada</h2>
+<section id="media-ponderada" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="media-ponderada"><span class="header-section-number">8.1</span> Media Ponderada</h2>
 <p>La media ponderada se define como un promedio en el cual cada valor del conjunto de datos recibe un peso que refleja su importancia relativa (Anderson et al., 2018). A diferencia de la media aritmética simple, que asigna igual peso a todos los valores, la media ponderada permite considerar la influencia desigual de cada observación en el resultado final.</p>
 <p><strong>Fórmula:</strong></p>
 <p><span class="math inline">\(\Huge\bar{x}_p = \frac{\sum_{i=1}^{n} w_i x_i}{\sum_{i=1}^{n} w_i}\)</span></p>
@@ -127,8 +599,8 @@ window.Quarto = {
 \end{aligned}\]</span></p>
 <p>Este resultado indica que el rendimiento medio ponderado por superficie es de 6.07 t ha⁻¹, lo cual proporciona una estimación más precisa del rendimiento global en comparación con una media aritmética simple.</p>
 </section>
-<section id="media-geométrica" class="level2">
-<h2 class="anchored" data-anchor-id="media-geométrica">Media Geométrica</h2>
+<section id="media-geométrica" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="media-geométrica"><span class="header-section-number">8.2</span> Media Geométrica</h2>
 <p>La media geométrica es un tipo de promedio que se utiliza para calcular tasas de crecimiento o rendimientos relativos (Sokal &amp; Rohlf, 1995). A diferencia de la media aritmética, que suma los valores y divide por el número de observaciones, la media geométrica multiplica los valores y extrae la raíz n-ésima del producto.</p>
 <p><strong>Fórmula:</strong></p>
 <p><span class="math inline">\(\Huge\bar{x}_g = \sqrt[n]{x_1 x_2 \cdots x_n}\)</span></p>
@@ -167,8 +639,8 @@ window.Quarto = {
           &amp;\approx 5.74\; \text{t ha}^{-1}
 \end{aligned}\]</span> Este resultado indica que el rendimiento promedio anual, considerando el crecimiento a lo largo de los años, es de aproximadamente 5.74 t ha⁻¹.</p>
 </section>
-<section id="media-armónica" class="level2">
-<h2 class="anchored" data-anchor-id="media-armónica">Media Armónica</h2>
+<section id="media-armónica" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="media-armónica"><span class="header-section-number">8.3</span> Media Armónica</h2>
 <p>La media armónica es un tipo de promedio que se utiliza para calcular tasas o razones, especialmente cuando el denominador varía (Montgomery, 2017). A diferencia de la media aritmética, que promedia los valores directamente, la media armónica promedia los inversos de los valores y luego toma el inverso del resultado.</p>
 <p><strong>Fórmula:</strong></p>
 <p><span class="math inline">\(\Huge\bar{x}_a = \frac{n}{\sum_{i=1}^{n} \frac{1}{x_i}}\)</span></p>
@@ -219,19 +691,19 @@ window.Quarto = {
 \end{aligned}\]</span></p>
 <p>Este resultado indica que el rendimiento promedio por hectárea, considerando las diferentes áreas de las parcelas, es de aproximadamente 4.78 t ha⁻¹.</p>
 </section>
-<section id="análisis-comparativo-de-los-diferentes-tipos-de-medias" class="level2">
-<h2 class="anchored" data-anchor-id="análisis-comparativo-de-los-diferentes-tipos-de-medias">Análisis Comparativo de los Diferentes Tipos de Medias</h2>
+<section id="análisis-comparativo-de-los-diferentes-tipos-de-medias" class="level2" data-number="8.4">
+<h2 data-number="8.4" class="anchored" data-anchor-id="análisis-comparativo-de-los-diferentes-tipos-de-medias"><span class="header-section-number">8.4</span> Análisis Comparativo de los Diferentes Tipos de Medias</h2>
 <p>A continuación se presenta un análisis comparativo de los cuatro tipos principales de medias utilizadas en estadística descriptiva, empleando como ejemplo los datos de rendimiento de maíz presentados anteriormente (López &amp; González, 2018).</p>
-<section id="datos-de-referencia-para-los-cálculos" class="level3">
-<h3 class="anchored" data-anchor-id="datos-de-referencia-para-los-cálculos">Datos de Referencia para los Cálculos</h3>
+<section id="datos-de-referencia-para-los-cálculos" class="level3" data-number="8.4.1">
+<h3 data-number="8.4.1" class="anchored" data-anchor-id="datos-de-referencia-para-los-cálculos"><span class="header-section-number">8.4.1</span> Datos de Referencia para los Cálculos</h3>
 <p>Para ilustrar las diferencias entre los tipos de medias, se utilizan los siguientes datos:</p>
 <ol type="1">
 <li><p><strong>Rendimientos (t ha⁻¹):</strong> 6.2, 5.8, 6.5, 6.0</p></li>
 <li><p><strong>Pesos/Superficies (ha):</strong> 1.5, 2.0, 1.0, 1.5</p></li>
 </ol>
 </section>
-<section id="fórmulas-y-cálculos-detallados" class="level3">
-<h3 class="anchored" data-anchor-id="fórmulas-y-cálculos-detallados">Fórmulas y Cálculos Detallados</h3>
+<section id="fórmulas-y-cálculos-detallados" class="level3" data-number="8.4.2">
+<h3 data-number="8.4.2" class="anchored" data-anchor-id="fórmulas-y-cálculos-detallados"><span class="header-section-number">8.4.2</span> Fórmulas y Cálculos Detallados</h3>
 <ol type="1">
 <li><p><strong>Media Aritmética</strong> <span class="math display">\[\begin{aligned}
 \bar{x} &amp;= \frac{\sum_{i=1}^{n} x_i}{n} \\[4pt]
@@ -256,8 +728,8 @@ window.Quarto = {
 \end{aligned}\]</span></p></li>
 </ol>
 </section>
-<section id="análisis-comparativo-de-los-resultados" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-comparativo-de-los-resultados">Análisis Comparativo de los Resultados</h3>
+<section id="análisis-comparativo-de-los-resultados" class="level3" data-number="8.4.3">
+<h3 data-number="8.4.3" class="anchored" data-anchor-id="análisis-comparativo-de-los-resultados"><span class="header-section-number">8.4.3</span> Análisis Comparativo de los Resultados</h3>
 <p>Los resultados obtenidos muestran diferencias sutiles pero importantes entre los tipos de medias:</p>
 <ol type="1">
 <li><p><strong>Media Aritmética (6.125 t ha⁻¹):</strong> Proporciona el valor más alto, ya que no considera pesos ni ajustes por la naturaleza de los datos.</p></li>
@@ -266,8 +738,8 @@ window.Quarto = {
 <li><p><strong>Media Armónica (6.114 t ha⁻¹):</strong> Proporciona un valor ligeramente inferior a la media aritmética, dando mayor peso a los valores menores.</p></li>
 </ol>
 </section>
-<section id="cuadro-comparativo" class="level3">
-<h3 class="anchored" data-anchor-id="cuadro-comparativo">Cuadro Comparativo</h3>
+<section id="cuadro-comparativo" class="level3" data-number="8.4.4">
+<h3 data-number="8.4.4" class="anchored" data-anchor-id="cuadro-comparativo"><span class="header-section-number">8.4.4</span> Cuadro Comparativo</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -329,8 +801,8 @@ window.Quarto = {
 </tbody>
 </table>
 </section>
-<section id="recomendaciones-para-la-selección-del-tipo-de-media" class="level3">
-<h3 class="anchored" data-anchor-id="recomendaciones-para-la-selección-del-tipo-de-media">Recomendaciones para la Selección del Tipo de Media</h3>
+<section id="recomendaciones-para-la-selección-del-tipo-de-media" class="level3" data-number="8.4.5">
+<h3 data-number="8.4.5" class="anchored" data-anchor-id="recomendaciones-para-la-selección-del-tipo-de-media"><span class="header-section-number">8.4.5</span> Recomendaciones para la Selección del Tipo de Media</h3>
 <p>La elección del tipo de media apropiado depende del contexto específico del análisis (Steel &amp; Torrie, 1980):</p>
 <ol type="1">
 <li><p><strong>Media Aritmética:</strong> Para análisis descriptivos generales donde todos los valores tienen igual importancia.</p></li>
@@ -338,14 +810,27 @@ window.Quarto = {
 <li><p><strong>Media Geométrica:</strong> Para datos que representan tasas de crecimiento, índices o proporciones.</p></li>
 <li><p><strong>Media Armónica:</strong> Para promediar velocidades, tasas con denominador variable o cuando se desea ser conservador con valores bajos.</p></li>
 </ol>
-</section>
+
+
 </section>
 </section>
 
-</main>
-<!-- /main column -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -369,12 +854,12 @@ window.Quarto = {
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copied!");
+      button.setAttribute("title", "Copiado");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copied!");
+        button.setAttribute("data-bs-title", "Copiado");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -430,6 +915,13 @@ window.Quarto = {
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+            // default icon
+            link.classList.add("external");
         }
       }
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
@@ -743,7 +1235,38 @@ window.Quarto = {
     }
   });
   </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./C4.1.html" class="pagination-link" aria-label="Formulario y Definiciones">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Formulario y Definiciones</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./c4.3.html" class="pagination-link" aria-label="Cálculos en R">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Cálculos en R</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="./license.html">
+<p>Licencia</p>
+</a>
+  </li>  
+</ul>
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
 
 
 
